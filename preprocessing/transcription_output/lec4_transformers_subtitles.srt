@@ -1,0 +1,4544 @@
+1
+00:00:00,000 --> 00:00:03,000
+All right, we start.
+
+2
+00:00:01,014 --> 00:00:05,894
+You can read a lot of papers and people are still working on this.
+
+3
+00:00:01,016 --> 00:00:09,016
+People, you will find people are still improving, improve, or based on this transformer.
+
+4
+00:00:01,048 --> 00:00:05,528
+this picture you will see something like this.
+
+5
+00:00:01,445 --> 00:00:09,565
+didn't get well. Okay, we review our, today we introduced transformer. So transformer is a
+
+6
+00:00:01,945 --> 00:00:09,945
+In one way, you write the mean into the matrix multiplication format.
+
+7
+00:00:01,956 --> 00:00:05,556
+The encoder is here already, right?
+
+8
+00:00:03,000 --> 00:00:06,000
+If you have opportunity, thank you for coming.
+
+9
+00:00:03,511 --> 00:00:06,511
+So maybe you have patch normalization,
+
+10
+00:00:04,543 --> 00:00:17,542
+So the formula is hidden state not only affected by the input and the previous hidden state, but also the context vector we call it C.
+
+11
+00:00:04,692 --> 00:00:09,692
+Okay, actually, water queries, water key values.
+
+12
+00:00:05,528 --> 00:00:11,968
+So each row is actually the vector position there.
+
+13
+00:00:05,556 --> 00:00:07,955
+You are finished, processed all the input.
+
+14
+00:00:05,894 --> 00:00:09,335
+Normalization, I think, okay.
+
+15
+00:00:06,000 --> 00:00:08,000
+You tell your friends, okay?
+
+16
+00:00:06,511 --> 00:00:10,510
+layer normalization, instance normalization,
+
+17
+00:00:07,955 --> 00:00:17,356
+So from the decoder, you can see all the tokens from encoder, right?
+
+18
+00:00:08,000 --> 00:00:11,000
+Not the year two, you are familiar with the environment.
+
+19
+00:00:09,016 --> 00:00:12,016
+Okay, let's start.
+
+20
+00:00:09,335 --> 00:00:12,095
+So we go through this one by one.
+
+21
+00:00:09,565 --> 00:00:20,605
+model architecture, how input, how output, input is the whole sequence. Okay, in code calculate
+
+22
+00:00:09,692 --> 00:00:13,692
+And then, okay, here you don't need to understand.
+
+23
+00:00:09,945 --> 00:00:12,945
+So, OK, q1, q2, q3.
+
+24
+00:00:10,510 --> 00:00:12,510
+groups normalization, a lot.
+
+25
+00:00:11,000 --> 00:00:14,000
+That does not mean you can stop learning.
+
+26
+00:00:11,968 --> 00:00:14,528
+This is the vector position Y.
+
+27
+00:00:12,016 --> 00:00:15,016
+We talk about self-attention.
+
+28
+00:00:12,095 --> 00:00:14,455
+So attention is all you need.
+
+29
+00:00:12,510 --> 00:00:14,510
+Okay, we start from attention.
+
+30
+00:00:12,945 --> 00:00:14,945
+Time is this matrix.
+
+31
+00:00:13,692 --> 00:00:15,692
+Until now you don't need to understand.
+
+32
+00:00:14,000 --> 00:00:16,000
+I can stop going to classroom.
+
+33
+00:00:14,455 --> 00:00:15,855
+That's true.
+
+34
+00:00:14,510 --> 00:00:19,510
+Okay, the encoder contents, self attention layers.
+
+35
+00:00:14,528 --> 00:00:19,969
+If you extend the dimension to 128,
+
+36
+00:00:14,945 --> 00:00:19,945
+I hope you are familiar with matrix multiplication times this.
+
+37
+00:00:15,016 --> 00:00:17,015
+What is self-attention?
+
+38
+00:00:15,692 --> 00:00:22,692
+You already know, the input is a lot of vectors, but there is something called a query.
+
+39
+00:00:15,855 --> 00:00:20,855
+Transformers network architecture,
+
+40
+00:00:16,000 --> 00:00:20,000
+You still need to learn a lot of things.
+
+41
+00:00:17,015 --> 00:00:22,015
+We still need to review this iron-based encoder and decoder.
+
+42
+00:00:17,356 --> 00:00:22,556
+You can see all the positions of the output of the encoder.
+
+43
+00:00:17,542 --> 00:00:23,542
+So what is this C? Okay, where is someone? We for each hidden state.
+
+44
+00:00:19,510 --> 00:00:22,510
+All of the keys, values, queries,
+
+45
+00:00:19,945 --> 00:00:22,945
+OK, q1, times q1, y.
+
+46
+00:00:19,969 --> 00:00:21,768
+so clear.
+
+47
+00:00:20,000 --> 00:00:23,000
+So you tell people who are not here.
+
+48
+00:00:20,605 --> 00:00:33,284
+all the information of the input sequence. So the input are mapped to query, key and value,
+
+49
+00:00:20,855 --> 00:00:25,894
+like CNN, convolution on your networks.
+
+50
+00:00:21,768 --> 00:00:28,928
+One thing you need to understand is for each position is a vector,
+
+51
+00:00:22,015 --> 00:00:23,015
+What is the query?
+
+52
+00:00:22,510 --> 00:00:24,510
+comes from the same place.
+
+53
+00:00:22,556 --> 00:00:28,356
+But your general, only generate the output sequence one by one.
+
+54
+00:00:22,692 --> 00:00:26,692
+And the output is a vector also.
+
+55
+00:00:22,945 --> 00:00:29,945
+q2, times q1, q3, times q1, and sum them together.
+
+56
+00:00:23,000 --> 00:00:27,000
+And a long time ago, I said, okay,
+
+57
+00:00:23,015 --> 00:00:28,015
+The query is hidden state from the decoder.
+
+58
+00:00:23,542 --> 00:00:30,542
+Okay, plus this hidden state as there. Okay.
+
+59
+00:00:24,510 --> 00:00:30,510
+Come from the same place, means the input times different with matrix.
+
+60
+00:00:25,894 --> 00:00:29,575
+But Transformers has no recurrence,
+
+61
+00:00:26,692 --> 00:00:30,692
+The output is computed as a weighted sum.
+
+62
+00:00:27,000 --> 00:00:39,000
+we are simple and with some numbers to show what is different between a fee forward neural network and the RNN.
+
+63
+00:00:28,015 --> 00:00:35,015
+This thing query the output of the encoder.
+
+64
+00:00:28,356 --> 00:00:30,556
+So here comes problem.
+
+65
+00:00:28,928 --> 00:00:30,928
+not a single number.
+
+66
+00:00:29,574 --> 00:00:31,054
+no conclusions, okay.
+
+67
+00:00:29,945 --> 00:00:32,945
+You will get alpha 0 0.
+
+68
+00:00:30,542 --> 00:00:43,542
+That means, okay, for when you when you predict every French what? Okay, review the whole English sentence again.
+
+69
+00:00:30,692 --> 00:00:39,692
+And the weight is the compatibility function of the query with the corresponding key.
+
+70
+00:00:30,928 --> 00:00:35,928
+So they can be added to the token embedding.
+
+71
+00:00:31,054 --> 00:00:32,854
+Pure attention.
+
+72
+00:00:31,156 --> 00:00:35,956
+You cannot see the future tokens, right?
+
+73
+00:00:31,510 --> 00:00:35,511
+In this case, the output of the previous layer in the encoder,
+
+74
+00:00:32,854 --> 00:00:37,494
+The Transformers don't have this arrow.
+
+75
+00:00:32,945 --> 00:00:37,945
+OK, also what is this dot product?
+
+76
+00:00:33,284 --> 00:00:42,244
+by multiply different matrix. That's why we call it self attention, because there's no other
+
+77
+00:00:35,015 --> 00:00:39,015
+Okay, so key and value, hidden states of the encoder.
+
+78
+00:00:35,511 --> 00:00:39,511
+if you input, of course, in the middle layer,
+
+79
+00:00:35,928 --> 00:00:45,928
+Then this complex formulas are just used to calculate the values of different dimension.
+
+80
+00:00:35,956 --> 00:00:38,956
+That you haven't predicted yet.
+
+81
+00:00:37,494 --> 00:00:38,734
+Go back.
+
+82
+00:00:37,945 --> 00:00:42,945
+Dot product between q1 and q1.
+
+83
+00:00:38,734 --> 00:00:41,655
+You may see this picture a lot of times.
+
+84
+00:00:38,956 --> 00:00:44,556
+Of course, during training, you know I know all the output ground tools already.
+
+85
+00:00:39,000 --> 00:00:43,000
+My imagination is that you have some equipment, you know, a handwriting.
+
+86
+00:00:39,015 --> 00:00:42,015
+But here, called self-attention.
+
+87
+00:00:39,511 --> 00:00:42,511
+output of the previous layer.
+
+88
+00:00:39,692 --> 00:00:42,692
+Now we go back.
+
+89
+00:00:41,655 --> 00:00:42,254
+Okay.
+
+90
+00:00:42,015 --> 00:00:47,015
+Here also your question, okay, where does this query key value come from?
+
+91
+00:00:42,244 --> 00:00:50,404
+information source. All these query, key, value come from the input. In the middle layer,
+
+92
+00:00:42,254 --> 00:00:48,375
+Today the mantascus, we read this picture
+
+93
+00:00:42,511 --> 00:00:47,511
+So each position in the encoder can attend to all positions.
+
+94
+00:00:42,692 --> 00:00:46,692
+Okay, attention means there is a query.
+
+95
+00:00:42,945 --> 00:00:46,945
+You will get the first number, the first score.
+
+96
+00:00:43,000 --> 00:00:47,000
+But now, finally, I didn't make it.
+
+97
+00:00:43,542 --> 00:00:45,542
+Okay, easy to understand.
+
+98
+00:00:44,556 --> 00:00:51,756
+But in the inference stage, you only generate it by one, by two.
+
+99
+00:00:45,542 --> 00:00:53,542
+So let's basically the structure of the I am based in code anti-coder for a motion translation.
+
+100
+00:00:45,928 --> 00:00:49,169
+Of course, there are some reasonably designed ways.
+
+101
+00:00:46,692 --> 00:00:49,692
+Oh, see, here the query is hidden state.
+
+102
+00:00:46,945 --> 00:00:52,945
+So, similarly, you get the second, the fourth,
+
+103
+00:00:47,000 --> 00:00:54,000
+So I have to change to this traditional slice format.
+
+104
+00:00:47,015 --> 00:00:51,015
+Self-attention means come from self.
+
+105
+00:00:47,511 --> 00:00:49,511
+So what does this mean?
+
+106
+00:00:48,375 --> 00:00:52,215
+one box by one box.
+
+107
+00:00:49,169 --> 00:00:53,408
+Actually, this is a research direction.
+
+108
+00:00:49,511 --> 00:00:52,511
+That means, let me find something.
+
+109
+00:00:49,692 --> 00:00:54,692
+And the key and value are all hidden states.
+
+110
+00:00:50,404 --> 00:01:00,725
+the input is the output of the previous layer. Attention means, okay, you have a set of values,
+
+111
+00:00:51,015 --> 00:00:55,015
+So the input sequence,
+
+112
+00:00:51,756 --> 00:00:54,956
+You don't know Y3, Y4, right?
+
+113
+00:00:52,215 --> 00:00:54,855
+Every after today's lecture,
+
+114
+00:00:52,511 --> 00:00:55,511
+In the encoder, there's no recurrent,
+
+115
+00:00:52,945 --> 00:00:57,945
+and you write into the format of matrix multiplication.
+
+116
+00:00:53,408 --> 00:00:55,408
+So why do we...
+
+117
+00:00:53,542 --> 00:01:05,543
+Okay, until now, any questions. Yeah, this also review. Okay, now in code processes and encodes the information from all input elements.
+
+118
+00:00:54,000 --> 00:00:56,000
+Sorry.
+
+119
+00:00:54,692 --> 00:00:57,692
+And the output is a weighted sum.
+
+120
+00:00:54,855 --> 00:00:58,295
+I hope you can understand every single box
+
+121
+00:00:54,956 --> 00:00:59,156
+How do you calculate the attention?
+
+122
+00:00:55,015 --> 00:01:03,015
+X is linearly transformed to produce the query key and value.
+
+123
+00:00:55,408 --> 00:01:01,408
+One, I don't ask you, one important thing about position is,
+
+124
+00:00:55,511 --> 00:00:59,511
+so the whole sequence is input in one time.
+
+125
+00:00:56,000 --> 00:01:01,000
+But, okay, I still can explain the problem.
+
+126
+00:00:57,692 --> 00:01:01,692
+Okay, output weighted sum of hidden states.
+
+127
+00:00:58,295 --> 00:00:59,895
+of this picture.
+
+128
+00:00:58,945 --> 00:01:02,945
+OK, and after you, these are just the numbers.
+
+129
+00:00:59,156 --> 00:01:02,756
+How do you do almost all the calculations?
+
+130
+00:00:59,895 --> 00:01:00,695
+Okay.
+
+131
+00:01:00,511 --> 00:01:05,510
+Okay, every position can see all the inputs.
+
+132
+00:01:00,695 --> 00:01:02,655
+We also start from a task, okay.
+
+133
+00:01:00,725 --> 00:01:10,404
+you want to, attend, right, you want to notice only important things. So the output is the
+
+134
+00:01:01,000 --> 00:01:05,000
+So here is a fee forward neural network, familiar with.
+
+135
+00:01:01,408 --> 00:01:04,409
+actually, the length of the sequence.
+
+136
+00:01:01,692 --> 00:01:04,692
+How do you calculate the weight?
+
+137
+00:01:02,655 --> 00:01:05,295
+Start from a task like a,
+
+138
+00:01:02,756 --> 00:01:07,156
+And in all the modern calculations, all matrix, right?
+
+139
+00:01:02,945 --> 00:01:05,944
+Sometimes these numbers are really high.
+
+140
+00:01:03,015 --> 00:01:09,016
+Okay, that means, okay, all the input sequence will here.
+
+141
+00:01:04,409 --> 00:01:07,409
+When you are training, you have a dataset.
+
+142
+00:01:04,692 --> 00:01:14,692
+Okay, the weight is assigned to each value is computed by a compatibility function of the query with the corresponding key.
+
+143
+00:01:05,000 --> 00:01:07,000
+The input is vector.
+
+144
+00:01:05,295 --> 00:01:08,734
+imagine a translation task, okay.
+
+145
+00:01:05,510 --> 00:01:09,510
+Okay, every position can see all the inputs.
+
+146
+00:01:05,543 --> 00:01:15,543
+Okay, we input an English sentence. Okay, we believe all the meaning of this English sentence start in this state.
+
+147
+00:01:05,944 --> 00:01:07,944
+This is 100.
+
+148
+00:01:07,000 --> 00:01:11,000
+This vector has three dimensions.
+
+149
+00:01:07,156 --> 00:01:10,156
+We don't do one by one, we calculate matrix.
+
+150
+00:01:07,409 --> 00:01:13,409
+Okay, suppose the longest sequence in this training set is just 100 words.
+
+151
+00:01:07,944 --> 00:01:10,944
+This is negative 2 minus 2.
+
+152
+00:01:08,734 --> 00:01:12,215
+It is, we call it a sequence to sequence problem.
+
+153
+00:01:09,016 --> 00:01:19,016
+And multiply by matrix, three different matrix, the form query key and value.
+
+154
+00:01:09,510 --> 00:01:12,510
+Let's say, okay, so this sequence,
+
+155
+00:01:10,156 --> 00:01:15,756
+So how do we prevent leftover information flowing in the decoder?
+
+156
+00:01:10,404 --> 00:01:21,364
+weighted sum of these values. Okay, how to get the weightage of each value. There are some keys,
+
+157
+00:01:10,944 --> 00:01:13,944
+So, we go to a soft matrix.
+
+158
+00:01:11,000 --> 00:01:13,000
+This w is the parameter.
+
+159
+00:01:12,215 --> 00:01:14,135
+The input is a sequence of words,
+
+160
+00:01:12,510 --> 00:01:17,510
+each position in encoder can attend to all positions.
+
+161
+00:01:13,000 --> 00:01:19,000
+The parameter we are going to learn, also called weight, weight matrix.
+
+162
+00:01:13,409 --> 00:01:16,409
+But in the real one, in the inference state,
+
+163
+00:01:13,944 --> 00:01:17,944
+As a soft matrix, remember the soft matrix.
+
+164
+00:01:14,135 --> 00:01:15,814
+as an English word.
+
+165
+00:01:14,692 --> 00:01:23,692
+A compatibility function is, okay, as times sum matrix parameter plus, okay, plus this one.
+
+166
+00:01:15,543 --> 00:01:30,543
+Okay, and the decoder generate target output and utilize this information. Okay, this information is the most important and alley information source of decoder.
+
+167
+00:01:15,756 --> 00:01:20,756
+So we mask out, there is something called mask, mask.
+
+168
+00:01:15,814 --> 00:01:18,174
+The output is a sequence of French words.
+
+169
+00:01:16,409 --> 00:01:21,409
+you may meet a sequence with one soldier.
+
+170
+00:01:17,510 --> 00:01:20,510
+Until now, it looks normal, guys,
+
+171
+00:01:17,944 --> 00:01:23,944
+Soft matrix comes with values to 0 between 0 and y
+
+172
+00:01:19,000 --> 00:01:24,000
+And after the first layer, you will get this.
+
+173
+00:01:19,016 --> 00:01:24,016
+So basically they come from same thing, come from self.
+
+174
+00:01:19,174 --> 00:01:20,975
+And how do we do it?
+
+175
+00:01:20,510 --> 00:01:23,510
+for the, it's prepared for the decoder part,
+
+176
+00:01:20,756 --> 00:01:28,956
+You set the value, out of the value in the matrix to very large negative numbers.
+
+177
+00:01:20,975 --> 00:01:22,454
+Okay. How do we do it?
+
+178
+00:01:21,364 --> 00:01:31,204
+you need to calculate the relevance between query and different keys. After you calculate the
+
+179
+00:01:21,409 --> 00:01:26,409
+Most of the time, the model will perform very bad.
+
+180
+00:01:22,454 --> 00:01:25,334
+So we analyze this task first.
+
+181
+00:01:23,510 --> 00:01:25,510
+later, you'll see.
+
+182
+00:01:23,692 --> 00:01:32,692
+This one key, okay, the weight is here, activity, after the time activity, activation function.
+
+183
+00:01:24,000 --> 00:01:26,000
+We call it hidden state.
+
+184
+00:01:24,016 --> 00:01:31,016
+Because they times different parameters, so they form different values,
+
+185
+00:01:24,944 --> 00:01:27,944
+to the probability distribution.
+
+186
+00:01:25,375 --> 00:01:30,294
+So we can see the input, the input sentence.
+
+187
+00:01:25,510 --> 00:01:27,510
+Okay, residual connections,
+
+188
+00:01:26,000 --> 00:01:30,000
+H equals to w times x.
+
+189
+00:01:26,409 --> 00:01:31,409
+Because the model never see such a long sequence.
+
+190
+00:01:27,510 --> 00:01:29,510
+this here, these two lines,
+
+191
+00:01:27,944 --> 00:01:30,944
+OK, then this one is 100.
+
+192
+00:01:29,510 --> 00:01:33,510
+and this add, okay, two lines, add, residual connections.
+
+193
+00:01:29,555 --> 00:01:35,156
+Okay, let's say, that way you calculate, no matter what you calculate,
+
+194
+00:01:30,000 --> 00:01:37,000
+That means the input x is mapped into the hidden state, hidden representation.
+
+195
+00:01:30,294 --> 00:01:33,174
+We know all of the input sentence,
+
+196
+00:01:30,543 --> 00:01:38,543
+So how does the decoding process begin? If I give a special token began our sequence.
+
+197
+00:01:30,944 --> 00:01:34,944
+Very large number becomes 0.9.
+
+198
+00:01:31,016 --> 00:01:34,016
+they become query key and value.
+
+199
+00:01:31,409 --> 00:01:36,409
+So the position is one of the...
+
+200
+00:01:31,924 --> 00:01:42,004
+relevant score like dot product, you need to apply soft max, map it to probability distribution.
+
+201
+00:01:32,692 --> 00:01:37,692
+That's one, h2, okay, plus this is a key to query.
+
+202
+00:01:33,174 --> 00:01:35,174
+but we don't know the output sentence.
+
+203
+00:01:33,510 --> 00:01:36,510
+So what's the motivation of residual?
+
+204
+00:01:34,016 --> 00:01:37,016
+That's why they call self-attention.
+
+205
+00:01:34,944 --> 00:01:41,944
+Very small number becomes 0.0, 0.1, a soft matrix.
+
+206
+00:01:35,156 --> 00:01:39,956
+the weight is zero, no matter what you calculate, no matter what you calculate.
+
+207
+00:01:36,214 --> 00:01:38,494
+So some model, okay.
+
+208
+00:01:36,409 --> 00:01:38,409
+One of the easy ones, you need to concentrate.
+
+209
+00:01:36,510 --> 00:01:38,510
+What is, what is the residual?
+
+210
+00:01:37,000 --> 00:01:39,000
+It has four dimensions.
+
+211
+00:01:37,016 --> 00:01:44,016
+For the first layer, it's input for the middle layer and output previously.
+
+212
+00:01:37,692 --> 00:01:41,692
+Here's a very simple sum point.
+
+213
+00:01:38,409 --> 00:01:45,409
+Okay, what if I see a sequence much longer in the training dataset?
+
+214
+00:01:38,494 --> 00:01:41,054
+Some model, I think most of the model
+
+215
+00:01:38,510 --> 00:01:42,510
+The deep models may forget previous learning information,
+
+216
+00:01:38,543 --> 00:01:48,543
+So how does the decoding process stop? People give us special token and now sequence. Okay, one decoder predict.
+
+217
+00:01:39,000 --> 00:01:41,000
+And the value is this.
+
+218
+00:01:39,956 --> 00:01:44,756
+It's a very, very large negative value.
+
+219
+00:01:41,000 --> 00:01:42,000
+Okay, clear.
+
+220
+00:01:41,054 --> 00:01:46,054
+choose we predict the output tokens one by one.
+
+221
+00:01:41,692 --> 00:01:42,692
+What is a query?
+
+222
+00:01:41,944 --> 00:01:44,944
+Don't forget the values.
+
+223
+00:01:42,000 --> 00:01:49,000
+We are using another weight matrix to map to output.
+
+224
+00:01:42,004 --> 00:01:48,405
+That's easier to calculate, then you get the weight, you get the values, you get the attention.
+
+225
+00:01:42,510 --> 00:01:45,510
+but you will find a lot of description like this.
+
+226
+00:01:42,692 --> 00:01:48,692
+So, imagine now I'm teaching you some problem like a transformer, right?
+
+227
+00:01:44,016 --> 00:01:46,016
+Okay, clear.
+
+228
+00:01:44,756 --> 00:01:48,756
+And you go to a softer mask.
+
+229
+00:01:44,944 --> 00:01:51,944
+Now you get the weight between different queries and different keys.
+
+230
+00:01:45,409 --> 00:01:47,409
+How do we handle this?
+
+231
+00:01:45,510 --> 00:01:48,510
+When the sequence becomes very long,
+
+232
+00:01:46,016 --> 00:01:53,016
+So just take note, they times different matrix, so they are different values.
+
+233
+00:01:47,214 --> 00:01:48,614
+Okay.
+
+234
+00:01:47,409 --> 00:01:50,409
+The start concentrate many, many different aspects.
+
+235
+00:01:48,405 --> 00:01:58,084
+Okay, in the neural network, we don't want the values becomes too large or too small,
+
+236
+00:01:48,510 --> 00:01:51,510
+the model may forget the previous information.
+
+237
+00:01:48,543 --> 00:01:55,543
+Okay, similar to other tokens. I also for each step have a probability. I have a probability.
+
+238
+00:01:48,614 --> 00:01:53,614
+We do not have much good message to predict the whole sentence.
+
+239
+00:01:48,756 --> 00:01:53,956
+The no way that becomes zero point, zero, the whole lot of zero, right?
+
+240
+00:01:49,000 --> 00:01:53,000
+But here we only focus on this input and hidden state.
+
+241
+00:01:49,692 --> 00:01:55,692
+You need to find some knowledge from your mind, from your own knowledge database.
+
+242
+00:01:50,409 --> 00:01:53,409
+For example, relative position.
+
+243
+00:01:51,510 --> 00:01:53,510
+So when the model becomes very deep,
+
+244
+00:01:51,944 --> 00:01:56,944
+The output is the weighted sum of different values.
+
+245
+00:01:53,000 --> 00:01:55,000
+No problem, right?
+
+246
+00:01:53,016 --> 00:02:01,016
+And dot product attention, we said, okay, we use dot product to calculate the relationship
+
+247
+00:01:53,409 --> 00:01:59,409
+Not only the one sentence, this one sentence is 100 words.
+
+248
+00:01:53,510 --> 00:01:56,510
+they may forget previous learning information.
+
+249
+00:01:53,614 --> 00:01:56,054
+We predict the whole sentence once,
+
+250
+00:01:53,956 --> 00:01:54,956
+One.
+
+251
+00:01:54,956 --> 00:01:59,156
+So basically you ignore the vector, you cannot see.
+
+252
+00:01:55,000 --> 00:01:58,000
+This is a fee forward neural network.
+
+253
+00:01:55,543 --> 00:02:05,543
+So when the decoder predict, okay, we have a zero point nine probability. We we next the token is EOS and now sequence.
+
+254
+00:01:55,692 --> 00:01:58,692
+Actually, you learn a lot of things, right?
+
+255
+00:01:56,054 --> 00:01:59,894
+you want time, you want stuff.
+
+256
+00:01:56,510 --> 00:02:01,510
+And, yeah, the use for signals becomes,
+
+257
+00:01:56,944 --> 00:02:00,944
+OK, weighted sum of different values.
+
+258
+00:01:58,000 --> 00:02:00,000
+And here is the second input.
+
+259
+00:01:58,692 --> 00:02:07,692
+Other values, and you can like summarize or abstract them into some concepts, okay?
+
+260
+00:01:58,724 --> 00:02:08,405
+because we need the graded, but for some activation function like sigmoid, if the value is too large
+
+261
+00:01:59,156 --> 00:02:01,156
+So this is mask.
+
+262
+00:01:59,409 --> 00:02:04,409
+But they have two words of same relative distance.
+
+263
+00:01:59,894 --> 00:02:04,174
+So we predict first, first, okay.
+
+264
+00:02:00,000 --> 00:02:03,000
+There are also three dimensions.
+
+265
+00:02:00,944 --> 00:02:02,944
+Then you have this weight.
+
+266
+00:02:01,016 --> 00:02:05,016
+or the relevance between query and keys.
+
+267
+00:02:01,156 --> 00:02:05,156
+If we have time later, we can see in the code.
+
+268
+00:02:01,510 --> 00:02:04,510
+forget, okay, what do we do?
+
+269
+00:02:02,944 --> 00:02:08,944
+You have all the values, you multiply, and sum them together.
+
+270
+00:02:03,000 --> 00:02:05,000
+But the values are different.
+
+271
+00:02:04,174 --> 00:02:09,094
+And according to the input and the tokens,
+
+272
+00:02:04,409 --> 00:02:06,409
+Okay, same relative distance.
+
+273
+00:02:04,510 --> 00:02:07,510
+Very straightforward, very straightforward.
+
+274
+00:02:05,000 --> 00:02:07,000
+Three, zero point three.
+
+275
+00:02:05,016 --> 00:02:09,015
+If you read the paper, okay, okay, your fan is too picturesque.
+
+276
+00:02:05,156 --> 00:02:11,955
+So this is the mask, multi-head attention, okay?
+
+277
+00:02:05,543 --> 00:02:16,543
+Okay, then the procedure stop and when the sequence is too long, the neural network may forget the English sentence.
+
+278
+00:02:06,409 --> 00:02:13,409
+So this kind of formula, capture, capture, information, okay, relative, relative.
+
+279
+00:02:07,000 --> 00:02:11,000
+Same, same with matrix.
+
+280
+00:02:07,510 --> 00:02:17,510
+We, we input, okay, we copied the previous information again, okay?
+
+281
+00:02:07,692 --> 00:02:09,692
+I say you already learned neural network.
+
+282
+00:02:08,405 --> 00:02:17,685
+or too small, the graded becomes narrow. When the graded becomes narrow, your neural network did not
+
+283
+00:02:08,944 --> 00:02:11,944
+You get the final output.
+
+284
+00:02:09,015 --> 00:02:18,015
+Query and key dot product, because they are matrix and many queries, many keys.
+
+285
+00:02:09,094 --> 00:02:14,094
+we already predict, we predict next token one by one.
+
+286
+00:02:09,692 --> 00:02:11,692
+Actually, neural network is a concept.
+
+287
+00:02:11,000 --> 00:02:17,000
+After your times, you get this hidden representation or hidden state.
+
+288
+00:02:11,692 --> 00:02:14,692
+And neural network have a lot of things.
+
+289
+00:02:11,944 --> 00:02:15,944
+Some more, you have the weight 0.9.
+
+290
+00:02:11,955 --> 00:02:17,955
+Because you cannot see the future, you only see the tokens,
+
+291
+00:02:14,409 --> 00:02:21,409
+And there's one good thing is this single soil encoding is pretty fun.
+
+292
+00:02:14,692 --> 00:02:17,692
+So, this neural network is one of the key.
+
+293
+00:02:15,944 --> 00:02:18,944
+You times the value, you get out of y.
+
+294
+00:02:16,414 --> 00:02:18,974
+So question comes immediately, okay.
+
+295
+00:02:16,543 --> 00:02:29,543
+So we input to the hidden state for every step every step. Okay, so any problems, right, any problems.
+
+296
+00:02:17,000 --> 00:02:19,000
+There is different values.
+
+297
+00:02:17,510 --> 00:02:19,510
+They use a variable for what, okay?
+
+298
+00:02:17,685 --> 00:02:27,205
+update anymore. So the learning procedure is stopped. So to prevent this, we use normalization
+
+299
+00:02:17,692 --> 00:02:27,692
+The values of the neural network, okay, I'll explain, input, output, and weightage, the activation function, the loss, etc.
+
+300
+00:02:17,955 --> 00:02:20,355
+you already predicted.
+
+301
+00:02:18,015 --> 00:02:23,015
+So it's a mathematic multiplication.
+
+302
+00:02:18,944 --> 00:02:23,944
+0.0, 0.1, you times the value, you get the output,
+
+303
+00:02:18,974 --> 00:02:22,094
+One does this, what is the first token?
+
+304
+00:02:19,000 --> 00:02:20,000
+Clear.
+
+305
+00:02:19,510 --> 00:02:24,510
+A lot of information to flow directly across layers.
+
+306
+00:02:20,000 --> 00:02:26,000
+But now we add, we call it add some recurrent item here.
+
+307
+00:02:20,355 --> 00:02:22,355
+Okay, let's go to next.
+
+308
+00:02:21,409 --> 00:02:23,409
+I don't need training.
+
+309
+00:02:22,094 --> 00:02:24,335
+How do we select the first token?
+
+310
+00:02:22,355 --> 00:02:26,555
+This is called encoder decoder attention.
+
+311
+00:02:23,015 --> 00:02:26,015
+What skill?
+
+312
+00:02:23,409 --> 00:02:26,409
+So it's computational efficient.
+
+313
+00:02:23,944 --> 00:02:25,944
+you sum them together.
+
+314
+00:02:24,335 --> 00:02:25,254
+So people are smart.
+
+315
+00:02:24,510 --> 00:02:25,510
+Okay?
+
+316
+00:02:25,254 --> 00:02:30,895
+Sometimes they give the first token a special token,
+
+317
+00:02:25,510 --> 00:02:27,510
+That means you're simply,
+
+318
+00:02:25,944 --> 00:02:27,944
+Then you get the output.
+
+319
+00:02:26,000 --> 00:02:29,000
+We are using r and n.
+
+320
+00:02:26,015 --> 00:02:31,015
+Skill, I mean, divided by square root or decay.
+
+321
+00:02:26,409 --> 00:02:31,409
+And of course, no matter how long it is, you can have a value.
+
+322
+00:02:26,555 --> 00:02:28,955
+Actually, you'll see this before, right?
+
+323
+00:02:27,510 --> 00:02:30,510
+before it is Y equals to FX,
+
+324
+00:02:27,692 --> 00:02:31,692
+Okay, so what attention does?
+
+325
+00:02:27,844 --> 00:02:39,525
+to normalize values into the ranges under control. Okay, but if you have a batch data, if you have a
+
+326
+00:02:27,944 --> 00:02:34,944
+OK, I think a little bit difficult, but OK, how do we write down into the formula?
+
+327
+00:02:28,955 --> 00:02:34,355
+RN encoder, decoder, it is encoder decoder attention.
+
+328
+00:02:29,000 --> 00:02:30,000
+Okay.
+
+329
+00:02:29,543 --> 00:02:37,543
+Very clear, right, can this context to work to contain all the information.
+
+330
+00:02:30,000 --> 00:02:40,000
+And we, as we said, hidden state, H2, this one is not only primary.
+
+331
+00:02:30,510 --> 00:02:32,510
+that is built for formula,
+
+332
+00:02:30,895 --> 00:02:32,495
+called Begin of Sequence.
+
+333
+00:02:31,015 --> 00:02:38,015
+If you talk about it later, skill, divided by the square root of decay,
+
+334
+00:02:31,409 --> 00:02:34,409
+In fact, calculation, you can have a value.
+
+335
+00:02:31,692 --> 00:02:37,692
+Okay, query is, okay, I'm going to learn transformer, you start thinking, okay, what do I know?
+
+336
+00:02:32,510 --> 00:02:34,510
+atomic deep neural network,
+
+337
+00:02:33,574 --> 00:02:35,495
+Later we show this, okay.
+
+338
+00:02:34,355 --> 00:02:40,756
+That means the query comes from the decoder.
+
+339
+00:02:34,409 --> 00:02:40,409
+So people still do research on these aspects.
+
+340
+00:02:34,510 --> 00:02:36,510
+but they find that, okay, I add a deep model
+
+341
+00:02:34,944 --> 00:02:41,944
+OK, remember you get the alpha after you calculate this score.
+
+342
+00:02:35,495 --> 00:02:37,014
+And second question, okay.
+
+343
+00:02:36,510 --> 00:02:38,510
+forget previous information.
+
+344
+00:02:37,014 --> 00:02:38,495
+When do we stop?
+
+345
+00:02:37,543 --> 00:02:43,543
+Sorry, this way, can this as their content all the information.
+
+346
+00:02:37,692 --> 00:02:43,692
+The RIG, evaluation, transformer, R&N, something, okay?
+
+347
+00:02:38,015 --> 00:02:47,015
+the dimension of key, softmax, it becomes the weightage, becomes 0.9, 0.01,
+
+348
+00:02:38,495 --> 00:02:42,094
+We predict next token, predict the next token.
+
+349
+00:02:38,510 --> 00:02:40,510
+What do we do?
+
+350
+00:02:39,525 --> 00:02:49,205
+batch of sequence data, you need to present some technology, batch normalization, layer normalization,
+
+351
+00:02:40,000 --> 00:02:42,000
+H2, sorry.
+
+352
+00:02:40,409 --> 00:02:45,409
+They are aimed to improve in generalization to longer sequences,
+
+353
+00:02:40,510 --> 00:02:42,510
+Okay, we plus X again.
+
+354
+00:02:40,756 --> 00:02:45,355
+But the key and the values comes from the encoder.
+
+355
+00:02:41,944 --> 00:02:45,944
+You get alpha 0, alpha 0, y alpha 0, 2.
+
+356
+00:02:42,000 --> 00:02:51,000
+H2 is not only affected by the input, but also affected by the hidden state, the previous hidden state.
+
+357
+00:02:42,094 --> 00:02:43,375
+Under this.
+
+358
+00:02:42,510 --> 00:02:44,510
+You plus the input.
+
+359
+00:02:43,375 --> 00:02:46,974
+So people add under of sequence token.
+
+360
+00:02:43,543 --> 00:02:52,543
+I cannot see a parent in a card not a red, but a large chance cannot write this H3 kind of content all the information.
+
+361
+00:02:43,692 --> 00:02:49,692
+Okay, you'll find some similar or related concepts, these are keys.
+
+362
+00:02:44,510 --> 00:02:46,510
+Okay, you forget it, right?
+
+363
+00:02:45,355 --> 00:02:47,555
+Okay, this is easy to understand.
+
+364
+00:02:45,409 --> 00:02:50,409
+and relative positions, and stable ability of course efficiency.
+
+365
+00:02:45,944 --> 00:02:50,944
+After you go through the soft matrix, we still call them.
+
+366
+00:02:46,510 --> 00:02:48,510
+Okay, I copied it to you.
+
+367
+00:02:46,974 --> 00:02:48,974
+So every step we predict, okay.
+
+368
+00:02:47,015 --> 00:02:52,015
+times value, output.
+
+369
+00:02:47,755 --> 00:02:52,355
+You have some input, you have an input, an English sentence.
+
+370
+00:02:48,510 --> 00:02:49,510
+What do we do?
+
+371
+00:02:48,974 --> 00:02:51,895
+Is this the end of sequence?
+
+372
+00:02:49,510 --> 00:02:50,510
+So what's the result?
+
+373
+00:02:49,692 --> 00:02:52,692
+Okay, you'll give each key some weight.
+
+374
+00:02:50,004 --> 00:02:57,525
+etc., etc. But the key idea is keep the value in the range that we can control it.
+
+375
+00:02:50,409 --> 00:02:53,409
+Okay, that's basically all for today.
+
+376
+00:02:50,510 --> 00:02:58,510
+The result is actually FX becomes Y minus X.
+
+377
+00:02:50,944 --> 00:02:53,944
+Yeah, alpha 0, alpha 0, y.
+
+378
+00:02:51,000 --> 00:02:57,000
+Okay, remember the previous hidden state is, uh, the report to the report to the report six.
+
+379
+00:02:51,894 --> 00:02:53,894
+It is an end stop.
+
+380
+00:02:52,015 --> 00:02:58,015
+And then you follow multi-hydrate attention, you'll hear that.
+
+381
+00:02:52,355 --> 00:02:57,755
+You must have some method to send this information to the decoder.
+
+382
+00:02:52,543 --> 00:03:02,543
+Why don't we see all the hidden states? Why don't we use all the hidden states? Okay, of course we can. We use all the hidden states.
+
+383
+00:02:52,692 --> 00:03:01,692
+Let's say, okay, I want to recall a few forward neural network and R&N.
+
+384
+00:02:53,409 --> 00:02:57,409
+So today is a little bit difficult, but I think important.
+
+385
+00:02:53,894 --> 00:02:58,294
+So if you see this two special sign,
+
+386
+00:02:53,944 --> 00:02:59,944
+And then for each score, you times the value.
+
+387
+00:02:57,000 --> 00:03:01,000
+We save this value somewhere, somewhere.
+
+388
+00:02:57,409 --> 00:03:00,409
+Attention, attention, attention.
+
+389
+00:02:57,755 --> 00:03:02,955
+This is a method that query comes from the decoder.
+
+390
+00:02:58,245 --> 00:03:08,085
+Okay, when the model is too deep, the model may forget previous information. So people input,
+
+391
+00:02:58,294 --> 00:03:01,894
+you should be familiar, you should know them.
+
+392
+00:02:58,510 --> 00:03:07,510
+Y minus X means FX only learn a small refinement.
+
+393
+00:02:59,015 --> 00:03:01,015
+What is multi-hydrate attention?
+
+394
+00:02:59,944 --> 00:03:04,944
+You times the value, 1, 1 becomes this, and then report, y 0, y.
+
+395
+00:03:00,409 --> 00:03:02,409
+You have three vectors.
+
+396
+00:03:01,000 --> 00:03:06,000
+And then we, as you know, we calculate this H2 first.
+
+397
+00:03:01,015 --> 00:03:10,015
+So people find it is beneficial to linearly project the queries, keys and values.
+
+398
+00:03:01,894 --> 00:03:05,374
+Okay, we don't start from transformer,
+
+399
+00:03:02,409 --> 00:03:06,409
+And the output is a vector, three type vectors.
+
+400
+00:03:02,543 --> 00:03:14,543
+Now, how do we use it? How do we use all these H1, H2, H3? We give a weighted sum, right, we put them together, very straightforward.
+
+401
+00:03:02,692 --> 00:03:10,692
+Okay, these three may be have some higher weight, and the others, tokenizer, okay, maybe, or evaluation, okay?
+
+402
+00:03:02,955 --> 00:03:07,155
+And the key and the values comes from the encoder.
+
+403
+00:03:04,944 --> 00:03:09,944
+You times the score, 2 times value, 2, and you sum them together.
+
+404
+00:03:05,374 --> 00:03:10,374
+but we instead we still need to reveal Rn, okay.
+
+405
+00:03:06,000 --> 00:03:07,000
+Okay.
+
+406
+00:03:06,409 --> 00:03:10,409
+You have a query, where you want to learn something.
+
+407
+00:03:07,000 --> 00:03:10,000
+And then we save the same, the reports, really the reports.
+
+408
+00:03:07,155 --> 00:03:11,955
+So this loss every position in the decoder to attend all positions in the input
+
+409
+00:03:07,510 --> 00:03:10,510
+Okay, his data, our complete new representation.
+
+410
+00:03:08,164 --> 00:03:15,764
+something called a residual connection. They simply plus the original input, several layers
+
+411
+00:03:09,944 --> 00:03:12,944
+OK, when you write to the formula, becomes this.
+
+412
+00:03:10,000 --> 00:03:11,000
+Okay.
+
+413
+00:03:10,015 --> 00:03:18,015
+Many times with different linear projections, but lower dimension, okay,
+
+414
+00:03:10,409 --> 00:03:12,409
+You already know something, okay?
+
+415
+00:03:10,510 --> 00:03:13,510
+That means, okay, X is here.
+
+416
+00:03:10,692 --> 00:03:13,692
+Maybe lower weight, they're all.
+
+417
+00:03:11,000 --> 00:03:14,000
+But we, we don't stop after we calculated this H2.
+
+418
+00:03:11,955 --> 00:03:16,955
+code sequence, that's natural, natural decoder,
+
+419
+00:03:12,409 --> 00:03:18,409
+This key concepts are key related to a lot of things called values.
+
+420
+00:03:12,534 --> 00:03:16,174
+Rn plays the encoder, anti-coder model,
+
+421
+00:03:12,944 --> 00:03:17,944
+Hjj from 1 to Tx, alpha 1 to 4.
+
+422
+00:03:13,510 --> 00:03:16,510
+You don't need to learn X.
+
+423
+00:03:13,692 --> 00:03:15,692
+Okay, after you get this weight, what do you do?
+
+424
+00:03:14,000 --> 00:03:15,000
+Okay.
+
+425
+00:03:14,543 --> 00:03:24,543
+We weighted some all these hidden states into one wekt, okay, into one wekt as the input to decoder.
+
+426
+00:03:15,000 --> 00:03:22,000
+Now H2 prime is the combination of H, uh, of the input.
+
+427
+00:03:15,692 --> 00:03:25,692
+You start to recall the value, the real content, okay, for R&N, a lot of things, or feel forward neural network, a lot of things.
+
+428
+00:03:15,764 --> 00:03:28,804
+ago, or the original input into the network. Okay, the formula is y equals to fx plus x. Okay, so the
+
+429
+00:03:16,174 --> 00:03:21,174
+quite popular before transformer has a population, okay.
+
+430
+00:03:16,510 --> 00:03:19,510
+Again, you need to learn something different.
+
+431
+00:03:16,955 --> 00:03:20,955
+attend to all the input sequence.
+
+432
+00:03:17,944 --> 00:03:24,944
+OK, alpha ij, alpha i means here.
+
+433
+00:03:18,015 --> 00:03:27,015
+comparing to let's say map all the input into 500 and 12 dimension,
+
+434
+00:03:18,409 --> 00:03:20,409
+But we don't think values first, okay?
+
+435
+00:03:19,510 --> 00:03:24,510
+So that's, I think, you might own understanding,
+
+436
+00:03:20,409 --> 00:03:26,409
+We use this query to query your memory, okay?
+
+437
+00:03:20,955 --> 00:03:28,955
+Okay, so attention, then we see this, the embeddings, embeddings.
+
+438
+00:03:22,000 --> 00:03:23,000
+Okay.
+
+439
+00:03:22,614 --> 00:03:25,254
+Also encoder and decoder.
+
+440
+00:03:23,000 --> 00:03:29,000
+Uh, of course, uh, multiply with matrix and the previous hidden state.
+
+441
+00:03:24,510 --> 00:03:26,510
+that's explanation, okay?
+
+442
+00:03:24,543 --> 00:03:39,543
+Comparent to previous while only H3, but now we have H1, H2. So H3 is one of the special cases, right, is 0, 0, 1, the weight, 0, 0, 1, we got H3.
+
+443
+00:03:24,944 --> 00:03:26,944
+Yeah, there is the output.
+
+444
+00:03:25,254 --> 00:03:26,894
+So what is encoder?
+
+445
+00:03:25,692 --> 00:03:29,692
+And then, okay, you get the output, you get the output.
+
+446
+00:03:26,409 --> 00:03:32,409
+So which part, which key is most related, you get a score.
+
+447
+00:03:26,510 --> 00:03:28,510
+The motivation, very simple, okay?
+
+448
+00:03:26,894 --> 00:03:30,974
+You can, from the name, you can try, you can guess, okay.
+
+449
+00:03:26,944 --> 00:03:31,944
+OK, now we don't touch many queries.
+
+450
+00:03:27,015 --> 00:03:37,015
+query, key value, but in map, to 8, 6 dimension matrix, same calculation,
+
+451
+00:03:28,510 --> 00:03:31,510
+The model forget previous things we added.
+
+452
+00:03:28,804 --> 00:03:36,244
+network actually lies the new things, fine, tune the things, not the original information. And so this
+
+453
+00:03:28,955 --> 00:03:32,555
+So the input embedding, we use learned embeddings, okay,
+
+454
+00:03:29,000 --> 00:03:30,000
+Okay.
+
+455
+00:03:29,692 --> 00:03:40,692
+So the final output is the value, but it's not one single value of a two value, but it's a weighted sum of all the values.
+
+456
+00:03:30,000 --> 00:03:31,000
+Okay.
+
+457
+00:03:30,974 --> 00:03:35,334
+The encoder is a component that takes input
+
+458
+00:03:31,000 --> 00:03:33,000
+We have a previous hidden state is H1, okay?
+
+459
+00:03:31,510 --> 00:03:33,510
+That's it.
+
+460
+00:03:31,944 --> 00:03:34,944
+Many queries comes first.
+
+461
+00:03:32,409 --> 00:03:36,409
+And after you, there should be some software max.
+
+462
+00:03:32,555 --> 00:03:36,355
+to convert the input tokens, output tokens to vectors,
+
+463
+00:03:33,000 --> 00:03:34,000
+H1.
+
+464
+00:03:33,510 --> 00:03:34,510
+See?
+
+465
+00:03:34,000 --> 00:03:41,000
+But we can now, sometimes, because of that, they are not, uh, same number of dimension.
+
+466
+00:03:34,510 --> 00:03:36,510
+Different layers.
+
+467
+00:03:34,944 --> 00:03:41,944
+When we write into the formula, this is the alpha.
+
+468
+00:03:35,334 --> 00:03:39,494
+and it comes worse, the input into a meaningful
+
+469
+00:03:36,245 --> 00:03:42,724
+network will not forget the information that you can have a very deep neural network. That means
+
+470
+00:03:36,355 --> 00:03:40,155
+to dimension D model.
+
+471
+00:03:36,409 --> 00:03:41,409
+Yeah, after you get a score, you go through a software max,
+
+472
+00:03:36,510 --> 00:03:37,510
+Okay?
+
+473
+00:03:37,015 --> 00:03:41,015
+but they get more better results.
+
+474
+00:03:37,510 --> 00:03:40,510
+I forgot, okay, we add this.
+
+475
+00:03:39,494 --> 00:03:42,054
+internal representation.
+
+476
+00:03:39,543 --> 00:03:48,543
+But now we give H2, H1 sum of tunities, right, give you some weights that input into every hidden state.
+
+477
+00:03:40,355 --> 00:03:41,755
+So what's this?
+
+478
+00:03:40,510 --> 00:03:41,510
+Okay?
+
+479
+00:03:40,692 --> 00:03:43,692
+All the knowledge you have, okay?
+
+480
+00:03:41,000 --> 00:03:44,000
+Or sometimes we want to add some more information.
+
+481
+00:03:41,015 --> 00:03:45,015
+So in my understanding, what does this mean?
+
+482
+00:03:41,409 --> 00:03:45,409
+you put a number into a formability distribution,
+
+483
+00:03:41,510 --> 00:03:45,510
+So this reminds me the area roots of Banyatri,
+
+484
+00:03:41,755 --> 00:03:44,155
+An ender embedding, right?
+
+485
+00:03:41,944 --> 00:03:43,944
+OK, the weight.
+
+486
+00:03:42,054 --> 00:03:43,774
+That's our human understanding.
+
+487
+00:03:42,724 --> 00:03:48,724
+many, many layers. Because the input is a sequence, we need the position information.
+
+488
+00:03:43,692 --> 00:03:51,692
+You get the idea, you want to, the query is something you are studying now, you want to learn something,
+
+489
+00:03:43,774 --> 00:03:46,854
+Actually, we don't know this, but we think,
+
+490
+00:03:43,944 --> 00:03:46,944
+These are the values.
+
+491
+00:03:44,000 --> 00:03:48,000
+So, in, uh, times, uh, with matrix here.
+
+492
+00:03:44,155 --> 00:03:46,355
+An ender embedding, let's say.
+
+493
+00:03:45,015 --> 00:03:46,015
+What does this mean?
+
+494
+00:03:45,409 --> 00:03:51,409
+and then you give a weight to every value.
+
+495
+00:03:45,510 --> 00:03:48,510
+your group, your forget, okay?
+
+496
+00:03:46,015 --> 00:03:56,015
+I mean, give you one single large matrix, comparing to give you 8 smaller matrix,
+
+497
+00:03:46,355 --> 00:03:51,955
+And we also use the URL and linear transformation, the software max function here.
+
+498
+00:03:46,854 --> 00:03:51,454
+okay, the semantic meanings are hidden
+
+499
+00:03:46,944 --> 00:03:51,944
+Here, the key has a transpose, but we don't have transpose.
+
+500
+00:03:48,000 --> 00:03:49,000
+Okay.
+
+501
+00:03:48,510 --> 00:03:50,510
+Give you a root of Banyatri, okay?
+
+502
+00:03:48,543 --> 00:04:01,543
+Okay, but still have some problem for for each hidden state. All these context vectors remains the same.
+
+503
+00:03:49,000 --> 00:03:59,000
+Uh, so this hidden state is, uh, times multiplied by a, uh, with matrix and plus, uh,
+
+504
+00:03:50,405 --> 00:03:56,325
+Okay, sometimes in the relative position information, so people in one this positional
+
+505
+00:03:50,510 --> 00:03:51,510
+Directly.
+
+506
+00:03:51,409 --> 00:03:58,409
+And then you time the weight, time or the output.
+
+507
+00:03:51,454 --> 00:03:55,494
+in this internal representation.
+
+508
+00:03:51,510 --> 00:03:52,510
+Okay?
+
+509
+00:03:51,692 --> 00:04:02,692
+you need to recall some knowledge, this knowledge, values, you cannot recall all the knowledge you have, but you can recall some sum of the knowledge.
+
+510
+00:03:51,944 --> 00:03:53,944
+So this is value 1.
+
+511
+00:03:51,955 --> 00:03:57,355
+A linear transformation software max function to convert the decoder output
+
+512
+00:03:52,510 --> 00:03:54,510
+Residual connection.
+
+513
+00:03:53,944 --> 00:03:56,944
+Value 2, value 3, value 4.
+
+514
+00:03:54,510 --> 00:03:56,510
+I hope you'll know this.
+
+515
+00:03:55,494 --> 00:03:58,534
+So what are representations, just vectors, okay.
+
+516
+00:03:56,015 --> 00:04:04,015
+people find the result is better when you have multiple smaller matrix,
+
+517
+00:03:56,510 --> 00:03:58,510
+And again, normalization, okay?
+
+518
+00:03:56,724 --> 00:04:08,324
+in Cody, the input is not a single token anymore. Plus a positional embedding. So for position or
+
+519
+00:03:56,944 --> 00:03:58,944
+You have the weight.
+
+520
+00:03:57,355 --> 00:04:00,755
+to predicted next that token probability.
+
+521
+00:03:58,409 --> 00:04:02,409
+You select some valuable part from your whole memory.
+
+522
+00:03:58,510 --> 00:04:00,510
+Different concept already.
+
+523
+00:03:58,534 --> 00:04:03,734
+That's the vectors, the internal values, the numbers,
+
+524
+00:03:58,944 --> 00:04:00,944
+You have the weight.
+
+525
+00:03:59,000 --> 00:04:10,199
+the original hidden state. Here we use a very special unit matrix, so h2 from becomes this value.
+
+526
+00:04:00,510 --> 00:04:01,510
+New concept.
+
+527
+00:04:00,755 --> 00:04:03,155
+Okay, so what's that?
+
+528
+00:04:00,944 --> 00:04:07,944
+You calculate the matrix you get output.
+
+529
+00:04:01,510 --> 00:04:03,510
+Normalization.
+
+530
+00:04:01,543 --> 00:04:15,543
+So apparently let's say the English sentences are IE2, IE4, have some words, have some verbs, nouns, some, not the nouns.
+
+531
+00:04:02,409 --> 00:04:08,409
+You attend to the input to some different positions.
+
+532
+00:04:02,692 --> 00:04:12,692
+How do you determine which knowledge, which sum knowledge you want to recall, you need to get, you need to compare, okay?
+
+533
+00:04:03,155 --> 00:04:07,555
+How to calculate the probability software max?
+
+534
+00:04:03,510 --> 00:04:08,510
+You know, in neural network, we don't want the value.
+
+535
+00:04:03,734 --> 00:04:06,134
+in this middle layer, okay.
+
+536
+00:04:04,015 --> 00:04:10,015
+so imagination, okay, the also suspect, suspect, right?
+
+537
+00:04:06,134 --> 00:04:10,214
+So we think the encoder, the function of encoder is,
+
+538
+00:04:07,555 --> 00:04:16,956
+The one with highest probability is the ID, okay, is the ID, the token you want to predict.
+
+539
+00:04:07,944 --> 00:04:11,944
+So the first value, you get 0.1.
+
+540
+00:04:08,324 --> 00:04:18,724
+index 0, 1, 2, 3, 4, 5, it is not a number, it is a vector. The vector can help you find 112
+
+541
+00:04:08,409 --> 00:04:14,409
+My ping are query and are set of key value pairs to an output.
+
+542
+00:04:08,510 --> 00:04:13,510
+Inside the neural network becomes too large.
+
+543
+00:04:10,015 --> 00:04:16,016
+I also suspect, okay, we tell, basically we add more information.
+
+544
+00:04:10,199 --> 00:04:22,839
+So you can see here the input x mapped to a hidden state. We have a width matrix here,
+
+545
+00:04:10,214 --> 00:04:12,854
+okay, your input are sometimes.
+
+546
+00:04:11,944 --> 00:04:17,944
+So the first, the second value, you get 0.2, the third value, the first.
+
+547
+00:04:12,692 --> 00:04:28,692
+Compare the query and the key, compare the current knowledge you want to learn, and the concept you have, and then compare, compare means you get the weightage, okay?
+
+548
+00:04:12,854 --> 00:04:17,174
+We don't know the, you know, in the meaning space,
+
+549
+00:04:13,510 --> 00:04:16,511
+We explain this later.
+
+550
+00:04:14,409 --> 00:04:19,408
+An output is computed as a weighted sum of the values.
+
+551
+00:04:15,543 --> 00:04:33,543
+But when you translate, when you translate into French, sorry, I don't know how to translate French, but when you predict different French words, you may consider different parts of the sentence, right.
+
+552
+00:04:16,016 --> 00:04:21,016
+If you are calculating one big matrix, large matrix,
+
+553
+00:04:16,511 --> 00:04:18,511
+Normalization stops this.
+
+554
+00:04:16,956 --> 00:04:22,956
+Here is something interesting, okay, in our model we share the same weight matrix
+
+555
+00:04:17,174 --> 00:04:19,854
+semantic meaning space, what are they?
+
+556
+00:04:17,944 --> 00:04:28,944
+So for the first dimension of the output, you calculate the weighted sum of the first dimension of all the values.
+
+557
+00:04:18,511 --> 00:04:23,511
+Normalization rescills values into a controllable range.
+
+558
+00:04:18,804 --> 00:04:26,324
+dimension. So how do you get the numbers of this dimension? They use two formulas,
+
+559
+00:04:19,408 --> 00:04:24,408
+Where weight is computed by a compatibility function, okay?
+
+560
+00:04:19,854 --> 00:04:23,574
+Okay, encoder transfer this worse,
+
+561
+00:04:21,016 --> 00:04:29,016
+the model need to learn itself, okay, or the first dimension was kind of meaning, right?
+
+562
+00:04:22,956 --> 00:04:25,556
+between the two embedding layers.
+
+563
+00:04:23,511 --> 00:04:28,511
+So it prevents value from becoming too large or too small.
+
+564
+00:04:23,574 --> 00:04:28,014
+the initial vectors into some meaningful internal
+
+565
+00:04:23,639 --> 00:04:33,079
+but we add some arrow here. This is the previous hidden state and a width matrix wh and these two
+
+566
+00:04:24,408 --> 00:04:28,408
+Here is not a product of the query, it's a corresponding.
+
+567
+00:04:25,556 --> 00:04:31,556
+It is easy to understand the input, okay, and output.
+
+568
+00:04:27,124 --> 00:04:36,404
+ones for the even dimension, ones for the odd dimension. Okay, that's all for today. So any questions,
+
+569
+00:04:28,014 --> 00:04:29,014
+representation.
+
+570
+00:04:28,408 --> 00:04:36,408
+And here, okay, sometimes you skew it, you divide it by the square root of d.
+
+571
+00:04:28,511 --> 00:04:33,511
+This is a commonly used method, okay?
+
+572
+00:04:28,692 --> 00:04:36,692
+So the key idea is you don't need to reveal everything, but you need to select something important.
+
+573
+00:04:28,944 --> 00:04:30,944
+Then the sum is 3.
+
+574
+00:04:29,016 --> 00:04:36,016
+If you tell the model, okay, you learn 8 small matrix, basically you tell them,
+
+575
+00:04:30,944 --> 00:04:33,944
+This is the first dimension, second dimension, third dimension.
+
+576
+00:04:31,334 --> 00:04:34,374
+How do we connect to next?
+
+577
+00:04:31,556 --> 00:04:36,756
+So no matter French words, English words, use the same weight matrix.
+
+578
+00:04:33,079 --> 00:04:40,679
+arrows point to the new hidden state. So we put into this rn and you will get, okay, we are
+
+579
+00:04:33,511 --> 00:04:38,511
+This is a value, original value, minus the mean value,
+
+580
+00:04:33,543 --> 00:04:47,543
+If you translate I, I think you don't need to too much attention on the Apple or Apple. So can we give different context CI to each state I say.
+
+581
+00:04:33,944 --> 00:04:38,944
+OK, before we talk about two queries, I think we get one question.
+
+582
+00:04:34,374 --> 00:04:36,094
+How do we connect to decoder?
+
+583
+00:04:36,016 --> 00:04:47,016
+okay, these 64 dimension learn different features from the other 64 dimensions, right?
+
+584
+00:04:36,094 --> 00:04:38,414
+Decoder means output, right.
+
+585
+00:04:36,408 --> 00:04:38,408
+Not important to us.
+
+586
+00:04:36,692 --> 00:04:49,692
+But how do you determine which part is important, you calculate the similarity, give some function, and you can't get a value, okay?
+
+587
+00:04:36,756 --> 00:04:45,756
+You'll see more vocabulary, okay, but here, the pre-softa max linear transformation,
+
+588
+00:04:37,524 --> 00:04:42,884
+if you don't have questions, feel free to leave them. See you tomorrow. Bye bye.
+
+589
+00:04:38,408 --> 00:04:41,408
+And for the decoder part, okay?
+
+590
+00:04:38,414 --> 00:04:43,134
+We think this final hidden state of the model
+
+591
+00:04:38,511 --> 00:04:42,511
+divided by the standard deviation.
+
+592
+00:04:38,944 --> 00:04:40,944
+Cool, this is a very good question.
+
+593
+00:04:40,944 --> 00:04:43,944
+Where does the key and the value come from?
+
+594
+00:04:41,000 --> 00:04:47,319
+talking about this part, this part. If you understand this part then we go to, okay, what happened to
+
+595
+00:04:41,408 --> 00:04:43,408
+Remember, you can now see the tokens.
+
+596
+00:04:42,511 --> 00:04:45,511
+It keeps the value centered and well-skilled.
+
+597
+00:04:43,134 --> 00:04:48,134
+represents the summary of the whole input sequence, okay.
+
+598
+00:04:43,408 --> 00:04:46,408
+You have not predicted.
+
+599
+00:04:43,944 --> 00:04:45,944
+I will explain it later.
+
+600
+00:04:45,511 --> 00:04:46,511
+Okay?
+
+601
+00:04:45,756 --> 00:04:48,756
+they also use the same matrix.
+
+602
+00:04:45,944 --> 00:04:49,944
+It comes from the same input.
+
+603
+00:04:46,408 --> 00:04:51,408
+And for the position, for each position,
+
+604
+00:04:46,511 --> 00:04:51,511
+We think after we minus the mean, the new value,
+
+605
+00:04:47,016 --> 00:04:55,016
+So in my understanding, okay, no proof, we give the model more instruction,
+
+606
+00:04:47,319 --> 00:04:53,800
+the first one, right? The first one just the previous hidden state is zero, very simple. And if
+
+607
+00:04:47,543 --> 00:05:04,543
+That's the question. So when you predict every French word, can we consider different context. Although these context all comes from the same English sentence, but the weight is different.
+
+608
+00:04:48,756 --> 00:04:58,156
+This is interesting, okay, so here also use this one from ID to embedding.
+
+609
+00:04:49,134 --> 00:04:53,134
+That's why we use previous hidden state
+
+610
+00:04:49,692 --> 00:05:05,692
+There's a tension, any questions? Okay, a tension is the key part of this lecture, so maybe some, I will keep some time, but I hope you can understand, okay?
+
+611
+00:04:49,944 --> 00:04:55,944
+OK, let's say the first layer is the input.
+
+612
+00:04:51,408 --> 00:04:53,408
+it is not a number anymore.
+
+613
+00:04:51,511 --> 00:04:55,511
+the mean value of the new vector is there.
+
+614
+00:04:53,134 --> 00:04:58,134
+because we think, okay, this h y contains the information
+
+615
+00:04:53,408 --> 00:04:55,408
+It is a vector.
+
+616
+00:04:53,800 --> 00:05:02,040
+you write the formula, you will get this, you add the activation function, this hidden state. It's
+
+617
+00:04:55,016 --> 00:05:01,016
+and this instruction help the model to learn things, okay, basically you tell them,
+
+618
+00:04:55,408 --> 00:04:59,408
+We don't want the values out of control.
+
+619
+00:04:55,511 --> 00:04:58,511
+And the standard deviation is white, okay?
+
+620
+00:04:55,944 --> 00:04:59,944
+In the middle of the transformer, what is the input?
+
+621
+00:04:58,134 --> 00:05:03,134
+of input x y and h 2 we constantly h y,
+
+622
+00:04:58,156 --> 00:05:01,756
+They use the same matrix.
+
+623
+00:04:58,511 --> 00:05:00,511
+We call it normalization.
+
+624
+00:04:59,408 --> 00:05:01,408
+So we do some normalization.
+
+625
+00:04:59,944 --> 00:05:03,944
+It's output of last layer.
+
+626
+00:05:00,511 --> 00:05:02,511
+One type, normalization.
+
+627
+00:05:01,016 --> 00:05:06,016
+okay, you 62 learn this feature one, you 62 learn feature two,
+
+628
+00:05:01,408 --> 00:05:04,408
+Here, we do linear normalization.
+
+629
+00:05:01,956 --> 00:05:07,756
+This is something new to me, I think, keep some information, keep the same,
+
+630
+00:05:02,040 --> 00:05:10,519
+not only affected by the input, but also affected by the previous hidden state. Both input and hidden
+
+631
+00:05:02,511 --> 00:05:03,511
+This is a sample.
+
+632
+00:05:03,134 --> 00:05:07,134
+because we include h y, the information of h y, right.
+
+633
+00:05:03,511 --> 00:05:07,511
+Suppose we have this vector, this vector,
+
+634
+00:05:03,944 --> 00:05:12,944
+You can imagine, simply imagine these input are just vectors of the tokens.
+
+635
+00:05:04,408 --> 00:05:12,408
+We normalize into a value, smaller values around the arrow.
+
+636
+00:05:04,543 --> 00:05:17,543
+The weight of each word is different. Okay, so we create all the word I say, but the weight is context.
+
+637
+00:05:05,692 --> 00:05:19,692
+A tension function is mapping a query, and a set of key value pairs to an output, where the query keys values outputs are all valid, okay?
+
+638
+00:05:06,016 --> 00:05:11,016
+but what are the feature one and the feature two, nobody knows, okay?
+
+639
+00:05:07,134 --> 00:05:10,134
+So we believe h 2, understand, okay,
+
+640
+00:05:07,511 --> 00:05:08,511
+10, 12, 40.
+
+641
+00:05:07,756 --> 00:05:10,756
+semantic meaning information.
+
+642
+00:05:08,511 --> 00:05:11,511
+We calculate the mean 12, right?
+
+643
+00:05:10,134 --> 00:05:15,134
+know something about x y, okay, and x 2.
+
+644
+00:05:10,519 --> 00:05:19,479
+state, previous hidden state have a width matrix, a parameter, okay, clear? Okay, now then we go to
+
+645
+00:05:10,756 --> 00:05:18,756
+And then you may have a positional encoding, here, plus something, something like sign,
+
+646
+00:05:11,016 --> 00:05:18,016
+So that's the idea, the idea is, okay, instead of you give one large matrix,
+
+647
+00:05:11,511 --> 00:05:14,511
+10 plus 12 plus 12.
+
+648
+00:05:12,408 --> 00:05:16,408
+Okay? Let's say, so if we still have any questions,
+
+649
+00:05:12,944 --> 00:05:22,944
+And then your times are parameter with matrix, then becomes q query, key and values.
+
+650
+00:05:14,511 --> 00:05:17,511
+You calculate the standard deviation.
+
+651
+00:05:15,495 --> 00:05:19,055
+So this final state, okay, we believe,
+
+652
+00:05:16,408 --> 00:05:20,408
+if we still have time,
+
+653
+00:05:17,511 --> 00:05:19,511
+You normalize it.
+
+654
+00:05:17,543 --> 00:05:34,543
+Okay, we even, all people even create another set of weight for S2. If we have S3, we can add another set of weight C2 to S3 into formula, right into formula is this.
+
+655
+00:05:18,016 --> 00:05:25,016
+we calculate 8 smaller matrix, let's say, okay, so now we have 8,
+
+656
+00:05:18,756 --> 00:05:22,756
+sign, cosine, positional encoding.
+
+657
+00:05:19,055 --> 00:05:22,214
+this final state, hidden state, understand,
+
+658
+00:05:19,479 --> 00:05:30,439
+today's lecture. Today's important, I think, call the first half transformer. But today I
+
+659
+00:05:19,511 --> 00:05:24,511
+You can see, becomes values around there.
+
+660
+00:05:19,692 --> 00:05:29,692
+So who is the query, who is the key, the query is the hidden state, the hidden state in the decoder, okay?
+
+661
+00:05:20,408 --> 00:05:23,408
+let me show you this.
+
+662
+00:05:22,214 --> 00:05:24,894
+or represent the whole context.
+
+663
+00:05:22,756 --> 00:05:27,156
+So why do we need the positional encoding?
+
+664
+00:05:22,944 --> 00:05:27,944
+This comes from the input, but not the same with the input.
+
+665
+00:05:23,408 --> 00:05:25,408
+Let's import this.
+
+666
+00:05:24,511 --> 00:05:28,511
+And the standard deviation is white, okay?
+
+667
+00:05:25,016 --> 00:05:30,016
+or 8, output, 8, output, what do we do?
+
+668
+00:05:25,408 --> 00:05:27,408
+Why so slow?
+
+669
+00:05:26,214 --> 00:05:31,214
+So how do we use this final hidden state?
+
+670
+00:05:27,156 --> 00:05:32,156
+Because it's self-attention, we don't know the order.
+
+671
+00:05:27,408 --> 00:05:30,408
+Okay, okay, this is for nothing.
+
+672
+00:05:27,944 --> 00:05:31,944
+It's mapped by some weight matrix.
+
+673
+00:05:28,511 --> 00:05:30,511
+Why we need this?
+
+674
+00:05:29,692 --> 00:05:42,692
+And the keys are hidden states in the encoder, you may notice this has two directions, so we ignore this, it doesn't matter, we don't teach this.
+
+675
+00:05:30,016 --> 00:05:37,016
+Okay, they simply concact the output, okay, concact the output,
+
+676
+00:05:30,408 --> 00:05:32,408
+I talk enough.
+
+677
+00:05:30,439 --> 00:05:37,479
+introduced transformer, sorry, but we introduced the next study. So remember Bp, Bp name, byte,
+
+678
+00:05:30,511 --> 00:05:32,511
+Here is a sample.
+
+679
+00:05:31,694 --> 00:05:35,615
+After I money to why, okay, we generate output already,
+
+680
+00:05:31,944 --> 00:05:34,944
+OK, what if we have many queries?
+
+681
+00:05:32,156 --> 00:05:37,156
+Because the output is weighted sub of the value, right?
+
+682
+00:05:32,408 --> 00:05:35,408
+Maybe I write, you can.
+
+683
+00:05:32,511 --> 00:05:35,511
+It's the sigmoid function, the curve.
+
+684
+00:05:34,543 --> 00:05:52,543
+The weighted sum of HG, but the parameters, the alpha, are different. If you write into the generalized formula, okay, for the ice context vector,
+
+685
+00:05:34,944 --> 00:05:38,944
+We only have one hidden state of the decoder.
+
+686
+00:05:35,408 --> 00:05:37,408
+Oh, mask.
+
+687
+00:05:35,511 --> 00:05:40,511
+When the value becomes very large, okay?
+
+688
+00:05:35,615 --> 00:05:39,855
+but now, not finished because we want to generate
+
+689
+00:05:37,016 --> 00:05:48,016
+and then project into the, project into output and for the following use, let's say,
+
+690
+00:05:37,156 --> 00:05:45,156
+You already put all the values together, no matter when you learn or when you learn the knowledge
+
+691
+00:05:37,408 --> 00:05:39,408
+Skill.Product attention.
+
+692
+00:05:37,480 --> 00:05:46,120
+player encoding, byte, sometimes now is still processed byte, if we process the unit code characters.
+
+693
+00:05:38,944 --> 00:05:42,944
+You do not predict one French token.
+
+694
+00:05:39,408 --> 00:05:41,408
+The scores, okay?
+
+695
+00:05:39,855 --> 00:05:42,334
+the whole output sequence.
+
+696
+00:05:40,511 --> 00:05:46,511
+The derivative value,
+
+697
+00:05:41,408 --> 00:05:48,408
+The scores are calculated using q times k transpose.
+
+698
+00:05:42,334 --> 00:05:45,734
+So we have a structure called decoder.
+
+699
+00:05:42,692 --> 00:05:58,692
+So the output is weighted sum of the values, so again who is the value, values also h, h, j in the hidden state of the encoder, so the output is context vector weighted sum.
+
+700
+00:05:42,944 --> 00:05:44,944
+You predict many French tokens.
+
+701
+00:05:44,944 --> 00:05:47,944
+OK, so this is a second query.
+
+702
+00:05:45,156 --> 00:05:47,156
+put together.
+
+703
+00:05:46,511 --> 00:05:49,511
+becomes there.
+
+704
+00:05:46,734 --> 00:05:51,734
+The decoder takes internal representation
+
+705
+00:05:47,156 --> 00:05:54,156
+But here, we need some time, many times, we need the order of the sequence,
+
+706
+00:05:47,319 --> 00:05:54,840
+Remember, what is the input, what is the output? The input is the original words, right? The original,
+
+707
+00:05:47,944 --> 00:05:50,944
+The second query also, same thing.
+
+708
+00:05:48,016 --> 00:05:55,016
+okay, now you are, you imagine people, okay, we have 8 matrix calculate 8 times, no,
+
+709
+00:05:48,408 --> 00:05:51,408
+You get the scores.
+
+710
+00:05:49,511 --> 00:05:51,511
+That means you know gradient.
+
+711
+00:05:50,944 --> 00:05:58,944
+You need to calculate the dot product between query second to key one, key two, key three, key four.
+
+712
+00:05:51,408 --> 00:05:54,408
+You get the scores.
+
+713
+00:05:51,511 --> 00:05:53,511
+We use back propagation.
+
+714
+00:05:51,734 --> 00:05:54,174
+and generates an output.
+
+715
+00:05:52,543 --> 00:06:12,543
+all every vector is weighted sum of hidden state HG, HG, HWF2 is RIN, okay. For each hidden state vector, we have value of it, okay, alpha G, alpha, alpha, alpha 2, alpha 3.
+
+716
+00:05:53,511 --> 00:05:57,511
+We need to calculate the gradient.
+
+717
+00:05:54,156 --> 00:05:59,156
+book, book, book, book, the sample, the bank, right?
+
+718
+00:05:54,174 --> 00:05:57,935
+Give you know, okay, decoder, the function is to generate
+
+719
+00:05:54,408 --> 00:05:58,408
+You get the weighted sum of values.
+
+720
+00:05:54,840 --> 00:06:05,400
+yeah, and the output is a set of merge rules and some tokens, okay? So we, you can see we split,
+
+721
+00:05:55,016 --> 00:06:04,016
+in the engineering part, when they write the code, they do not really calculate 8 times,
+
+722
+00:05:57,511 --> 00:06:01,511
+Oh, I think next lecture, I will explain.
+
+723
+00:05:57,935 --> 00:06:00,294
+the output tokens, right.
+
+724
+00:05:58,408 --> 00:06:00,408
+Okay?
+
+725
+00:05:58,692 --> 00:06:10,692
+How do we decide the weightage, the weight assigned to each value is computed by a compatibility function, or the query with the corresponding key?
+
+726
+00:05:58,944 --> 00:06:02,944
+You get four scores again, the score second.
+
+727
+00:05:59,156 --> 00:06:02,156
+You need to know the position, context.
+
+728
+00:06:00,294 --> 00:06:04,094
+The target tokens, but you need to have some material,
+
+729
+00:06:00,408 --> 00:06:01,408
+We return.
+
+730
+00:06:01,408 --> 00:06:03,408
+Different things.
+
+731
+00:06:01,511 --> 00:06:04,511
+I will explain a little about the adam.
+
+732
+00:06:02,156 --> 00:06:09,156
+So each token embedding is augmented with a position dependent vector,
+
+733
+00:06:02,944 --> 00:06:06,944
+The second score, one second score, two second score three.
+
+734
+00:06:03,408 --> 00:06:06,408
+Some parameter called mask.
+
+735
+00:06:04,016 --> 00:06:12,016
+they still use one large matrix, after they finish the calculation,
+
+736
+00:06:04,094 --> 00:06:07,254
+let the decoder to digest.
+
+737
+00:06:04,511 --> 00:06:05,511
+I'll optimize it.
+
+738
+00:06:05,399 --> 00:06:12,679
+okay, some sub words into sub words. And by handling these sub words, we may process,
+
+739
+00:06:05,511 --> 00:06:07,511
+You know the back propagation.
+
+740
+00:06:06,408 --> 00:06:12,408
+Mask positions are filled with very large negative values.
+
+741
+00:06:06,944 --> 00:06:10,944
+And you're right into the matrix format.
+
+742
+00:06:07,254 --> 00:06:12,254
+Okay, what other material is the internal representation?
+
+743
+00:06:07,511 --> 00:06:09,511
+You need to calculate the gradient.
+
+744
+00:06:09,156 --> 00:06:14,156
+position dependent, that means, okay, for each position, position,
+
+745
+00:06:09,511 --> 00:06:12,511
+When you update in your network,
+
+746
+00:06:10,692 --> 00:06:25,692
+So what is a compatibility function, this is a compatibility function, you find some way calculate the relationship between these two vectors, between query and the key, it is okay?
+
+747
+00:06:10,944 --> 00:06:13,944
+This, the q is vector here.
+
+748
+00:06:12,016 --> 00:06:24,016
+they simply split this into smaller matrix and put the values into the relative positions.
+
+749
+00:06:12,408 --> 00:06:16,408
+When you have a very large negative value,
+
+750
+00:06:12,511 --> 00:06:16,511
+you update the weight.
+
+751
+00:06:12,543 --> 00:06:32,543
+But for context I, for the ice context, so we have another index here. So this value is alpha, IG. Okay, we don't need to go into this detail actually, but question comes. How to determine this, right, alpha, alpha G?
+
+752
+00:06:12,614 --> 00:06:16,694
+Yeah, this final hidden state, we think it knows
+
+753
+00:06:13,560 --> 00:06:19,159
+get, first, get more information, the second, you can handle some odd of what capability
+
+754
+00:06:13,944 --> 00:06:15,944
+Query one, query two.
+
+755
+00:06:14,156 --> 00:06:17,156
+some of the index, right?
+
+756
+00:06:15,944 --> 00:06:20,944
+And here is the transpose of key.
+
+757
+00:06:16,408 --> 00:06:27,408
+stop the max output almost 0.
+
+758
+00:06:16,511 --> 00:06:18,511
+The weights.
+
+759
+00:06:16,694 --> 00:06:19,734
+all the whole context, the whole input,
+
+760
+00:06:17,156 --> 00:06:19,156
+They're a 1, 2, 3, 4, 5.
+
+761
+00:06:18,511 --> 00:06:21,511
+You use weights equals to all weights.
+
+762
+00:06:19,156 --> 00:06:28,156
+So this position, transfer this position into a vector, a vector, and plus,
+
+763
+00:06:19,159 --> 00:06:26,599
+will, and some words you don't know, you can handle sub word. Okay, input is a word, so we,
+
+764
+00:06:19,734 --> 00:06:21,694
+the way put this information,
+
+765
+00:06:20,944 --> 00:06:25,944
+So you will get q1, q2, key three, key four.
+
+766
+00:06:21,511 --> 00:06:25,511
+Minus, linear rate, times graded.
+
+767
+00:06:21,694 --> 00:06:25,294
+and the initial hidden state.
+
+768
+00:06:24,016 --> 00:06:30,016
+So this is, just, I just mentioned this, okay, if you are interested, you can read the code,
+
+769
+00:06:25,294 --> 00:06:28,894
+And you can see this decoder also R and, right.
+
+770
+00:06:25,511 --> 00:06:28,511
+If the gradient is zero,
+
+771
+00:06:25,692 --> 00:06:37,692
+So why is an item called additive attention, but here it's called skilled dot product attention, okay?
+
+772
+00:06:25,944 --> 00:06:38,944
+That means k dot product between q1 dot product, between q1 and q1, between q1, q2, q1, q3, you get the first line.
+
+773
+00:06:27,400 --> 00:06:36,680
+first of all, we split into characters, a tool, important data structure. One is vocabulary,
+
+774
+00:06:27,408 --> 00:06:33,408
+This prevents the model from attending to mask positions.
+
+775
+00:06:28,156 --> 00:06:31,156
+added to the token embedding.
+
+776
+00:06:28,511 --> 00:06:31,511
+the weight does not change anymore.
+
+777
+00:06:30,016 --> 00:06:39,016
+so people are really, really smart, really smart, so they don't need to create 8 different matrix,
+
+778
+00:06:30,894 --> 00:06:35,774
+Decoder also R and, but something different, okay.
+
+779
+00:06:31,156 --> 00:06:39,156
+So each token, not only how the token embedding itself, but also how the position,
+
+780
+00:06:31,511 --> 00:06:34,511
+So you cannot learn using the neural network.
+
+781
+00:06:32,543 --> 00:06:43,543
+You ask yourself, what do we have, how do we determine this value, what do we have? Actually we only have this hidden state, right.
+
+782
+00:06:33,408 --> 00:06:37,408
+This function to not this attention.
+
+783
+00:06:34,511 --> 00:06:36,511
+You cannot learn using it.
+
+784
+00:06:35,774 --> 00:06:40,774
+The first, but in code, we know every input, right.
+
+785
+00:06:36,511 --> 00:06:39,511
+So if the input is too large or too small,
+
+786
+00:06:36,680 --> 00:06:43,720
+you'll know which word, everyone, each word, and the frequency. And then the second is your
+
+787
+00:06:37,408 --> 00:06:43,408
+You create some random keys, values, and queries.
+
+788
+00:06:37,692 --> 00:06:51,692
+We ignore skilled first, so it's dot product attention, that means, okay, we use dot product to calculate the relationship between query and key, okay?
+
+789
+00:06:38,944 --> 00:06:45,944
+And dot product between q2 and all keys, you get the second row.
+
+790
+00:06:39,016 --> 00:06:44,016
+they still using one large matrix and can do all the calculations,
+
+791
+00:06:39,156 --> 00:06:41,156
+okay, the position.
+
+792
+00:06:39,511 --> 00:06:43,511
+the gradient becomes close to a neural network,
+
+793
+00:06:40,854 --> 00:06:43,214
+But decoder, what is the input?
+
+794
+00:06:41,156 --> 00:06:44,156
+So each position is represented by a vector, okay?
+
+795
+00:06:43,214 --> 00:06:46,134
+We don't know, we don't know the target centers,
+
+796
+00:06:43,408 --> 00:06:46,408
+This encoder decoder attention,
+
+797
+00:06:43,511 --> 00:06:46,511
+it makes the learning very slow stop learning.
+
+798
+00:06:43,720 --> 00:06:51,480
+count, the frequencies of background, player, statistic, and then you'll merge the most
+
+799
+00:06:44,016 --> 00:06:50,016
+that's the beauty of programming, but to me it is amazing, okay,
+
+800
+00:06:44,156 --> 00:06:47,156
+Not just a single number.
+
+801
+00:06:44,543 --> 00:06:57,543
+Now we want to determine this alpha values for hidden state S1, but we only have the value of S1 and all the hidden state.
+
+802
+00:06:45,944 --> 00:06:50,944
+And then you'll write the output.
+
+803
+00:06:46,134 --> 00:06:48,534
+we need to predict the target centers.
+
+804
+00:06:46,408 --> 00:06:49,408
+that means we did that input mask.
+
+805
+00:06:46,511 --> 00:06:50,511
+And also, if the model is very deep,
+
+806
+00:06:47,156 --> 00:06:52,156
+And then there's many people confused, apart, okay?
+
+807
+00:06:48,534 --> 00:06:50,894
+Okay, so people, you know what,
+
+808
+00:06:49,408 --> 00:06:52,408
+We did that even though the mask is not.
+
+809
+00:06:50,016 --> 00:06:55,016
+so we continue the multi-head attention, this is not important, just let you know.
+
+810
+00:06:50,511 --> 00:06:54,511
+the values are repeated, they transform the multiply.
+
+811
+00:06:50,894 --> 00:06:52,774
+this first token, okay, we will,
+
+812
+00:06:50,944 --> 00:06:57,944
+You calculate the output before the alpha is vector, but now it is a matrix.
+
+813
+00:06:51,560 --> 00:06:58,520
+frequently, up here, the way. How do you merge it? Okay, previous you have the vocabulary,
+
+814
+00:06:51,692 --> 00:06:53,692
+Clear?
+
+815
+00:06:52,156 --> 00:06:59,156
+Sign, very long formula, cosine, very long formula, but actually, quite simple, okay?
+
+816
+00:06:52,408 --> 00:06:57,408
+But here we generate some mask, Carol, Carol mask.
+
+817
+00:06:52,774 --> 00:06:54,974
+we will give you the first token,
+
+818
+00:06:53,692 --> 00:07:09,692
+Oh, too many other ones to repeat again, but it's not for query and assigned key value pairs to an output, output is computed as a weighted sum of the values, okay?
+
+819
+00:06:54,511 --> 00:06:57,511
+So they may explode and make vanish.
+
+820
+00:06:54,974 --> 00:06:58,814
+the token began off sequence input,
+
+821
+00:06:55,016 --> 00:07:03,016
+So multi-head attention allows the model to jointly attend to information from different respect,
+
+822
+00:06:57,408 --> 00:06:59,408
+Something like this.
+
+823
+00:06:57,511 --> 00:07:00,511
+So that's why normalization.
+
+824
+00:06:57,543 --> 00:07:22,543
+So very naturally we think we concerned the relationship, okay, concerned the relationship between this hidden state and each hidden state S, this S hidden state is hidden states from decoder, okay, the H is also hidden state, so the hidden state from encoder, okay.
+
+825
+00:06:57,944 --> 00:06:59,944
+Because we have two queries.
+
+826
+00:06:58,520 --> 00:07:05,080
+right? The vocabulary is L, O, okay, white space, W, and the frequency is five,
+
+827
+00:06:58,814 --> 00:07:01,774
+you can generate the first hidden state, okay.
+
+828
+00:06:59,156 --> 00:07:06,156
+No, the mathematical principle, design, and not simple, if we understand,
+
+829
+00:06:59,408 --> 00:07:03,408
+It true for the cannot see, okay?
+
+830
+00:06:59,944 --> 00:07:05,944
+So we simply write in this way, query each row is a sample.
+
+831
+00:07:00,511 --> 00:07:04,511
+Okay, but what I said just normalize a vector
+
+832
+00:07:01,774 --> 00:07:05,654
+The first hidden state, not only rely on
+
+833
+00:07:03,016 --> 00:07:13,016
+respect, representation, subs with it, I also put in language, okay, different type of features,
+
+834
+00:07:03,408 --> 00:07:08,408
+For the first item, you cannot see the future.
+
+835
+00:07:04,511 --> 00:07:07,511
+when you have batch data,
+
+836
+00:07:05,654 --> 00:07:07,414
+begun off sequence nothing, right.
+
+837
+00:07:05,944 --> 00:07:10,944
+Key each row is a key, but here I have transpose.
+
+838
+00:07:06,156 --> 00:07:09,156
+we use it, it's quite simple.
+
+839
+00:07:06,280 --> 00:07:15,000
+and then your merge L, O, and W, to L, O, W, and update the vocabulary, okay? Now you have a
+
+840
+00:07:07,414 --> 00:07:09,094
+This token has no meaning,
+
+841
+00:07:07,511 --> 00:07:10,511
+when you have a batch the sequence data,
+
+842
+00:07:08,408 --> 00:07:12,408
+For the second item, you can see the previous one.
+
+843
+00:07:09,094 --> 00:07:14,094
+but also affected by the internal representation.
+
+844
+00:07:09,156 --> 00:07:16,156
+For each token position, the transformer creates a vector, okay?
+
+845
+00:07:09,692 --> 00:07:24,692
+Okay, these values, so here is the weight, okay? The weight is computed by a compatibility function of the query with the corresponding key query corresponding key, okay?
+
+846
+00:07:10,511 --> 00:07:12,511
+what do you do?
+
+847
+00:07:10,944 --> 00:07:12,944
+Go through software max.
+
+848
+00:07:12,408 --> 00:07:16,408
+You cannot see the future.
+
+849
+00:07:12,511 --> 00:07:15,511
+When you process a batch of images,
+
+850
+00:07:12,944 --> 00:07:14,944
+Software max alpha matrix.
+
+851
+00:07:13,016 --> 00:07:21,016
+but nobody knows what are these features, so if you use a single attention,
+
+852
+00:07:14,174 --> 00:07:19,174
+Okay, we believe this, then we get the very rich information
+
+853
+00:07:14,944 --> 00:07:16,944
+We do it row by row.
+
+854
+00:07:15,000 --> 00:07:21,480
+new vocabulary, and then your count, the frequencies of background, okay? And you'll merge the
+
+855
+00:07:15,511 --> 00:07:18,511
+what do you do?
+
+856
+00:07:16,156 --> 00:07:21,156
+So now you need to understand, for each position, each index,
+
+857
+00:07:16,408 --> 00:07:18,408
+Okay?
+
+858
+00:07:16,944 --> 00:07:19,944
+So that's not a fact.
+
+859
+00:07:18,408 --> 00:07:20,408
+So no mask.
+
+860
+00:07:18,511 --> 00:07:20,511
+This will not test this,
+
+861
+00:07:19,614 --> 00:07:24,334
+from here, and then we generate the first output.
+
+862
+00:07:19,944 --> 00:07:23,944
+You can say with one only one vector.
+
+863
+00:07:20,408 --> 00:07:23,408
+You can see we call this function no mask.
+
+864
+00:07:20,511 --> 00:07:23,511
+but it's something you can read,
+
+865
+00:07:21,016 --> 00:07:26,016
+maybe the model cannot know, cannot know, okay, I need to learn different features,
+
+866
+00:07:21,156 --> 00:07:27,156
+0, 1, 2, 3, 4, it's not a number, it is a vector.
+
+867
+00:07:21,480 --> 00:07:27,959
+most frequently, up here, the way. So basically, you repeat two, one, three, until some threshold is
+
+868
+00:07:22,543 --> 00:07:44,543
+So we want to calculate the, I want to determine a parameters of this alpha, IG, we only have hidden state from decoder ice and hidden states from encoder HY2, which is, so we have different methods, okay.
+
+869
+00:07:23,408 --> 00:07:25,408
+Or have some values.
+
+870
+00:07:23,511 --> 00:07:26,511
+very interesting.
+
+871
+00:07:23,944 --> 00:07:31,944
+After map all the values into the values between zero and one, that means the probability.
+
+872
+00:07:24,334 --> 00:07:27,014
+That means the first French word,
+
+873
+00:07:24,692 --> 00:07:33,692
+Although a little bit something more skilled, dy by something, and you need to go through software.
+
+874
+00:07:25,408 --> 00:07:27,408
+The values are fake.
+
+875
+00:07:26,016 --> 00:07:36,016
+and they learn everything, one single matrix, so they say this diversity is lost due to average.
+
+876
+00:07:26,511 --> 00:07:30,511
+And what is user?
+
+877
+00:07:27,014 --> 00:07:31,494
+the first French word, and then, what's next?
+
+878
+00:07:27,156 --> 00:07:32,156
+It has the same dimension with the token embedding.
+
+879
+00:07:27,408 --> 00:07:29,408
+So don't need to take care of it.
+
+880
+00:07:27,959 --> 00:07:37,160
+achieved, okay? So this BPE solve one thing, you solve the, given, we are not simply given
+
+881
+00:07:29,408 --> 00:07:31,408
+This is a larger value.
+
+882
+00:07:30,511 --> 00:07:33,511
+How to apply this?
+
+883
+00:07:31,408 --> 00:07:38,408
+But if you apply the mask, this is Carol.
+
+884
+00:07:31,494 --> 00:07:33,814
+Then you may see a lot of this dash,
+
+885
+00:07:32,156 --> 00:07:35,156
+So they need to add them, add them together.
+
+886
+00:07:32,944 --> 00:07:34,944
+You calculate the weighted sum.
+
+887
+00:07:33,511 --> 00:07:36,511
+Some most of the time,
+
+888
+00:07:33,692 --> 00:07:43,692
+So we will use this sample, we use this sample to explain dot product attention, okay?
+
+889
+00:07:33,814 --> 00:07:36,254
+the line thing in pre-pressed, okay.
+
+890
+00:07:34,944 --> 00:07:40,944
+Here you get different weights to different queries.
+
+891
+00:07:35,156 --> 00:07:43,156
+And okay, how do you transfer this 0, 1, 2, 3, 4 into a 512,
+
+892
+00:07:36,016 --> 00:07:42,016
+You know, people, the last of the people, they give some samples, okay,
+
+893
+00:07:36,254 --> 00:07:39,014
+This means, okay, the output,
+
+894
+00:07:36,511 --> 00:07:39,511
+you use the open source code.
+
+895
+00:07:37,960 --> 00:07:46,840
+each word, IID, but we want it into sub words, we get to tokens, okay? We get tokens. And what to
+
+896
+00:07:38,408 --> 00:07:42,408
+So if the mask is not now, it scores.
+
+897
+00:07:39,014 --> 00:07:44,014
+our decoder, as the input, our next step.
+
+898
+00:07:39,511 --> 00:07:42,511
+People already use this for you.
+
+899
+00:07:40,944 --> 00:07:42,944
+And you get the output.
+
+900
+00:07:42,016 --> 00:07:47,016
+from two different heads, from the encoder, self attention, okay,
+
+901
+00:07:42,408 --> 00:07:44,408
+So no matter the calculator,
+
+902
+00:07:42,511 --> 00:07:44,511
+Use linear norm, write transform,
+
+903
+00:07:42,944 --> 00:07:44,944
+So it is attention.
+
+904
+00:07:43,156 --> 00:07:46,156
+that dimension vector?
+
+905
+00:07:43,692 --> 00:07:57,692
+Then a query, the model compares with all keys, right? You first you need to compute the weights using a compatibility function, right?
+
+906
+00:07:44,408 --> 00:07:47,408
+because this matrix calculation,
+
+907
+00:07:44,511 --> 00:07:47,511
+why do they use linear norm?
+
+908
+00:07:44,543 --> 00:08:04,543
+One of the methods we summed up, we just added them, so very straightforward, okay. Sometimes they have different dimensions, so we, times weight matrix, weight matrix to map to same dimension, and also of course add some information, we add them, okay.
+
+909
+00:07:44,694 --> 00:07:47,014
+That means, okay, we support,
+
+910
+00:07:44,944 --> 00:07:47,944
+Why there is a scale?
+
+911
+00:07:46,156 --> 00:07:50,156
+The also, no more mathematics, that's it, right?
+
+912
+00:07:46,840 --> 00:07:54,760
+work, solve another problem, okay? Given each word, embedding, okay? This embedding is not simple,
+
+913
+00:07:47,014 --> 00:07:51,495
+although this token, the first French word is predicted,
+
+914
+00:07:47,016 --> 00:07:58,016
+and has learned different tasks, okay, some see the right line, it's more close, okay,
+
+915
+00:07:47,408 --> 00:07:49,408
+all the values are there.
+
+916
+00:07:47,511 --> 00:07:50,511
+Why they don't use batch norm?
+
+917
+00:07:47,944 --> 00:07:50,944
+DK is dimension or key set values.
+
+918
+00:07:49,408 --> 00:07:53,408
+And they feel negative, okay?
+
+919
+00:07:50,156 --> 00:07:54,156
+So they start thinking, okay?
+
+920
+00:07:50,511 --> 00:07:54,511
+So you can only understand after you know all these,
+
+921
+00:07:50,944 --> 00:07:54,944
+This is some concept of normalization.
+
+922
+00:07:51,495 --> 00:07:54,534
+but we believe, okay, this is the input,
+
+923
+00:07:53,408 --> 00:07:55,408
+Negative mask.
+
+924
+00:07:54,156 --> 00:08:00,156
+For each i, the i means from 0 to 5,
+
+925
+00:07:54,511 --> 00:08:02,511
+how do they operate the instance samples?
+
+926
+00:07:54,534 --> 00:07:56,735
+and this is the data we have, right.
+
+927
+00:07:55,408 --> 00:07:58,408
+A very large negative value.
+
+928
+00:07:55,480 --> 00:08:04,520
+not random given, it has some semantic meanings, semantic meanings means, if you use cosine
+
+929
+00:07:55,944 --> 00:08:01,944
+But not the strict people prove it using mathematics.
+
+930
+00:07:56,735 --> 00:08:01,735
+So this data, we need to be input into this neural network,
+
+931
+00:07:57,692 --> 00:08:06,692
+To compute the weights, different weights of different keys, query and different keys, okay?
+
+932
+00:07:58,016 --> 00:08:05,016
+the local context, but the green lines a little bit, like the large context,
+
+933
+00:07:58,408 --> 00:08:00,408
+Always negative mask.
+
+934
+00:08:00,156 --> 00:08:06,156
+111, 511, dimension of the embedding vector.
+
+935
+00:08:00,408 --> 00:08:04,408
+Because here is, for easy for us to understand, right?
+
+936
+00:08:01,944 --> 00:08:05,944
+Just an experience.
+
+937
+00:08:02,511 --> 00:08:05,511
+Just let you know.
+
+938
+00:08:04,214 --> 00:08:05,214
+okay.
+
+939
+00:08:04,408 --> 00:08:05,408
+You can see here.
+
+940
+00:08:04,519 --> 00:08:13,479
+similarity to test the similarity, like, happy and glad, you will get quite high score.
+
+941
+00:08:04,543 --> 00:08:24,543
+So you want additive attention, that's it, attention, okay, let me repeat, now we want to give the hidden state in decoder, every hidden state in decoder, give them different context, okay.
+
+942
+00:08:05,016 --> 00:08:10,016
+the long distance, so the different head, learn different information, you know.
+
+943
+00:08:05,214 --> 00:08:10,214
+So the second input is YY, YY,
+
+944
+00:08:05,408 --> 00:08:09,408
+You can see yourself and the previous one.
+
+945
+00:08:05,511 --> 00:08:09,511
+Remember this quantum wise fully connected
+
+946
+00:08:05,944 --> 00:08:10,944
+So large value of DK affects the performance of dot production.
+
+947
+00:08:06,156 --> 00:08:13,156
+So each dimension of the position, no embedding is defined as this.
+
+948
+00:08:06,692 --> 00:08:18,692
+Now we have a query, we have four keys here, so we want some method to generate four scores, okay? Because query need to, okay?
+
+949
+00:08:09,408 --> 00:08:11,408
+And then you apply the negative.
+
+950
+00:08:09,511 --> 00:08:12,511
+if you forward neural network.
+
+951
+00:08:10,016 --> 00:08:17,016
+So multi-head attention is just the same with self attention, okay,
+
+952
+00:08:10,944 --> 00:08:18,944
+The value may become very large with large values of DK.
+
+953
+00:08:10,974 --> 00:08:14,454
+and we generate hidden state as two, okay.
+
+954
+00:08:11,408 --> 00:08:13,408
+This becomes true.
+
+955
+00:08:12,511 --> 00:08:16,511
+It is a field forward neural network.
+
+956
+00:08:13,156 --> 00:08:19,156
+Okay, so this is a number, this is a number.
+
+957
+00:08:13,408 --> 00:08:15,408
+This becomes true.
+
+958
+00:08:14,199 --> 00:08:23,560
+So how do we get this embedding? Given our set of words, of course, our sentences,
+
+959
+00:08:14,454 --> 00:08:19,454
+As two, again, the hidden state is not only affected
+
+960
+00:08:15,408 --> 00:08:23,408
+Means this position is replaced by a negative e to the power of 9.
+
+961
+00:08:16,511 --> 00:08:19,511
+Different, a little bit different.
+
+962
+00:08:17,016 --> 00:08:23,016
+but it's another level, the level is we ask different attention heads,
+
+963
+00:08:18,692 --> 00:08:36,692
+So how similar we are or how far, how distant, what's the distance, anything, okay? We have four numbers, so here we use dot product, dot product is not new to you, when we started the co-size similarity, we introduced this, okay?
+
+964
+00:08:18,944 --> 00:08:21,944
+So they suspect the authors.
+
+965
+00:08:19,156 --> 00:08:27,156
+The function is to calculate the different dimensions of the positional vector.
+
+966
+00:08:19,511 --> 00:08:24,511
+It applied to each position separately,
+
+967
+00:08:20,254 --> 00:08:23,174
+by the input YY, okay.
+
+968
+00:08:22,944 --> 00:08:25,944
+Very experienced researchers.
+
+969
+00:08:23,016 --> 00:08:30,016
+we call it head, to learn different features, okay, different meaning, that's it, okay,
+
+970
+00:08:23,174 --> 00:08:27,654
+So that means, okay, I want to translate this English,
+
+971
+00:08:23,408 --> 00:08:25,408
+That's a very large negative value.
+
+972
+00:08:24,279 --> 00:08:33,559
+the one of us, encoded by one hot, you get one hot vector, and you get, after you,
+
+973
+00:08:24,511 --> 00:08:26,511
+identically.
+
+974
+00:08:24,543 --> 00:08:50,543
+That means when you translate, when you predict every French word, you want to focus on different parts of the English sentence, okay. Sometimes we focus on ice, sometimes we focus on eat, how do we give this different weight or a ton to different parts of the sentence, okay.
+
+975
+00:08:25,408 --> 00:08:27,408
+Let's see.
+
+976
+00:08:25,944 --> 00:08:35,945
+They suspect this large values will push the software max function into regions where the gradients are small.
+
+977
+00:08:26,511 --> 00:08:31,511
+Remember the input is a sequence of data.
+
+978
+00:08:27,408 --> 00:08:31,408
+After software max, almost there, almost there and then all this.
+
+979
+00:08:27,654 --> 00:08:28,814
+okay, let me repeat that.
+
+980
+00:08:28,156 --> 00:08:33,155
+So position here is a number, it is fixed already, okay?
+
+981
+00:08:28,814 --> 00:08:31,894
+I want to translate this English sentence into French,
+
+982
+00:08:30,016 --> 00:08:39,015
+that's the attention path, and then we go to encoder, encoder means a little bit higher level attention is some formula,
+
+983
+00:08:31,408 --> 00:08:34,408
+It's not your head attention.
+
+984
+00:08:31,511 --> 00:08:34,510
+All the tokens in this sequence
+
+985
+00:08:31,894 --> 00:08:34,894
+okay, I want to translate this English sentence.
+
+986
+00:08:33,155 --> 00:08:40,156
+They just use this formula to calculate the variable dimension
+
+987
+00:08:34,408 --> 00:08:41,408
+Then I want to show you this positional encoding.
+
+988
+00:08:34,510 --> 00:08:37,510
+are input to the network.
+
+989
+00:08:34,894 --> 00:08:38,495
+After I know the first French word, okay, I guess,
+
+990
+00:08:35,000 --> 00:08:44,840
+multiply away matrix, you map this one hot vector into a lower dimensional dance vector,
+
+991
+00:08:35,945 --> 00:08:43,945
+So they scale the dot products by the square root of DK.
+
+992
+00:08:36,692 --> 00:08:46,692
+So basically item wise, multiplication and sum number, okay?
+
+993
+00:08:37,510 --> 00:08:42,510
+And all the tokens times this field forward neural network,
+
+994
+00:08:38,495 --> 00:08:42,814
+I can start, guess, based on the English sentence,
+
+995
+00:08:39,015 --> 00:08:47,015
+this one in one box, now this encoder is part of the picture, each layer has two sub layers,
+
+996
+00:08:40,156 --> 00:08:45,156
+out of the 512 dimension for position 0, okay?
+
+997
+00:08:41,408 --> 00:08:46,408
+Because sometimes you'll see this image difficult to understand.
+
+998
+00:08:42,510 --> 00:08:45,510
+same field forward neural network,
+
+999
+00:08:42,814 --> 00:08:47,814
+okay, now this S0 represents the whole English sentence,
+
+1000
+00:08:43,945 --> 00:08:47,945
+So basically, this value is too large.
+
+1001
+00:08:45,156 --> 00:08:50,156
+And the first dimension, they use this formula.
+
+1002
+00:08:45,510 --> 00:08:48,510
+identically and separately.
+
+1003
+00:08:45,720 --> 00:08:52,919
+and then you map, okay? You use another way matrix map to a higher dimension, and then you predict
+
+1004
+00:08:46,408 --> 00:08:49,408
+Yeah, I've read this.
+
+1005
+00:08:46,692 --> 00:08:58,692
+So we think if higher dot product values, this relevant speed to a query and key is stronger, okay?
+
+1006
+00:08:47,015 --> 00:08:55,015
+so this copy from the people, okay, first is the multi-head self attention mechanism,
+
+1007
+00:08:47,814 --> 00:08:53,294
+and the first French word, we guess the second French word,
+
+1008
+00:08:47,945 --> 00:08:50,945
+We may affect the learning procedure.
+
+1009
+00:08:48,510 --> 00:08:52,510
+Let's say, so that means the linear transformations
+
+1010
+00:08:49,408 --> 00:08:53,408
+Run means because after you calculate the numbers,
+
+1011
+00:08:50,156 --> 00:08:55,156
+And the second dimension, they use this formula, okay?
+
+1012
+00:08:50,543 --> 00:09:06,543
+We need to give different weightage to different hidden states HY2, which is three. The question is how do we determine the value of this weightage, okay.
+
+1013
+00:08:50,945 --> 00:08:53,945
+So they divide it by something.
+
+1014
+00:08:52,510 --> 00:08:56,510
+are the same across different positions.
+
+1015
+00:08:52,919 --> 00:09:00,120
+the word ID, and you calculate the loss, okay? Once you have the loss, you can update the parameter,
+
+1016
+00:08:53,294 --> 00:08:54,294
+okay.
+
+1017
+00:08:53,408 --> 00:08:56,408
+you have a long decimal number.
+
+1018
+00:08:53,945 --> 00:08:54,945
+By something.
+
+1019
+00:08:54,294 --> 00:08:57,495
+After we have the second French word,
+
+1020
+00:08:54,945 --> 00:09:02,945
+Of course, this parameter is not a hard code number, but it is related to the data.
+
+1021
+00:08:55,015 --> 00:09:01,015
+so after this course, I hope when you hear this multi-head self attention,
+
+1022
+00:08:55,156 --> 00:08:59,156
+And the third dimension, they use this formula, okay?
+
+1023
+00:08:56,408 --> 00:08:59,408
+So around to four.
+
+1024
+00:08:56,510 --> 00:08:59,510
+So for position wise,
+
+1025
+00:08:57,495 --> 00:08:59,694
+we have the whole English sentence,
+
+1026
+00:08:58,692 --> 00:09:09,692
+And now, so this concept is easier, and now we want to answer the question, okay, what does this two matrix mean?
+
+1027
+00:08:59,156 --> 00:09:06,156
+Later we show if we have time, we show this is difficult to easily to confuse,
+
+1028
+00:08:59,408 --> 00:09:04,408
+So the position is a total of 16.
+
+1029
+00:08:59,510 --> 00:09:02,510
+fully connected, fully connected,
+
+1030
+00:08:59,854 --> 00:09:02,574
+then we guess the third one, okay, it's a result.
+
+1031
+00:09:01,015 --> 00:09:08,015
+you are very confident, you know, you can see, I know where every detail of this attention, okay,
+
+1032
+00:09:01,080 --> 00:09:09,799
+you, after you train the model, okay? We take this vector as the word vector of every word,
+
+1033
+00:09:02,510 --> 00:09:04,510
+it's not sparse,
+
+1034
+00:09:02,574 --> 00:09:05,454
+So that's the input, that's the input.
+
+1035
+00:09:02,945 --> 00:09:08,945
+So it may increase or help the learning procedure.
+
+1036
+00:09:04,408 --> 00:09:08,408
+But the dimension of each position is a vector.
+
+1037
+00:09:04,510 --> 00:09:07,510
+and do not have the drop-hot thing.
+
+1038
+00:09:05,454 --> 00:09:10,454
+And then we have, we calculate the second hidden state,
+
+1039
+00:09:06,156 --> 00:09:10,156
+actually not difficult to understand, because some people, many people,
+
+1040
+00:09:06,543 --> 00:09:26,543
+When we only have hidden state and these values, so some vector operation comes in the first simple wise, which simply sum, sum them, sum them, and go to what activity function transfer into a value, okay.
+
+1041
+00:09:07,510 --> 00:09:09,510
+Of course,
+
+1042
+00:09:08,015 --> 00:09:15,015
+then the second is the position wise fully connected to FIFA on your network,
+
+1043
+00:09:08,408 --> 00:09:11,408
+The dimension of the vector is eight.
+
+1044
+00:09:08,945 --> 00:09:12,945
+We have a family short break.
+
+1045
+00:09:09,510 --> 00:09:11,510
+a layer to layer different parameters.
+
+1046
+00:09:09,692 --> 00:09:23,692
+Because it's easy to understand, you calculate a vector to vector, you get a number, but when they write into matrix, it looks like a lot, difficult, actually, okay?
+
+1047
+00:09:10,156 --> 00:09:14,156
+I mean, you also see this or what they, this, right?
+
+1048
+00:09:10,774 --> 00:09:14,174
+okay, similar as the second hidden state is not only affected
+
+1049
+00:09:11,320 --> 00:09:21,799
+we have two model structures, this picture shows skip graph, okay? That means from target word,
+
+1050
+00:09:11,408 --> 00:09:16,408
+You see, you first create a more space.
+
+1051
+00:09:11,510 --> 00:09:13,510
+So what is this?
+
+1052
+00:09:12,945 --> 00:09:15,945
+So attention is important.
+
+1053
+00:09:13,510 --> 00:09:16,510
+Max, Dero,
+
+1054
+00:09:14,156 --> 00:09:17,156
+So actually it's quite simple.
+
+1055
+00:09:14,174 --> 00:09:17,894
+by YY and the input, but also affected
+
+1056
+00:09:15,015 --> 00:09:21,015
+okay, this is very very long confusing name, which is just a feed forward neural network,
+
+1057
+00:09:15,945 --> 00:09:19,945
+Sorry, I talk a little bit more.
+
+1058
+00:09:16,408 --> 00:09:17,408
+Oh my god.
+
+1059
+00:09:16,510 --> 00:09:18,510
+or X,
+
+1060
+00:09:17,408 --> 00:09:22,408
+And then apply the complex formula.
+
+1061
+00:09:17,894 --> 00:09:20,774
+by the previous hidden state.
+
+1062
+00:09:18,156 --> 00:09:24,156
+So position meets the first English one, second English one,
+
+1063
+00:09:18,510 --> 00:09:21,510
+have a linear projection timespiles.
+
+1064
+00:09:19,945 --> 00:09:23,945
+We come back at 9.58.
+
+1065
+00:09:20,774 --> 00:09:25,774
+But people think, if this sequence is too long,
+
+1066
+00:09:21,015 --> 00:09:27,015
+okay, feed forward neural network, I will explain it later, I residual connection,
+
+1067
+00:09:21,510 --> 00:09:23,510
+What's this?
+
+1068
+00:09:21,799 --> 00:09:33,240
+to context word, content news, bag of words, input, context, words, and output, target what?
+
+1069
+00:09:22,408 --> 00:09:23,408
+So I can see.
+
+1070
+00:09:23,408 --> 00:09:25,408
+And I hope you understand.
+
+1071
+00:09:23,510 --> 00:09:28,510
+For those values less than Dero becomes Dero.
+
+1072
+00:09:23,692 --> 00:09:35,692
+So now you can see we have one query, right? Query is a vector, vector has three items, there's three numbers, okay? One, two, three, I just numbers, okay?
+
+1073
+00:09:23,945 --> 00:09:27,945
+Any questions you can ask.
+
+1074
+00:09:24,156 --> 00:09:28,156
+so for each position, it is a vector.
+
+1075
+00:09:25,408 --> 00:09:31,408
+You remember the Python I teach you from there to the end.
+
+1076
+00:09:26,543 --> 00:09:40,543
+This additive attention, but transformer is different, so I talked to so many things, I'll introduce attention, now basically you have the idea what this, what does attention do, okay.
+
+1077
+00:09:26,774 --> 00:09:30,534
+we may forget, important, you know,
+
+1078
+00:09:27,015 --> 00:09:34,015
+after you learn the computer vision module, I hope you know what is residual connection,
+
+1079
+00:09:27,945 --> 00:09:32,945
+I think it takes some time.
+
+1080
+00:09:28,156 --> 00:09:35,156
+It is a vector, you need to calculate every dimension of the vector,
+
+1081
+00:09:28,510 --> 00:09:30,510
+It is greater than Dero.
+
+1082
+00:09:30,510 --> 00:09:32,510
+It is itself.
+
+1083
+00:09:30,534 --> 00:09:32,814
+all the information comes from what comes
+
+1084
+00:09:31,408 --> 00:09:33,408
+Step size is two.
+
+1085
+00:09:32,510 --> 00:09:34,510
+It's an activation function.
+
+1086
+00:09:32,814 --> 00:09:35,534
+from the English sentence, the input.
+
+1087
+00:09:32,945 --> 00:09:38,945
+Are you supposed to submit something proposal?
+
+1088
+00:09:33,408 --> 00:09:37,408
+From one to the end step size is two.
+
+1089
+00:09:34,015 --> 00:09:39,015
+now because this comes from computer vision, and also I will explain later,
+
+1090
+00:09:34,039 --> 00:09:40,759
+This is a previous one, but today we talk about transformer, transformer,
+
+1091
+00:09:34,510 --> 00:09:37,510
+Now we go to D code.
+
+1092
+00:09:35,156 --> 00:09:43,156
+how do you know the value, when they design this formula for the even dimension,
+
+1093
+00:09:35,534 --> 00:09:39,294
+That means all the information comes from S0,
+
+1094
+00:09:35,692 --> 00:09:47,692
+We put it here, and for each key, we also have three numbers, but we have four keys, so the numbers must be be written in this way, okay?
+
+1095
+00:09:37,408 --> 00:09:38,408
+Okay.
+
+1096
+00:09:37,510 --> 00:09:39,510
+So in the D code,
+
+1097
+00:09:38,408 --> 00:09:41,408
+So for the different dimension, different dimension,
+
+1098
+00:09:39,015 --> 00:09:47,015
+followed by a linear normalization, a linear normalization is quite useful concept,
+
+1099
+00:09:39,294 --> 00:09:44,294
+okay, we vary S0 or forget,
+
+1100
+00:09:39,510 --> 00:09:44,510
+we have access to all the tokens of input sequence,
+
+1101
+00:09:39,945 --> 00:09:41,945
+I didn't check.
+
+1102
+00:09:40,543 --> 00:10:00,543
+So now we give another simple example, okay, easy to understand. So first we give us some definition, okay. Attention function can be described as, my opinion are query and a set of key value pairs to an output.
+
+1103
+00:09:41,408 --> 00:09:46,408
+even dimension and all the dimension get different values.
+
+1104
+00:09:41,945 --> 00:09:44,945
+I created a job box for every group.
+
+1105
+00:09:43,000 --> 00:09:49,639
+looks a lot of things, okay? And also a lot of, yeah, not a concept, knowledge, but the most
+
+1106
+00:09:43,156 --> 00:09:50,156
+or the odd dimension, they use different formulas, they use two formulas
+
+1107
+00:09:44,294 --> 00:09:47,534
+S0 forget S0 already.
+
+1108
+00:09:44,510 --> 00:09:46,510
+same routine.
+
+1109
+00:09:44,945 --> 00:09:47,945
+You can put the file there.
+
+1110
+00:09:46,408 --> 00:09:48,408
+You can get this for each position.
+
+1111
+00:09:46,510 --> 00:09:48,510
+Let me go to the D code.
+
+1112
+00:09:47,015 --> 00:09:54,015
+but actually this is a series of normalization methods,
+
+1113
+00:09:47,534 --> 00:09:51,574
+So people add one thing, you'll check this formula,
+
+1114
+00:09:47,692 --> 00:09:56,692
+Y, Y, K, one, two, K, Y, three, okay? It's the first key, and for the last key, that's three numbers, okay?
+
+1115
+00:09:47,945 --> 00:09:50,945
+This transformer is really classic.
+
+1116
+00:09:48,408 --> 00:09:50,408
+It is a vector.
+
+1117
+00:09:48,510 --> 00:09:51,510
+Remember what's the function of D code?
+
+1118
+00:09:49,639 --> 00:09:58,039
+important thing is attention, attention is all you need, really, it's true, but this, if you are
+
+1119
+00:09:50,156 --> 00:09:53,156
+to calculate the value, okay?
+
+1120
+00:09:50,408 --> 00:09:54,408
+Even dimension use y formula or dimension.
+
+1121
+00:09:50,945 --> 00:09:53,945
+I hope you understand the principle.
+
+1122
+00:09:51,510 --> 00:09:54,510
+Predicted the output one by one.
+
+1123
+00:09:51,574 --> 00:09:56,574
+the hidden state, people add Y called context,
+
+1124
+00:09:53,156 --> 00:10:01,156
+Let's say, and if you draw a picture, the higher value, the more lighter.
+
+1125
+00:09:53,945 --> 00:09:56,945
+Not only apply it.
+
+1126
+00:09:54,015 --> 00:09:59,015
+sometimes I hope sometimes you take some time to learn,
+
+1127
+00:09:54,408 --> 00:09:57,408
+Okay, that's all from me.
+
+1128
+00:09:54,510 --> 00:09:57,510
+There's a term autoregressive.
+
+1129
+00:09:56,692 --> 00:10:04,692
+Four, key, four, two, key, four, three, and if you want to calculate them,
+
+1130
+00:09:56,945 --> 00:10:02,945
+If you understand this, maybe in the future you can read some.
+
+1131
+00:09:57,408 --> 00:09:58,408
+Any questions?
+
+1132
+00:09:57,414 --> 00:09:58,414
+context, we're,
+
+1133
+00:09:57,510 --> 00:10:00,510
+You predict the token one by one.
+
+1134
+00:09:58,039 --> 00:10:00,039
+interested, you can.
+
+1135
+00:09:58,408 --> 00:09:59,408
+Thank you for...
+
+1136
+00:10:00,510 --> 00:10:02,510
+But...
+

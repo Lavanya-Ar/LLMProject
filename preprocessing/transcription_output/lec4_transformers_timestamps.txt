@@ -1,0 +1,1136 @@
+[0:00:00] All right, we start.
+[0:00:01] You can read a lot of papers and people are still working on this.
+[0:00:01] People, you will find people are still improving, improve, or based on this transformer.
+[0:00:01] this picture you will see something like this.
+[0:00:01] didn't get well. Okay, we review our, today we introduced transformer. So transformer is a
+[0:00:01] In one way, you write the mean into the matrix multiplication format.
+[0:00:01] The encoder is here already, right?
+[0:00:03] If you have opportunity, thank you for coming.
+[0:00:03] So maybe you have patch normalization,
+[0:00:04] So the formula is hidden state not only affected by the input and the previous hidden state, but also the context vector we call it C.
+[0:00:04] Okay, actually, water queries, water key values.
+[0:00:05] So each row is actually the vector position there.
+[0:00:05] You are finished, processed all the input.
+[0:00:05] Normalization, I think, okay.
+[0:00:06] You tell your friends, okay?
+[0:00:06] layer normalization, instance normalization,
+[0:00:07] So from the decoder, you can see all the tokens from encoder, right?
+[0:00:08] Not the year two, you are familiar with the environment.
+[0:00:09] Okay, let's start.
+[0:00:09] So we go through this one by one.
+[0:00:09] model architecture, how input, how output, input is the whole sequence. Okay, in code calculate
+[0:00:09] And then, okay, here you don't need to understand.
+[0:00:09] So, OK, q1, q2, q3.
+[0:00:10] groups normalization, a lot.
+[0:00:11] That does not mean you can stop learning.
+[0:00:11] This is the vector position Y.
+[0:00:12] We talk about self-attention.
+[0:00:12] So attention is all you need.
+[0:00:12] Okay, we start from attention.
+[0:00:12] Time is this matrix.
+[0:00:13] Until now you don't need to understand.
+[0:00:14] I can stop going to classroom.
+[0:00:14] That's true.
+[0:00:14] Okay, the encoder contents, self attention layers.
+[0:00:14] If you extend the dimension to 128,
+[0:00:14] I hope you are familiar with matrix multiplication times this.
+[0:00:15] What is self-attention?
+[0:00:15] You already know, the input is a lot of vectors, but there is something called a query.
+[0:00:15] Transformers network architecture,
+[0:00:16] You still need to learn a lot of things.
+[0:00:17] We still need to review this iron-based encoder and decoder.
+[0:00:17] You can see all the positions of the output of the encoder.
+[0:00:17] So what is this C? Okay, where is someone? We for each hidden state.
+[0:00:19] All of the keys, values, queries,
+[0:00:19] OK, q1, times q1, y.
+[0:00:19] so clear.
+[0:00:20] So you tell people who are not here.
+[0:00:20] all the information of the input sequence. So the input are mapped to query, key and value,
+[0:00:20] like CNN, convolution on your networks.
+[0:00:21] One thing you need to understand is for each position is a vector,
+[0:00:22] What is the query?
+[0:00:22] comes from the same place.
+[0:00:22] But your general, only generate the output sequence one by one.
+[0:00:22] And the output is a vector also.
+[0:00:22] q2, times q1, q3, times q1, and sum them together.
+[0:00:23] And a long time ago, I said, okay,
+[0:00:23] The query is hidden state from the decoder.
+[0:00:23] Okay, plus this hidden state as there. Okay.
+[0:00:24] Come from the same place, means the input times different with matrix.
+[0:00:25] But Transformers has no recurrence,
+[0:00:26] The output is computed as a weighted sum.
+[0:00:27] we are simple and with some numbers to show what is different between a fee forward neural network and the RNN.
+[0:00:28] This thing query the output of the encoder.
+[0:00:28] So here comes problem.
+[0:00:28] not a single number.
+[0:00:29] no conclusions, okay.
+[0:00:29] You will get alpha 0 0.
+[0:00:30] That means, okay, for when you when you predict every French what? Okay, review the whole English sentence again.
+[0:00:30] And the weight is the compatibility function of the query with the corresponding key.
+[0:00:30] So they can be added to the token embedding.
+[0:00:31] Pure attention.
+[0:00:31] You cannot see the future tokens, right?
+[0:00:31] In this case, the output of the previous layer in the encoder,
+[0:00:32] The Transformers don't have this arrow.
+[0:00:32] OK, also what is this dot product?
+[0:00:33] by multiply different matrix. That's why we call it self attention, because there's no other
+[0:00:35] Okay, so key and value, hidden states of the encoder.
+[0:00:35] if you input, of course, in the middle layer,
+[0:00:35] Then this complex formulas are just used to calculate the values of different dimension.
+[0:00:35] That you haven't predicted yet.
+[0:00:37] Go back.
+[0:00:37] Dot product between q1 and q1.
+[0:00:38] You may see this picture a lot of times.
+[0:00:38] Of course, during training, you know I know all the output ground tools already.
+[0:00:39] My imagination is that you have some equipment, you know, a handwriting.
+[0:00:39] But here, called self-attention.
+[0:00:39] output of the previous layer.
+[0:00:39] Now we go back.
+[0:00:41] Okay.
+[0:00:42] Here also your question, okay, where does this query key value come from?
+[0:00:42] information source. All these query, key, value come from the input. In the middle layer,
+[0:00:42] Today the mantascus, we read this picture
+[0:00:42] So each position in the encoder can attend to all positions.
+[0:00:42] Okay, attention means there is a query.
+[0:00:42] You will get the first number, the first score.
+[0:00:43] But now, finally, I didn't make it.
+[0:00:43] Okay, easy to understand.
+[0:00:44] But in the inference stage, you only generate it by one, by two.
+[0:00:45] So let's basically the structure of the I am based in code anti-coder for a motion translation.
+[0:00:45] Of course, there are some reasonably designed ways.
+[0:00:46] Oh, see, here the query is hidden state.
+[0:00:46] So, similarly, you get the second, the fourth,
+[0:00:47] So I have to change to this traditional slice format.
+[0:00:47] Self-attention means come from self.
+[0:00:47] So what does this mean?
+[0:00:48] one box by one box.
+[0:00:49] Actually, this is a research direction.
+[0:00:49] That means, let me find something.
+[0:00:49] And the key and value are all hidden states.
+[0:00:50] the input is the output of the previous layer. Attention means, okay, you have a set of values,
+[0:00:51] So the input sequence,
+[0:00:51] You don't know Y3, Y4, right?
+[0:00:52] Every after today's lecture,
+[0:00:52] In the encoder, there's no recurrent,
+[0:00:52] and you write into the format of matrix multiplication.
+[0:00:53] So why do we...
+[0:00:53] Okay, until now, any questions. Yeah, this also review. Okay, now in code processes and encodes the information from all input elements.
+[0:00:54] Sorry.
+[0:00:54] And the output is a weighted sum.
+[0:00:54] I hope you can understand every single box
+[0:00:54] How do you calculate the attention?
+[0:00:55] X is linearly transformed to produce the query key and value.
+[0:00:55] One, I don't ask you, one important thing about position is,
+[0:00:55] so the whole sequence is input in one time.
+[0:00:56] But, okay, I still can explain the problem.
+[0:00:57] Okay, output weighted sum of hidden states.
+[0:00:58] of this picture.
+[0:00:58] OK, and after you, these are just the numbers.
+[0:00:59] How do you do almost all the calculations?
+[0:00:59] Okay.
+[0:01:00] Okay, every position can see all the inputs.
+[0:01:00] We also start from a task, okay.
+[0:01:00] you want to, attend, right, you want to notice only important things. So the output is the
+[0:01:01] So here is a fee forward neural network, familiar with.
+[0:01:01] actually, the length of the sequence.
+[0:01:01] How do you calculate the weight?
+[0:01:02] Start from a task like a,
+[0:01:02] And in all the modern calculations, all matrix, right?
+[0:01:02] Sometimes these numbers are really high.
+[0:01:03] Okay, that means, okay, all the input sequence will here.
+[0:01:04] When you are training, you have a dataset.
+[0:01:04] Okay, the weight is assigned to each value is computed by a compatibility function of the query with the corresponding key.
+[0:01:05] The input is vector.
+[0:01:05] imagine a translation task, okay.
+[0:01:05] Okay, every position can see all the inputs.
+[0:01:05] Okay, we input an English sentence. Okay, we believe all the meaning of this English sentence start in this state.
+[0:01:05] This is 100.
+[0:01:07] This vector has three dimensions.
+[0:01:07] We don't do one by one, we calculate matrix.
+[0:01:07] Okay, suppose the longest sequence in this training set is just 100 words.
+[0:01:07] This is negative 2 minus 2.
+[0:01:08] It is, we call it a sequence to sequence problem.
+[0:01:09] And multiply by matrix, three different matrix, the form query key and value.
+[0:01:09] Let's say, okay, so this sequence,
+[0:01:10] So how do we prevent leftover information flowing in the decoder?
+[0:01:10] weighted sum of these values. Okay, how to get the weightage of each value. There are some keys,
+[0:01:10] So, we go to a soft matrix.
+[0:01:11] This w is the parameter.
+[0:01:12] The input is a sequence of words,
+[0:01:12] each position in encoder can attend to all positions.
+[0:01:13] The parameter we are going to learn, also called weight, weight matrix.
+[0:01:13] But in the real one, in the inference state,
+[0:01:13] As a soft matrix, remember the soft matrix.
+[0:01:14] as an English word.
+[0:01:14] A compatibility function is, okay, as times sum matrix parameter plus, okay, plus this one.
+[0:01:15] Okay, and the decoder generate target output and utilize this information. Okay, this information is the most important and alley information source of decoder.
+[0:01:15] So we mask out, there is something called mask, mask.
+[0:01:15] The output is a sequence of French words.
+[0:01:16] you may meet a sequence with one soldier.
+[0:01:17] Until now, it looks normal, guys,
+[0:01:17] Soft matrix comes with values to 0 between 0 and y
+[0:01:19] And after the first layer, you will get this.
+[0:01:19] So basically they come from same thing, come from self.
+[0:01:19] And how do we do it?
+[0:01:20] for the, it's prepared for the decoder part,
+[0:01:20] You set the value, out of the value in the matrix to very large negative numbers.
+[0:01:20] Okay. How do we do it?
+[0:01:21] you need to calculate the relevance between query and different keys. After you calculate the
+[0:01:21] Most of the time, the model will perform very bad.
+[0:01:22] So we analyze this task first.
+[0:01:23] later, you'll see.
+[0:01:23] This one key, okay, the weight is here, activity, after the time activity, activation function.
+[0:01:24] We call it hidden state.
+[0:01:24] Because they times different parameters, so they form different values,
+[0:01:24] to the probability distribution.
+[0:01:25] So we can see the input, the input sentence.
+[0:01:25] Okay, residual connections,
+[0:01:26] H equals to w times x.
+[0:01:26] Because the model never see such a long sequence.
+[0:01:27] this here, these two lines,
+[0:01:27] OK, then this one is 100.
+[0:01:29] and this add, okay, two lines, add, residual connections.
+[0:01:29] Okay, let's say, that way you calculate, no matter what you calculate,
+[0:01:30] That means the input x is mapped into the hidden state, hidden representation.
+[0:01:30] We know all of the input sentence,
+[0:01:30] So how does the decoding process begin? If I give a special token began our sequence.
+[0:01:30] Very large number becomes 0.9.
+[0:01:31] they become query key and value.
+[0:01:31] So the position is one of the...
+[0:01:31] relevant score like dot product, you need to apply soft max, map it to probability distribution.
+[0:01:32] That's one, h2, okay, plus this is a key to query.
+[0:01:33] but we don't know the output sentence.
+[0:01:33] So what's the motivation of residual?
+[0:01:34] That's why they call self-attention.
+[0:01:34] Very small number becomes 0.0, 0.1, a soft matrix.
+[0:01:35] the weight is zero, no matter what you calculate, no matter what you calculate.
+[0:01:36] So some model, okay.
+[0:01:36] One of the easy ones, you need to concentrate.
+[0:01:36] What is, what is the residual?
+[0:01:37] It has four dimensions.
+[0:01:37] For the first layer, it's input for the middle layer and output previously.
+[0:01:37] Here's a very simple sum point.
+[0:01:38] Okay, what if I see a sequence much longer in the training dataset?
+[0:01:38] Some model, I think most of the model
+[0:01:38] The deep models may forget previous learning information,
+[0:01:38] So how does the decoding process stop? People give us special token and now sequence. Okay, one decoder predict.
+[0:01:39] And the value is this.
+[0:01:39] It's a very, very large negative value.
+[0:01:41] Okay, clear.
+[0:01:41] choose we predict the output tokens one by one.
+[0:01:41] What is a query?
+[0:01:41] Don't forget the values.
+[0:01:42] We are using another weight matrix to map to output.
+[0:01:42] That's easier to calculate, then you get the weight, you get the values, you get the attention.
+[0:01:42] but you will find a lot of description like this.
+[0:01:42] So, imagine now I'm teaching you some problem like a transformer, right?
+[0:01:44] Okay, clear.
+[0:01:44] And you go to a softer mask.
+[0:01:44] Now you get the weight between different queries and different keys.
+[0:01:45] How do we handle this?
+[0:01:45] When the sequence becomes very long,
+[0:01:46] So just take note, they times different matrix, so they are different values.
+[0:01:47] Okay.
+[0:01:47] The start concentrate many, many different aspects.
+[0:01:48] Okay, in the neural network, we don't want the values becomes too large or too small,
+[0:01:48] the model may forget the previous information.
+[0:01:48] Okay, similar to other tokens. I also for each step have a probability. I have a probability.
+[0:01:48] We do not have much good message to predict the whole sentence.
+[0:01:48] The no way that becomes zero point, zero, the whole lot of zero, right?
+[0:01:49] But here we only focus on this input and hidden state.
+[0:01:49] You need to find some knowledge from your mind, from your own knowledge database.
+[0:01:50] For example, relative position.
+[0:01:51] So when the model becomes very deep,
+[0:01:51] The output is the weighted sum of different values.
+[0:01:53] No problem, right?
+[0:01:53] And dot product attention, we said, okay, we use dot product to calculate the relationship
+[0:01:53] Not only the one sentence, this one sentence is 100 words.
+[0:01:53] they may forget previous learning information.
+[0:01:53] We predict the whole sentence once,
+[0:01:53] One.
+[0:01:54] So basically you ignore the vector, you cannot see.
+[0:01:55] This is a fee forward neural network.
+[0:01:55] So when the decoder predict, okay, we have a zero point nine probability. We we next the token is EOS and now sequence.
+[0:01:55] Actually, you learn a lot of things, right?
+[0:01:56] you want time, you want stuff.
+[0:01:56] And, yeah, the use for signals becomes,
+[0:01:56] OK, weighted sum of different values.
+[0:01:58] And here is the second input.
+[0:01:58] Other values, and you can like summarize or abstract them into some concepts, okay?
+[0:01:58] because we need the graded, but for some activation function like sigmoid, if the value is too large
+[0:01:59] So this is mask.
+[0:01:59] But they have two words of same relative distance.
+[0:01:59] So we predict first, first, okay.
+[0:02:00] There are also three dimensions.
+[0:02:00] Then you have this weight.
+[0:02:01] or the relevance between query and keys.
+[0:02:01] If we have time later, we can see in the code.
+[0:02:01] forget, okay, what do we do?
+[0:02:02] You have all the values, you multiply, and sum them together.
+[0:02:03] But the values are different.
+[0:02:04] And according to the input and the tokens,
+[0:02:04] Okay, same relative distance.
+[0:02:04] Very straightforward, very straightforward.
+[0:02:05] Three, zero point three.
+[0:02:05] If you read the paper, okay, okay, your fan is too picturesque.
+[0:02:05] So this is the mask, multi-head attention, okay?
+[0:02:05] Okay, then the procedure stop and when the sequence is too long, the neural network may forget the English sentence.
+[0:02:06] So this kind of formula, capture, capture, information, okay, relative, relative.
+[0:02:07] Same, same with matrix.
+[0:02:07] We, we input, okay, we copied the previous information again, okay?
+[0:02:07] I say you already learned neural network.
+[0:02:08] or too small, the graded becomes narrow. When the graded becomes narrow, your neural network did not
+[0:02:08] You get the final output.
+[0:02:09] Query and key dot product, because they are matrix and many queries, many keys.
+[0:02:09] we already predict, we predict next token one by one.
+[0:02:09] Actually, neural network is a concept.
+[0:02:11] After your times, you get this hidden representation or hidden state.
+[0:02:11] And neural network have a lot of things.
+[0:02:11] Some more, you have the weight 0.9.
+[0:02:11] Because you cannot see the future, you only see the tokens,
+[0:02:14] And there's one good thing is this single soil encoding is pretty fun.
+[0:02:14] So, this neural network is one of the key.
+[0:02:15] You times the value, you get out of y.
+[0:02:16] So question comes immediately, okay.
+[0:02:16] So we input to the hidden state for every step every step. Okay, so any problems, right, any problems.
+[0:02:17] There is different values.
+[0:02:17] They use a variable for what, okay?
+[0:02:17] update anymore. So the learning procedure is stopped. So to prevent this, we use normalization
+[0:02:17] The values of the neural network, okay, I'll explain, input, output, and weightage, the activation function, the loss, etc.
+[0:02:17] you already predicted.
+[0:02:18] So it's a mathematic multiplication.
+[0:02:18] 0.0, 0.1, you times the value, you get the output,
+[0:02:18] One does this, what is the first token?
+[0:02:19] Clear.
+[0:02:19] A lot of information to flow directly across layers.
+[0:02:20] But now we add, we call it add some recurrent item here.
+[0:02:20] Okay, let's go to next.
+[0:02:21] I don't need training.
+[0:02:22] How do we select the first token?
+[0:02:22] This is called encoder decoder attention.
+[0:02:23] What skill?
+[0:02:23] So it's computational efficient.
+[0:02:23] you sum them together.
+[0:02:24] So people are smart.
+[0:02:24] Okay?
+[0:02:25] Sometimes they give the first token a special token,
+[0:02:25] That means you're simply,
+[0:02:25] Then you get the output.
+[0:02:26] We are using r and n.
+[0:02:26] Skill, I mean, divided by square root or decay.
+[0:02:26] And of course, no matter how long it is, you can have a value.
+[0:02:26] Actually, you'll see this before, right?
+[0:02:27] before it is Y equals to FX,
+[0:02:27] Okay, so what attention does?
+[0:02:27] to normalize values into the ranges under control. Okay, but if you have a batch data, if you have a
+[0:02:27] OK, I think a little bit difficult, but OK, how do we write down into the formula?
+[0:02:28] RN encoder, decoder, it is encoder decoder attention.
+[0:02:29] Okay.
+[0:02:29] Very clear, right, can this context to work to contain all the information.
+[0:02:30] And we, as we said, hidden state, H2, this one is not only primary.
+[0:02:30] that is built for formula,
+[0:02:30] called Begin of Sequence.
+[0:02:31] If you talk about it later, skill, divided by the square root of decay,
+[0:02:31] In fact, calculation, you can have a value.
+[0:02:31] Okay, query is, okay, I'm going to learn transformer, you start thinking, okay, what do I know?
+[0:02:32] atomic deep neural network,
+[0:02:33] Later we show this, okay.
+[0:02:34] That means the query comes from the decoder.
+[0:02:34] So people still do research on these aspects.
+[0:02:34] but they find that, okay, I add a deep model
+[0:02:34] OK, remember you get the alpha after you calculate this score.
+[0:02:35] And second question, okay.
+[0:02:36] forget previous information.
+[0:02:37] When do we stop?
+[0:02:37] Sorry, this way, can this as their content all the information.
+[0:02:37] The RIG, evaluation, transformer, R&N, something, okay?
+[0:02:38] the dimension of key, softmax, it becomes the weightage, becomes 0.9, 0.01,
+[0:02:38] We predict next token, predict the next token.
+[0:02:38] What do we do?
+[0:02:39] batch of sequence data, you need to present some technology, batch normalization, layer normalization,
+[0:02:40] H2, sorry.
+[0:02:40] They are aimed to improve in generalization to longer sequences,
+[0:02:40] Okay, we plus X again.
+[0:02:40] But the key and the values comes from the encoder.
+[0:02:41] You get alpha 0, alpha 0, y alpha 0, 2.
+[0:02:42] H2 is not only affected by the input, but also affected by the hidden state, the previous hidden state.
+[0:02:42] Under this.
+[0:02:42] You plus the input.
+[0:02:43] So people add under of sequence token.
+[0:02:43] I cannot see a parent in a card not a red, but a large chance cannot write this H3 kind of content all the information.
+[0:02:43] Okay, you'll find some similar or related concepts, these are keys.
+[0:02:44] Okay, you forget it, right?
+[0:02:45] Okay, this is easy to understand.
+[0:02:45] and relative positions, and stable ability of course efficiency.
+[0:02:45] After you go through the soft matrix, we still call them.
+[0:02:46] Okay, I copied it to you.
+[0:02:46] So every step we predict, okay.
+[0:02:47] times value, output.
+[0:02:47] You have some input, you have an input, an English sentence.
+[0:02:48] What do we do?
+[0:02:48] Is this the end of sequence?
+[0:02:49] So what's the result?
+[0:02:49] Okay, you'll give each key some weight.
+[0:02:50] etc., etc. But the key idea is keep the value in the range that we can control it.
+[0:02:50] Okay, that's basically all for today.
+[0:02:50] The result is actually FX becomes Y minus X.
+[0:02:50] Yeah, alpha 0, alpha 0, y.
+[0:02:51] Okay, remember the previous hidden state is, uh, the report to the report to the report six.
+[0:02:51] It is an end stop.
+[0:02:52] And then you follow multi-hydrate attention, you'll hear that.
+[0:02:52] You must have some method to send this information to the decoder.
+[0:02:52] Why don't we see all the hidden states? Why don't we use all the hidden states? Okay, of course we can. We use all the hidden states.
+[0:02:52] Let's say, okay, I want to recall a few forward neural network and R&N.
+[0:02:53] So today is a little bit difficult, but I think important.
+[0:02:53] So if you see this two special sign,
+[0:02:53] And then for each score, you times the value.
+[0:02:57] We save this value somewhere, somewhere.
+[0:02:57] Attention, attention, attention.
+[0:02:57] This is a method that query comes from the decoder.
+[0:02:58] Okay, when the model is too deep, the model may forget previous information. So people input,
+[0:02:58] you should be familiar, you should know them.
+[0:02:58] Y minus X means FX only learn a small refinement.
+[0:02:59] What is multi-hydrate attention?
+[0:02:59] You times the value, 1, 1 becomes this, and then report, y 0, y.
+[0:03:00] You have three vectors.
+[0:03:01] And then we, as you know, we calculate this H2 first.
+[0:03:01] So people find it is beneficial to linearly project the queries, keys and values.
+[0:03:01] Okay, we don't start from transformer,
+[0:03:02] And the output is a vector, three type vectors.
+[0:03:02] Now, how do we use it? How do we use all these H1, H2, H3? We give a weighted sum, right, we put them together, very straightforward.
+[0:03:02] Okay, these three may be have some higher weight, and the others, tokenizer, okay, maybe, or evaluation, okay?
+[0:03:02] And the key and the values comes from the encoder.
+[0:03:04] You times the score, 2 times value, 2, and you sum them together.
+[0:03:05] but we instead we still need to reveal Rn, okay.
+[0:03:06] Okay.
+[0:03:06] You have a query, where you want to learn something.
+[0:03:07] And then we save the same, the reports, really the reports.
+[0:03:07] So this loss every position in the decoder to attend all positions in the input
+[0:03:07] Okay, his data, our complete new representation.
+[0:03:08] something called a residual connection. They simply plus the original input, several layers
+[0:03:09] OK, when you write to the formula, becomes this.
+[0:03:10] Okay.
+[0:03:10] Many times with different linear projections, but lower dimension, okay,
+[0:03:10] You already know something, okay?
+[0:03:10] That means, okay, X is here.
+[0:03:10] Maybe lower weight, they're all.
+[0:03:11] But we, we don't stop after we calculated this H2.
+[0:03:11] code sequence, that's natural, natural decoder,
+[0:03:12] This key concepts are key related to a lot of things called values.
+[0:03:12] Rn plays the encoder, anti-coder model,
+[0:03:12] Hjj from 1 to Tx, alpha 1 to 4.
+[0:03:13] You don't need to learn X.
+[0:03:13] Okay, after you get this weight, what do you do?
+[0:03:14] Okay.
+[0:03:14] We weighted some all these hidden states into one wekt, okay, into one wekt as the input to decoder.
+[0:03:15] Now H2 prime is the combination of H, uh, of the input.
+[0:03:15] You start to recall the value, the real content, okay, for R&N, a lot of things, or feel forward neural network, a lot of things.
+[0:03:15] ago, or the original input into the network. Okay, the formula is y equals to fx plus x. Okay, so the
+[0:03:16] quite popular before transformer has a population, okay.
+[0:03:16] Again, you need to learn something different.
+[0:03:16] attend to all the input sequence.
+[0:03:17] OK, alpha ij, alpha i means here.
+[0:03:18] comparing to let's say map all the input into 500 and 12 dimension,
+[0:03:18] But we don't think values first, okay?
+[0:03:19] So that's, I think, you might own understanding,
+[0:03:20] We use this query to query your memory, okay?
+[0:03:20] Okay, so attention, then we see this, the embeddings, embeddings.
+[0:03:22] Okay.
+[0:03:22] Also encoder and decoder.
+[0:03:23] Uh, of course, uh, multiply with matrix and the previous hidden state.
+[0:03:24] that's explanation, okay?
+[0:03:24] Comparent to previous while only H3, but now we have H1, H2. So H3 is one of the special cases, right, is 0, 0, 1, the weight, 0, 0, 1, we got H3.
+[0:03:24] Yeah, there is the output.
+[0:03:25] So what is encoder?
+[0:03:25] And then, okay, you get the output, you get the output.
+[0:03:26] So which part, which key is most related, you get a score.
+[0:03:26] The motivation, very simple, okay?
+[0:03:26] You can, from the name, you can try, you can guess, okay.
+[0:03:26] OK, now we don't touch many queries.
+[0:03:27] query, key value, but in map, to 8, 6 dimension matrix, same calculation,
+[0:03:28] The model forget previous things we added.
+[0:03:28] network actually lies the new things, fine, tune the things, not the original information. And so this
+[0:03:28] So the input embedding, we use learned embeddings, okay,
+[0:03:29] Okay.
+[0:03:29] So the final output is the value, but it's not one single value of a two value, but it's a weighted sum of all the values.
+[0:03:30] Okay.
+[0:03:30] The encoder is a component that takes input
+[0:03:31] We have a previous hidden state is H1, okay?
+[0:03:31] That's it.
+[0:03:31] Many queries comes first.
+[0:03:32] And after you, there should be some software max.
+[0:03:32] to convert the input tokens, output tokens to vectors,
+[0:03:33] H1.
+[0:03:33] See?
+[0:03:34] But we can now, sometimes, because of that, they are not, uh, same number of dimension.
+[0:03:34] Different layers.
+[0:03:34] When we write into the formula, this is the alpha.
+[0:03:35] and it comes worse, the input into a meaningful
+[0:03:36] network will not forget the information that you can have a very deep neural network. That means
+[0:03:36] to dimension D model.
+[0:03:36] Yeah, after you get a score, you go through a software max,
+[0:03:36] Okay?
+[0:03:37] but they get more better results.
+[0:03:37] I forgot, okay, we add this.
+[0:03:39] internal representation.
+[0:03:39] But now we give H2, H1 sum of tunities, right, give you some weights that input into every hidden state.
+[0:03:40] So what's this?
+[0:03:40] Okay?
+[0:03:40] All the knowledge you have, okay?
+[0:03:41] Or sometimes we want to add some more information.
+[0:03:41] So in my understanding, what does this mean?
+[0:03:41] you put a number into a formability distribution,
+[0:03:41] So this reminds me the area roots of Banyatri,
+[0:03:41] An ender embedding, right?
+[0:03:41] OK, the weight.
+[0:03:42] That's our human understanding.
+[0:03:42] many, many layers. Because the input is a sequence, we need the position information.
+[0:03:43] You get the idea, you want to, the query is something you are studying now, you want to learn something,
+[0:03:43] Actually, we don't know this, but we think,
+[0:03:43] These are the values.
+[0:03:44] So, in, uh, times, uh, with matrix here.
+[0:03:44] An ender embedding, let's say.
+[0:03:45] What does this mean?
+[0:03:45] and then you give a weight to every value.
+[0:03:45] your group, your forget, okay?
+[0:03:46] I mean, give you one single large matrix, comparing to give you 8 smaller matrix,
+[0:03:46] And we also use the URL and linear transformation, the software max function here.
+[0:03:46] okay, the semantic meanings are hidden
+[0:03:46] Here, the key has a transpose, but we don't have transpose.
+[0:03:48] Okay.
+[0:03:48] Give you a root of Banyatri, okay?
+[0:03:48] Okay, but still have some problem for for each hidden state. All these context vectors remains the same.
+[0:03:49] Uh, so this hidden state is, uh, times multiplied by a, uh, with matrix and plus, uh,
+[0:03:50] Okay, sometimes in the relative position information, so people in one this positional
+[0:03:50] Directly.
+[0:03:51] And then you time the weight, time or the output.
+[0:03:51] in this internal representation.
+[0:03:51] Okay?
+[0:03:51] you need to recall some knowledge, this knowledge, values, you cannot recall all the knowledge you have, but you can recall some sum of the knowledge.
+[0:03:51] So this is value 1.
+[0:03:51] A linear transformation software max function to convert the decoder output
+[0:03:52] Residual connection.
+[0:03:53] Value 2, value 3, value 4.
+[0:03:54] I hope you'll know this.
+[0:03:55] So what are representations, just vectors, okay.
+[0:03:56] people find the result is better when you have multiple smaller matrix,
+[0:03:56] And again, normalization, okay?
+[0:03:56] in Cody, the input is not a single token anymore. Plus a positional embedding. So for position or
+[0:03:56] You have the weight.
+[0:03:57] to predicted next that token probability.
+[0:03:58] You select some valuable part from your whole memory.
+[0:03:58] Different concept already.
+[0:03:58] That's the vectors, the internal values, the numbers,
+[0:03:58] You have the weight.
+[0:03:59] the original hidden state. Here we use a very special unit matrix, so h2 from becomes this value.
+[0:04:00] New concept.
+[0:04:00] Okay, so what's that?
+[0:04:00] You calculate the matrix you get output.
+[0:04:01] Normalization.
+[0:04:01] So apparently let's say the English sentences are IE2, IE4, have some words, have some verbs, nouns, some, not the nouns.
+[0:04:02] You attend to the input to some different positions.
+[0:04:02] How do you determine which knowledge, which sum knowledge you want to recall, you need to get, you need to compare, okay?
+[0:04:03] How to calculate the probability software max?
+[0:04:03] You know, in neural network, we don't want the value.
+[0:04:03] in this middle layer, okay.
+[0:04:04] so imagination, okay, the also suspect, suspect, right?
+[0:04:06] So we think the encoder, the function of encoder is,
+[0:04:07] The one with highest probability is the ID, okay, is the ID, the token you want to predict.
+[0:04:07] So the first value, you get 0.1.
+[0:04:08] index 0, 1, 2, 3, 4, 5, it is not a number, it is a vector. The vector can help you find 112
+[0:04:08] My ping are query and are set of key value pairs to an output.
+[0:04:08] Inside the neural network becomes too large.
+[0:04:10] I also suspect, okay, we tell, basically we add more information.
+[0:04:10] So you can see here the input x mapped to a hidden state. We have a width matrix here,
+[0:04:10] okay, your input are sometimes.
+[0:04:11] So the first, the second value, you get 0.2, the third value, the first.
+[0:04:12] Compare the query and the key, compare the current knowledge you want to learn, and the concept you have, and then compare, compare means you get the weightage, okay?
+[0:04:12] We don't know the, you know, in the meaning space,
+[0:04:13] We explain this later.
+[0:04:14] An output is computed as a weighted sum of the values.
+[0:04:15] But when you translate, when you translate into French, sorry, I don't know how to translate French, but when you predict different French words, you may consider different parts of the sentence, right.
+[0:04:16] If you are calculating one big matrix, large matrix,
+[0:04:16] Normalization stops this.
+[0:04:16] Here is something interesting, okay, in our model we share the same weight matrix
+[0:04:17] semantic meaning space, what are they?
+[0:04:17] So for the first dimension of the output, you calculate the weighted sum of the first dimension of all the values.
+[0:04:18] Normalization rescills values into a controllable range.
+[0:04:18] dimension. So how do you get the numbers of this dimension? They use two formulas,
+[0:04:19] Where weight is computed by a compatibility function, okay?
+[0:04:19] Okay, encoder transfer this worse,
+[0:04:21] the model need to learn itself, okay, or the first dimension was kind of meaning, right?
+[0:04:22] between the two embedding layers.
+[0:04:23] So it prevents value from becoming too large or too small.
+[0:04:23] the initial vectors into some meaningful internal
+[0:04:23] but we add some arrow here. This is the previous hidden state and a width matrix wh and these two
+[0:04:24] Here is not a product of the query, it's a corresponding.
+[0:04:25] It is easy to understand the input, okay, and output.
+[0:04:27] ones for the even dimension, ones for the odd dimension. Okay, that's all for today. So any questions,
+[0:04:28] representation.
+[0:04:28] And here, okay, sometimes you skew it, you divide it by the square root of d.
+[0:04:28] This is a commonly used method, okay?
+[0:04:28] So the key idea is you don't need to reveal everything, but you need to select something important.
+[0:04:28] Then the sum is 3.
+[0:04:29] If you tell the model, okay, you learn 8 small matrix, basically you tell them,
+[0:04:30] This is the first dimension, second dimension, third dimension.
+[0:04:31] How do we connect to next?
+[0:04:31] So no matter French words, English words, use the same weight matrix.
+[0:04:33] arrows point to the new hidden state. So we put into this rn and you will get, okay, we are
+[0:04:33] This is a value, original value, minus the mean value,
+[0:04:33] If you translate I, I think you don't need to too much attention on the Apple or Apple. So can we give different context CI to each state I say.
+[0:04:33] OK, before we talk about two queries, I think we get one question.
+[0:04:34] How do we connect to decoder?
+[0:04:36] okay, these 64 dimension learn different features from the other 64 dimensions, right?
+[0:04:36] Decoder means output, right.
+[0:04:36] Not important to us.
+[0:04:36] But how do you determine which part is important, you calculate the similarity, give some function, and you can't get a value, okay?
+[0:04:36] You'll see more vocabulary, okay, but here, the pre-softa max linear transformation,
+[0:04:37] if you don't have questions, feel free to leave them. See you tomorrow. Bye bye.
+[0:04:38] And for the decoder part, okay?
+[0:04:38] We think this final hidden state of the model
+[0:04:38] divided by the standard deviation.
+[0:04:38] Cool, this is a very good question.
+[0:04:40] Where does the key and the value come from?
+[0:04:41] talking about this part, this part. If you understand this part then we go to, okay, what happened to
+[0:04:41] Remember, you can now see the tokens.
+[0:04:42] It keeps the value centered and well-skilled.
+[0:04:43] represents the summary of the whole input sequence, okay.
+[0:04:43] You have not predicted.
+[0:04:43] I will explain it later.
+[0:04:45] Okay?
+[0:04:45] they also use the same matrix.
+[0:04:45] It comes from the same input.
+[0:04:46] And for the position, for each position,
+[0:04:46] We think after we minus the mean, the new value,
+[0:04:47] So in my understanding, okay, no proof, we give the model more instruction,
+[0:04:47] the first one, right? The first one just the previous hidden state is zero, very simple. And if
+[0:04:47] That's the question. So when you predict every French word, can we consider different context. Although these context all comes from the same English sentence, but the weight is different.
+[0:04:48] This is interesting, okay, so here also use this one from ID to embedding.
+[0:04:49] That's why we use previous hidden state
+[0:04:49] There's a tension, any questions? Okay, a tension is the key part of this lecture, so maybe some, I will keep some time, but I hope you can understand, okay?
+[0:04:49] OK, let's say the first layer is the input.
+[0:04:51] it is not a number anymore.
+[0:04:51] the mean value of the new vector is there.
+[0:04:53] because we think, okay, this h y contains the information
+[0:04:53] It is a vector.
+[0:04:53] you write the formula, you will get this, you add the activation function, this hidden state. It's
+[0:04:55] and this instruction help the model to learn things, okay, basically you tell them,
+[0:04:55] We don't want the values out of control.
+[0:04:55] And the standard deviation is white, okay?
+[0:04:55] In the middle of the transformer, what is the input?
+[0:04:58] of input x y and h 2 we constantly h y,
+[0:04:58] They use the same matrix.
+[0:04:58] We call it normalization.
+[0:04:59] So we do some normalization.
+[0:04:59] It's output of last layer.
+[0:05:00] One type, normalization.
+[0:05:01] okay, you 62 learn this feature one, you 62 learn feature two,
+[0:05:01] Here, we do linear normalization.
+[0:05:01] This is something new to me, I think, keep some information, keep the same,
+[0:05:02] not only affected by the input, but also affected by the previous hidden state. Both input and hidden
+[0:05:02] This is a sample.
+[0:05:03] because we include h y, the information of h y, right.
+[0:05:03] Suppose we have this vector, this vector,
+[0:05:03] You can imagine, simply imagine these input are just vectors of the tokens.
+[0:05:04] We normalize into a value, smaller values around the arrow.
+[0:05:04] The weight of each word is different. Okay, so we create all the word I say, but the weight is context.
+[0:05:05] A tension function is mapping a query, and a set of key value pairs to an output, where the query keys values outputs are all valid, okay?
+[0:05:06] but what are the feature one and the feature two, nobody knows, okay?
+[0:05:07] So we believe h 2, understand, okay,
+[0:05:07] 10, 12, 40.
+[0:05:07] semantic meaning information.
+[0:05:08] We calculate the mean 12, right?
+[0:05:10] know something about x y, okay, and x 2.
+[0:05:10] state, previous hidden state have a width matrix, a parameter, okay, clear? Okay, now then we go to
+[0:05:10] And then you may have a positional encoding, here, plus something, something like sign,
+[0:05:11] So that's the idea, the idea is, okay, instead of you give one large matrix,
+[0:05:11] 10 plus 12 plus 12.
+[0:05:12] Okay? Let's say, so if we still have any questions,
+[0:05:12] And then your times are parameter with matrix, then becomes q query, key and values.
+[0:05:14] You calculate the standard deviation.
+[0:05:15] So this final state, okay, we believe,
+[0:05:16] if we still have time,
+[0:05:17] You normalize it.
+[0:05:17] Okay, we even, all people even create another set of weight for S2. If we have S3, we can add another set of weight C2 to S3 into formula, right into formula is this.
+[0:05:18] we calculate 8 smaller matrix, let's say, okay, so now we have 8,
+[0:05:18] sign, cosine, positional encoding.
+[0:05:19] this final state, hidden state, understand,
+[0:05:19] today's lecture. Today's important, I think, call the first half transformer. But today I
+[0:05:19] You can see, becomes values around there.
+[0:05:19] So who is the query, who is the key, the query is the hidden state, the hidden state in the decoder, okay?
+[0:05:20] let me show you this.
+[0:05:22] or represent the whole context.
+[0:05:22] So why do we need the positional encoding?
+[0:05:22] This comes from the input, but not the same with the input.
+[0:05:23] Let's import this.
+[0:05:24] And the standard deviation is white, okay?
+[0:05:25] or 8, output, 8, output, what do we do?
+[0:05:25] Why so slow?
+[0:05:26] So how do we use this final hidden state?
+[0:05:27] Because it's self-attention, we don't know the order.
+[0:05:27] Okay, okay, this is for nothing.
+[0:05:27] It's mapped by some weight matrix.
+[0:05:28] Why we need this?
+[0:05:29] And the keys are hidden states in the encoder, you may notice this has two directions, so we ignore this, it doesn't matter, we don't teach this.
+[0:05:30] Okay, they simply concact the output, okay, concact the output,
+[0:05:30] I talk enough.
+[0:05:30] introduced transformer, sorry, but we introduced the next study. So remember Bp, Bp name, byte,
+[0:05:30] Here is a sample.
+[0:05:31] After I money to why, okay, we generate output already,
+[0:05:31] OK, what if we have many queries?
+[0:05:32] Because the output is weighted sub of the value, right?
+[0:05:32] Maybe I write, you can.
+[0:05:32] It's the sigmoid function, the curve.
+[0:05:34] The weighted sum of HG, but the parameters, the alpha, are different. If you write into the generalized formula, okay, for the ice context vector,
+[0:05:34] We only have one hidden state of the decoder.
+[0:05:35] Oh, mask.
+[0:05:35] When the value becomes very large, okay?
+[0:05:35] but now, not finished because we want to generate
+[0:05:37] and then project into the, project into output and for the following use, let's say,
+[0:05:37] You already put all the values together, no matter when you learn or when you learn the knowledge
+[0:05:37] Skill.Product attention.
+[0:05:37] player encoding, byte, sometimes now is still processed byte, if we process the unit code characters.
+[0:05:38] You do not predict one French token.
+[0:05:39] The scores, okay?
+[0:05:39] the whole output sequence.
+[0:05:40] The derivative value,
+[0:05:41] The scores are calculated using q times k transpose.
+[0:05:42] So we have a structure called decoder.
+[0:05:42] So the output is weighted sum of the values, so again who is the value, values also h, h, j in the hidden state of the encoder, so the output is context vector weighted sum.
+[0:05:42] You predict many French tokens.
+[0:05:44] OK, so this is a second query.
+[0:05:45] put together.
+[0:05:46] becomes there.
+[0:05:46] The decoder takes internal representation
+[0:05:47] But here, we need some time, many times, we need the order of the sequence,
+[0:05:47] Remember, what is the input, what is the output? The input is the original words, right? The original,
+[0:05:47] The second query also, same thing.
+[0:05:48] okay, now you are, you imagine people, okay, we have 8 matrix calculate 8 times, no,
+[0:05:48] You get the scores.
+[0:05:49] That means you know gradient.
+[0:05:50] You need to calculate the dot product between query second to key one, key two, key three, key four.
+[0:05:51] You get the scores.
+[0:05:51] We use back propagation.
+[0:05:51] and generates an output.
+[0:05:52] all every vector is weighted sum of hidden state HG, HG, HWF2 is RIN, okay. For each hidden state vector, we have value of it, okay, alpha G, alpha, alpha, alpha 2, alpha 3.
+[0:05:53] We need to calculate the gradient.
+[0:05:54] book, book, book, book, the sample, the bank, right?
+[0:05:54] Give you know, okay, decoder, the function is to generate
+[0:05:54] You get the weighted sum of values.
+[0:05:54] yeah, and the output is a set of merge rules and some tokens, okay? So we, you can see we split,
+[0:05:55] in the engineering part, when they write the code, they do not really calculate 8 times,
+[0:05:57] Oh, I think next lecture, I will explain.
+[0:05:57] the output tokens, right.
+[0:05:58] Okay?
+[0:05:58] How do we decide the weightage, the weight assigned to each value is computed by a compatibility function, or the query with the corresponding key?
+[0:05:58] You get four scores again, the score second.
+[0:05:59] You need to know the position, context.
+[0:06:00] The target tokens, but you need to have some material,
+[0:06:00] We return.
+[0:06:01] Different things.
+[0:06:01] I will explain a little about the adam.
+[0:06:02] So each token embedding is augmented with a position dependent vector,
+[0:06:02] The second score, one second score, two second score three.
+[0:06:03] Some parameter called mask.
+[0:06:04] they still use one large matrix, after they finish the calculation,
+[0:06:04] let the decoder to digest.
+[0:06:04] I'll optimize it.
+[0:06:05] okay, some sub words into sub words. And by handling these sub words, we may process,
+[0:06:05] You know the back propagation.
+[0:06:06] Mask positions are filled with very large negative values.
+[0:06:06] And you're right into the matrix format.
+[0:06:07] Okay, what other material is the internal representation?
+[0:06:07] You need to calculate the gradient.
+[0:06:09] position dependent, that means, okay, for each position, position,
+[0:06:09] When you update in your network,
+[0:06:10] So what is a compatibility function, this is a compatibility function, you find some way calculate the relationship between these two vectors, between query and the key, it is okay?
+[0:06:10] This, the q is vector here.
+[0:06:12] they simply split this into smaller matrix and put the values into the relative positions.
+[0:06:12] When you have a very large negative value,
+[0:06:12] you update the weight.
+[0:06:12] But for context I, for the ice context, so we have another index here. So this value is alpha, IG. Okay, we don't need to go into this detail actually, but question comes. How to determine this, right, alpha, alpha G?
+[0:06:12] Yeah, this final hidden state, we think it knows
+[0:06:13] get, first, get more information, the second, you can handle some odd of what capability
+[0:06:13] Query one, query two.
+[0:06:14] some of the index, right?
+[0:06:15] And here is the transpose of key.
+[0:06:16] stop the max output almost 0.
+[0:06:16] The weights.
+[0:06:16] all the whole context, the whole input,
+[0:06:17] They're a 1, 2, 3, 4, 5.
+[0:06:18] You use weights equals to all weights.
+[0:06:19] So this position, transfer this position into a vector, a vector, and plus,
+[0:06:19] will, and some words you don't know, you can handle sub word. Okay, input is a word, so we,
+[0:06:19] the way put this information,
+[0:06:20] So you will get q1, q2, key three, key four.
+[0:06:21] Minus, linear rate, times graded.
+[0:06:21] and the initial hidden state.
+[0:06:24] So this is, just, I just mentioned this, okay, if you are interested, you can read the code,
+[0:06:25] And you can see this decoder also R and, right.
+[0:06:25] If the gradient is zero,
+[0:06:25] So why is an item called additive attention, but here it's called skilled dot product attention, okay?
+[0:06:25] That means k dot product between q1 dot product, between q1 and q1, between q1, q2, q1, q3, you get the first line.
+[0:06:27] first of all, we split into characters, a tool, important data structure. One is vocabulary,
+[0:06:27] This prevents the model from attending to mask positions.
+[0:06:28] added to the token embedding.
+[0:06:28] the weight does not change anymore.
+[0:06:30] so people are really, really smart, really smart, so they don't need to create 8 different matrix,
+[0:06:30] Decoder also R and, but something different, okay.
+[0:06:31] So each token, not only how the token embedding itself, but also how the position,
+[0:06:31] So you cannot learn using the neural network.
+[0:06:32] You ask yourself, what do we have, how do we determine this value, what do we have? Actually we only have this hidden state, right.
+[0:06:33] This function to not this attention.
+[0:06:34] You cannot learn using it.
+[0:06:35] The first, but in code, we know every input, right.
+[0:06:36] So if the input is too large or too small,
+[0:06:36] you'll know which word, everyone, each word, and the frequency. And then the second is your
+[0:06:37] You create some random keys, values, and queries.
+[0:06:37] We ignore skilled first, so it's dot product attention, that means, okay, we use dot product to calculate the relationship between query and key, okay?
+[0:06:38] And dot product between q2 and all keys, you get the second row.
+[0:06:39] they still using one large matrix and can do all the calculations,
+[0:06:39] okay, the position.
+[0:06:39] the gradient becomes close to a neural network,
+[0:06:40] But decoder, what is the input?
+[0:06:41] So each position is represented by a vector, okay?
+[0:06:43] We don't know, we don't know the target centers,
+[0:06:43] This encoder decoder attention,
+[0:06:43] it makes the learning very slow stop learning.
+[0:06:43] count, the frequencies of background, player, statistic, and then you'll merge the most
+[0:06:44] that's the beauty of programming, but to me it is amazing, okay,
+[0:06:44] Not just a single number.
+[0:06:44] Now we want to determine this alpha values for hidden state S1, but we only have the value of S1 and all the hidden state.
+[0:06:45] And then you'll write the output.
+[0:06:46] we need to predict the target centers.
+[0:06:46] that means we did that input mask.
+[0:06:46] And also, if the model is very deep,
+[0:06:47] And then there's many people confused, apart, okay?
+[0:06:48] Okay, so people, you know what,
+[0:06:49] We did that even though the mask is not.
+[0:06:50] so we continue the multi-head attention, this is not important, just let you know.
+[0:06:50] the values are repeated, they transform the multiply.
+[0:06:50] this first token, okay, we will,
+[0:06:50] You calculate the output before the alpha is vector, but now it is a matrix.
+[0:06:51] frequently, up here, the way. How do you merge it? Okay, previous you have the vocabulary,
+[0:06:51] Clear?
+[0:06:52] Sign, very long formula, cosine, very long formula, but actually, quite simple, okay?
+[0:06:52] But here we generate some mask, Carol, Carol mask.
+[0:06:52] we will give you the first token,
+[0:06:53] Oh, too many other ones to repeat again, but it's not for query and assigned key value pairs to an output, output is computed as a weighted sum of the values, okay?
+[0:06:54] So they may explode and make vanish.
+[0:06:54] the token began off sequence input,
+[0:06:55] So multi-head attention allows the model to jointly attend to information from different respect,
+[0:06:57] Something like this.
+[0:06:57] So that's why normalization.
+[0:06:57] So very naturally we think we concerned the relationship, okay, concerned the relationship between this hidden state and each hidden state S, this S hidden state is hidden states from decoder, okay, the H is also hidden state, so the hidden state from encoder, okay.
+[0:06:57] Because we have two queries.
+[0:06:58] right? The vocabulary is L, O, okay, white space, W, and the frequency is five,
+[0:06:58] you can generate the first hidden state, okay.
+[0:06:59] No, the mathematical principle, design, and not simple, if we understand,
+[0:06:59] It true for the cannot see, okay?
+[0:06:59] So we simply write in this way, query each row is a sample.
+[0:07:00] Okay, but what I said just normalize a vector
+[0:07:01] The first hidden state, not only rely on
+[0:07:03] respect, representation, subs with it, I also put in language, okay, different type of features,
+[0:07:03] For the first item, you cannot see the future.
+[0:07:04] when you have batch data,
+[0:07:05] begun off sequence nothing, right.
+[0:07:05] Key each row is a key, but here I have transpose.
+[0:07:06] we use it, it's quite simple.
+[0:07:06] and then your merge L, O, and W, to L, O, W, and update the vocabulary, okay? Now you have a
+[0:07:07] This token has no meaning,
+[0:07:07] when you have a batch the sequence data,
+[0:07:08] For the second item, you can see the previous one.
+[0:07:09] but also affected by the internal representation.
+[0:07:09] For each token position, the transformer creates a vector, okay?
+[0:07:09] Okay, these values, so here is the weight, okay? The weight is computed by a compatibility function of the query with the corresponding key query corresponding key, okay?
+[0:07:10] what do you do?
+[0:07:10] Go through software max.
+[0:07:12] You cannot see the future.
+[0:07:12] When you process a batch of images,
+[0:07:12] Software max alpha matrix.
+[0:07:13] but nobody knows what are these features, so if you use a single attention,
+[0:07:14] Okay, we believe this, then we get the very rich information
+[0:07:14] We do it row by row.
+[0:07:15] new vocabulary, and then your count, the frequencies of background, okay? And you'll merge the
+[0:07:15] what do you do?
+[0:07:16] So now you need to understand, for each position, each index,
+[0:07:16] Okay?
+[0:07:16] So that's not a fact.
+[0:07:18] So no mask.
+[0:07:18] This will not test this,
+[0:07:19] from here, and then we generate the first output.
+[0:07:19] You can say with one only one vector.
+[0:07:20] You can see we call this function no mask.
+[0:07:20] but it's something you can read,
+[0:07:21] maybe the model cannot know, cannot know, okay, I need to learn different features,
+[0:07:21] 0, 1, 2, 3, 4, it's not a number, it is a vector.
+[0:07:21] most frequently, up here, the way. So basically, you repeat two, one, three, until some threshold is
+[0:07:22] So we want to calculate the, I want to determine a parameters of this alpha, IG, we only have hidden state from decoder ice and hidden states from encoder HY2, which is, so we have different methods, okay.
+[0:07:23] Or have some values.
+[0:07:23] very interesting.
+[0:07:23] After map all the values into the values between zero and one, that means the probability.
+[0:07:24] That means the first French word,
+[0:07:24] Although a little bit something more skilled, dy by something, and you need to go through software.
+[0:07:25] The values are fake.
+[0:07:26] and they learn everything, one single matrix, so they say this diversity is lost due to average.
+[0:07:26] And what is user?
+[0:07:27] the first French word, and then, what's next?
+[0:07:27] It has the same dimension with the token embedding.
+[0:07:27] So don't need to take care of it.
+[0:07:27] achieved, okay? So this BPE solve one thing, you solve the, given, we are not simply given
+[0:07:29] This is a larger value.
+[0:07:30] How to apply this?
+[0:07:31] But if you apply the mask, this is Carol.
+[0:07:31] Then you may see a lot of this dash,
+[0:07:32] So they need to add them, add them together.
+[0:07:32] You calculate the weighted sum.
+[0:07:33] Some most of the time,
+[0:07:33] So we will use this sample, we use this sample to explain dot product attention, okay?
+[0:07:33] the line thing in pre-pressed, okay.
+[0:07:34] Here you get different weights to different queries.
+[0:07:35] And okay, how do you transfer this 0, 1, 2, 3, 4 into a 512,
+[0:07:36] You know, people, the last of the people, they give some samples, okay,
+[0:07:36] This means, okay, the output,
+[0:07:36] you use the open source code.
+[0:07:37] each word, IID, but we want it into sub words, we get to tokens, okay? We get tokens. And what to
+[0:07:38] So if the mask is not now, it scores.
+[0:07:39] our decoder, as the input, our next step.
+[0:07:39] People already use this for you.
+[0:07:40] And you get the output.
+[0:07:42] from two different heads, from the encoder, self attention, okay,
+[0:07:42] So no matter the calculator,
+[0:07:42] Use linear norm, write transform,
+[0:07:42] So it is attention.
+[0:07:43] that dimension vector?
+[0:07:43] Then a query, the model compares with all keys, right? You first you need to compute the weights using a compatibility function, right?
+[0:07:44] because this matrix calculation,
+[0:07:44] why do they use linear norm?
+[0:07:44] One of the methods we summed up, we just added them, so very straightforward, okay. Sometimes they have different dimensions, so we, times weight matrix, weight matrix to map to same dimension, and also of course add some information, we add them, okay.
+[0:07:44] That means, okay, we support,
+[0:07:44] Why there is a scale?
+[0:07:46] The also, no more mathematics, that's it, right?
+[0:07:46] work, solve another problem, okay? Given each word, embedding, okay? This embedding is not simple,
+[0:07:47] although this token, the first French word is predicted,
+[0:07:47] and has learned different tasks, okay, some see the right line, it's more close, okay,
+[0:07:47] all the values are there.
+[0:07:47] Why they don't use batch norm?
+[0:07:47] DK is dimension or key set values.
+[0:07:49] And they feel negative, okay?
+[0:07:50] So they start thinking, okay?
+[0:07:50] So you can only understand after you know all these,
+[0:07:50] This is some concept of normalization.
+[0:07:51] but we believe, okay, this is the input,
+[0:07:53] Negative mask.
+[0:07:54] For each i, the i means from 0 to 5,
+[0:07:54] how do they operate the instance samples?
+[0:07:54] and this is the data we have, right.
+[0:07:55] A very large negative value.
+[0:07:55] not random given, it has some semantic meanings, semantic meanings means, if you use cosine
+[0:07:55] But not the strict people prove it using mathematics.
+[0:07:56] So this data, we need to be input into this neural network,
+[0:07:57] To compute the weights, different weights of different keys, query and different keys, okay?
+[0:07:58] the local context, but the green lines a little bit, like the large context,
+[0:07:58] Always negative mask.
+[0:08:00] 111, 511, dimension of the embedding vector.
+[0:08:00] Because here is, for easy for us to understand, right?
+[0:08:01] Just an experience.
+[0:08:02] Just let you know.
+[0:08:04] okay.
+[0:08:04] You can see here.
+[0:08:04] similarity to test the similarity, like, happy and glad, you will get quite high score.
+[0:08:04] So you want additive attention, that's it, attention, okay, let me repeat, now we want to give the hidden state in decoder, every hidden state in decoder, give them different context, okay.
+[0:08:05] the long distance, so the different head, learn different information, you know.
+[0:08:05] So the second input is YY, YY,
+[0:08:05] You can see yourself and the previous one.
+[0:08:05] Remember this quantum wise fully connected
+[0:08:05] So large value of DK affects the performance of dot production.
+[0:08:06] So each dimension of the position, no embedding is defined as this.
+[0:08:06] Now we have a query, we have four keys here, so we want some method to generate four scores, okay? Because query need to, okay?
+[0:08:09] And then you apply the negative.
+[0:08:09] if you forward neural network.
+[0:08:10] So multi-head attention is just the same with self attention, okay,
+[0:08:10] The value may become very large with large values of DK.
+[0:08:10] and we generate hidden state as two, okay.
+[0:08:11] This becomes true.
+[0:08:12] It is a field forward neural network.
+[0:08:13] Okay, so this is a number, this is a number.
+[0:08:13] This becomes true.
+[0:08:14] So how do we get this embedding? Given our set of words, of course, our sentences,
+[0:08:14] As two, again, the hidden state is not only affected
+[0:08:15] Means this position is replaced by a negative e to the power of 9.
+[0:08:16] Different, a little bit different.
+[0:08:17] but it's another level, the level is we ask different attention heads,
+[0:08:18] So how similar we are or how far, how distant, what's the distance, anything, okay? We have four numbers, so here we use dot product, dot product is not new to you, when we started the co-size similarity, we introduced this, okay?
+[0:08:18] So they suspect the authors.
+[0:08:19] The function is to calculate the different dimensions of the positional vector.
+[0:08:19] It applied to each position separately,
+[0:08:20] by the input YY, okay.
+[0:08:22] Very experienced researchers.
+[0:08:23] we call it head, to learn different features, okay, different meaning, that's it, okay,
+[0:08:23] So that means, okay, I want to translate this English,
+[0:08:23] That's a very large negative value.
+[0:08:24] the one of us, encoded by one hot, you get one hot vector, and you get, after you,
+[0:08:24] identically.
+[0:08:24] That means when you translate, when you predict every French word, you want to focus on different parts of the English sentence, okay. Sometimes we focus on ice, sometimes we focus on eat, how do we give this different weight or a ton to different parts of the sentence, okay.
+[0:08:25] Let's see.
+[0:08:25] They suspect this large values will push the software max function into regions where the gradients are small.
+[0:08:26] Remember the input is a sequence of data.
+[0:08:27] After software max, almost there, almost there and then all this.
+[0:08:27] okay, let me repeat that.
+[0:08:28] So position here is a number, it is fixed already, okay?
+[0:08:28] I want to translate this English sentence into French,
+[0:08:30] that's the attention path, and then we go to encoder, encoder means a little bit higher level attention is some formula,
+[0:08:31] It's not your head attention.
+[0:08:31] All the tokens in this sequence
+[0:08:31] okay, I want to translate this English sentence.
+[0:08:33] They just use this formula to calculate the variable dimension
+[0:08:34] Then I want to show you this positional encoding.
+[0:08:34] are input to the network.
+[0:08:34] After I know the first French word, okay, I guess,
+[0:08:35] multiply away matrix, you map this one hot vector into a lower dimensional dance vector,
+[0:08:35] So they scale the dot products by the square root of DK.
+[0:08:36] So basically item wise, multiplication and sum number, okay?
+[0:08:37] And all the tokens times this field forward neural network,
+[0:08:38] I can start, guess, based on the English sentence,
+[0:08:39] this one in one box, now this encoder is part of the picture, each layer has two sub layers,
+[0:08:40] out of the 512 dimension for position 0, okay?
+[0:08:41] Because sometimes you'll see this image difficult to understand.
+[0:08:42] same field forward neural network,
+[0:08:42] okay, now this S0 represents the whole English sentence,
+[0:08:43] So basically, this value is too large.
+[0:08:45] And the first dimension, they use this formula.
+[0:08:45] identically and separately.
+[0:08:45] and then you map, okay? You use another way matrix map to a higher dimension, and then you predict
+[0:08:46] Yeah, I've read this.
+[0:08:46] So we think if higher dot product values, this relevant speed to a query and key is stronger, okay?
+[0:08:47] so this copy from the people, okay, first is the multi-head self attention mechanism,
+[0:08:47] and the first French word, we guess the second French word,
+[0:08:47] We may affect the learning procedure.
+[0:08:48] Let's say, so that means the linear transformations
+[0:08:49] Run means because after you calculate the numbers,
+[0:08:50] And the second dimension, they use this formula, okay?
+[0:08:50] We need to give different weightage to different hidden states HY2, which is three. The question is how do we determine the value of this weightage, okay.
+[0:08:50] So they divide it by something.
+[0:08:52] are the same across different positions.
+[0:08:52] the word ID, and you calculate the loss, okay? Once you have the loss, you can update the parameter,
+[0:08:53] okay.
+[0:08:53] you have a long decimal number.
+[0:08:53] By something.
+[0:08:54] After we have the second French word,
+[0:08:54] Of course, this parameter is not a hard code number, but it is related to the data.
+[0:08:55] so after this course, I hope when you hear this multi-head self attention,
+[0:08:55] And the third dimension, they use this formula, okay?
+[0:08:56] So around to four.
+[0:08:56] So for position wise,
+[0:08:57] we have the whole English sentence,
+[0:08:58] And now, so this concept is easier, and now we want to answer the question, okay, what does this two matrix mean?
+[0:08:59] Later we show if we have time, we show this is difficult to easily to confuse,
+[0:08:59] So the position is a total of 16.
+[0:08:59] fully connected, fully connected,
+[0:08:59] then we guess the third one, okay, it's a result.
+[0:09:01] you are very confident, you know, you can see, I know where every detail of this attention, okay,
+[0:09:01] you, after you train the model, okay? We take this vector as the word vector of every word,
+[0:09:02] it's not sparse,
+[0:09:02] So that's the input, that's the input.
+[0:09:02] So it may increase or help the learning procedure.
+[0:09:04] But the dimension of each position is a vector.
+[0:09:04] and do not have the drop-hot thing.
+[0:09:05] And then we have, we calculate the second hidden state,
+[0:09:06] actually not difficult to understand, because some people, many people,
+[0:09:06] When we only have hidden state and these values, so some vector operation comes in the first simple wise, which simply sum, sum them, sum them, and go to what activity function transfer into a value, okay.
+[0:09:07] Of course,
+[0:09:08] then the second is the position wise fully connected to FIFA on your network,
+[0:09:08] The dimension of the vector is eight.
+[0:09:08] We have a family short break.
+[0:09:09] a layer to layer different parameters.
+[0:09:09] Because it's easy to understand, you calculate a vector to vector, you get a number, but when they write into matrix, it looks like a lot, difficult, actually, okay?
+[0:09:10] I mean, you also see this or what they, this, right?
+[0:09:10] okay, similar as the second hidden state is not only affected
+[0:09:11] we have two model structures, this picture shows skip graph, okay? That means from target word,
+[0:09:11] You see, you first create a more space.
+[0:09:11] So what is this?
+[0:09:12] So attention is important.
+[0:09:13] Max, Dero,
+[0:09:14] So actually it's quite simple.
+[0:09:14] by YY and the input, but also affected
+[0:09:15] okay, this is very very long confusing name, which is just a feed forward neural network,
+[0:09:15] Sorry, I talk a little bit more.
+[0:09:16] Oh my god.
+[0:09:16] or X,
+[0:09:17] And then apply the complex formula.
+[0:09:17] by the previous hidden state.
+[0:09:18] So position meets the first English one, second English one,
+[0:09:18] have a linear projection timespiles.
+[0:09:19] We come back at 9.58.
+[0:09:20] But people think, if this sequence is too long,
+[0:09:21] okay, feed forward neural network, I will explain it later, I residual connection,
+[0:09:21] What's this?
+[0:09:21] to context word, content news, bag of words, input, context, words, and output, target what?
+[0:09:22] So I can see.
+[0:09:23] And I hope you understand.
+[0:09:23] For those values less than Dero becomes Dero.
+[0:09:23] So now you can see we have one query, right? Query is a vector, vector has three items, there's three numbers, okay? One, two, three, I just numbers, okay?
+[0:09:23] Any questions you can ask.
+[0:09:24] so for each position, it is a vector.
+[0:09:25] You remember the Python I teach you from there to the end.
+[0:09:26] This additive attention, but transformer is different, so I talked to so many things, I'll introduce attention, now basically you have the idea what this, what does attention do, okay.
+[0:09:26] we may forget, important, you know,
+[0:09:27] after you learn the computer vision module, I hope you know what is residual connection,
+[0:09:27] I think it takes some time.
+[0:09:28] It is a vector, you need to calculate every dimension of the vector,
+[0:09:28] It is greater than Dero.
+[0:09:30] It is itself.
+[0:09:30] all the information comes from what comes
+[0:09:31] Step size is two.
+[0:09:32] It's an activation function.
+[0:09:32] from the English sentence, the input.
+[0:09:32] Are you supposed to submit something proposal?
+[0:09:33] From one to the end step size is two.
+[0:09:34] now because this comes from computer vision, and also I will explain later,
+[0:09:34] This is a previous one, but today we talk about transformer, transformer,
+[0:09:34] Now we go to D code.
+[0:09:35] how do you know the value, when they design this formula for the even dimension,
+[0:09:35] That means all the information comes from S0,
+[0:09:35] We put it here, and for each key, we also have three numbers, but we have four keys, so the numbers must be be written in this way, okay?
+[0:09:37] Okay.
+[0:09:37] So in the D code,
+[0:09:38] So for the different dimension, different dimension,
+[0:09:39] followed by a linear normalization, a linear normalization is quite useful concept,
+[0:09:39] okay, we vary S0 or forget,
+[0:09:39] we have access to all the tokens of input sequence,
+[0:09:39] I didn't check.
+[0:09:40] So now we give another simple example, okay, easy to understand. So first we give us some definition, okay. Attention function can be described as, my opinion are query and a set of key value pairs to an output.
+[0:09:41] even dimension and all the dimension get different values.
+[0:09:41] I created a job box for every group.
+[0:09:43] looks a lot of things, okay? And also a lot of, yeah, not a concept, knowledge, but the most
+[0:09:43] or the odd dimension, they use different formulas, they use two formulas
+[0:09:44] S0 forget S0 already.
+[0:09:44] same routine.
+[0:09:44] You can put the file there.
+[0:09:46] You can get this for each position.
+[0:09:46] Let me go to the D code.
+[0:09:47] but actually this is a series of normalization methods,
+[0:09:47] So people add one thing, you'll check this formula,
+[0:09:47] Y, Y, K, one, two, K, Y, three, okay? It's the first key, and for the last key, that's three numbers, okay?
+[0:09:47] This transformer is really classic.
+[0:09:48] It is a vector.
+[0:09:48] Remember what's the function of D code?
+[0:09:49] important thing is attention, attention is all you need, really, it's true, but this, if you are
+[0:09:50] to calculate the value, okay?
+[0:09:50] Even dimension use y formula or dimension.
+[0:09:50] I hope you understand the principle.
+[0:09:51] Predicted the output one by one.
+[0:09:51] the hidden state, people add Y called context,
+[0:09:53] Let's say, and if you draw a picture, the higher value, the more lighter.
+[0:09:53] Not only apply it.
+[0:09:54] sometimes I hope sometimes you take some time to learn,
+[0:09:54] Okay, that's all from me.
+[0:09:54] There's a term autoregressive.
+[0:09:56] Four, key, four, two, key, four, three, and if you want to calculate them,
+[0:09:56] If you understand this, maybe in the future you can read some.
+[0:09:57] Any questions?
+[0:09:57] context, we're,
+[0:09:57] You predict the token one by one.
+[0:09:58] interested, you can.
+[0:09:58] Thank you for...
+[0:10:00] But...

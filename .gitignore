@@ -1,0 +1,23 @@
+.DS_Store
+*.mp4
+*.wav
+# Virtual environment
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
+# Output files
+segments_*.json
+concepts_*.json
+concept_eval.json
