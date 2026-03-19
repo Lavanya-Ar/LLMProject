@@ -9,7 +9,6 @@ from groq import Groq
 from openai import OpenAI
 
 load_dotenv(override=True)
-print("DEBUG provider:", os.getenv("LLM_PROVIDER"))
 
 GENERIC_CONCEPTS = {
     "example", "input", "output", "value", "values", "word", "words",

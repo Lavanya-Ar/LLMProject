@@ -9,7 +9,6 @@ from groq import Groq
 from openai import OpenAI
 
 load_dotenv(override=True)
-print("DEBUG provider:", os.getenv("LLM_PROVIDER"))
 
 
 def read_transcript(path: str) -> str:
