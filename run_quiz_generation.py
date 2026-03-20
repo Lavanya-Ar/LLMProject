@@ -220,6 +220,8 @@
 #     }
 
 import argparse
+import json
+import os
 from datetime import datetime
 from pathlib import Path
 
@@ -227,7 +229,7 @@ from content_extraction import CodexLLMClient
 from quiz_generation import (
     load_segments_and_concepts,
     generate_quiz_bank,
-    save_json,
+    save_quiz_bank,
 )
 from eval_quiz import evaluate_quiz_bank
 
@@ -241,6 +243,11 @@ def backup_existing(path_str: str) -> None:
     path.rename(backup_path)
 
 
+def save_json(data: object, path_str: str) -> None:
+    path = Path(path_str)
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
 def main() -> None:
     print("[START] run_quiz_generation.py")
 
@@ -250,6 +257,8 @@ def main() -> None:
     parser.add_argument("--lecture-id", default="lec4_transformers")
     parser.add_argument("--num-questions", type=int, default=10)
     parser.add_argument("--difficulty", default="")
+    parser.add_argument("--topic-filter", default="All")
+    parser.add_argument("--generator", choices=["v1", "v2"], default="v2")
     parser.add_argument("--quiz-output", default="quiz_bank_lec4_transformers.json")
     parser.add_argument("--eval-output", default="quiz_eval_lec4_transformers.json")
     parser.add_argument("--filtered-quiz-output", default="quiz_bank_lec4_transformers_filtered.json")
@@ -257,15 +266,17 @@ def main() -> None:
     parser.add_argument("--sleep-between-calls", type=float, default=0.0)
     args = parser.parse_args()
 
-    difficulty = args.difficulty.strip().lower() if args.difficulty else None
+    difficulty = args.difficulty.strip().lower() if args.difficulty else ""
     if difficulty == "":
-        difficulty = None
+        difficulty = "mixed"
 
     print(f"[INFO] Segments file: {args.segments_input}")
     print(f"[INFO] Concepts file: {args.concepts_input}")
     print(f"[INFO] Lecture ID: {args.lecture_id}")
     print(f"[INFO] Num questions: {args.num_questions}")
-    print(f"[INFO] Difficulty: {difficulty or 'mixed'}")
+    print(f"[INFO] Difficulty: {difficulty}")
+    print(f"[INFO] Topic filter: {args.topic_filter}")
+    print(f"[INFO] Generator: {args.generator}")
 
     print("[STEP] Loading segments and concepts...")
     segments, concepts = load_segments_and_concepts(
@@ -282,22 +293,28 @@ def main() -> None:
     backup_existing(args.quiz_output)
 
     print("[STEP] Generating quiz bank...")
+    os.environ["QUIZ_GENERATOR"] = args.generator
     quiz_bank = generate_quiz_bank(
-        segments=segments,
-        concepts_data=concepts,
-        client=client,
         lecture_id=args.lecture_id,
-        num_questions=args.num_questions,
+        segments=segments,
+        concept_entries=concepts,
+        question_count=args.num_questions,
         difficulty=difficulty,
-        sleep_between_calls=args.sleep_between_calls
+        topic_filter=args.topic_filter,
+        client=client,
     )
-    save_json(quiz_bank, args.quiz_output)
+    save_quiz_bank(quiz_bank, args.quiz_output)
 
-    print(f"[OK] Generated quiz bank with {quiz_bank['total_questions']} question(s).")
+    question_count = quiz_bank.get("metadata", {}).get("question_count", len(quiz_bank.get("questions", [])))
+    print(f"[OK] Generated quiz bank with {question_count} question(s).")
     print(f"[OK] Saved quiz bank to: {args.quiz_output}")
 
     if args.skip_eval:
         print("[DONE] Skipped evaluation.")
+        return
+
+    if args.generator != "v1":
+        print("[WARN] Evaluation requires v1 (segment-grounded) questions. Skipping evaluation.")
         return
 
     backup_existing(args.eval_output)

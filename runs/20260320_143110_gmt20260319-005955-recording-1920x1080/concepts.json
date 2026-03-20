@@ -1,0 +1,497 @@
+[
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 1,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s1_c1",
+        "name": "fine-tuning adaptation",
+        "definition": "Fine-tuning is the process of adapting a pre-trained language model to a specific task by updating its internal parameters using task-specific training data.",
+        "topic": "Fine-tuning language model adaptation",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "Fine-tuning actually changes the model's internal parameters"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s1_c2",
+        "name": "pre-training stage",
+        "definition": "Pre-training is the initial, resource-intensive stage where a language model is trained on a large corpus of text data to learn general language patterns.",
+        "topic": "Fine-tuning language model adaptation",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "The first step is called pre-training. So this is the most expensive and one-time step"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s1_c3",
+        "name": "fine-tuning decision criteria",
+        "definition": "Fine-tuning should be considered only when a task requires new behavior or writing style and sufficient training data or GPU resources are available.",
+        "topic": "Fine-tuning language model adaptation",
+        "difficulty": "hard",
+        "type": "procedure",
+        "evidence": "If it doesn't need external knowledge, but needs new behavior or writing scale. Then you need to ask yourself another question, do you have training data, or do you have enough budget to use all these GPU resources?"
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 2,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s2_c1",
+        "name": "fine-tuning stages",
+        "definition": "The three stages of model development are pre-training, supervised fine-tuning (SFT), and alignment, with SFT and alignment being the focus for AI practitioners.",
+        "topic": "Fine-tuning stages and costs",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "we typically start from stage two... stage three is alignment"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s2_c2",
+        "name": "parameter efficient fine-tuning",
+        "definition": "A fine-tuning method that updates only a small subset of model parameters (low-rank updates) to reduce computational cost and risk of catastrophic forgetting.",
+        "topic": "Fine-tuning stages and costs",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "You can find you a relatively small model in a single computer GPU using LoRA parameter efficient fine-tuning"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s2_c3",
+        "name": "catastrophic forgetting",
+        "definition": "A failure mode where a model loses previously learned knowledge after fine-tuning, overfitting to new training data.",
+        "topic": "Fine-tuning stages and costs",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "This means after tuning, the model doesn't remember what it needs to stay before it fine-tuning"
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 3,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s3_c1",
+        "name": "low-rank matrix decomposition",
+        "definition": "A technique that approximates a large matrix by decomposing it into two smaller matrices whose product reconstructs the original matrix.",
+        "topic": "Low-rank matrix decomposition benefits",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "decomposed this matrix into two smaller ones"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s3_c2",
+        "name": "LoRA (Low-Rank Adaptation)",
+        "definition": "A method that fine-tunes large models by updating only low-rank matrices instead of the full weight matrices.",
+        "topic": "Low-rank matrix decomposition benefits",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "we approximate the delta w using two small metrics"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s3_c3",
+        "name": "rank hyperparameter R",
+        "definition": "A tunable parameter in LoRA that controls the dimensionality of the low-rank matrices and thus the number of trainable parameters.",
+        "topic": "Low-rank matrix decomposition benefits",
+        "difficulty": "easy",
+        "type": "definition",
+        "evidence": "the rank R is a very important hyper parameter you can control"
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 4,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s4_c1",
+        "name": "LoRA inference addition",
+        "definition": "During LoRA inference, the original and LoRA-modified weights are added together to produce the final output.",
+        "topic": "LoRA parameter tuning strategy",
+        "difficulty": "easy",
+        "type": "procedure",
+        "evidence": "We just add them together during LoRA inference"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s4_c2",
+        "name": "LoRA hyperparameter tuning strategy",
+        "definition": "A staged approach to tune LoRA parameters by first optimizing the learning rate, then adjusting the rank to improve performance.",
+        "topic": "LoRA parameter tuning strategy",
+        "difficulty": "medium",
+        "type": "procedure",
+        "evidence": "You can start with some default values... tune the learning rate first... then adjust rank"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s4_c3",
+        "name": "LoRA rank efficiency",
+        "definition": "LoRA can achieve competitive performance with very small rank values, such as rank 1 or 2, requiring tuning of only a few parameters.",
+        "topic": "LoRA parameter tuning strategy",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "LoRA already performs competitively with a very small like even R equals one or two"
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 5,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s5_c1",
+        "name": "Quantization",
+        "definition": "Quantization is the process of reducing the precision of model weights from higher bit representations (e.g., 16-bit or 32-bit) to lower bit representations (e.g., 4-bit) to decrease model size while attempting to preserve precision.",
+        "topic": "Quantization reduces model precision",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "The core idea of quantization is quite simple"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s5_c2",
+        "name": "ABS max quantization",
+        "definition": "ABS max quantization scales all weights to a range between the minimum and maximum absolute values, then maps them into discrete buckets to represent the weights in lower precision (e.g., 4-bit).",
+        "topic": "Quantization reduces model precision",
+        "difficulty": "hard",
+        "type": "procedure",
+        "evidence": "So in quantization this is one type of quantization mechanism called ABS max"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s5_c3",
+        "name": "Pitching optimizer",
+        "definition": "Pitching optimizer is a mechanism that moves data not currently needed for computation from GPU memory to CPU memory during training to avoid GPU overload and save memory.",
+        "topic": "Quantization reduces model precision",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "pitched optimizer will shift from those do not needed during the disk step of training"
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 6,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s6_c1",
+        "name": "Instruction tuning",
+        "definition": "Instruction tuning is a supervised fine-tuning process that trains a pre-trained model to follow human instructions by learning from instruction-response pairs.",
+        "topic": "Instruction tuning necessity",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "instruction tuning or SFT is trained the model on the instruction on response pairs"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s6_c2",
+        "name": "Supervised fine-tuning (SFT)",
+        "definition": "Supervised fine-tuning is a method to transform a pre-trained base model into one that follows human instructions by training on labeled instruction-response data.",
+        "topic": "Instruction tuning necessity",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "supervised fine tuning or SFT address would to train the model to do"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s6_c3",
+        "name": "Base model behavior",
+        "definition": "A base model, trained only on raw pre-training data, tends to perform text completion rather than instruction-following due to its training objective.",
+        "topic": "Instruction tuning necessity",
+        "difficulty": "easy",
+        "type": "definition",
+        "evidence": "the base model actually did not answer the question. So instead of that, it would be that it just do a text completion"
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 7,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s7_c1",
+        "name": "supervised fine-tuning limitations",
+        "definition": "Supervised fine-tuning (SFT) has four key limitations: label quality ceiling, no notion of preference, inability to learn from feedback, and objective misalignment.",
+        "topic": "Supervised fine-tuning limitations",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "four key limitations"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s7_c2",
+        "name": "alignment training goal",
+        "definition": "Alignment training aims to teach the model human values such as helpfulness, harmlessness, and honesty to better align with user expectations.",
+        "topic": "Supervised fine-tuning limitations",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "goal of the alignment is to teach the model human values"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s7_c3",
+        "name": "objective misalignment in SFT",
+        "definition": "Objective misalignment occurs in SFT because the loss function minimizes cross-entropy but does not ensure the model is helpful, honest, or safe.",
+        "topic": "Supervised fine-tuning limitations",
+        "difficulty": "hard",
+        "type": "definition",
+        "evidence": "objective misalignment"
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 8,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s8_c1",
+        "name": "alignment in RLHF",
+        "definition": "Alignment in reinforcement learning from human feedback (RLHF) is the process of training a model to align its outputs with human preferences and values.",
+        "topic": "Reinforcement learning fundamentals",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "we want our model to have the same value as human preference"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s8_c2",
+        "name": "reinforcement learning policy",
+        "definition": "A reinforcement learning policy is a decision-making mechanism that selects actions based on probabilities to maximize cumulative reward.",
+        "topic": "Reinforcement learning fundamentals",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "Policy is the decision making mechanism like we, inside we have a probability model"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s8_c3",
+        "name": "reward function in RL",
+        "definition": "A reward function assigns numerical values to actions or states to guide the agent toward desired behaviors by maximizing positive rewards and avoiding penalties.",
+        "topic": "Reinforcement learning fundamentals",
+        "difficulty": "easy",
+        "type": "definition",
+        "evidence": "when every time Mario gets coin, the reward is a plus one"
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 9,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s9_c1",
+        "name": "reinforcement learning for LM alignment",
+        "definition": "Reinforcement learning is used to align language models with human preferences by maximizing a reward function during generation.",
+        "topic": "Reinforcement learning for LM alignment",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "we can learn from this process, this reinforcement learning process for LM alignment"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s9_c2",
+        "name": "reward model based on human preference",
+        "definition": "A reward model is trained using human preference data to evaluate and guide the language model's output quality.",
+        "topic": "Reinforcement learning for LM alignment",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "we will use human preference as a reward function here"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s9_c3",
+        "name": "collecting human preference data via comparisons",
+        "definition": "Human preference data is collected by presenting pairs of answers to questions and selecting the preferred one, rather than assigning absolute scores.",
+        "topic": "Reinforcement learning for LM alignment",
+        "difficulty": "hard",
+        "type": "procedure",
+        "evidence": "Instead of giving an answer to each question, we will give each question to answers. One is a good one, one is a bad one"
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 10,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s10_c1",
+        "name": "Reinforcement learning from human feedback",
+        "definition": "A training method where a language model learns to align with human preferences by optimizing a reward signal derived from human judgments.",
+        "topic": "Reinforcement learning from human feedback",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "this is called reinforcement learning from human feedback"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s10_c2",
+        "name": "Proximal Policy Optimization",
+        "definition": "A reinforcement learning algorithm that optimizes a policy by limiting policy updates to avoid large deviations, used in RLHF for language models.",
+        "topic": "Reinforcement learning from human feedback",
+        "difficulty": "hard",
+        "type": "definition",
+        "evidence": "one popular way is called PPO, which is proximal policy optimization"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s10_c3",
+        "name": "Reward model in RLHF",
+        "definition": "A model that predicts human preference scores, serving as the reward signal to guide the policy model's learning.",
+        "topic": "Reinforcement learning from human feedback",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "reward is the human preference"
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 11,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s11_c1",
+        "name": "Direct Preference Optimization",
+        "definition": "Direct Preference Optimization (DPO) is a method for aligning language models that directly uses preference data pairs to infer rewards without requiring a separate reward model.",
+        "topic": "Direct Preference Optimization",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "it directly using the preference data, the score of the pairs of preference data to get the reward"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s11_c2",
+        "name": "GRPO advantage estimation",
+        "definition": "GRPO estimates the advantage by generating multiple responses, averaging them to create a value baseline, and using this baseline to avoid learning a separate value function.",
+        "topic": "Direct Preference Optimization",
+        "difficulty": "hard",
+        "type": "procedure",
+        "evidence": "you just generate multiple responses, average them, then use that average as a value baseline"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s11_c3",
+        "name": "Memory efficiency in DPO",
+        "definition": "DPO reduces memory requirements during training by only needing two models: the original model and the model being trained, instead of four models required by PPO.",
+        "topic": "Direct Preference Optimization",
+        "difficulty": "easy",
+        "type": "definition",
+        "evidence": "DPO only needs two, the original model and the model to be trained"
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 12,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s12_c1",
+        "name": "Quantization",
+        "definition": "Quantization is a process of reducing the numerical precision of a model's parameters to decrease its size while attempting to preserve performance.",
+        "topic": "Quantization for model optimization",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "Quantization is a process of reducing the numerical precision of a model with and activities."
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s12_c2",
+        "name": "Post-training quantization",
+        "definition": "Post-training quantization applies quantization to a pre-trained model after standard training, using data to compute quantization parameters before inference.",
+        "topic": "Quantization for model optimization",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "This is, we will do the same thing with pre-trained model, train, do the SFT and alignment. Then we get a model. After this, we will do, we will use some data to compute the quantization method, then quantize the network and run inference."
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s12_c3",
+        "name": "Quantization aware training",
+        "definition": "Quantization aware training integrates quantization objectives directly into the model training process to account for quantization noise and improve accuracy.",
+        "topic": "Quantization for model optimization",
+        "difficulty": "hard",
+        "type": "definition",
+        "evidence": "That means we simultaneously do quantization and find meaning at the same time."
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 13,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s13_c1",
+        "name": "knowledge distillation benefits",
+        "definition": "Knowledge distillation produces smaller student models that run faster with only a small performance loss compared to the original teacher model.",
+        "topic": "Knowledge distillation benefits",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "40% smaller, 60% faster, 97% of performance"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s13_c2",
+        "name": "mixture of experts",
+        "definition": "A model architecture where only a subset of specialized sub-networks (experts) is activated per input, improving efficiency and scalability.",
+        "topic": "Knowledge distillation benefits",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "only one of several experts are actually activated"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s13_c3",
+        "name": "sparse vs dense activation",
+        "definition": "Sparse activation models activate only a small subset of parameters per input, unlike dense models that activate all parameters.",
+        "topic": "Knowledge distillation benefits",
+        "difficulty": "easy",
+        "type": "definition",
+        "evidence": "only activate a small subset of network"
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 14,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s14_c1",
+        "name": "Prompt engineering method",
+        "definition": "Prompt engineering is a simple, free approach to quickly obtain results by crafting input prompts for large language models.",
+        "topic": "Alignment method selection",
+        "difficulty": "easy",
+        "type": "definition",
+        "evidence": "start from a simplest method... prompt engineering, maybe the first, because it's free and you get instant results"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s14_c2",
+        "name": "Supervised fine-tuning with LoRA/QLoRA",
+        "definition": "Supervised fine-tuning using LoRA or QLoRA adjusts model behavior such as writing style or reasoning when data is available.",
+        "topic": "Alignment method selection",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "if you need behavior changes... SFT using LoRA or QLoRA might be a choice. Condition is you have the data."
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s14_c3",
+        "name": "Direct Preference Optimization",
+        "definition": "Direct Preference Optimization (DPO) is an alignment method that directly uses data for reward estimation without a separate reward model.",
+        "topic": "Alignment method selection",
+        "difficulty": "hard",
+        "type": "definition",
+        "evidence": "DPO is a better choice than PPO because it has less models to handle. And it directly use your data to do the reward estimation."
+      }
+    ]
+  },
+  {
+    "lecture_id": "gmt20260319-005955-recording-1920x1080",
+    "segment_id": 15,
+    "concepts": [
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s15_c1",
+        "name": "Project submission components",
+        "definition": "A project submission must include a user manual explaining installation and execution, and optionally source code and API key instructions if external APIs are used.",
+        "topic": "Project submission guidelines",
+        "difficulty": "easy",
+        "type": "procedure",
+        "evidence": "give a self-explanatory written about how to install, how to run it"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s15_c2",
+        "name": "Quiz format and coverage",
+        "definition": "The quiz will be on-site using the Examiner system, consisting mainly of multiple-choice questions covering topics introduced in the second half of the course.",
+        "topic": "Project submission guidelines",
+        "difficulty": "medium",
+        "type": "definition",
+        "evidence": "the quiz will be in the similar format as the midterm quiz, it will be on site using the examiner"
+      },
+      {
+        "concept_id": "gmt20260319-005955-recording-1920x1080_s15_c3",
+        "name": "Mock test preparation",
+        "definition": "Students are advised to test the new quiz system using a mock test before the actual quiz to avoid technical issues.",
+        "topic": "Project submission guidelines",
+        "difficulty": "easy",
+        "type": "procedure",
+        "evidence": "I will recommend you to test using the mock test to test your system first before you come in"
+      }
+    ]
+  }
+]

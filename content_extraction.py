@@ -444,49 +444,6 @@ class CodexLLMClient:
     #             return joined
 
     #     raise RuntimeError(f"{self.provider} returned empty message content: {response}")
-    def generate(self, system_prompt: str, user_prompt: str) -> str:
-        print(f"[LLM] Provider: {self.provider}")
-        print(f"[LLM] Model: {self.model}")
-        print("[LLM] Sending request...")
-
-        try:
-            response = self.client.chat.completions.create(
-                model=self.model,
-                temperature=0,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt},
-                ],
-                timeout=60,
-            )
-            print("[LLM] Response received.")
-        except Exception as e:
-            print(f"[LLM] Request failed: {e}")
-            raise RuntimeError(f"{self.provider} request failed: {e}")
-
-        if not getattr(response, "choices", None):
-            raise RuntimeError(f"{self.provider} returned no choices: {response}")
-
-        message = response.choices[0].message
-        content = getattr(message, "content", None)
-
-        if isinstance(content, str):
-            return content.strip()
-
-        if isinstance(content, list):
-            parts = []
-            for item in content:
-                if isinstance(item, dict) and item.get("type") == "text":
-                    parts.append(item.get("text", ""))
-                else:
-                    text = getattr(item, "text", None)
-                    if text:
-                        parts.append(text)
-            joined = "".join(parts).strip()
-            if joined:
-                return joined
-
-        raise RuntimeError(f"{self.provider} returned empty message content: {response}")
     
 def _concept_system_prompt() -> str:
 #     return """

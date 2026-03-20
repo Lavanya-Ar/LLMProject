@@ -1,0 +1,626 @@
+{
+  "lecture_id": "gmt20260319-005955-recording-1920x1080",
+  "lecture_title": "GMT20260319-005955_Recording_1920x1080",
+  "run_dir": "runs\\20260320_143110_gmt20260319-005955-recording-1920x1080",
+  "upload_path": "runs\\20260320_143110_gmt20260319-005955-recording-1920x1080\\uploads\\GMT20260319-005955_Recording_1920x1080.mp4",
+  "transcript_path": "runs\\20260320_143110_gmt20260319-005955-recording-1920x1080\\transcription_output\\GMT20260319-005955_Recording_1920x1080_transcript.txt",
+  "transcript_json_path": "runs\\20260320_143110_gmt20260319-005955-recording-1920x1080\\transcription_output\\GMT20260319-005955_Recording_1920x1080_transcript.json",
+  "subtitles_path": "runs\\20260320_143110_gmt20260319-005955-recording-1920x1080\\transcription_output\\GMT20260319-005955_Recording_1920x1080_subtitles.srt",
+  "segments_path": "runs\\20260320_143110_gmt20260319-005955-recording-1920x1080\\segments.json",
+  "concepts_path": "runs\\20260320_143110_gmt20260319-005955-recording-1920x1080\\concepts.json",
+  "statistics": {
+    "word_count": 10147,
+    "total_segments": 974,
+    "duration_seconds": 602.389,
+    "duration": "0:10:02",
+    "detected_topics": 15,
+    "concept_count": 45
+  },
+  "topics": [
+    "Fine-tuning language model adaptation",
+    "Fine-tuning stages and costs",
+    "Low-rank matrix decomposition benefits",
+    "LoRA parameter tuning strategy",
+    "Quantization reduces model precision",
+    "Instruction tuning necessity",
+    "Supervised fine-tuning limitations",
+    "Reinforcement learning fundamentals",
+    "Reinforcement learning for LM alignment",
+    "Reinforcement learning from human feedback",
+    "Direct Preference Optimization",
+    "Quantization for model optimization",
+    "Knowledge distillation benefits",
+    "Alignment method selection",
+    "Project submission guidelines"
+  ],
+  "transcript_preview": " Hello, good morning. Can you hear me? Thank you. Great, great. Yeah. We may wait for one minute. Okay. I think we can start. As usual, if you have any questions during the lecture, please raise up your hand or message me in the chat. Okay, let's get started. So today's topic is about large language model adaptation. Today's lecture we will show how to adapt pre-train models to specific tasks and behaviors. So this is a learning outcome for today. You may want to use this to check your understanding after the lecture. Here is the outline for today. We will first introduce our motivation why we do fine tuning. Then we will move roughly in the order that presenting our motivation. Then go through how and LM models is built from raw pre-training to model refinement and the lastly optimization. I would also like to provide some strategy for you to consider when you face this fine tuning scenario. Okay, okay here. This slide shows the what a rack and agent system can and cannot do. In our previous lectures in the previous week, we saw how rack and agent help solve several key problems that's given model access to external and real-time knowledge, also in enabling multi-step reasoning with some tools and also reducing hallucination and factual queries. But there are do have something that rack and agent still can't do. You can look at the list here. Overall, we can think of it in this way. rack gives the model better notes to read before an examination. For example, LM is a student",
+  "segments": [
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 1,
+      "text": "Hello, good morning. Can you hear me? Thank you. Great, great. Yeah. We may wait for one minute. Okay. I think we can start. As usual, if you have any questions during the lecture, please raise up your hand or message me in the chat. Okay, let's get started. So today's topic is about large language model adaptation. Today's lecture we will show how to adapt pre-train models to specific tasks and behaviors. So this is a learning outcome for today. You may want to use this to check your understanding after the lecture. Here is the outline for today. We will first introduce our motivation why we do fine tuning. Then we will move roughly in the order that presenting our motivation. Then go through how and LM models is built from raw pre-training to model refinement and the lastly optimization. I would also like to provide some strategy for you to consider when you face this fine tuning scenario. Okay, okay here. This slide shows the what a rack and agent system can and cannot do. In our previous lectures in the previous week, we saw how rack and agent help solve several key problems that's given model access to external and real-time knowledge, also in enabling multi-step reasoning with some tools and also reducing hallucination and factual queries. But there are do have something that rack and agent still can't do. You can look at the list here. Overall, we can think of it in this way. rack gives the model better notes to read before an examination. For example, LM is a student, for example. So rack gives the model some notes to read before an examination. But it doesn't make the models matter automatically. It depends on the quality of the model itself. If the model is a bad writer, you just add extra data to it. It won't make it a good one. Also, if we can't do some reasoning through multiple steps, for example, given some document to read, may not help that much as well. Right? So that's why when arch-language model is not able to perform well in certain tasks, fine-tune the model is presented for your consideration. Actually fine-tuning actually changes the model's internal parameters. So using the example we discussed just now, it's like putting the model through some specialized training on your own tasks. So it likely the model after training will do better in those tasks that it does not perform very well so that's the reasoning why we want to have fine-tuning in certain scenarios. Before we go into the details of fine-tuning, let's ask the most important question, should you do fine-tuning at all? So we can use this kind of tree like reference. Imagine you have a task, right? If it requires external or real-time knowledge, then you can consider your server's system. But if it doesn't need that, or we'll go through this branch, it doesn't need external knowledge, but needs new behavior or writing scale. Then you need to ask yourself another question, do you have training data, or do you have enough budget to use all these GPU resources? If yes, okay, you can do fine-tuning. If not, if these two questions are not, you better try further from engineering. We have taught in the first lecture of this second half. So this is the first checkpoint you need to consider when you go deep in the fine-tuning. The key message is here. Fine-tuning is not always the right answer. It comes with cost and complex complexity. So be careful when you decide to do this. So let's understand the full FM training pipeline from scratch. This tree illustrates the three stages training pipeline. So every major large-length of the model we are using today, follow, kindly follow these three steps. The first step is called pre-training. So this is the most expensive and one-time step done by only by those large organizations, like large labs, large companies, because it costs millions of dollars and use like trailing tokens to do it.",
+      "topic": "Fine-tuning language model adaptation"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 2,
+      "text": "So usually small enterprise, small companies cannot do it. So as AI practitioners, we typically start from stage two. Sorry, take a pre-training based model and we do fine-tuning on it. And the stage three is alignment. This is what transforms a technically capable model into a helpful, harmful, harmless and honest assistant. Sorry. In this lecture, we'll cover all three steps, but just to be very in mind that our focus is in stage two and three, because this is too expensive. This is beyond asked. Here, this table shows who can do this and what's the output of those different steps, stages. Okay, so this table lets you compare across the three stages. Just now we have table shows who can do it, and what's the output. This table gives you more details of each stages, each training stages. The key insight for us for AI practitioners is the cost. So the first thing we need to consider is this one. Pre-training is essentially beyond us. So SFT supervised fine-tuning or instruction tuning in alignment are absolutely within our reach. You can find you a relatively small model in a single computer GPU using Laura parameter efficient fine-tuning. We'll talk about it later. But on the other hand, we also need to look at the risk flow here. Our catastrophic forgetting in SFT and reward height in alignment are real failure models. We need to consider when we do those. So let's say the major ways to do the fine-tuning. So this graph is from the, this our textbook. You can take a look at all the details of them. Here, I just list some key points we want to consider. For example, this classification fine-tuning or mask LM, it will only train the last layers, the output layers of the model. So it usually will be used in classification kind of scenario. So for example, the bird for text classification is using this kind of fine-tuning. But for us, we were more consider about how to use parameter efficient fine-tuning. That's what we're going to discuss later, which is Laura. But when you ask what kind of fine-tuning strategy there are, you may refer to this table because this chart, this chart gives you a very clear illustration on what the training will adjust and what's the output of the model fine-tuning process. Just now we mentioned fine-tuning may cause catastrophic forgetting. This means after tuning, the model doesn't remember what it needs to stay before it fine-tuning. That means it forgot the knowledge it learned. It just minimizes losses on your training data. So that means the model is over-trained on your own data. then it overrides the other capabilities. So this table leads some ways to prevent the catastrophic forgetting. For example, you can tune the learning rate, you can do less epochs, and you can manipulate your data. And also, we can do parameter efficient fight tuning. So this actually, which is Laura, this is the most effective medication for catastrophic forgetting. So here is the key method we are going to discuss in this lecture. Because this one will freeze the original weights and only train a small tiny adapters like here. So it won't the original model, model is still keep its own weights without changes. When we train this, it will only be used in the inference steps. So if you in the future, you want the model to do another task, you can just replace this adapter. So that's the beauty of the Laura. Okay, let's get into it. Parameter efficient fight tuning. So the key inside behind PFT, which is parameter efficient fight tuning, is that the weight updates during the fight tuning are low rank. So this is called parameter efficient. Because imagine this example, suppose in the original model, we have a weight matrix, which is d times k, while d is the input dimension. For example, we give d 1000, then k is output dimension, which is 5,000 here in this example.",
+      "topic": "Fine-tuning stages and costs"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 3,
+      "text": "Altogether for this weight matrix, we will need how many parameters. We can see we just did times k, that's 5 million parameters, just for this matrix. But remember, we learned in linear algebra, the matrix can be decomposed. So imagine we decomposed this matrix into two smaller ones, which is d times k and d times r and r times d. Here, this r is far less than k here. This chart may be not that obvious, but r should be very much smaller than k, the dimension here. So you can see if we use linear algebra, with times, we multiply these two matrix, we can still convert into a matrix, d times k, right? So that's sorry, here, I have a mistake here, it should be k here. Sorry, I will change that in the PDF, it should be a k here. So, sorry, after that, otherwise it cannot go back to the original dimension. So it should be a k here, here is correct. Then just now we mentioned, we do a metric decomposition into these two small metrics. Then let's calculate how many parameters we have, if we give these two small metrics. So then suppose r equals five only, then we have, for these metrics, how many parameters we have is d times r, right? So that's all the cells in these metrics. And for these metrics, we have r times k here. So all together, if we use the same value here, we'll get 30k parameters. So compare with the original five million parameters. Here, we only use less than one percent of the original parameters to represent the original metrics. So this is the mass behind this law. So why does this work? Because the empirical findings from the original law of paper is that fine tuning, when we do fine tuning, it only updates some low dimensionality. So many of the updates only clustered in the low rank subspace. So that's why we believe this decomposition, still can be the enough adaptation. To move the original model to a desired direction. So let's summarize the parameter equation fine tuning. It's like you are storing a high resolution photo, for example, a full HD photo d times k in these resolutions. We can store a compressed version, which is these two small ones, but we can still capture the important changes during this process. So that's the mass behind the borax. Let's look at more details. We compare the regular fine tuning versus lower here. These two diagrams make a very good contrast. In regular fine tuning, we directly update the full width metrics. So it's in the same dimension as the pre-tuned width here. So the update will be on this metric is delta w. You can imagine if we used the example we showed just now, or you need to update 5 million of parameters. You can imagine it's very big and also will need a lot of data in order to do a proper fine tuning. On the other hand, if we use lower, instead of computing this delta w directly, we approximate the 8 using two small metrics. That's what we showed just now. We call them B and A. We have two smaller metrics. Both have the R as a rank. So when we multiply these two B and A together, we can still get a metric of in this rank. So during inference, imagine we trained these two small metrics. Then during inference, we just add the original weights, which is frozen, does not change, and add the new to the multiplication of these two small metrics together. So after Lora, the inference time does not increase, because it's only a addition here. It does not change too much on the inference performance or speed. So here, the rank R is a very important hyper parameter you can control. So a smaller R means of future fewer parameters you need to train.",
+      "topic": "Low-rank matrix decomposition benefits"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 4,
+      "text": "Actually, a later one show a very small R can do quite a good job already. So we already talked about during Lora inference. We just add them together. So the inference will be significantly increased. Next, let's look at the implementation. We can see this during implementation, we have slightly different formula like as the previous theory part. We add some small factors there. For example, this alpha is scaling factor. This will be used to adjust the influence of this new metrics towards the whole original metrics. Drop out, this is a drop out rate. This is a common strategy we were used in deep learning to prevent overfitting. I believe you all know this in deep learning modules. So we won't discuss more here. So this table here shows some empirical parameters you can start with. So this is just for your information. This is not the golden rule or something. This is just a reference for you. Our idea of choosing hyper parameter meters during Lora training is you can start with some default values, for example, those ones. Then you will tune the learning rate first with a fixed alpha and a rank. You tune the learning rate first. Then if until certain number of tuning you'll stand. There's no changes if you change learning rate. You'll find the optimal learning rate already then you can go inside to adjust rank and to get the best performance on your training data. So this is an empirical strategy for using law-run for fine tuning just for your information. So this staged approach instead of tuned all the parameters at the same time this stage approach saves some time and avoids like too many combinations during the training steps. Okay, just now we showed the how to tune the parameters for Laura, but what kind of width we should apply Laura to. So this this is the this is the numbers from the original Laura paper. So it compares this table, the top table, compares the performance across different width types. You can see we can Laura mostly applied on the attention width. So that's a value query key value metrics and sometimes on the WO which is output width. So from this paper you can look for the you can understand the details of this results, but the finding is that I've that adapting both query query and the value width will give you best overall performance. So that that's one findings from this table. The bottom table here, this is to ask what is optimal rank for this different tasks. The finally the paper is tries different ranks. So if we still remember what's rank for if a higher rank means you need to find you more parameters. Lower rank means smaller parameters you need to tune. So the findings in this table shows Laura already performs competitively quite well with a very small like even R equals one or two. That means you only need to find you two small one or two dimension column vectors. You can already achieve good results for certain tasks. So these are some practical guidelines to follow in your own finding your new experiment if you are doing that kind of training. Just now we showed Laura. Laura is a good mechanism to train to find you a large lengthing model with very small amount of parameters and yet we achieve good performance. But imagine if you have a very big foundation model that means the original model is quite big. Even we use Laura we can use Laura to train a small model. At the beginning we still need to load the base model into the memory in order to do in the training process. So in that case even you use Laura to find you it is still challenging. So in this scenario we introduce Q Laura. That means we we we quantize the base model. Q Laura Q is quantization here.",
+      "topic": "LoRA parameter tuning strategy"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 5,
+      "text": "So we quantize the original model. The original huge model usually they stored in like 60 16-bit or 32-bit kind of wheat matrices. But if we quantize the model to 4-bit precision and the model size can be significantly reduced. So that's the idea of Laura. Laura Q Laura. Sorry. So one way is through quantization. Another mechanism is pitched optimizer optimizers. This means if during the training right because you need to load this guy and also two small B and A matrix during the training right. If your GPU or your hardware gets full away during the training process the pitched optimizer will shift from those do not needed during the disk step of training. You will move those pages which are not currently required to move them into CPU so that it will save your GPU for the current computation. Then in the next step if those data will be used it will revert back to the GPU memory. So that this is the two key strategy of using Q Laura to further help the parameter efficient fine tuning. Here we have illustration of compare the Laura and Q Laura. One is the precision of the parameters. Another is pitched optimizer. You can look for more details using these people. Then we have a question. Just now we mentioned about quantization. So what is quantization? So the core idea of quantization is quite simple. Here we give an example here. For example we have original weights that are in 32 bit or 16 bit. The idea is we want to represent these original weights using only four bits but on the other hand we do not want to lose the precision. So that's our goal. So in quantization this is one type of quantization mechanism called ABS max. So it is absolutely max quantization. So we can look at the details. Instead one we look through, we run through all the weak values. Then find the maximum values, the minimum and maximum values. So absolute value means the smallest and biggest value. Then we get a range of these values. We know how in this matrix what our maximum and minimum number will be. So we get them into a scale. Then we can divide this absolute value to all the weights with numbers. So all the numbers will be scaled into minus one to one range. So this is the first step. In the next step we will separate these values into several buckets. This depends on how many bits you have. So you can build several buckets to represent all the values between these bucket branch. So this is the second step. Then the last step will be we assign the original weights into the bucket which is closest to the scaled value. So we will run them into different buckets. So in this case all the values will be mapped into a four bit precision. So that's the idea of this ABS max quantization. Of course during this process we were in order to not lose the precision. We will still store the scaling factor. So that's the power point of those values. So we only work on the base values here. So in this way we convert all those values in big 16 or 32 bit values into four bit ones. Then during the inference if we want to decontextation we want to let this value come back to the original precision. We just multiply the quantized value with the scaling factor which is stored somewhere in the memory. So we will still come back to the original precision. So that's the the whole idea of quantization. Just to follow your information this ABS max is just one of the quantization approach. This is the simplest one. But the idea will be similar. A different quantization method is just different how they store the scales of base values. And what's the bucket distribution mechanism they use? So the whole idea of using quantization is try to further reduce the original memory requirement for the big models in order to make the parameter efficient fine tuning works mostly.",
+      "topic": "Quantization reduces model precision"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 6,
+      "text": "So that's the idea of parameter efficient fine tuning. We introduced Laura and Kyu Laura. Any questions? Okay, then I will continue. So this is our first topic for today. Next one, we will move to the second topic of this lecture, which is instruction tuning. Also, sometimes we call it supervised fine tuning or SFT. Because just now we mentioned Laura and Kyu Laura. Those methods address how to fine tune a model efficiently. This method address those questions. But supervised fine tuning or SFT address would to train the model to do. So specifically, SFT is how we transform a raw the pretrend model into another one that follows human instruction in a meaningful way. So let's see how can we do that? What do I mean on that? Here is an example of why instruction tuning is necessary. For example, we ask a question. Explain the moon landing to a six year old in a few sentences. So this, if you give this question to a base model, which is trained by raw pre-training. Remember the three steps we introduced just now. The first step of large length remodel training is using raw data to do a pre-training, during these pre-training steps, you get a base model. If you ask this question to that base model, you can see some of the response here. The base model actually did not answer the question. So instead of that, it would be that it just do a text completion. So it's doing like a text completion tasks, generate more words after your initial problems. So this is because during the pre-training language models, you remember they just do the give you the training strategy is a text completion tasks. So given the input, the model strategy is to find the suitable with most high probability of following words. So that's why the behavior is like this. So the the model are just trained to predict the next token after the token you give. So they are not to instruct, instructed to respond the question well. So that's why we will need to use instruction tuning to teach the model to answer questions to follow our instructions. So that's why the instruction instruction tuning or SFT is trained the model on the instruction on response pairs. So we give the model some questions and answer pairs for it to learn. And if the model gets enough amount of data, get many exposure on this kind of scenario. The model will learn how to answer a question properly. So that's the basic, the most important training method to train a large model to follow human instructions. So the power of instruction tuning is the training data must be very diverse. Otherwise, we only be able to answer certain type of questions. So I would like to prepare our training data. We will need a wide variety of instructions. And then the model learns a generalize for instruction follow capability. For example, here, these two examples on screen shows the diversity of the task. The first one is a creative writing task. And the next one is a like a form filing task. So if a model trained across many such tasks, it will again, brought instruction follow ability that transferred to a new unseen tasks. So that's the whole idea behind the instruction tuning. You prepare a wild variety of instruction and answer pairs. That's very important for instruction fine tuning. So this slides give up before and after comparison of supervised fine tuning. So you can see what has been changed during the sft. It teaches the model how to respond to instructions, not as before, just predict the next token. So that's her key differences. On the left here, before sft, we have a base model. It will give us this question, explain what photo sensitivities is. It replied with no structure and totally does not understand the intent of the question. So here are some drawbacks of this kind of answers. But after sft, the instruction in the model is called instructed model.",
+      "topic": "Instruction tuning necessity"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 7,
+      "text": "Given the same question, this time, model can give a structured more proper answer. So this kind of transformation is remarkable, you can see from token prediction to actually instruction following. So that shows the most important shift that sft produced. But after the supervised learning like sft, there are sometimes training on label data alone is not enough for modern large-length models. Here, with this four key limitations, even we train and remember for the state, three stage LM training model. Now we are in the second stage. We already train the model for instruction following, but they're still not enough. Here are the four key limitations. Firstly, this is a label quality ceiling. This is obvious, right? Because those models are data dripping. So the quality of the model train is significantly based on the data you give. So the annotators quality will decide the ceiling of the model performance. The second one, no notion of preference. So because the model is doing as sft, the model just gives a question and answer pairs. So it will learn how to produce an answer, but because this is a probability-based model, every time it will generate maybe slightly different or quite different answers. But it does not know which answer are most related to the question being asked. So this means no notion of preference. The third one is also obvious. It cannot learn from feedback because when the model is trained, it's the parameters that not change animal. So it just can produce answers. It won't give do any learning at all. So the last one is objective misalignment. So this means when we train the sft, our objective function is to minimize the cross entropy, to minimize the loss. It might be a cross entropy loss, right? But this is a learning objective, but this loss does not equal to the model is helpful, honest or safety. It does not do that. It just tries to give you similar answer for the same question. So this is the whole some key limitations after sft. Now we are in the second step. So that's bring us the following training, further training. So that's the alignment we're going to talk about. So in the next session we'll talk about alignment. So just now we talk about Laura sft. The pre-trained RM even after sft may not know. what's helpful versus harmful, what's true versus false, or what's appropriate versus offensive, because just now we mentioned in the 4K limitations during the SFT, the objective is just to minimize the loss. It does not give those information on harmful or not, for example. So that brings us to further training. This is called alignment. So the goal of the alignment is to teach the model human values across these three dimensions. A helpful, I mean, it needs to follow users' instructions, right? And harmless means the large lung remodel should refuse unsive requests. So here in the table below, we show an example of harmful content. Maybe in the early initial version of large lung remodel, it does not do, it might answer you these questions, but currently the recent models, the good models should not answer those kinds of questions and it should answer something like this. So this means harmless. Another objective is to train the large lung model, be honest. So it should admit, it cannot do something. And instead of just give up, generate something directly. So we also have an example here, answer to this. That means I'm not sure about this, but it does not just give you answers anyhow. So that's the reason why we need alignment here. We want to solve, they teach the model those human values here. There's harmful, harmless, and honest. So that's the idea of why we need alignment. Oh, here we have another one is called verbosity. This, for example, if you give an instruction, like this, if you give a question, it will give you very long answers, but instead, a brief answer or concise answer will be preferred.",
+      "topic": "Supervised fine-tuning limitations"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 8,
+      "text": "So that's, we also need the model to understand. In today's tutorial, we will give you an example of how to train a large lung model using alignment approach, which is a DPO. We will train the model to follow the instruction to generate answers in certain format. So that's the tutorial. Maybe you want to try out. Okay, just now we talk about alignment, why we need alignment, right? Because we want our model to have the same value as human preference. But how do we do the alignment, actually? So the story need to start with reinforcement learning. So in this alignment scenario, reinforcement learning is one of the more used approach and that's why we need to talk about it first. So imagine what's in reinforcement learning. This is widely used in game industry, for example. I think many of us may know this game, right? This is Mario, Super Mario. The idea of this Super Mario is he goes through a long, long pass then every time he sees a coin and he gets it, he will get points. He will get reward. Then if he bumped into a, this is a mushroom, right, if bumped into a gumbah, he will be penalized. His life will be deducted, something like that. So that's the game scenario. So the goal of the game is he pass through all the pass and get as small as enough coins and try to not lose his life to bump on a gumbah. So that's the whole idea. So this scenario is easily can be simulate use reinforcement learning. The reinforcement learning, the idea is you have a state. So each state is a scenario like he's in this position and what's the front, what's the, what's the, is there a coin and what's the environment, something like this. For example, this is the, this picture is one frame. So in every frame, there is a policy. Policy is the decision making mechanism like we, inside we have a probability model. Besides the Mario will go to which direction. It can do up, left and right. So that's all Mario can go, but each, each direction has different probabilities here. So this is the original model, the original model, the Mario can use when it goes through these games. So here the very important point is a reward. Just now we mentioned, if Mario gets a coin, he will be awarded, he will get some coin and he will get some life or something. Yeah, so this reward is a mechanism to decide. We want to give price or penalize action. So that's the word, word means in this game. So here for example, when every time Mario gets coin, the reward is a plus one. But if it goes through the end of the past, this is a big reward, he will get 10k rewards. But if he bump into a gongba, that means he will over. So he will be penalized with 10k of points. Of course, if nothing happens, he will not be rewarded or penalized. So this is a reward function. This is very important because every step Mario goes, it will depend on the reward. So every time suppose Mario should do the action that maximize the reward. So in each state, he needs to find the best action that gets the good reward. For example, in this scenario, the best action could be jump up, right? Because it will get coin here. And he is quite far from the gongba yet. He may not bump into gongba after he joked down. So that might be the action. So imagine this is a game, this is only one state. So going through the games, the Mario will make multiple decisions based on the objective to maximum the reward. So that's the goal. So if you simulate this scenario, you will have this kind of trajectory. So in each state, remember this one, you will have state action reward.",
+      "topic": "Reinforcement learning fundamentals"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 9,
+      "text": "Those triplets to record what's the Mario's pass, how it gets to the end. So if we simulate this process, we can teach Mario in next time, what he can do is to maximize this reward in order to go to the end of the game instead of touch a gongba and fail. So that's the whole learning process in a game environment. So this is a very famous one. Actually, we can learn from this process, this reinforcement learning process for LM alignment. Let's see, the LM is an agent making decisions. For example, we can consider LM is Mario here. So the state here, instead of this picture, we can see the state for LM game is input prompt. So every time the LM gets input, then action is the next token he gave out. Similar as the action jump left, right, this decision. And the policy here is how the LM do generate the output is the original LM width, which is original large length models, right? And then because we want to teach the LM to the correct, to human preference, so we will use human preference as a reward function here. To teach LM, you should always. objective, maximum reward during your generation process. So one type of interaction with LM is, as I said, one game for Mario. We give it a prompt. Then the LM generates some action. That means give your response. Then how the response is given is based on the LM weights inside the model. So the whole objective is to maximize the human preference. That's a whole idea. The simulation of LM alignment versus reinforcement learning. I hope you are still following me. Now we almost understand the reward model. It's an important indicator for LM during the learning process. But how do we get the reward model? We need human preference. That's the idea we want the large length model to learn from. But how do we get human preference? Here we give some example. It's not easy as Mario to get a coin plus one, bomb, bomb, bomb, minus 10k. This is not strict forward like that. Because we are dealing with natural language. It's not like... We don't have universal accepted reward for each question and answer. In that case, things we do not have a golden answer for each question. What can we do? We can do comparison. Instead of giving an answer to each question, we will give each question to answers. One is a good one, one is a bad one. So in that case, we collect a bunch of questions. Then for each question, we will give human preferred answer and human not preferred answer. In this way, we can see this data can be used to treat the reward model for a large length model. At least the large length model gets to learn what's good, what's bad. So in that way, it somehow follows human preference on a good answer. So that's the idea of collecting data for alignment for the large length model during alignment process. Let's look at the famous human-relevant information learning from human feedback. This is originally proposed by the OpenAI in chat GPT. So this is how do we do? Firstly, remember just now we have talked about the SFT and base LM training. So after base LM training, large amount of data, and we use SFT to teach the model to answer questions, because we just compared this is not enough. So that's why we need alignment. So next, we will go to the alignment process. In the alignment process, firstly, we will need a reward model, because remember the Mario case, Mario, the action of Mario, all depends on how much reward he will get, right? So he needs to maximize the rewards during the process. So similarly, for a large length model, we teach like the length model. We firstly need to let it know what's the reward. So we use the human preference data.",
+      "topic": "Reinforcement learning for LM alignment"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 10,
+      "text": "Just now we mentioned for each question, we gave a good answer versus a bad answer. So in this case, we used those data to train the large length remodel to learn the preference of human. So this is called re-inversement learning from human feedback, RIOHF. So this is a whole idea of the reward, the re-inversement learning for a large length model. Here, you can see the reward is the human preference. And the policy here is the large length model. This is a model we want to adapt and learn to follow the human instruction. Of course, there are many optimization ways to optimize to change the width of the LM. So one popular way is called PPO, which is proximal policy optimization. So this is one of the most early policy, which is used in chat GPT. So we will firstly introduce this PPO. You can see I won't go to very detail of this PPO policy optimization, but just give you an idea. Given a original model, it will PPO will require four models to restore four models inside the Mary. So the first one will be the original model. This is the model before training. So another one is the model we want to train from. So these are two models. Another one is called reward model. Just now we mentioned reward is one of the most important parts of training the large length remodel. And also we have a value model because for each state we need to calculate how much reward we can get from each action. So this is called reward model. So the value model here is to estimate expected future reward. So this means in my case, if he decided to go front, what's the reward he can get? If he decided to go up, what's the reward he can get? So in every state, Mary will need to make that calculation. So this is calculated using value model. So same as in LM training here. In order to calculate those, we have we have other terminology called advantage. I won't give a discuss more here, but advantage is how to decide how to get reward from the reward model and value model. So it actually calculates the reward of the whole accumulator reward of the whole past. So that you can consider this one is just for this state, but advantage is accumulated one. It keeps adding for each action the LM did. This can be generating a sentence one token by one token. So advantage will be under this stage, all the tokens I have generated and in the future, what's the reward I get? So this is the advantage. So you can see there are, of course there are other stuff, but you can read the details of PPO. I won't give you too much details here, but just remember a PPO policy. This is an optimization policy for reinforcement learning. It will request four models, which is quite memory, not efficient, right? It's complex because you are dealing with four models at the same time. So that's why instead of PPO, there are other advantages. So this table, we show some challenges of reinforcement learning using PPO. First, as I mentioned earlier, you will need four models in memory simultaneously. Like every time you were dealing with these four models, you need to have the memory to store all the widths of these four models. And secondly, PPO training is sensitive to hyper parameters because all the value model advantage they have, they have some parameters that drive the performance of this policy. So it's quite sensitive. That means every time the training result cannot be predicted. So that's another drawback of this PPO training. Third one is reward hacking. This is a serious risk because when the model learns to maximum the reward score, that's the only objective of this model. It may find some loophole. It will directly find the shortest path to go to the best reward.",
+      "topic": "Reinforcement learning from human feedback"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 11,
+      "text": "But sometimes it's not a good quality for output. That's the called reward hacking. The last one will be human annotation because we all need human preference, the pair of bad or good data pairs. So it's expensive when you need a huge amount of this kind of data. So those are challenges of RIL attract in lecture model training. So that's why some simpler alternative for PPO is proposed. Today we'll only discuss about DPO and GRPO, which are very popular use in the alignment process. So firstly, let's look at this direct preference optimization. The key differences from PPO is it does not need reward model. So it directly instead of using a reward model every time to decide what reward you can get. It directly using the preference data, the score of the pairs of preference data to get the reward, to infer the reward of the different choices. So here, PPO measures how much the model improves at choosing the good answer compared to its original model version. So the data here sets how far the model is allowed to drift from its original style. So those are some hyper parameters. The sigma is the sigma function, which we are very familiar with. So all in all, when RIL HRF remembers the PPO needs four models in memory. But DPO only needs two, the original model and the model to be trained. So it significantly reduced memory needs during the training. So it's far more memory efficient and easy to train in a model training practice. So in our tutorial, we use this method to show you how to teach the large length model to output in certain direction, in certain format. So that's DPO. Another one is called GRPO. GRPO is actually proposed by DeepSick. When DeepSick R1 is come out last year before, so GRPO become one of the most used policy optimization method during alignment alignment. So this is how GRPO works. It removes one model, which is a value model from the original people. So instead of learning a value function, you just generate multiple responses, average them, then use that average as a value baseline. So this is the steps how the GRPO works. You can also search for the GRPO papers or some explanations. But the core idea is that it do not need a value model. It just uses this way to estimate the advantage. If you still remember in PPO, advantage is calculate the accumulated award until this pass in current status. So this is how GRPO works. So eventually GRPO only needs three models instead of four. So that's why it is more stable during training. And some models, for example, DeepSick R1, achieves better reasoning skills using GRPO. That's why this method is being adopted by many recent large hand models. So beyond this PPO, GRPO, DQ, there are many other new methods. I won't go through them, but you just need to know. For example, ORPO is particularly very efficient because it only needs one model. It actually can combine the SFT and alignment in a single process. Remember, just now at the beginning, we show the large hand model training usually involves three steps. But if you use ORPO, it will do the step two and three together. So that's a very efficient way to train a large hand model. So this is just for your information. And also, a simple PPO also needs one single model. It removes the original throws a model. It saves the memory and simplifies the training process. For the rest, if you are interested, you can look for them and understand more details. Because of our time limitation, I won't go through more details of all the other models. Any questions? No? OK, so now we have go through the three important steps on training a large hand model from the pre-training, which is beyond us. We cannot control. But we are focused on the second and the third steps of large hand model training.",
+      "topic": "Direct Preference Optimization"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 12,
+      "text": "Which is SFT and alignment. So in SFT, you can use Lora to do parameter efficient training. In alignment, you can use many optimization methods like the DPO, JRPO, or the new method I mentioned just now. So all these methods is to train a large hand model as we are currently used. Currently, the other large hand model on the market or even open source or not, they are generally follow this training process. So now we want to shift to a broader set of advanced optimization techniques beyond the fine tuning. Because sometimes when we train a model, depends on different scenarios of applications, we need to make the models matter and faster and more efficient. Because the whole training in the first three steps is to make the model perform well. So usually those models are huge and hard to apply to be applied into certain edge device, for example. So after that, some optimization method need to be applied on those big models. That's why we will talk about it now. So first, the quantization. Quantization is a process of reducing the numerical precision of a model with and activities. We actually have introduced quantization method during QLora. QLora is to quantize the values of the width during the parameter efficient training process. So the quantization generally follows the same way. It's just for all the model parameters, it will do the quantization to reduce its size. So I won't go to that details on how quantization is made. It's largely similar as QLora. Just for your information, after quantization, for example, a seven billion model parameters, if it's in original IP 32 bits, it may have a 20-inch gate of size. But after quantization, it will be reduced into 3.5G, which is significant, almost eight times reduction on the memory requirement. So that's the beauty of the quantization. But the quantization, the objective is while we reduce the size, we don't want to reduce the performance, the accuracy. So there are two main approaches for model quantization. The first one is post training quantization. This is, we start, we will do the same thing with pre-trained model, train, do the SFT and alignment. Then we get a model. After this, we will do, we will use some data to compute the quantization method, then quantize the network and run inference. So that means put it in a simple word, let me train a model as usual, then after a base model train, we do quantization. The next method is called quantization aware training. That means we simultaneously do quantization and find meaning at the same time. So you need to do the training of those models. Instead of only do SFT or alignment, the training process will also remember those quantization objectives at the same time. So the model learns to account for quantization noise. So in this way, usually this quantization aware training will be much more complex, because you know it will consider about quantization loss during the training. But usually the accuracy will be better than this one, but there's pros and cons for each method. So it QAT, which is quantization aware training, typically yields better accuracy, but it requires additional training time and resources, which we as a practitioner on AI, we may not have. So usually this PTQ is relatively more popular way to do the quantization. Okay, the next optimization on the model is called knowledge distillation. So exactly do another kind of model compression. Instead of just looking at which those with values, it's train, it used the original model, the trained model as a teacher, to do a knowledge transfer to a student model. So usually the student model can be as in different structure or in same structure, but less complex like a teacher model. Because usually in this knowledge distillation, we want a student model to learn from the teacher, but it's more specific on certain tasks. That means you, sometimes after training, this distillation process, the student model actually can perform better in certain tasks than the original teacher model.",
+      "topic": "Quantization for model optimization"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 13,
+      "text": "So this is normal because a student model are more not as general as teacher, but it's more specialized. That's what we can conclude here. Usually that's the way of distillation, because it's a usually student model is optimized for certain domain. So that's why sometimes it gets better performance. Just an example here, we have some models called distill birth. So this is actually a distill version of birth. It is 40% smaller than the original birth model, but it runs 60% faster, and also it achieves almost 97% of performance as the original model. So you can imagine, although a small loss on the performance, but the big gain on the efficiency of the inference. So this distillation is ideal for production deployments, when latency and memory are constrained. So this is a very popular approach. In some open source models, you can see, it provides several different models like distills, something. So for example, DIFSEC also have several distilled versions. Those applications that require less memory and good latency, so you can choose from. So this is about knowledge distillation. Another method for optimization of the model is called mixer of expert or MOE. So this is, we can think of this as an example. We can think of it as we have a medical clinic. Instead of we have one journalist, Dr. Ho-Hendel. Ho-Hendel's everything. You have a set, you have multiple specialists, specialists, which for example, cardiologists, neuro-aligists, another for pediatrition. So each expert will only handle certain types of patients. So as a beginning, each patient is routed to the right specialists to do the proper checking consultation. So that's a similar idea for mixture of experts. So this, usually, this graph shows how it works. So you have a very huge model. This model consists of multiple experts, but during inference, only one of several experts are actually activated. So the rest just keep adult. So that's the idea of MOE. This is compared, we can see this is a sparse model, which is compared to the dense model, which are no more like large length models. In those dense models, every input will activate all the parameters in the network. But on the other hand, these MOE models, they only activate a small subset of network. So that's, that follows the example I just give. So imagine this is a clinic, where you have different specialists to the different stuff. So that's MOE. MOE enables very large model capacity. So that means you have a, for example, I have an MOE model can do everything. But inside here, it consists several small experts can do different things very well in a specific domain. So that's the MOE model. So the example is like mixture, deep seek, Lamar for you. If you are interested, you can look for the details of how these models are built and what's the performance for your consideration when you build real applications. So now we almost covered all the concept we want to introduce for today. There are many excellent tools to choose for fine tuning. You can search for them. But here I just list some popular tools for fine tuning, a large length model fine tuning. But you know many of them are in difficult to use. So maybe if you want to do fine tuning on certain tasks, you may try hadn't faced or unsolved first. Because those tools are easy, relatively easy to use and give you speed and memory improvements with not much changes on the code itself. So it's a good starting point. And this Lamar factory is actually a no code web interface. So you can also explore this one here. So those are just some references for you to refer to if you really go into fine tuning stage. And this table summarizes what we talk about today. And when you face fine tuning scenario, this table lists fine tuning strategy for your reference. But of course this is just empirical.",
+      "topic": "Knowledge distillation benefits"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 14,
+      "text": "This is not a golden rule. Our principle is to always start from a simplest method. So that means if you want to do something using large length model, prompt engineering, maybe the first, because it's free and you get instant results right. And if you say it first, if that fails, you decide if rack will help need to build a database line so forth. But if you need behavior changes. change the writing style or improve the reasoning. Maybe SFT using Laura or Qlora might be a choice. Condition is you have the data. And also, if that's still not fulfilled, your task alignment might be another choice. You can choose alignment method to suit your task. Of course, you still need data. You need to have data. On the other hand, if your problem is not in the performance, you are looking at the efficiency like the speed. So quantization is one of the directions you can look for. So you can look for a smaller model, which is quantized. Or you can load a library that do the quantization online. So those are choices you can make. So that's the general guideline. You start from three and the easy method. Then until you get what you want, then you can stop there. You don't need to go through all the steps. So that's the key information I want to convey here. Okay, that's all the topics I want to cover for today. This is the reference. If you are interested, please go through some links, especially those many original papers describe all these methods. Okay, so now I want to talk about the tutorial today. That's how I already mentioned this today's tutorial is to show you how to do alignment using DPO. Remember DPO is a better choice than PPO because it has less models to handle. And it directly it does not need a reward model. So it directly use your data to do the reward estimation. You can go through the code to find out more. It shows how to the task is to change the way that LM answers your question, the format of the answers. So this is just a tutorial for your reference. From this week, we don't have new labs for you. Please concentrate on finishing the previous slides and use your time for addition and group project. You have already done so. Next, I want to give you, because you may only have about two weeks to the deadline of the group projects, right? I have read your progress report one by one. I think all of you have a good progress. At least you fulfilled some tasks in your mission in your progress report. So please continue working on that, but remind full of the deadline. And I want to highlight the submissions. So for, remember, we need to submit presentation, videos and support. So for presentation and video, the presentation slides usually will be used in your video recording, I guess. So in that presentation video, we will encourage every team members to speak. It's not required, but we hope every team members who contributed should speak to present your project. So that's a good practice for you as well. And also, when you do the presentation, your face is optional. You don't need to have to show your face in the video. Maybe a screen recording voiceover is fine. And about content, it's better to focus on the key point of your project, right? You need to clearly summarize the problem, the approach and what's the result and maybe the reflection as well. And for the submission, here are some notes for your to consider. If the file size is so small, too big, you can provide a gate handling, but the remains for to make it can be accessed by us. You can make it public or you can make it private, but you can ask, you can ask for our GitHub account. If you want to make a private link just for your information on the submission.",
+      "topic": "Alignment method selection"
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 15,
+      "text": "And in order for us to please give a self-explanatory written about how to install, how to run it, like a user manual or something. And also someone asked about API keys because underneath you might use several paid APIs for larger and green models. You are not required to share them, but please point us how to give those API keys when we want to run those code. So this is another consideration for your submission. So just for your information, you lay every year or have some events to showcase our student project. So if your project are done well and you have a very good demo, your video may be selected to showcase at ICT events. For example, the big events may be open house, day zero, something like that. I guess you all attend those kind of events before. So it's a good opportunity to show your projects. Maybe you will help to mend the booths where your projects are selected. Okay, next is some presentation outline for your reference. This is not a golden like must do thing is just some recommendation for you to consider. So you you are not oblig to follow this steps of this content, but just some recommendations for your consider. And last slide will be the teaching feedback module and teaching feedback. Just for your information, it will be good for you to write down what did we do well and what we are not doing well for this module. So in the future, this will greatly help us to improve our teaching and also help your juniors. So I appreciate all those who did the feedback for us. Thank you very much. Okay, there are some questions just to some school is do you you can submit together with the others like videos and presentation on do and April tree together. So for for the quiz right for the quiz, it will be in the similar format as the midterm quiz, it will be on site using the examiner. So the time will also be a when hour around that time. So most question will be an MCQs. So maybe small like a few short questions. Yeah, yeah. So for the quiz, the question will only be covered topics we introduce in the second half. So the first half content you already you have already been tested. So don't need to worry about that. I will give you more information, maybe next week before the quiz. So you will understand more on the quiz. And also I need to draw your attention that because this year we are using a new quiz system examiner. We received a lot of complaints about the two. I will recommend you to test using the mock test to test your system first before you come in. But of course, on site we will invite these IT people to come and solve your problem if there's any. But it's good for you to to to prepare first. Oh, this timeline and deliverable is from top-down line. I may, I may, I didn't think with him about it, but I think we can, I can discuss with him. And I think you can submit together with the whole system with the presentation and and videos. Because I understand you may make some modifications when you do the demo presentation, right? So it will be good to submit the source code together with them if that works for you. But of course, if you want to submit earlier, that's very welcome. I will make announcement in the next slide to let everyone know about this. Sorry for the confusion. Don't worry, I will make announcement. Then I will let Professor No and make announcement there. Thank you. Any other questions? Please take time to do the survey. Thank you. Okay, if no more questions, that's all for today. Thank you very much.",
+      "topic": "Project submission guidelines"
+    }
+  ],
+  "concepts": [
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 1,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s1_c1",
+          "name": "fine-tuning adaptation",
+          "definition": "Fine-tuning is the process of adapting a pre-trained language model to a specific task by updating its internal parameters using task-specific training data.",
+          "topic": "Fine-tuning language model adaptation",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "Fine-tuning actually changes the model's internal parameters"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s1_c2",
+          "name": "pre-training stage",
+          "definition": "Pre-training is the initial, resource-intensive stage where a language model is trained on a large corpus of text data to learn general language patterns.",
+          "topic": "Fine-tuning language model adaptation",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "The first step is called pre-training. So this is the most expensive and one-time step"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s1_c3",
+          "name": "fine-tuning decision criteria",
+          "definition": "Fine-tuning should be considered only when a task requires new behavior or writing style and sufficient training data or GPU resources are available.",
+          "topic": "Fine-tuning language model adaptation",
+          "difficulty": "hard",
+          "type": "procedure",
+          "evidence": "If it doesn't need external knowledge, but needs new behavior or writing scale. Then you need to ask yourself another question, do you have training data, or do you have enough budget to use all these GPU resources?"
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 2,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s2_c1",
+          "name": "fine-tuning stages",
+          "definition": "The three stages of model development are pre-training, supervised fine-tuning (SFT), and alignment, with SFT and alignment being the focus for AI practitioners.",
+          "topic": "Fine-tuning stages and costs",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "we typically start from stage two... stage three is alignment"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s2_c2",
+          "name": "parameter efficient fine-tuning",
+          "definition": "A fine-tuning method that updates only a small subset of model parameters (low-rank updates) to reduce computational cost and risk of catastrophic forgetting.",
+          "topic": "Fine-tuning stages and costs",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "You can find you a relatively small model in a single computer GPU using LoRA parameter efficient fine-tuning"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s2_c3",
+          "name": "catastrophic forgetting",
+          "definition": "A failure mode where a model loses previously learned knowledge after fine-tuning, overfitting to new training data.",
+          "topic": "Fine-tuning stages and costs",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "This means after tuning, the model doesn't remember what it needs to stay before it fine-tuning"
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 3,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s3_c1",
+          "name": "low-rank matrix decomposition",
+          "definition": "A technique that approximates a large matrix by decomposing it into two smaller matrices whose product reconstructs the original matrix.",
+          "topic": "Low-rank matrix decomposition benefits",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "decomposed this matrix into two smaller ones"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s3_c2",
+          "name": "LoRA (Low-Rank Adaptation)",
+          "definition": "A method that fine-tunes large models by updating only low-rank matrices instead of the full weight matrices.",
+          "topic": "Low-rank matrix decomposition benefits",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "we approximate the delta w using two small metrics"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s3_c3",
+          "name": "rank hyperparameter R",
+          "definition": "A tunable parameter in LoRA that controls the dimensionality of the low-rank matrices and thus the number of trainable parameters.",
+          "topic": "Low-rank matrix decomposition benefits",
+          "difficulty": "easy",
+          "type": "definition",
+          "evidence": "the rank R is a very important hyper parameter you can control"
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 4,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s4_c1",
+          "name": "LoRA inference addition",
+          "definition": "During LoRA inference, the original and LoRA-modified weights are added together to produce the final output.",
+          "topic": "LoRA parameter tuning strategy",
+          "difficulty": "easy",
+          "type": "procedure",
+          "evidence": "We just add them together during LoRA inference"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s4_c2",
+          "name": "LoRA hyperparameter tuning strategy",
+          "definition": "A staged approach to tune LoRA parameters by first optimizing the learning rate, then adjusting the rank to improve performance.",
+          "topic": "LoRA parameter tuning strategy",
+          "difficulty": "medium",
+          "type": "procedure",
+          "evidence": "You can start with some default values... tune the learning rate first... then adjust rank"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s4_c3",
+          "name": "LoRA rank efficiency",
+          "definition": "LoRA can achieve competitive performance with very small rank values, such as rank 1 or 2, requiring tuning of only a few parameters.",
+          "topic": "LoRA parameter tuning strategy",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "LoRA already performs competitively with a very small like even R equals one or two"
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 5,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s5_c1",
+          "name": "Quantization",
+          "definition": "Quantization is the process of reducing the precision of model weights from higher bit representations (e.g., 16-bit or 32-bit) to lower bit representations (e.g., 4-bit) to decrease model size while attempting to preserve precision.",
+          "topic": "Quantization reduces model precision",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "The core idea of quantization is quite simple"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s5_c2",
+          "name": "ABS max quantization",
+          "definition": "ABS max quantization scales all weights to a range between the minimum and maximum absolute values, then maps them into discrete buckets to represent the weights in lower precision (e.g., 4-bit).",
+          "topic": "Quantization reduces model precision",
+          "difficulty": "hard",
+          "type": "procedure",
+          "evidence": "So in quantization this is one type of quantization mechanism called ABS max"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s5_c3",
+          "name": "Pitching optimizer",
+          "definition": "Pitching optimizer is a mechanism that moves data not currently needed for computation from GPU memory to CPU memory during training to avoid GPU overload and save memory.",
+          "topic": "Quantization reduces model precision",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "pitched optimizer will shift from those do not needed during the disk step of training"
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 6,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s6_c1",
+          "name": "Instruction tuning",
+          "definition": "Instruction tuning is a supervised fine-tuning process that trains a pre-trained model to follow human instructions by learning from instruction-response pairs.",
+          "topic": "Instruction tuning necessity",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "instruction tuning or SFT is trained the model on the instruction on response pairs"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s6_c2",
+          "name": "Supervised fine-tuning (SFT)",
+          "definition": "Supervised fine-tuning is a method to transform a pre-trained base model into one that follows human instructions by training on labeled instruction-response data.",
+          "topic": "Instruction tuning necessity",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "supervised fine tuning or SFT address would to train the model to do"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s6_c3",
+          "name": "Base model behavior",
+          "definition": "A base model, trained only on raw pre-training data, tends to perform text completion rather than instruction-following due to its training objective.",
+          "topic": "Instruction tuning necessity",
+          "difficulty": "easy",
+          "type": "definition",
+          "evidence": "the base model actually did not answer the question. So instead of that, it would be that it just do a text completion"
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 7,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s7_c1",
+          "name": "supervised fine-tuning limitations",
+          "definition": "Supervised fine-tuning (SFT) has four key limitations: label quality ceiling, no notion of preference, inability to learn from feedback, and objective misalignment.",
+          "topic": "Supervised fine-tuning limitations",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "four key limitations"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s7_c2",
+          "name": "alignment training goal",
+          "definition": "Alignment training aims to teach the model human values such as helpfulness, harmlessness, and honesty to better align with user expectations.",
+          "topic": "Supervised fine-tuning limitations",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "goal of the alignment is to teach the model human values"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s7_c3",
+          "name": "objective misalignment in SFT",
+          "definition": "Objective misalignment occurs in SFT because the loss function minimizes cross-entropy but does not ensure the model is helpful, honest, or safe.",
+          "topic": "Supervised fine-tuning limitations",
+          "difficulty": "hard",
+          "type": "definition",
+          "evidence": "objective misalignment"
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 8,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s8_c1",
+          "name": "alignment in RLHF",
+          "definition": "Alignment in reinforcement learning from human feedback (RLHF) is the process of training a model to align its outputs with human preferences and values.",
+          "topic": "Reinforcement learning fundamentals",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "we want our model to have the same value as human preference"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s8_c2",
+          "name": "reinforcement learning policy",
+          "definition": "A reinforcement learning policy is a decision-making mechanism that selects actions based on probabilities to maximize cumulative reward.",
+          "topic": "Reinforcement learning fundamentals",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "Policy is the decision making mechanism like we, inside we have a probability model"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s8_c3",
+          "name": "reward function in RL",
+          "definition": "A reward function assigns numerical values to actions or states to guide the agent toward desired behaviors by maximizing positive rewards and avoiding penalties.",
+          "topic": "Reinforcement learning fundamentals",
+          "difficulty": "easy",
+          "type": "definition",
+          "evidence": "when every time Mario gets coin, the reward is a plus one"
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 9,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s9_c1",
+          "name": "reinforcement learning for LM alignment",
+          "definition": "Reinforcement learning is used to align language models with human preferences by maximizing a reward function during generation.",
+          "topic": "Reinforcement learning for LM alignment",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "we can learn from this process, this reinforcement learning process for LM alignment"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s9_c2",
+          "name": "reward model based on human preference",
+          "definition": "A reward model is trained using human preference data to evaluate and guide the language model's output quality.",
+          "topic": "Reinforcement learning for LM alignment",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "we will use human preference as a reward function here"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s9_c3",
+          "name": "collecting human preference data via comparisons",
+          "definition": "Human preference data is collected by presenting pairs of answers to questions and selecting the preferred one, rather than assigning absolute scores.",
+          "topic": "Reinforcement learning for LM alignment",
+          "difficulty": "hard",
+          "type": "procedure",
+          "evidence": "Instead of giving an answer to each question, we will give each question to answers. One is a good one, one is a bad one"
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 10,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s10_c1",
+          "name": "Reinforcement learning from human feedback",
+          "definition": "A training method where a language model learns to align with human preferences by optimizing a reward signal derived from human judgments.",
+          "topic": "Reinforcement learning from human feedback",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "this is called reinforcement learning from human feedback"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s10_c2",
+          "name": "Proximal Policy Optimization",
+          "definition": "A reinforcement learning algorithm that optimizes a policy by limiting policy updates to avoid large deviations, used in RLHF for language models.",
+          "topic": "Reinforcement learning from human feedback",
+          "difficulty": "hard",
+          "type": "definition",
+          "evidence": "one popular way is called PPO, which is proximal policy optimization"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s10_c3",
+          "name": "Reward model in RLHF",
+          "definition": "A model that predicts human preference scores, serving as the reward signal to guide the policy model's learning.",
+          "topic": "Reinforcement learning from human feedback",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "reward is the human preference"
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 11,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s11_c1",
+          "name": "Direct Preference Optimization",
+          "definition": "Direct Preference Optimization (DPO) is a method for aligning language models that directly uses preference data pairs to infer rewards without requiring a separate reward model.",
+          "topic": "Direct Preference Optimization",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "it directly using the preference data, the score of the pairs of preference data to get the reward"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s11_c2",
+          "name": "GRPO advantage estimation",
+          "definition": "GRPO estimates the advantage by generating multiple responses, averaging them to create a value baseline, and using this baseline to avoid learning a separate value function.",
+          "topic": "Direct Preference Optimization",
+          "difficulty": "hard",
+          "type": "procedure",
+          "evidence": "you just generate multiple responses, average them, then use that average as a value baseline"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s11_c3",
+          "name": "Memory efficiency in DPO",
+          "definition": "DPO reduces memory requirements during training by only needing two models: the original model and the model being trained, instead of four models required by PPO.",
+          "topic": "Direct Preference Optimization",
+          "difficulty": "easy",
+          "type": "definition",
+          "evidence": "DPO only needs two, the original model and the model to be trained"
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 12,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s12_c1",
+          "name": "Quantization",
+          "definition": "Quantization is a process of reducing the numerical precision of a model's parameters to decrease its size while attempting to preserve performance.",
+          "topic": "Quantization for model optimization",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "Quantization is a process of reducing the numerical precision of a model with and activities."
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s12_c2",
+          "name": "Post-training quantization",
+          "definition": "Post-training quantization applies quantization to a pre-trained model after standard training, using data to compute quantization parameters before inference.",
+          "topic": "Quantization for model optimization",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "This is, we will do the same thing with pre-trained model, train, do the SFT and alignment. Then we get a model. After this, we will do, we will use some data to compute the quantization method, then quantize the network and run inference."
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s12_c3",
+          "name": "Quantization aware training",
+          "definition": "Quantization aware training integrates quantization objectives directly into the model training process to account for quantization noise and improve accuracy.",
+          "topic": "Quantization for model optimization",
+          "difficulty": "hard",
+          "type": "definition",
+          "evidence": "That means we simultaneously do quantization and find meaning at the same time."
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 13,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s13_c1",
+          "name": "knowledge distillation benefits",
+          "definition": "Knowledge distillation produces smaller student models that run faster with only a small performance loss compared to the original teacher model.",
+          "topic": "Knowledge distillation benefits",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "40% smaller, 60% faster, 97% of performance"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s13_c2",
+          "name": "mixture of experts",
+          "definition": "A model architecture where only a subset of specialized sub-networks (experts) is activated per input, improving efficiency and scalability.",
+          "topic": "Knowledge distillation benefits",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "only one of several experts are actually activated"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s13_c3",
+          "name": "sparse vs dense activation",
+          "definition": "Sparse activation models activate only a small subset of parameters per input, unlike dense models that activate all parameters.",
+          "topic": "Knowledge distillation benefits",
+          "difficulty": "easy",
+          "type": "definition",
+          "evidence": "only activate a small subset of network"
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 14,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s14_c1",
+          "name": "Prompt engineering method",
+          "definition": "Prompt engineering is a simple, free approach to quickly obtain results by crafting input prompts for large language models.",
+          "topic": "Alignment method selection",
+          "difficulty": "easy",
+          "type": "definition",
+          "evidence": "start from a simplest method... prompt engineering, maybe the first, because it's free and you get instant results"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s14_c2",
+          "name": "Supervised fine-tuning with LoRA/QLoRA",
+          "definition": "Supervised fine-tuning using LoRA or QLoRA adjusts model behavior such as writing style or reasoning when data is available.",
+          "topic": "Alignment method selection",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "if you need behavior changes... SFT using LoRA or QLoRA might be a choice. Condition is you have the data."
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s14_c3",
+          "name": "Direct Preference Optimization",
+          "definition": "Direct Preference Optimization (DPO) is an alignment method that directly uses data for reward estimation without a separate reward model.",
+          "topic": "Alignment method selection",
+          "difficulty": "hard",
+          "type": "definition",
+          "evidence": "DPO is a better choice than PPO because it has less models to handle. And it directly use your data to do the reward estimation."
+        }
+      ]
+    },
+    {
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "segment_id": 15,
+      "concepts": [
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s15_c1",
+          "name": "Project submission components",
+          "definition": "A project submission must include a user manual explaining installation and execution, and optionally source code and API key instructions if external APIs are used.",
+          "topic": "Project submission guidelines",
+          "difficulty": "easy",
+          "type": "procedure",
+          "evidence": "give a self-explanatory written about how to install, how to run it"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s15_c2",
+          "name": "Quiz format and coverage",
+          "definition": "The quiz will be on-site using the Examiner system, consisting mainly of multiple-choice questions covering topics introduced in the second half of the course.",
+          "topic": "Project submission guidelines",
+          "difficulty": "medium",
+          "type": "definition",
+          "evidence": "the quiz will be in the similar format as the midterm quiz, it will be on site using the examiner"
+        },
+        {
+          "concept_id": "gmt20260319-005955-recording-1920x1080_s15_c3",
+          "name": "Mock test preparation",
+          "definition": "Students are advised to test the new quiz system using a mock test before the actual quiz to avoid technical issues.",
+          "topic": "Project submission guidelines",
+          "difficulty": "easy",
+          "type": "procedure",
+          "evidence": "I will recommend you to test using the mock test to test your system first before you come in"
+        }
+      ]
+    }
+  ]
+}

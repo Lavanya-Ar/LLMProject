@@ -1,96 +1,194 @@
 {
-  "lecture_id": "lec4_transformers",
-  "title": "lec4_transformers",
-  "difficulty_filter": "mixed",
-  "total_questions": 4,
+  "metadata": {
+    "lecture_id": "lec4_transformers",
+    "question_count": 10,
+    "difficulty": "mixed",
+    "topic_filter": "All",
+    "fallback_used": false,
+    "llm_attempts": 1,
+    "source_concept_count": 46,
+    "generator": "v2"
+  },
   "questions": [
     {
-      "question_id": "lec4_transformers_s2_q1",
+      "question_id": "q1",
       "lecture_id": "lec4_transformers",
-      "segment_id": 2,
-      "topic": "BPE Merging Procedure",
-      "question_type": "understanding",
+      "topic": "Recurrent Neural Networks",
       "difficulty": "medium",
-      "concept_ids": [
-        "lec4_transformers_s2_c1"
+      "question": "What does the hidden state in a neural network primarily represent?",
+      "options": [
+        "The final output of the network",
+        "The intermediate representation computed from the input",
+        "The weight matrix parameters",
+        "The loss function value"
       ],
-      "question": "What is the primary step in the BPE Merging Procedure to build a subword vocabulary?",
-      "options": {
-        "A": "Merge the most frequent subword pairs iteratively",
-        "B": "Split all words into individual characters",
-        "C": "Assign random embeddings to unknown words",
-        "D": "Update word frequencies based on context similarity"
-      },
-      "correct_answer": "A",
-      "correct_option_text": "Merge the most frequent subword pairs iteratively",
-      "explanation": "The BPE Merging Procedure specifically involves iteratively merging the most frequent subword pairs to expand the vocabulary. This process reduces the number of unique tokens while preserving meaningful subword units.",
-      "evidence": "merge the most frequently, up here, the way"
+      "answer_index": 1,
+      "explanation": "The hidden state is defined as the intermediate representation in a neural network that is computed from the input and used to produce the output. It is not the final output (option 1), weight matrix (option 3), or loss function (option 4).",
+      "source_concept_ids": [
+        "lec4_transformers_s1_c1"
+      ]
     },
     {
-      "question_id": "lec4_transformers_s3_q1",
+      "question_id": "q2",
       "lecture_id": "lec4_transformers",
-      "segment_id": 3,
-      "topic": "Begin of Sequence Token",
-      "question_type": "understanding",
+      "topic": "Recurrent Neural Networks",
       "difficulty": "easy",
-      "concept_ids": [
+      "question": "What is the primary function of the weight matrix in a neural network?",
+      "options": [
+        "To activate neurons using a sigmoid function",
+        "To transform the input or hidden state into the next hidden state",
+        "To regularize the model by penalizing large weights",
+        "To initialize the network parameters randomly"
+      ],
+      "answer_index": 1,
+      "explanation": "The weight matrix is defined as a matrix of parameters that transforms the input or hidden state into the next hidden state. It is not an activation function (option 1), regularization method (option 3), or initialization technique (option 4).",
+      "source_concept_ids": [
+        "lec4_transformers_s1_c3"
+      ]
+    },
+    {
+      "question_id": "q3",
+      "lecture_id": "lec4_transformers",
+      "topic": "Byte Pair Encoding",
+      "difficulty": "medium",
+      "question": "What is the primary purpose of Byte Pair Encoding (BPE)?",
+      "options": [
+        "To create dense vector representations of words",
+        "To split words into subwords and merge frequent pairs iteratively",
+        "To translate sequences using attention mechanisms",
+        "To normalize input values to a controllable range"
+      ],
+      "answer_index": 1,
+      "explanation": "BPE is defined as a method that splits words into subwords and merges the most frequent pairs iteratively. It is not about word embeddings (option 1), translation (option 3), or normalization (option 4).",
+      "source_concept_ids": [
+        "lec4_transformers_s2_c1"
+      ]
+    },
+    {
+      "question_id": "q4",
+      "lecture_id": "lec4_transformers",
+      "topic": "Byte Pair Encoding",
+      "difficulty": "medium",
+      "question": "What do word embeddings capture in neural networks?",
+      "options": [
+        "The syntactic structure of sentences",
+        "Semantic meanings of words",
+        "The position of tokens in a sequence",
+        "The attention weights between tokens"
+      ],
+      "answer_index": 1,
+      "explanation": "Word embeddings are defined as dense vector representations that capture semantic meanings. They are not focused on syntactic structure (option 1), positional information (option 3), or attention weights (option 4).",
+      "source_concept_ids": [
+        "lec4_transformers_s2_c2"
+      ]
+    },
+    {
+      "question_id": "q5",
+      "lecture_id": "lec4_transformers",
+      "topic": "Byte Pair Encoding",
+      "difficulty": "hard",
+      "question": "What is a key characteristic of the Transformer architecture?",
+      "options": [
+        "It uses convolutional layers for sequence processing",
+        "It relies purely on attention mechanisms without recurrence or convolutions",
+        "It requires recurrent connections to process sequences step-by-step",
+        "It uses a single weight matrix for all layers"
+      ],
+      "answer_index": 1,
+      "explanation": "The Transformer architecture is defined as relying purely on attention mechanisms without recurrence or convolutions. It does not use convolutional layers (option 1), recurrent connections (option 3), or a single weight matrix (option 4).",
+      "source_concept_ids": [
+        "lec4_transformers_s2_c3"
+      ]
+    },
+    {
+      "question_id": "q6",
+      "lecture_id": "lec4_transformers",
+      "topic": "Sequence Prediction and Tokens",
+      "difficulty": "easy",
+      "question": "What is the purpose of the 'Begin of Sequence' token?",
+      "options": [
+        "To indicate the end of a sequence",
+        "To pad sequences to a fixed length",
+        "To indicate the start of a sequence",
+        "To separate different sentences in a batch"
+      ],
+      "answer_index": 2,
+      "explanation": "The 'Begin of Sequence' token is defined as a special token indicating the start of a sequence. It is not for ending sequences (option 1), padding (option 2), or sentence separation (option 4).",
+      "source_concept_ids": [
         "lec4_transformers_s3_c1"
-      ],
-      "question": "What is the primary function of the Begin of Sequence Token in a transformer model?",
-      "options": {
-        "A": "Initiate the generation process by signaling the start of a sequence",
-        "B": "Signal the termination of a sequence during generation",
-        "C": "Encode input data into internal vector representations",
-        "D": "Generate output tokens based on contextual information"
-      },
-      "correct_answer": "A",
-      "correct_option_text": "Initiate the generation process by signaling the start of a sequence",
-      "explanation": "The Begin of Sequence Token is a special marker used to indicate the start of a sequence, enabling the model to commence the generation process. This aligns with the lecture's description of its role in initiating token prediction.",
-      "evidence": "special token, called Begin of Sequence"
+      ]
     },
     {
-      "question_id": "lec4_transformers_s4_q1",
+      "question_id": "q7",
       "lecture_id": "lec4_transformers",
-      "segment_id": 4,
-      "topic": "Context Vector (C)",
-      "question_type": "understanding",
+      "topic": "Sequence Prediction and Tokens",
+      "difficulty": "easy",
+      "question": "What is the purpose of the 'End of Sequence' token?",
+      "options": [
+        "To indicate the start of a sequence",
+        "To allow the model to attend to all previous tokens",
+        "To indicate the end of a sequence",
+        "To initialize the hidden state of the network"
+      ],
+      "answer_index": 2,
+      "explanation": "The 'End of Sequence' token is defined as a special token indicating the end of a sequence. It is not for starting sequences (option 1), attending to tokens (option 2), or initializing hidden states (option 4).",
+      "source_concept_ids": [
+        "lec4_transformers_s3_c2"
+      ]
+    },
+    {
+      "question_id": "q8",
+      "lecture_id": "lec4_transformers",
+      "topic": "Sequence Prediction and Tokens",
       "difficulty": "medium",
-      "concept_ids": [
+      "question": "What is the role of the encoder function in sequence prediction models?",
+      "options": [
+        "To generate the output sequence token by token",
+        "To transform input tokens into a meaningful internal representation",
+        "To compute attention weights between tokens",
+        "To predict the next token based on the context vector"
+      ],
+      "answer_index": 1,
+      "explanation": "The encoder function is defined as transforming input tokens into a meaningful internal representation. It does not generate outputs (option 1), compute attention (option 3), or predict tokens (option 4).",
+      "source_concept_ids": [
+        "lec4_transformers_s3_c3"
+      ]
+    },
+    {
+      "question_id": "q9",
+      "lecture_id": "lec4_transformers",
+      "topic": "Neural Network Translation Process",
+      "difficulty": "medium",
+      "question": "What is the purpose of the context vector in neural machine translation?",
+      "options": [
+        "To store the final translated output",
+        "To summarize the entire input sequence for the decoder",
+        "To initialize the encoder's hidden state",
+        "To compute the loss between predicted and actual outputs"
+      ],
+      "answer_index": 1,
+      "explanation": "The context vector is defined as a vector that summarizes the entire input sequence to help the decoder remember important information. It is not for storing outputs (option 1), initializing hidden states (option 3), or computing loss (option 4).",
+      "source_concept_ids": [
         "lec4_transformers_s4_c1"
-      ],
-      "question": "What is the primary purpose of incorporating the context vector (C) in the decoder's hidden state calculation during sequence-to-sequence translation?",
-      "options": {
-        "A": "To retain critical information from the entire input sequence when generating the target output",
-        "B": "To accelerate the translation process by reducing computational complexity",
-        "C": "To handle rare vocabulary words not present in the training data",
-        "D": "To synchronize the encoder and decoder processing timelines"
-      },
-      "correct_answer": "A",
-      "correct_option_text": "To retain critical information from the entire input sequence when generating the target output",
-      "explanation": "The context vector (C) serves as a compressed representation of the input sequence's essential information, ensuring the decoder maintains access to this context throughout the generation process, particularly for long sequences where earlier information might otherwise be forgotten.",
-      "evidence": "hidden state not only affected by the input and the previous hidden state, but also the context vector we call it C"
+      ]
     },
     {
-      "question_id": "lec4_transformers_s5_q1",
+      "question_id": "q10",
       "lecture_id": "lec4_transformers",
-      "segment_id": 5,
-      "topic": "Weighted Context Vector",
-      "question_type": "understanding",
-      "difficulty": "medium",
-      "concept_ids": [
-        "lec4_transformers_s5_c1"
+      "topic": "Neural Network Translation Process",
+      "difficulty": "hard",
+      "question": "What is the purpose of the weighted sum of hidden states in the encoder-decoder structure?",
+      "options": [
+        "To compute the attention weights between encoder and decoder",
+        "To combine multiple hidden states into a single context vector",
+        "To normalize the input embeddings",
+        "To apply residual connections across layers"
       ],
-      "question": "What is the primary function of a weighted context vector in the translation process described?",
-      "options": {
-        "A": "To combine all encoder hidden states equally for every decoder state",
-        "B": "To compute attention weights using additive mechanisms with learned parameters",
-        "C": "To directly map decoder states to output words without contextual information",
-        "D": "To apply different weights to encoder hidden states for each decoder state, enabling focus on relevant input parts"
-      },
-      "correct_answer": "D",
-      "correct_option_text": "To apply different weights to encoder hidden states for each decoder state, enabling focus on relevant input parts",
-      "explanation": "The weighted context vector allows each decoder hidden state to dynamically emphasize specific encoder hidden states (e.g., words in the source sentence) during translation, ensuring relevant contextual information is prioritized for predicting target words.",
-      "evidence": "weighted sum of hidden state HG"
+      "answer_index": 1,
+      "explanation": "The weighted sum of hidden states is defined as a method to combine multiple hidden states from the encoder into a single context vector for the decoder. It is not for computing attention weights (option 1), normalization (option 3), or residual connections (option 4).",
+      "source_concept_ids": [
+        "lec4_transformers_s4_c3"
+      ]
     }
   ]
 }

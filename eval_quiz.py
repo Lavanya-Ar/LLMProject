@@ -161,7 +161,10 @@ def evaluate_quiz_bank(
 
     # for q in quiz_bank.get("questions", []):
     for idx, q in enumerate(quiz_bank.get("questions", []), start=1):
-        segment_id = q["segment_id"]
+        segment_id = q.get("segment_id")
+        if segment_id is None:
+            print(f"[EVAL {idx}/{len(quiz_bank.get('questions', []))}] Missing segment_id. Skipping.")
+            continue
         seg = seg_by_id.get(segment_id)
         if not seg:
             continue
@@ -216,6 +219,8 @@ def evaluate_quiz_bank(
         ):
             kept_questions.append(q)
 
+        print(f"[EVAL {idx}/{len(quiz_bank.get('questions', []))}] question_id={q.get('question_id', '')}")
+
         if sleep_between_calls > 0:
             time.sleep(sleep_between_calls)
 
@@ -231,8 +236,8 @@ def evaluate_quiz_bank(
         "total_questions": len(kept_questions),
         "questions": kept_questions
     }
-
-    print(f"[EVAL {idx}/{len(quiz_bank.get('questions', []))}] question_id={q.get('question_id', '')}")
+    if isinstance(filtered_quiz_bank.get("metadata"), dict):
+        filtered_quiz_bank["metadata"]["question_count"] = len(kept_questions)
 
     return {
         "evaluation_summary": summary,

@@ -1,0 +1,3896 @@
+1
+00:00:00,000 --> 00:00:09,839
+Hello, good morning. Can you hear me? Thank you. Great, great. Yeah. We may wait for one minute.
+
+2
+00:00:02,383 --> 00:00:07,384
+what's helpful versus harmful, what's true versus false,
+
+3
+00:00:02,709 --> 00:00:09,708
+objective, maximum reward during your generation process.
+
+4
+00:00:02,944 --> 00:00:08,945
+change the writing style or improve the reasoning.
+
+5
+00:00:03,388 --> 00:00:07,388
+The first one is post training quantization.
+
+6
+00:00:03,591 --> 00:00:06,131
+Third one is reward hacking.
+
+7
+00:00:03,605 --> 00:00:07,445
+then it overrides the other capabilities.
+
+8
+00:00:05,415 --> 00:00:11,254
+There's no changes if you change learning rate. You'll find the optimal learning rate already
+
+9
+00:00:06,131 --> 00:00:14,091
+This is a serious risk because when the model learns to maximum the reward score,
+
+10
+00:00:06,367 --> 00:00:14,126
+Because I understand you may make some modifications when you do the demo presentation, right?
+
+11
+00:00:06,956 --> 00:00:13,356
+So the whole idea of using quantization is try to further reduce the original
+
+12
+00:00:07,388 --> 00:00:13,388
+This is, we start, we will do the same thing with pre-trained model,
+
+13
+00:00:07,445 --> 00:00:10,966
+So this table leads some ways to prevent
+
+14
+00:00:07,903 --> 00:00:10,864
+or what's appropriate versus offensive,
+
+15
+00:00:08,945 --> 00:00:13,945
+Maybe SFT using Laura or Qlora might be a choice.
+
+16
+00:00:09,708 --> 00:00:18,708
+So one type of interaction with LM is,
+
+17
+00:00:09,839 --> 00:00:17,359
+Okay. I think we can start. As usual, if you have any questions during the lecture, please
+
+18
+00:00:10,864 --> 00:00:14,903
+because just now we mentioned in the 4K limitations
+
+19
+00:00:10,966 --> 00:00:14,406
+the catastrophic forgetting.
+
+20
+00:00:11,495 --> 00:00:14,774
+then you can go inside to adjust rank and
+
+21
+00:00:13,388 --> 00:00:17,388
+train, do the SFT and alignment.
+
+22
+00:00:13,945 --> 00:00:15,945
+Condition is you have the data.
+
+23
+00:00:14,091 --> 00:00:17,931
+that's the only objective of this model.
+
+24
+00:00:14,126 --> 00:00:20,606
+So it will be good to submit the source code together with them if that works for you.
+
+25
+00:00:14,317 --> 00:00:15,757
+memory
+
+26
+00:00:14,406 --> 00:00:17,846
+For example, you can tune the learning rate,
+
+27
+00:00:15,757 --> 00:00:19,356
+requirement for the big models in order to make the
+
+28
+00:00:15,945 --> 00:00:23,945
+And also, if that's still not fulfilled, your task alignment might be another choice.
+
+29
+00:00:16,094 --> 00:00:22,655
+to get the best performance on your training data. So this is an empirical
+
+30
+00:00:16,184 --> 00:00:21,184
+during the SFT, the objective is just to minimize the loss.
+
+31
+00:00:17,359 --> 00:00:25,199
+raise up your hand or message me in the chat. Okay, let's get started. So today's topic is about
+
+32
+00:00:17,388 --> 00:00:21,388
+Then we get a model. After this, we will do,
+
+33
+00:00:17,846 --> 00:00:21,686
+you can do less epochs,
+
+34
+00:00:17,931 --> 00:00:21,211
+It may find some loophole.
+
+35
+00:00:18,708 --> 00:00:22,708
+as I said, one game for Mario.
+
+36
+00:00:20,396 --> 00:00:21,996
+parameter efficient fine tuning
+
+37
+00:00:20,606 --> 00:00:25,887
+But of course, if you want to submit earlier, that's very welcome.
+
+38
+00:00:21,211 --> 00:00:28,211
+It will directly find the shortest path to go to the best reward.
+
+39
+00:00:21,388 --> 00:00:26,388
+we will use some data to compute the quantization method,
+
+40
+00:00:21,686 --> 00:00:25,206
+and you can manipulate your data.
+
+41
+00:00:22,224 --> 00:00:25,984
+It does not give those information on harmful or not,
+
+42
+00:00:22,708 --> 00:00:25,708
+We give it a prompt.
+
+43
+00:00:22,797 --> 00:00:26,237
+works mostly. So that's the idea of parameter
+
+44
+00:00:23,655 --> 00:00:25,655
+strategy for
+
+45
+00:00:23,945 --> 00:00:29,945
+You can choose alignment method to suit your task.
+
+46
+00:00:25,206 --> 00:00:31,006
+And also, we can do parameter efficient fight tuning.
+
+47
+00:00:25,708 --> 00:00:29,708
+Then the LM generates some action.
+
+48
+00:00:25,887 --> 00:00:33,567
+I will make announcement in the next slide to let everyone know about this.
+
+49
+00:00:25,934 --> 00:00:29,414
+using law-run for fine tuning just for your information.
+
+50
+00:00:25,984 --> 00:00:27,144
+for example.
+
+51
+00:00:26,079 --> 00:00:32,799
+large language model adaptation. Today's lecture we will show how to adapt
+
+52
+00:00:26,388 --> 00:00:29,388
+then quantize the network and run inference.
+
+53
+00:00:27,037 --> 00:00:31,437
+efficient fine tuning. We introduced Laura and Kyu Laura.
+
+54
+00:00:27,144 --> 00:00:31,184
+So that brings us to further training.
+
+55
+00:00:28,211 --> 00:00:31,971
+But sometimes it's not a good quality for output.
+
+56
+00:00:29,388 --> 00:00:33,389
+So that means put it in a simple word,
+
+57
+00:00:29,708 --> 00:00:31,708
+That means give your response.
+
+58
+00:00:29,945 --> 00:00:34,945
+Of course, you still need data. You need to have data.
+
+59
+00:00:30,175 --> 00:00:32,655
+So this staged approach
+
+60
+00:00:31,085 --> 00:00:35,326
+So this actually, which is Laura,
+
+61
+00:00:31,224 --> 00:00:33,064
+This is called alignment.
+
+62
+00:00:31,708 --> 00:00:38,709
+Then how the response is given is based on the LM weights inside the model.
+
+63
+00:00:32,050 --> 00:00:35,451
+That's the called reward hacking.
+
+64
+00:00:32,076 --> 00:00:33,436
+Any questions?
+
+65
+00:00:32,799 --> 00:00:40,560
+pre-train models to specific tasks and behaviors. So this is a learning outcome for today.
+
+66
+00:00:33,064 --> 00:00:36,823
+So the goal of the alignment is to teach
+
+67
+00:00:33,389 --> 00:00:40,389
+let me train a model as usual, then after a base model train, we do quantization.
+
+68
+00:00:33,454 --> 00:00:35,615
+instead of tuned all the parameters
+
+69
+00:00:33,567 --> 00:00:35,926
+Sorry for the confusion.
+
+70
+00:00:34,945 --> 00:00:44,945
+On the other hand, if your problem is not in the performance, you are looking at the efficiency like the speed.
+
+71
+00:00:34,957 --> 00:00:41,036
+Okay, then I will continue. So this is our first topic for today.
+
+72
+00:00:35,451 --> 00:00:42,291
+The last one will be human annotation because we all need human preference,
+
+73
+00:00:36,286 --> 00:00:39,166
+this is the most effective medication
+
+74
+00:00:36,414 --> 00:00:39,534
+at the same time this stage approach
+
+75
+00:00:36,823 --> 00:00:41,823
+the model human values across these three dimensions.
+
+76
+00:00:36,887 --> 00:00:39,766
+Don't worry, I will make announcement.
+
+77
+00:00:38,709 --> 00:00:44,709
+So the whole objective is to maximize the human preference.
+
+78
+00:00:39,166 --> 00:00:41,966
+for catastrophic forgetting.
+
+79
+00:00:39,534 --> 00:00:41,534
+saves some time and
+
+80
+00:00:39,766 --> 00:00:45,126
+Then I will let Professor No and make announcement there.
+
+81
+00:00:40,389 --> 00:00:44,389
+The next method is called quantization aware training.
+
+82
+00:00:40,560 --> 00:00:48,320
+You may want to use this to check your understanding after the lecture. Here is the outline for today.
+
+83
+00:00:41,534 --> 00:00:43,534
+avoids like
+
+84
+00:00:41,904 --> 00:00:45,304
+A helpful, I mean, it needs to follow
+
+85
+00:00:41,966 --> 00:00:45,646
+So here is the key method
+
+86
+00:00:41,996 --> 00:00:48,237
+Next one, we will move to the second topic of this lecture, which is instruction tuning.
+
+87
+00:00:42,291 --> 00:00:46,250
+the pair of bad or good data pairs.
+
+88
+00:00:43,854 --> 00:00:47,615
+too many combinations during the training steps.
+
+89
+00:00:44,389 --> 00:00:52,389
+That means we simultaneously do quantization and find meaning at the same time.
+
+90
+00:00:44,709 --> 00:00:46,709
+That's a whole idea.
+
+91
+00:00:44,945 --> 00:00:49,945
+So quantization is one of the directions you can look for.
+
+92
+00:00:45,126 --> 00:00:47,526
+Thank you. Any other questions?
+
+93
+00:00:45,304 --> 00:00:48,584
+users' instructions, right?
+
+94
+00:00:45,646 --> 00:00:49,405
+we are going to discuss in this lecture.
+
+95
+00:00:46,250 --> 00:00:52,771
+So it's expensive when you need a huge amount of this kind of data.
+
+96
+00:00:46,709 --> 00:00:53,709
+The simulation of LM alignment versus reinforcement learning.
+
+97
+00:00:48,584 --> 00:00:52,344
+And harmless means the large lung remodel
+
+98
+00:00:48,806 --> 00:00:52,486
+Please take time to do the survey. Thank you.
+
+99
+00:00:48,957 --> 00:00:53,597
+Also, sometimes we call it supervised fine tuning or SFT.
+
+100
+00:00:49,200 --> 00:00:59,120
+We will first introduce our motivation why we do fine tuning. Then we will move roughly in the order
+
+101
+00:00:49,255 --> 00:00:54,615
+Okay, just now we showed the how to tune the parameters for Laura, but
+
+102
+00:00:49,405 --> 00:00:52,686
+Because this one will freeze the original weights
+
+103
+00:00:49,945 --> 00:00:53,945
+So you can look for a smaller model, which is quantized.
+
+104
+00:00:52,344 --> 00:00:55,864
+should refuse unsive requests.
+
+105
+00:00:52,389 --> 00:00:57,389
+So you need to do the training of those models.
+
+106
+00:00:52,686 --> 00:00:57,725
+and only train a small tiny adapters like here.
+
+107
+00:00:52,771 --> 00:01:00,330
+So those are challenges of RIL attract in lecture model training.
+
+108
+00:00:53,366 --> 00:00:58,326
+Okay, if no more questions, that's all for today. Thank you very much.
+
+109
+00:00:53,709 --> 00:00:57,709
+I hope you are still following me.
+
+110
+00:00:53,945 --> 00:00:59,945
+Or you can load a library that do the quantization online.
+
+111
+00:00:54,396 --> 00:01:01,197
+Because just now we mentioned Laura and Kyu Laura. Those methods address
+
+112
+00:00:55,294 --> 00:01:00,014
+what kind of width we should apply Laura to. So this
+
+113
+00:00:55,864 --> 00:00:58,624
+So here in the table below,
+
+114
+00:00:57,389 --> 00:01:01,389
+Instead of only do SFT or alignment,
+
+115
+00:00:57,805 --> 00:01:01,725
+So it won't the original model,
+
+116
+00:00:58,709 --> 00:01:04,709
+Now we almost understand the reward model.
+
+117
+00:00:58,743 --> 00:01:01,384
+we show an example of harmful content.
+
+118
+00:00:59,120 --> 00:01:09,120
+that presenting our motivation. Then go through how and LM models is built from raw pre-training to
+
+119
+00:00:59,945 --> 00:01:02,945
+So those are choices you can make.
+
+120
+00:01:00,331 --> 00:01:06,891
+So that's why some simpler alternative for PPO is proposed.
+
+121
+00:01:00,575 --> 00:01:02,575
+this is the
+
+122
+00:01:01,389 --> 00:01:09,388
+the training process will also remember those quantization objectives at the same time.
+
+123
+00:01:01,596 --> 00:01:07,356
+how to fine tune a model efficiently. This method
+
+124
+00:01:01,725 --> 00:01:06,525
+model is still keep its own weights without changes.
+
+125
+00:01:02,264 --> 00:01:07,263
+Maybe in the early initial version of large lung remodel,
+
+126
+00:01:02,945 --> 00:01:05,944
+So that's the general guideline.
+
+127
+00:01:03,814 --> 00:01:10,735
+this is the numbers from the original Laura paper. So it compares this table, the top table,
+
+128
+00:01:04,709 --> 00:01:12,709
+It's an important indicator for LM during the learning process.
+
+129
+00:01:05,944 --> 00:01:08,944
+You start from three and the easy method.
+
+130
+00:01:06,525 --> 00:01:12,445
+When we train this, it will only be used in the inference steps.
+
+131
+00:01:06,891 --> 00:01:11,170
+Today we'll only discuss about DPO and GRPO,
+
+132
+00:01:07,356 --> 00:01:12,476
+address those questions. But supervised fine tuning or SFT address
+
+133
+00:01:07,784 --> 00:01:12,384
+it does not do, it might answer you these questions,
+
+134
+00:01:08,944 --> 00:01:12,944
+Then until you get what you want, then you can stop there.
+
+135
+00:01:09,120 --> 00:01:19,280
+model refinement and the lastly optimization. I would also like to provide some strategy for you
+
+136
+00:01:09,388 --> 00:01:15,388
+So the model learns to account for quantization noise.
+
+137
+00:01:10,935 --> 00:01:14,495
+compares the performance across different width types.
+
+138
+00:01:11,170 --> 00:01:16,890
+which are very popular use in the alignment process.
+
+139
+00:01:12,424 --> 00:01:15,263
+but currently the recent models,
+
+140
+00:01:12,445 --> 00:01:17,245
+So if you in the future, you want the model to do another task,
+
+141
+00:01:12,709 --> 00:01:17,709
+But how do we get the reward model?
+
+142
+00:01:12,944 --> 00:01:15,944
+You don't need to go through all the steps.
+
+143
+00:01:13,036 --> 00:01:20,236
+would to train the model to do. So specifically, SFT is how we transform a raw
+
+144
+00:01:15,388 --> 00:01:23,388
+So in this way, usually this quantization aware training will be much more complex,
+
+145
+00:01:15,855 --> 00:01:23,215
+You can see we can Laura mostly applied on the attention width. So that's a value
+
+146
+00:01:15,944 --> 00:01:19,944
+So that's the key information I want to convey here.
+
+147
+00:01:16,304 --> 00:01:19,904
+the good models should not answer those kinds of questions
+
+148
+00:01:16,890 --> 00:01:21,771
+So firstly, let's look at this direct preference optimization.
+
+149
+00:01:17,245 --> 00:01:19,645
+you can just replace this adapter.
+
+150
+00:01:17,709 --> 00:01:19,709
+We need human preference.
+
+151
+00:01:19,280 --> 00:01:30,000
+to consider when you face this fine tuning scenario. Okay, okay here. This slide shows the
+
+152
+00:01:19,645 --> 00:01:21,725
+So that's the beauty of the Laura.
+
+153
+00:01:19,709 --> 00:01:24,709
+That's the idea we want the large length model to learn from.
+
+154
+00:01:19,944 --> 00:01:25,944
+Okay, that's all the topics I want to cover for today.
+
+155
+00:01:21,036 --> 00:01:28,636
+the pretrend model into another one that follows human instruction in a meaningful way.
+
+156
+00:01:21,263 --> 00:01:24,064
+and it should answer something like this.
+
+157
+00:01:21,771 --> 00:01:32,490
+The key differences from PPO is it does not need reward model.
+
+158
+00:01:22,525 --> 00:01:24,605
+Okay, let's get into it.
+
+159
+00:01:23,388 --> 00:01:29,388
+because you know it will consider about quantization loss during the training.
+
+160
+00:01:24,064 --> 00:01:26,823
+So this means harmless.
+
+161
+00:01:24,174 --> 00:01:31,295
+query key value metrics and sometimes on the WO which is output width.
+
+162
+00:01:24,605 --> 00:01:26,525
+Parameter efficient fight tuning.
+
+163
+00:01:24,709 --> 00:01:28,709
+But how do we get human preference?
+
+164
+00:01:25,944 --> 00:01:27,944
+This is the reference.
+
+165
+00:01:26,823 --> 00:01:31,584
+Another objective is to train the large lung model,
+
+166
+00:01:27,325 --> 00:01:32,765
+So the key inside behind PFT,
+
+167
+00:01:27,944 --> 00:01:38,944
+If you are interested, please go through some links, especially those many original papers describe all these methods.
+
+168
+00:01:28,637 --> 00:01:35,677
+So let's see how can we do that? What do I mean on that? Here is an example
+
+169
+00:01:28,709 --> 00:01:31,709
+Here we give some example.
+
+170
+00:01:29,388 --> 00:01:34,388
+But usually the accuracy will be better than this one,
+
+171
+00:01:30,879 --> 00:01:39,920
+what a rack and agent system can and cannot do. In our previous lectures in the previous week,
+
+172
+00:01:31,584 --> 00:01:32,703
+be honest.
+
+173
+00:01:31,709 --> 00:01:37,709
+It's not easy as Mario to get a coin plus one,
+
+174
+00:01:32,094 --> 00:01:37,215
+So from this paper you can look for the you can understand the details of this
+
+175
+00:01:32,490 --> 00:01:41,251
+So it directly instead of using a reward model every time to decide what reward you can get.
+
+176
+00:01:32,703 --> 00:01:35,983
+So it should admit, it cannot do something.
+
+177
+00:01:32,765 --> 00:01:36,286
+which is parameter efficient fight tuning,
+
+178
+00:01:34,388 --> 00:01:39,388
+but there's pros and cons for each method.
+
+179
+00:01:35,983 --> 00:01:39,504
+And instead of just give up,
+
+180
+00:01:36,286 --> 00:01:41,325
+is that the weight updates during the fight tuning are low rank.
+
+181
+00:01:36,317 --> 00:01:42,796
+of why instruction tuning is necessary. For example, we ask a question.
+
+182
+00:01:37,709 --> 00:01:40,709
+bomb, bomb, bomb, minus 10k.
+
+183
+00:01:38,255 --> 00:01:39,775
+results, but the
+
+184
+00:01:38,944 --> 00:01:44,944
+Okay, so now I want to talk about the tutorial today.
+
+185
+00:01:39,388 --> 00:01:45,388
+So it QAT, which is quantization aware training,
+
+186
+00:01:39,504 --> 00:01:43,024
+generate something directly.
+
+187
+00:01:39,920 --> 00:01:49,599
+we saw how rack and agent help solve several key problems that's given model access to external
+
+188
+00:01:40,415 --> 00:01:42,975
+finding is that I've that adapting both
+
+189
+00:01:40,709 --> 00:01:43,709
+This is not strict forward like that.
+
+190
+00:01:41,251 --> 00:01:44,930
+It directly using the preference data,
+
+191
+00:01:41,325 --> 00:01:44,605
+So this is called parameter efficient.
+
+192
+00:01:43,024 --> 00:01:46,224
+So we also have an example here,
+
+193
+00:01:43,436 --> 00:01:51,757
+Explain the moon landing to a six year old in a few sentences. So this, if you give this question
+
+194
+00:01:43,709 --> 00:01:47,709
+Because we are dealing with natural language.
+
+195
+00:01:43,775 --> 00:01:50,734
+query query and the value width will give you best overall performance.
+
+196
+00:01:44,605 --> 00:01:49,245
+Because imagine this example,
+
+197
+00:01:44,930 --> 00:01:54,930
+the score of the pairs of preference data to get the reward,
+
+198
+00:01:44,944 --> 00:01:53,944
+That's how I already mentioned this today's tutorial is to show you how to do alignment using DPO.
+
+199
+00:01:45,388 --> 00:01:49,388
+typically yields better accuracy,
+
+200
+00:01:46,224 --> 00:01:47,784
+answer to this.
+
+201
+00:01:47,709 --> 00:01:51,709
+It's not like...
+
+202
+00:01:47,784 --> 00:01:49,584
+That means I'm not sure about this,
+
+203
+00:01:49,245 --> 00:01:51,405
+suppose in the original model,
+
+204
+00:01:49,388 --> 00:01:54,388
+but it requires additional training time and resources,
+
+205
+00:01:49,584 --> 00:01:54,024
+but it does not just give you answers anyhow.
+
+206
+00:01:49,599 --> 00:01:57,920
+and real-time knowledge, also in enabling multi-step reasoning with some tools and also reducing
+
+207
+00:01:51,375 --> 00:01:53,135
+So that that's one
+
+208
+00:01:51,405 --> 00:01:53,405
+we have a weight matrix,
+
+209
+00:01:51,709 --> 00:01:58,709
+We don't have universal accepted reward for each question and answer.
+
+210
+00:01:51,836 --> 00:02:00,476
+to a base model, which is trained by raw pre-training. Remember the three steps we introduced
+
+211
+00:01:53,405 --> 00:01:55,325
+which is d times k,
+
+212
+00:01:53,694 --> 00:01:55,054
+findings from this table.
+
+213
+00:01:53,944 --> 00:02:00,944
+Remember DPO is a better choice than PPO because it has less models to handle.
+
+214
+00:01:54,024 --> 00:01:58,664
+So that's the reason why we need alignment here.
+
+215
+00:01:54,388 --> 00:02:00,388
+which we as a practitioner on AI, we may not have.
+
+216
+00:01:54,930 --> 00:02:00,850
+to infer the reward of the different choices.
+
+217
+00:01:55,325 --> 00:01:57,885
+while d is the input dimension.
+
+218
+00:01:55,935 --> 00:02:02,174
+The bottom table here, this is to ask what is optimal rank for this
+
+219
+00:01:57,885 --> 00:02:01,565
+For example, we give d 1000,
+
+220
+00:01:58,000 --> 00:02:06,159
+hallucination and factual queries. But there are do have something that rack and agent still can't do.
+
+221
+00:01:58,664 --> 00:02:00,743
+We want to solve,
+
+222
+00:01:58,709 --> 00:02:06,709
+In that case, things we do not have a golden answer for each question.
+
+223
+00:02:00,388 --> 00:02:09,389
+So usually this PTQ is relatively more popular way to do the quantization.
+
+224
+00:02:00,476 --> 00:02:09,037
+just now. The first step of large length remodel training is using raw data to do a pre-training,
+
+225
+00:02:00,743 --> 00:02:04,224
+they teach the model those human values here.
+
+226
+00:02:00,850 --> 00:02:07,450
+So here, PPO measures how much the model improves
+
+227
+00:02:00,944 --> 00:02:04,944
+And it directly it does not need a reward model.
+
+228
+00:02:01,565 --> 00:02:03,965
+then k is output dimension,
+
+229
+00:02:02,974 --> 00:02:04,575
+different tasks.
+
+230
+00:02:03,965 --> 00:02:07,165
+which is 5,000 here in this example.
+
+231
+00:02:04,224 --> 00:02:07,623
+There's harmful, harmless, and honest.
+
+232
+00:02:04,944 --> 00:02:10,944
+So it directly use your data to do the reward estimation.
+
+233
+00:02:05,054 --> 00:02:11,614
+The finally the paper is tries different ranks. So if we still remember what's
+
+234
+00:02:06,709 --> 00:02:08,709
+What can we do?
+
+235
+00:02:07,120 --> 00:02:13,520
+You can look at the list here. Overall, we can think of it in this way.
+
+236
+00:02:07,450 --> 00:02:13,211
+at choosing the good answer compared to its original model version.
+
+237
+00:02:07,623 --> 00:02:12,623
+So that's the idea of why we need alignment.
+
+238
+00:02:08,286 --> 00:02:10,846
+Altogether for this weight matrix,
+
+239
+00:02:08,709 --> 00:02:10,709
+We can do comparison.
+
+240
+00:02:09,389 --> 00:02:15,389
+Okay, the next optimization on the model is called knowledge distillation.
+
+241
+00:02:10,236 --> 00:02:16,876
+during these pre-training steps, you get a base model. If you ask this question to that base model,
+
+242
+00:02:10,709 --> 00:02:13,709
+Instead of giving an answer to each question,
+
+243
+00:02:10,846 --> 00:02:12,605
+we will need how many parameters.
+
+244
+00:02:10,944 --> 00:02:14,944
+You can go through the code to find out more.
+
+245
+00:02:11,614 --> 00:02:17,614
+rank for if a higher rank means you need to find you more parameters.
+
+246
+00:02:12,623 --> 00:02:16,023
+Oh, here we have another one is called verbosity.
+
+247
+00:02:13,211 --> 00:02:22,971
+So the data here sets how far the model is allowed to drift from its original style.
+
+248
+00:02:13,406 --> 00:02:17,006
+We can see we just did times k,
+
+249
+00:02:13,709 --> 00:02:17,709
+we will give each question to answers.
+
+250
+00:02:14,319 --> 00:02:22,800
+rack gives the model better notes to read before an examination. For example, LM is a student,
+
+251
+00:02:14,944 --> 00:02:25,944
+It shows how to the task is to change the way that LM answers your question, the format of the answers.
+
+252
+00:02:15,389 --> 00:02:20,389
+So exactly do another kind of model compression.
+
+253
+00:02:16,023 --> 00:02:19,663
+This, for example, if you give an instruction,
+
+254
+00:02:17,006 --> 00:02:19,406
+that's 5 million parameters,
+
+255
+00:02:17,676 --> 00:02:25,196
+you can see some of the response here. The base model actually did not answer the question.
+
+256
+00:02:17,709 --> 00:02:20,709
+One is a good one, one is a bad one.
+
+257
+00:02:18,014 --> 00:02:23,214
+Lower rank means smaller parameters you need to tune.
+
+258
+00:02:19,406 --> 00:02:20,685
+just for this matrix.
+
+259
+00:02:20,389 --> 00:02:27,389
+Instead of just looking at which those with values,
+
+260
+00:02:20,623 --> 00:02:25,623
+like this, if you give a question,
+
+261
+00:02:20,709 --> 00:02:25,709
+So in that case, we collect a bunch of questions.
+
+262
+00:02:21,406 --> 00:02:25,966
+But remember, we learned in linear algebra,
+
+263
+00:02:22,800 --> 00:02:29,840
+for example. So rack gives the model some notes to read before an examination. But it doesn't make
+
+264
+00:02:22,971 --> 00:02:25,971
+So those are some hyper parameters.
+
+265
+00:02:24,014 --> 00:02:32,094
+So the findings in this table shows Laura already performs competitively quite well
+
+266
+00:02:25,623 --> 00:02:30,623
+it will give you very long answers,
+
+267
+00:02:25,709 --> 00:02:32,709
+Then for each question, we will give human preferred answer and human not preferred answer.
+
+268
+00:02:25,836 --> 00:02:32,716
+So instead of that, it would be that it just do a text completion. So it's doing
+
+269
+00:02:25,944 --> 00:02:30,944
+So this is just a tutorial for your reference.
+
+270
+00:02:25,971 --> 00:02:31,451
+The sigma is the sigma function, which we are very familiar with.
+
+271
+00:02:26,605 --> 00:02:28,766
+the matrix can be decomposed.
+
+272
+00:02:27,389 --> 00:02:33,389
+it's train, it used the original model, the trained model as a teacher,
+
+273
+00:02:29,406 --> 00:02:34,686
+So imagine we decomposed this matrix into two smaller ones,
+
+274
+00:02:29,840 --> 00:02:38,320
+the models matter automatically. It depends on the quality of the model itself. If the model
+
+275
+00:02:30,944 --> 00:02:33,944
+From this week, we don't have new labs for you.
+
+276
+00:02:31,263 --> 00:02:32,823
+but instead,
+
+277
+00:02:31,451 --> 00:02:40,891
+So all in all, when RIL HRF remembers the PPO needs four models in memory.
+
+278
+00:02:32,094 --> 00:02:41,214
+with a very small like even R equals one or two. That means you only need to find you two small
+
+279
+00:02:32,709 --> 00:02:42,709
+In this way, we can see this data can be used to treat the reward model for a large length model.
+
+280
+00:02:32,823 --> 00:02:37,143
+a brief answer or concise answer will be preferred.
+
+281
+00:02:33,389 --> 00:02:37,389
+to do a knowledge transfer to a student model.
+
+282
+00:02:33,676 --> 00:02:43,596
+like a text completion tasks, generate more words after your initial problems. So this is because
+
+283
+00:02:33,944 --> 00:02:42,944
+Please concentrate on finishing the previous slides and use your time for addition and group project.
+
+284
+00:02:35,406 --> 00:02:40,286
+which is d times k and d times r and r times d.
+
+285
+00:02:37,143 --> 00:02:41,703
+So that's, we also need the model to understand.
+
+286
+00:02:37,389 --> 00:02:43,389
+So usually the student model can be as in different structure or in same structure,
+
+287
+00:02:38,320 --> 00:02:48,960
+is a bad writer, you just add extra data to it. It won't make it a good one. Also, if we can't do
+
+288
+00:02:40,891 --> 00:02:47,851
+But DPO only needs two, the original model and the model to be trained.
+
+289
+00:02:40,926 --> 00:02:44,206
+Here, this r is far less than k here.
+
+290
+00:02:41,694 --> 00:02:53,134
+one or two dimension column vectors. You can already achieve good results for certain tasks.
+
+291
+00:02:41,703 --> 00:02:44,143
+In today's tutorial,
+
+292
+00:02:42,709 --> 00:02:50,709
+At least the large length model gets to learn what's good, what's bad.
+
+293
+00:02:42,944 --> 00:02:44,944
+You have already done so.
+
+294
+00:02:43,389 --> 00:02:48,389
+but less complex like a teacher model.
+
+295
+00:02:43,676 --> 00:02:50,076
+during the pre-training language models, you remember they just do the
+
+296
+00:02:44,143 --> 00:02:48,583
+we will give you an example of how to train a large lung model
+
+297
+00:02:44,944 --> 00:02:53,944
+Next, I want to give you, because you may only have about two weeks to the deadline of the group projects, right?
+
+298
+00:02:45,725 --> 00:02:48,206
+This chart may be not that obvious,
+
+299
+00:02:47,851 --> 00:02:55,771
+So it significantly reduced memory needs during the training.
+
+300
+00:02:48,205 --> 00:02:52,685
+but r should be very much smaller than k,
+
+301
+00:02:48,389 --> 00:02:51,389
+Because usually in this knowledge distillation,
+
+302
+00:02:48,583 --> 00:02:52,263
+using alignment approach, which is a DPO.
+
+303
+00:02:48,960 --> 00:02:55,439
+some reasoning through multiple steps, for example, given some document to read,
+
+304
+00:02:50,709 --> 00:02:56,709
+So in that way, it somehow follows human preference on a good answer.
+
+305
+00:02:51,276 --> 00:02:57,596
+give you the training strategy is a text completion tasks. So given the input,
+
+306
+00:02:51,389 --> 00:02:55,389
+we want a student model to learn from the teacher,
+
+307
+00:02:52,263 --> 00:02:56,983
+We will train the model to follow the instruction
+
+308
+00:02:53,165 --> 00:02:54,365
+the dimension here.
+
+309
+00:02:53,935 --> 00:03:00,335
+So these are some practical guidelines to follow in your own finding your new experiment if you are
+
+310
+00:02:53,944 --> 00:02:59,944
+I have read your progress report one by one.
+
+311
+00:02:54,925 --> 00:02:58,765
+So you can see if we use linear algebra,
+
+312
+00:02:55,389 --> 00:03:00,389
+but it's more specific on certain tasks.
+
+313
+00:02:55,439 --> 00:03:04,240
+may not help that much as well. Right? So that's why when arch-language model is not able to
+
+314
+00:02:55,771 --> 00:03:03,651
+So it's far more memory efficient and easy to train in a model training practice.
+
+315
+00:02:56,709 --> 00:03:07,709
+So that's the idea of collecting data for alignment for the large length model during alignment process.
+
+316
+00:02:56,983 --> 00:02:59,943
+to generate answers in certain format.
+
+317
+00:02:58,156 --> 00:03:02,636
+the model strategy is to find the suitable with most high
+
+318
+00:02:58,765 --> 00:03:02,286
+with times, we multiply these two matrix,
+
+319
+00:02:59,943 --> 00:03:03,303
+So that's the tutorial.
+
+320
+00:02:59,944 --> 00:03:02,944
+I think all of you have a good progress.
+
+321
+00:03:00,335 --> 00:03:09,854
+doing that kind of training. Just now we showed Laura. Laura is a good mechanism to train
+
+322
+00:03:00,389 --> 00:03:05,389
+That means you, sometimes after training, this distillation process,
+
+323
+00:03:02,286 --> 00:03:05,325
+we can still convert into a matrix,
+
+324
+00:03:02,944 --> 00:03:09,944
+At least you fulfilled some tasks in your mission in your progress report.
+
+325
+00:03:03,303 --> 00:03:05,623
+Maybe you want to try out.
+
+326
+00:03:03,651 --> 00:03:10,611
+So in our tutorial, we use this method to show you how to teach the large length model
+
+327
+00:03:04,076 --> 00:03:10,076
+probability of following words. So that's why the behavior is like this. So the
+
+328
+00:03:04,240 --> 00:03:11,920
+perform well in certain tasks, fine-tune the model is presented for your consideration.
+
+329
+00:03:05,325 --> 00:03:06,605
+d times k, right?
+
+330
+00:03:05,389 --> 00:03:10,389
+the student model actually can perform better in certain tasks
+
+331
+00:03:05,623 --> 00:03:08,263
+Okay, just now we talk about alignment,
+
+332
+00:03:07,165 --> 00:03:09,805
+So that's sorry, here,
+
+333
+00:03:07,709 --> 00:03:14,709
+Let's look at the famous human-relevant information learning from human feedback.
+
+334
+00:03:08,263 --> 00:03:09,983
+why we need alignment, right?
+
+335
+00:03:09,805 --> 00:03:12,045
+I have a mistake here,
+
+336
+00:03:09,944 --> 00:03:16,944
+So please continue working on that, but remind full of the deadline.
+
+337
+00:03:09,983 --> 00:03:14,983
+Because we want our model to have the same value
+
+338
+00:03:10,014 --> 00:03:17,294
+to find you a large lengthing model with very small amount of parameters and yet we achieve
+
+339
+00:03:10,389 --> 00:03:13,389
+than the original teacher model.
+
+340
+00:03:10,611 --> 00:03:15,531
+to output in certain direction, in certain format.
+
+341
+00:03:10,956 --> 00:03:19,676
+the model are just trained to predict the next token after the token you give. So they are not
+
+342
+00:03:12,045 --> 00:03:13,325
+it should be k here.
+
+343
+00:03:12,799 --> 00:03:20,799
+Actually fine-tuning actually changes the model's internal parameters. So using the example we
+
+344
+00:03:13,389 --> 00:03:16,389
+So this is normal because a student model
+
+345
+00:03:13,965 --> 00:03:20,045
+Sorry, I will change that in the PDF,
+
+346
+00:03:14,709 --> 00:03:20,709
+This is originally proposed by the OpenAI in chat GPT.
+
+347
+00:03:15,531 --> 00:03:17,451
+So that's DPO.
+
+348
+00:03:16,183 --> 00:03:18,063
+as human preference.
+
+349
+00:03:16,389 --> 00:03:20,389
+are more not as general as teacher,
+
+350
+00:03:16,944 --> 00:03:21,944
+And I want to highlight the submissions.
+
+351
+00:03:17,451 --> 00:03:19,531
+Another one is called GRPO.
+
+352
+00:03:17,854 --> 00:03:19,774
+good performance. But
+
+353
+00:03:18,783 --> 00:03:21,423
+But how do we do the alignment, actually?
+
+354
+00:03:19,531 --> 00:03:23,011
+GRPO is actually proposed by DeepSick.
+
+355
+00:03:19,676 --> 00:03:25,917
+to instruct, instructed to respond the question well. So that's why we will need
+
+356
+00:03:20,045 --> 00:03:21,245
+it should be a k here.
+
+357
+00:03:20,389 --> 00:03:22,389
+but it's more specialized.
+
+358
+00:03:20,709 --> 00:03:23,709
+So this is how do we do?
+
+359
+00:03:20,799 --> 00:03:28,560
+discussed just now, it's like putting the model through some specialized training on your own tasks.
+
+360
+00:03:20,974 --> 00:03:26,494
+imagine if you have a very big foundation model that means the original model is quite big.
+
+361
+00:03:21,245 --> 00:03:23,645
+So, sorry, after that,
+
+362
+00:03:21,944 --> 00:03:28,944
+So for, remember, we need to submit presentation, videos and support.
+
+363
+00:03:22,389 --> 00:03:25,389
+That's what we can conclude here.
+
+364
+00:03:22,423 --> 00:03:27,103
+So the story need to start with reinforcement learning.
+
+365
+00:03:23,011 --> 00:03:30,691
+When DeepSick R1 is come out last year before,
+
+366
+00:03:23,645 --> 00:03:27,485
+otherwise it cannot go back to the original dimension.
+
+367
+00:03:23,709 --> 00:03:31,709
+Firstly, remember just now we have talked about the SFT and base LM training.
+
+368
+00:03:25,389 --> 00:03:30,389
+Usually that's the way of distillation,
+
+369
+00:03:27,103 --> 00:03:29,743
+So in this alignment scenario,
+
+370
+00:03:27,276 --> 00:03:33,836
+to use instruction tuning to teach the model to answer questions to follow our instructions.
+
+371
+00:03:27,485 --> 00:03:29,085
+So it should be a k here,
+
+372
+00:03:27,775 --> 00:03:34,494
+Even we use Laura we can use Laura to train a small model. At the beginning we still need to
+
+373
+00:03:28,560 --> 00:03:37,599
+So it likely the model after training will do better in those tasks that it does not perform very well
+
+374
+00:03:28,944 --> 00:03:39,944
+So for presentation and video, the presentation slides usually will be used in your video recording, I guess.
+
+375
+00:03:29,085 --> 00:03:30,286
+here is correct.
+
+376
+00:03:30,389 --> 00:03:35,389
+because it's a usually student model is optimized for certain domain.
+
+377
+00:03:30,691 --> 00:03:39,611
+so GRPO become one of the most used policy optimization method during alignment alignment.
+
+378
+00:03:30,743 --> 00:03:35,063
+reinforcement learning is one of the more used approach
+
+379
+00:03:31,709 --> 00:03:36,709
+So after base LM training, large amount of data,
+
+380
+00:03:31,966 --> 00:03:34,286
+Then just now we mentioned,
+
+381
+00:03:34,286 --> 00:03:40,685
+we do a metric decomposition into these two small metrics.
+
+382
+00:03:34,476 --> 00:03:42,476
+So that's why the instruction instruction tuning or SFT is trained the model
+
+383
+00:03:34,575 --> 00:03:41,775
+load the base model into the memory in order to do in the training process. So in that case
+
+384
+00:03:35,063 --> 00:03:39,263
+and that's why we need to talk about it first.
+
+385
+00:03:35,389 --> 00:03:40,389
+So that's why sometimes it gets better performance.
+
+386
+00:03:36,709 --> 00:03:41,709
+and we use SFT to teach the model to answer questions,
+
+387
+00:03:38,560 --> 00:03:45,359
+so that's the reasoning why we want to have fine-tuning in certain scenarios.
+
+388
+00:03:39,263 --> 00:03:44,263
+So imagine what's in reinforcement learning.
+
+389
+00:03:39,611 --> 00:03:44,091
+So this is how GRPO works.
+
+390
+00:03:39,944 --> 00:03:46,944
+So in that presentation video, we will encourage every team members to speak.
+
+391
+00:03:40,389 --> 00:03:46,389
+Just an example here, we have some models called distill birth.
+
+392
+00:03:40,766 --> 00:03:44,445
+Then let's calculate how many parameters we have,
+
+393
+00:03:41,709 --> 00:03:45,709
+because we just compared this is not enough.
+
+394
+00:03:42,476 --> 00:03:49,596
+on the instruction on response pairs. So we give the model some questions and answer pairs
+
+395
+00:03:43,935 --> 00:03:51,775
+even you use Laura to find you it is still challenging. So in this scenario we introduce
+
+396
+00:03:44,091 --> 00:03:51,371
+It removes one model, which is a value model from the original people.
+
+397
+00:03:44,783 --> 00:03:49,783
+This is widely used in game industry, for example.
+
+398
+00:03:45,086 --> 00:03:48,526
+if we give these two small metrics.
+
+399
+00:03:45,709 --> 00:03:48,709
+So that's why we need alignment.
+
+400
+00:03:46,079 --> 00:03:51,599
+Before we go into the details of fine-tuning, let's ask the most important question,
+
+401
+00:03:46,389 --> 00:03:50,389
+So this is actually a distill version of birth.
+
+402
+00:03:46,944 --> 00:03:57,944
+It's not required, but we hope every team members who contributed should speak to present your project.
+
+403
+00:03:48,526 --> 00:03:53,006
+So then suppose r equals five only,
+
+404
+00:03:48,709 --> 00:03:51,709
+So next, we will go to the alignment process.
+
+405
+00:03:49,596 --> 00:03:57,996
+for it to learn. And if the model gets enough amount of data, get many exposure on this kind
+
+406
+00:03:50,389 --> 00:03:55,389
+It is 40% smaller than the original birth model,
+
+407
+00:03:51,371 --> 00:03:55,651
+So instead of learning a value function,
+
+408
+00:03:51,709 --> 00:03:55,709
+In the alignment process, firstly, we will need a reward model,
+
+409
+00:03:51,775 --> 00:04:01,694
+Q Laura. That means we we we quantize the base model. Q Laura Q is quantization here. So we
+
+410
+00:03:52,023 --> 00:03:55,223
+I think many of us may know this game, right?
+
+411
+00:03:52,479 --> 00:04:02,719
+should you do fine-tuning at all? So we can use this kind of tree like reference.
+
+412
+00:03:53,006 --> 00:03:55,326
+then we have, for these metrics,
+
+413
+00:03:55,223 --> 00:03:58,663
+This is Mario, Super Mario.
+
+414
+00:03:55,326 --> 00:03:59,406
+how many parameters we have is d times r, right?
+
+415
+00:03:55,389 --> 00:03:58,389
+but it runs 60% faster,
+
+416
+00:03:55,651 --> 00:03:59,571
+you just generate multiple responses, average them,
+
+417
+00:03:55,709 --> 00:04:01,709
+because remember the Mario case, Mario, the action of Mario,
+
+418
+00:03:57,944 --> 00:04:00,944
+So that's a good practice for you as well.
+
+419
+00:03:58,076 --> 00:04:04,716
+of scenario. The model will learn how to answer a question properly. So that's the basic,
+
+420
+00:03:58,389 --> 00:04:04,389
+and also it achieves almost 97% of performance as the original model.
+
+421
+00:03:58,663 --> 00:04:03,663
+The idea of this Super Mario is he goes through a long, long pass
+
+422
+00:03:59,406 --> 00:04:03,006
+So that's all the cells in these metrics.
+
+423
+00:03:59,571 --> 00:04:02,691
+then use that average as a value baseline.
+
+424
+00:04:00,944 --> 00:04:06,944
+And also, when you do the presentation, your face is optional.
+
+425
+00:04:01,694 --> 00:04:07,935
+quantize the original model. The original huge model usually they stored in like 60
+
+426
+00:04:01,709 --> 00:04:05,709
+all depends on how much reward he will get, right?
+
+427
+00:04:02,691 --> 00:04:07,851
+So this is the steps how the GRPO works.
+
+428
+00:04:03,520 --> 00:04:10,879
+Imagine you have a task, right? If it requires external or real-time knowledge,
+
+429
+00:04:03,566 --> 00:04:05,006
+And for these metrics,
+
+430
+00:04:04,143 --> 00:04:07,903
+then every time he sees a coin and he gets it,
+
+431
+00:04:04,389 --> 00:04:09,389
+So you can imagine, although a small loss on the performance,
+
+432
+00:04:05,006 --> 00:04:07,165
+we have r times k here.
+
+433
+00:04:05,516 --> 00:04:12,236
+the most important training method to train a large model to follow human instructions.
+
+434
+00:04:05,709 --> 00:04:10,709
+So he needs to maximize the rewards during the process.
+
+435
+00:04:06,944 --> 00:04:10,944
+You don't need to have to show your face in the video.
+
+436
+00:04:07,165 --> 00:04:08,286
+So all together,
+
+437
+00:04:07,850 --> 00:04:13,890
+You can also search for the GRPO papers or some explanations.
+
+438
+00:04:07,903 --> 00:04:10,183
+he will get points.
+
+439
+00:04:08,366 --> 00:04:11,725
+if we use the same value here,
+
+440
+00:04:08,814 --> 00:04:18,175
+16-bit or 32-bit kind of wheat matrices. But if we quantize the model to 4-bit precision
+
+441
+00:04:09,389 --> 00:04:15,389
+but the big gain on the efficiency of the inference.
+
+442
+00:04:10,183 --> 00:04:12,303
+He will get reward.
+
+443
+00:04:10,709 --> 00:04:16,709
+So similarly, for a large length model, we teach like the length model.
+
+444
+00:04:10,944 --> 00:04:13,944
+Maybe a screen recording voiceover is fine.
+
+445
+00:04:11,520 --> 00:04:16,480
+then you can consider your server's system. But if it doesn't need that,
+
+446
+00:04:11,725 --> 00:04:15,806
+we'll get 30k parameters.
+
+447
+00:04:12,303 --> 00:04:16,704
+Then if he bumped into a, this is a mushroom,
+
+448
+00:04:13,036 --> 00:04:21,276
+So the power of instruction tuning is the training data must be very diverse. Otherwise,
+
+449
+00:04:13,890 --> 00:04:20,730
+But the core idea is that it do not need a value model.
+
+450
+00:04:13,944 --> 00:04:21,944
+And about content, it's better to focus on the key point of your project, right?
+
+451
+00:04:15,389 --> 00:04:22,389
+So this distillation is ideal for production deployments,
+
+452
+00:04:15,806 --> 00:04:19,326
+So compare with the original five million parameters.
+
+453
+00:04:16,704 --> 00:04:20,903
+right, if bumped into a gumbah, he will be penalized.
+
+454
+00:04:16,709 --> 00:04:20,709
+We firstly need to let it know what's the reward.
+
+455
+00:04:17,040 --> 00:04:22,959
+or we'll go through this branch, it doesn't need external knowledge, but needs new behavior
+
+456
+00:04:18,814 --> 00:04:26,175
+and the model size can be significantly reduced. So that's the idea of Laura.
+
+457
+00:04:19,886 --> 00:04:25,886
+Here, we only use less than one percent of the original parameters
+
+458
+00:04:20,709 --> 00:04:23,709
+So we use the human preference data.
+
+459
+00:04:20,730 --> 00:04:26,331
+It just uses this way to estimate the advantage.
+
+460
+00:04:20,903 --> 00:04:25,303
+His life will be deducted, something like that.
+
+461
+00:04:21,757 --> 00:04:33,197
+we only be able to answer certain type of questions. So I would like to prepare our training
+
+462
+00:04:21,944 --> 00:04:30,944
+You need to clearly summarize the problem, the approach and what's the result and maybe the reflection as well.
+
+463
+00:04:22,389 --> 00:04:27,389
+when latency and memory are constrained.
+
+464
+00:04:22,959 --> 00:04:31,120
+or writing scale. Then you need to ask yourself another question, do you have training data,
+
+465
+00:04:23,709 --> 00:04:30,709
+Just now we mentioned for each question, we gave a good answer versus a bad answer.
+
+466
+00:04:25,303 --> 00:04:29,783
+So that's the game scenario.
+
+467
+00:04:25,886 --> 00:04:29,646
+to represent the original metrics.
+
+468
+00:04:26,331 --> 00:04:28,130
+If you still remember in PPO,
+
+469
+00:04:26,895 --> 00:04:34,495
+Laura Q Laura. Sorry. So one way is through quantization. Another mechanism is
+
+470
+00:04:27,389 --> 00:04:31,389
+So this is a very popular approach.
+
+471
+00:04:28,130 --> 00:04:37,810
+advantage is calculate the accumulated award until this pass in current status.
+
+472
+00:04:29,783 --> 00:04:34,103
+So the goal of the game is he pass through all the pass
+
+473
+00:04:30,286 --> 00:04:36,846
+So this is the mass behind this law.
+
+474
+00:04:30,709 --> 00:04:37,709
+So in this case, we used those data to train the large length remodel
+
+475
+00:04:30,944 --> 00:04:36,944
+And for the submission, here are some notes for your to consider.
+
+476
+00:04:31,120 --> 00:04:38,000
+or do you have enough budget to use all these GPU resources? If yes,
+
+477
+00:04:32,389 --> 00:04:35,389
+In some open source models, you can see,
+
+478
+00:04:33,197 --> 00:04:41,996
+data. We will need a wide variety of instructions. And then the model learns a generalize for
+
+479
+00:04:34,103 --> 00:04:38,864
+and get as small as enough coins
+
+480
+00:04:34,495 --> 00:04:42,574
+pitched optimizer optimizers. This means if during the training right because you need to load
+
+481
+00:04:35,389 --> 00:04:40,389
+it provides several different models like distills, something.
+
+482
+00:04:36,944 --> 00:04:48,944
+If the file size is so small, too big, you can provide a gate handling, but the remains for to make it can be accessed by us.
+
+483
+00:04:37,709 --> 00:04:40,709
+to learn the preference of human.
+
+484
+00:04:37,725 --> 00:04:40,286
+So why does this work?
+
+485
+00:04:37,851 --> 00:04:42,811
+So this is how GRPO works.
+
+486
+00:04:38,864 --> 00:04:43,864
+and try to not lose his life to bump on a gumbah.
+
+487
+00:04:38,959 --> 00:04:43,680
+okay, you can do fine-tuning. If not, if these two questions are not,
+
+488
+00:04:40,286 --> 00:04:43,966
+Because the empirical findings from the original law of paper
+
+489
+00:04:40,389 --> 00:04:47,389
+So for example, DIFSEC also have several distilled versions.
+
+490
+00:04:40,709 --> 00:04:46,709
+So this is called re-inversement learning from human feedback, RIOHF.
+
+491
+00:04:41,996 --> 00:04:51,197
+instruction follow capability. For example, here, these two examples on screen shows the diversity
+
+492
+00:04:42,574 --> 00:04:53,375
+this guy and also two small B and A matrix during the training right. If your GPU or your hardware
+
+493
+00:04:42,811 --> 00:04:49,211
+So eventually GRPO only needs three models instead of four.
+
+494
+00:04:44,399 --> 00:04:51,840
+you better try further from engineering. We have taught in the first lecture of this second half.
+
+495
+00:04:44,766 --> 00:04:46,685
+is that fine tuning,
+
+496
+00:04:46,104 --> 00:04:48,344
+So that's the whole idea.
+
+497
+00:04:46,685 --> 00:04:48,365
+when we do fine tuning,
+
+498
+00:04:46,709 --> 00:04:55,709
+So this is a whole idea of the reward, the re-inversement learning for a large length model.
+
+499
+00:04:47,389 --> 00:04:56,389
+Those applications that require less memory and good latency,
+
+500
+00:04:48,344 --> 00:04:52,824
+So this scenario is easily can be
+
+501
+00:04:48,365 --> 00:04:52,766
+it only updates some low dimensionality.
+
+502
+00:04:48,944 --> 00:05:00,944
+You can make it public or you can make it private, but you can ask, you can ask for our GitHub account.
+
+503
+00:04:49,211 --> 00:04:54,651
+So that's why it is more stable during training.
+
+504
+00:04:51,276 --> 00:05:00,396
+of the task. The first one is a creative writing task. And the next one is a like a form filing
+
+505
+00:04:52,399 --> 00:04:58,240
+So this is the first checkpoint you need to consider when you go deep in the fine-tuning.
+
+506
+00:04:52,766 --> 00:04:57,805
+So many of the updates only clustered in the low rank subspace.
+
+507
+00:04:53,454 --> 00:05:04,574
+gets full away during the training process the pitched optimizer will shift from those do not
+
+508
+00:04:53,544 --> 00:04:56,504
+simulate use reinforcement learning.
+
+509
+00:04:54,651 --> 00:04:59,131
+And some models, for example, DeepSick R1,
+
+510
+00:04:55,709 --> 00:05:01,709
+Here, you can see the reward is the human preference.
+
+511
+00:04:56,389 --> 00:04:58,389
+so you can choose from.
+
+512
+00:04:56,504 --> 00:05:00,904
+The reinforcement learning, the idea is you have a state.
+
+513
+00:04:57,805 --> 00:05:02,365
+So that's why we believe this decomposition,
+
+514
+00:04:58,389 --> 00:05:01,389
+So this is about knowledge distillation.
+
+515
+00:04:59,040 --> 00:05:06,879
+The key message is here. Fine-tuning is not always the right answer. It comes with cost
+
+516
+00:04:59,131 --> 00:05:03,331
+achieves better reasoning skills using GRPO.
+
+517
+00:05:00,396 --> 00:05:08,716
+task. So if a model trained across many such tasks, it will again, brought instruction follow
+
+518
+00:05:00,904 --> 00:05:05,904
+So each state is a scenario like he's in this position
+
+519
+00:05:00,944 --> 00:05:07,944
+If you want to make a private link just for your information on the submission.
+
+520
+00:05:01,389 --> 00:05:09,389
+Another method for optimization of the model is called mixer of expert or MOE.
+
+521
+00:05:01,709 --> 00:05:05,709
+And the policy here is the large length model.
+
+522
+00:05:03,165 --> 00:05:06,206
+still can be the enough adaptation.
+
+523
+00:05:03,491 --> 00:05:11,411
+That's why this method is being adopted by many recent large hand models.
+
+524
+00:05:04,574 --> 00:05:13,375
+needed during the disk step of training. You will move those pages which are not currently
+
+525
+00:05:05,709 --> 00:05:13,709
+This is a model we want to adapt and learn to follow the human instruction.
+
+526
+00:05:06,303 --> 00:05:09,903
+and what's the front, what's the, what's the,
+
+527
+00:05:07,245 --> 00:05:14,125
+To move the original model to a desired direction.
+
+528
+00:05:07,600 --> 00:05:15,040
+and complex complexity. So be careful when you decide to do this.
+
+529
+00:05:07,944 --> 00:05:24,944
+And in order for us to please give a self-explanatory written about how to install, how to run it, like a user manual or something.
+
+530
+00:05:08,716 --> 00:05:17,917
+ability that transferred to a new unseen tasks. So that's the whole idea behind the instruction
+
+531
+00:05:09,389 --> 00:05:16,389
+So this is, we can think of this as an example.
+
+532
+00:05:09,903 --> 00:05:14,223
+is there a coin and what's the environment,
+
+533
+00:05:11,411 --> 00:05:15,091
+So beyond this PPO, GRPO, DQ,
+
+534
+00:05:13,375 --> 00:05:22,175
+required to move them into CPU so that it will save your GPU for the current computation. Then in
+
+535
+00:05:13,709 --> 00:05:22,709
+Of course, there are many optimization ways to optimize to change the width of the LM.
+
+536
+00:05:14,223 --> 00:05:15,384
+something like this.
+
+537
+00:05:15,091 --> 00:05:19,411
+there are many other new methods.
+
+538
+00:05:15,384 --> 00:05:19,663
+For example, this is the, this picture is one frame.
+
+539
+00:05:15,920 --> 00:05:23,040
+So let's understand the full FM training pipeline from scratch. This tree illustrates
+
+540
+00:05:16,389 --> 00:05:21,389
+We can think of it as we have a medical clinic.
+
+541
+00:05:17,165 --> 00:05:22,045
+So let's summarize the parameter equation fine tuning.
+
+542
+00:05:18,156 --> 00:05:27,756
+tuning. You prepare a wild variety of instruction and answer pairs. That's very important for instruction
+
+543
+00:05:19,411 --> 00:05:23,531
+I won't go through them, but you just need to know.
+
+544
+00:05:19,663 --> 00:05:23,384
+So in every frame, there is a policy.
+
+545
+00:05:21,389 --> 00:05:26,389
+Instead of we have one journalist, Dr. Ho-Hendel.
+
+546
+00:05:22,335 --> 00:05:30,814
+the next step if those data will be used it will revert back to the GPU memory. So that this is the
+
+547
+00:05:22,709 --> 00:05:30,709
+So one popular way is called PPO, which is proximal policy optimization.
+
+548
+00:05:23,384 --> 00:05:27,223
+Policy is the decision making mechanism like
+
+549
+00:05:23,531 --> 00:05:30,051
+For example, ORPO is particularly very efficient
+
+550
+00:05:23,680 --> 00:05:29,920
+the three stages training pipeline. So every major large-length of the model we are using
+
+551
+00:05:23,805 --> 00:05:28,766
+It's like you are storing a high resolution photo,
+
+552
+00:05:24,944 --> 00:05:34,944
+And also someone asked about API keys because underneath you might use several paid APIs for larger and green models.
+
+553
+00:05:26,389 --> 00:05:29,389
+Ho-Hendel's everything.
+
+554
+00:05:27,756 --> 00:05:35,116
+fine tuning. So this slides give up before and after comparison of supervised fine tuning.
+
+555
+00:05:28,343 --> 00:05:31,624
+we, inside we have a probability model.
+
+556
+00:05:28,766 --> 00:05:34,605
+for example, a full HD photo d times k in these resolutions.
+
+557
+00:05:29,389 --> 00:05:33,389
+You have a set, you have multiple specialists,
+
+558
+00:05:30,051 --> 00:05:32,411
+because it only needs one model.
+
+559
+00:05:30,640 --> 00:05:37,120
+today, follow, kindly follow these three steps. The first step is called pre-training.
+
+560
+00:05:30,709 --> 00:05:39,709
+So this is one of the most early policy, which is used in chat GPT.
+
+561
+00:05:30,814 --> 00:05:42,175
+two key strategy of using Q Laura to further help the parameter efficient fine tuning. Here we have
+
+562
+00:05:31,624 --> 00:05:34,824
+Besides the Mario will go to which direction.
+
+563
+00:05:32,411 --> 00:05:39,091
+It actually can combine the SFT and alignment in a single process.
+
+564
+00:05:33,389 --> 00:05:40,389
+specialists, which for example, cardiologists, neuro-aligists,
+
+565
+00:05:34,824 --> 00:05:37,463
+It can do up, left and right.
+
+566
+00:05:34,944 --> 00:05:46,944
+You are not required to share them, but please point us how to give those API keys when we want to run those code.
+
+567
+00:05:35,326 --> 00:05:38,526
+We can store a compressed version,
+
+568
+00:05:35,756 --> 00:05:43,916
+So you can see what has been changed during the sft. It teaches the model how to
+
+569
+00:05:37,120 --> 00:05:43,520
+So this is the most expensive and one-time step done by only by those large
+
+570
+00:05:37,463 --> 00:05:40,584
+So that's all Mario can go,
+
+571
+00:05:38,526 --> 00:05:41,725
+which is these two small ones,
+
+572
+00:05:39,091 --> 00:05:41,610
+Remember, just now at the beginning,
+
+573
+00:05:39,709 --> 00:05:43,709
+So we will firstly introduce this PPO.
+
+574
+00:05:40,389 --> 00:05:44,389
+another for pediatrition.
+
+575
+00:05:40,584 --> 00:05:45,424
+but each, each direction has different probabilities here.
+
+576
+00:05:41,610 --> 00:05:44,091
+we show the large hand model training
+
+577
+00:05:41,725 --> 00:05:47,966
+but we can still capture the important changes during this process.
+
+578
+00:05:42,175 --> 00:05:51,775
+illustration of compare the Laura and Q Laura. One is the precision of the parameters. Another is
+
+579
+00:05:43,709 --> 00:05:53,709
+You can see I won't go to very detail of this PPO policy optimization, but just give you an idea.
+
+580
+00:05:44,091 --> 00:05:46,571
+usually involves three steps.
+
+581
+00:05:44,389 --> 00:05:50,389
+So each expert will only handle certain types of patients.
+
+582
+00:05:44,556 --> 00:05:53,836
+respond to instructions, not as before, just predict the next token. So that's her key differences.
+
+583
+00:05:44,560 --> 00:05:51,439
+organizations, like large labs, large companies, because it costs millions of dollars and use
+
+584
+00:05:45,424 --> 00:05:47,184
+So this is the original model,
+
+585
+00:05:46,571 --> 00:05:52,411
+But if you use ORPO, it will do the step two and three together.
+
+586
+00:05:46,944 --> 00:05:52,944
+So this is another consideration for your submission.
+
+587
+00:05:47,966 --> 00:05:50,605
+So that's the mass behind the borax.
+
+588
+00:05:49,184 --> 00:05:53,144
+the original model, the Mario can use
+
+589
+00:05:51,389 --> 00:05:56,389
+So as a beginning, each patient is routed to the right specialists
+
+590
+00:05:51,565 --> 00:05:54,445
+Let's look at more details.
+
+591
+00:05:52,015 --> 00:06:00,815
+pitched optimizer. You can look for more details using these people. Then we have a question.
+
+592
+00:05:52,079 --> 00:05:59,920
+like trailing tokens to do it. So usually small enterprise, small companies cannot do it.
+
+593
+00:05:52,411 --> 00:05:57,531
+So that's a very efficient way to train a large hand model.
+
+594
+00:05:52,944 --> 00:05:59,944
+So just for your information, you lay every year or have some events to showcase our student project.
+
+595
+00:05:53,144 --> 00:05:56,543
+when it goes through these games.
+
+596
+00:05:53,709 --> 00:06:05,709
+Given a original model, it will PPO will require four models to restore four models inside the Mary.
+
+597
+00:05:54,396 --> 00:06:00,876
+On the left here, before sft, we have a base model. It will give us this question,
+
+598
+00:05:54,445 --> 00:05:58,526
+We compare the regular fine tuning versus lower here.
+
+599
+00:05:56,389 --> 00:06:01,389
+to do the proper checking consultation.
+
+600
+00:05:56,543 --> 00:06:00,223
+So here the very important point is a reward.
+
+601
+00:05:57,531 --> 00:06:00,490
+So this is just for your information.
+
+602
+00:05:59,005 --> 00:06:02,206
+These two diagrams make a very good contrast.
+
+603
+00:05:59,944 --> 00:06:09,944
+So if your project are done well and you have a very good demo, your video may be selected to showcase at ICT events.
+
+604
+00:06:00,223 --> 00:06:02,864
+Just now we mentioned, if Mario gets a coin,
+
+605
+00:06:00,480 --> 00:06:06,959
+So as AI practitioners, we typically start from stage two.
+
+606
+00:06:00,531 --> 00:06:05,651
+And also, a simple PPO also needs one single model.
+
+607
+00:06:00,876 --> 00:06:09,916
+explain what photo sensitivities is. It replied with no structure and totally does not understand the
+
+608
+00:06:01,389 --> 00:06:07,389
+So that's a similar idea for mixture of experts.
+
+609
+00:06:01,775 --> 00:06:09,135
+Just now we mentioned about quantization. So what is quantization? So the core idea of quantization
+
+610
+00:06:02,846 --> 00:06:05,566
+In regular fine tuning,
+
+611
+00:06:02,864 --> 00:06:07,864
+he will be awarded, he will get some coin
+
+612
+00:06:05,566 --> 00:06:09,646
+we directly update the full width metrics.
+
+613
+00:06:05,651 --> 00:06:11,050
+It removes the original throws a model.
+
+614
+00:06:05,709 --> 00:06:11,709
+So the first one will be the original model.
+
+615
+00:06:07,389 --> 00:06:13,389
+So this, usually, this graph shows how it works.
+
+616
+00:06:07,864 --> 00:06:11,224
+and he will get some life or something.
+
+617
+00:06:08,480 --> 00:06:13,360
+Sorry, take a pre-training based model and we do fine-tuning on it.
+
+618
+00:06:09,135 --> 00:06:19,055
+is quite simple. Here we give an example here. For example we have original weights
+
+619
+00:06:09,646 --> 00:06:14,766
+So it's in the same dimension as the pre-tuned width here.
+
+620
+00:06:09,916 --> 00:06:20,556
+intent of the question. So here are some drawbacks of this kind of answers. But after sft,
+
+621
+00:06:09,944 --> 00:06:16,944
+For example, the big events may be open house, day zero, something like that.
+
+622
+00:06:11,050 --> 00:06:17,531
+It saves the memory and simplifies the training process.
+
+623
+00:06:11,224 --> 00:06:16,224
+Yeah, so this reward is a mechanism to decide.
+
+624
+00:06:11,709 --> 00:06:14,709
+This is the model before training.
+
+625
+00:06:13,389 --> 00:06:16,389
+So you have a very huge model.
+
+626
+00:06:14,160 --> 00:06:20,560
+And the stage three is alignment. This is what transforms a technically
+
+627
+00:06:14,709 --> 00:06:18,709
+So another one is the model we want to train from.
+
+628
+00:06:14,766 --> 00:06:19,246
+So the update will be on this metric is delta w.
+
+629
+00:06:16,389 --> 00:06:20,389
+This model consists of multiple experts,
+
+630
+00:06:16,944 --> 00:06:21,944
+We want to give price or penalize action.
+
+631
+00:06:16,944 --> 00:06:24,944
+I guess you all attend those kind of events before. So it's a good opportunity to show your projects.
+
+632
+00:06:17,531 --> 00:06:19,610
+For the rest, if you are interested,
+
+633
+00:06:18,709 --> 00:06:20,709
+So these are two models.
+
+634
+00:06:19,535 --> 00:06:29,615
+that are in 32 bit or 16 bit. The idea is we want to represent these original weights using only
+
+635
+00:06:19,610 --> 00:06:24,250
+you can look for them and understand more details.
+
+636
+00:06:20,389 --> 00:06:28,389
+but during inference, only one of several experts are actually activated.
+
+637
+00:06:20,556 --> 00:06:28,556
+the instruction in the model is called instructed model. Given the same question, this time,
+
+638
+00:06:20,709 --> 00:06:23,709
+Another one is called reward model.
+
+639
+00:06:20,846 --> 00:06:25,165
+You can imagine if we used the example we showed just now,
+
+640
+00:06:21,199 --> 00:06:28,560
+capable model into a helpful, harmful, harmless and honest assistant. Sorry.
+
+641
+00:06:23,709 --> 00:06:31,709
+Just now we mentioned reward is one of the most important parts of training the large length remodel.
+
+642
+00:06:24,250 --> 00:06:27,211
+Because of our time limitation,
+
+643
+00:06:24,624 --> 00:06:28,104
+So that's the word, word means in this game.
+
+644
+00:06:24,944 --> 00:06:31,944
+Maybe you will help to mend the booths where your projects are selected.
+
+645
+00:06:25,165 --> 00:06:28,766
+or you need to update 5 million of parameters.
+
+646
+00:06:27,211 --> 00:06:32,891
+I won't go through more details of all the other models.
+
+647
+00:06:28,104 --> 00:06:32,784
+So here for example, when every time Mario gets coin,
+
+648
+00:06:28,389 --> 00:06:31,389
+So the rest just keep adult.
+
+649
+00:06:29,280 --> 00:06:37,199
+In this lecture, we'll cover all three steps, but just to be very in mind that our focus is in
+
+650
+00:06:29,615 --> 00:06:36,415
+four bits but on the other hand we do not want to lose the precision. So that's our goal.
+
+651
+00:06:29,725 --> 00:06:35,486
+You can imagine it's very big and also will need a lot of data
+
+652
+00:06:29,756 --> 00:06:37,916
+model can give a structured more proper answer. So this kind of transformation is remarkable,
+
+653
+00:06:31,389 --> 00:06:35,389
+So that's the idea of MOE.
+
+654
+00:06:31,944 --> 00:06:37,944
+Okay, next is some presentation outline for your reference.
+
+655
+00:06:32,709 --> 00:06:42,709
+And also we have a value model because for each state we need to calculate how much reward we can get from each action.
+
+656
+00:06:32,891 --> 00:06:34,451
+Any questions?
+
+657
+00:06:33,103 --> 00:06:35,384
+the reward is a plus one.
+
+658
+00:06:34,451 --> 00:06:35,691
+No?
+
+659
+00:06:35,384 --> 00:06:39,983
+But if it goes through the end of the past,
+
+660
+00:06:35,389 --> 00:06:40,389
+This is compared, we can see this is a sparse model,
+
+661
+00:06:35,486 --> 00:06:39,406
+in order to do a proper fine tuning.
+
+662
+00:06:35,691 --> 00:06:41,050
+OK, so now we have go through the three important steps
+
+663
+00:06:37,279 --> 00:06:41,759
+stage two and three, because this is too expensive. This is beyond asked.
+
+664
+00:06:37,295 --> 00:06:46,655
+So in quantization this is one type of quantization mechanism called ABS max. So it is
+
+665
+00:06:37,916 --> 00:06:47,036
+you can see from token prediction to actually instruction following. So that shows the most
+
+666
+00:06:37,944 --> 00:06:46,944
+This is not a golden like must do thing is just some recommendation for you to consider.
+
+667
+00:06:39,983 --> 00:06:44,983
+this is a big reward, he will get 10k rewards.
+
+668
+00:06:40,286 --> 00:06:43,086
+On the other hand, if we use lower,
+
+669
+00:06:40,389 --> 00:06:43,389
+which is compared to the dense model,
+
+670
+00:06:41,050 --> 00:06:46,490
+on training a large hand model from the pre-training,
+
+671
+00:06:42,639 --> 00:06:50,159
+Here, this table shows who can do this and what's the output of those different steps, stages.
+
+672
+00:06:42,709 --> 00:06:46,709
+So this is called reward model.
+
+673
+00:06:43,086 --> 00:06:47,485
+instead of computing this delta w directly,
+
+674
+00:06:43,389 --> 00:06:47,389
+which are no more like large length models.
+
+675
+00:06:45,384 --> 00:06:49,303
+But if he bump into a gongba,
+
+676
+00:06:46,490 --> 00:06:48,050
+which is beyond us.
+
+677
+00:06:46,709 --> 00:06:55,709
+So the value model here is to estimate expected future reward.
+
+678
+00:06:46,944 --> 00:06:59,944
+So you you are not oblig to follow this steps of this content, but just some recommendations for your consider.
+
+679
+00:06:47,036 --> 00:06:57,916
+important shift that sft produced. But after the supervised learning like sft, there are sometimes
+
+680
+00:06:47,375 --> 00:06:57,375
+absolutely max quantization. So we can look at the details. Instead one we look through, we run through
+
+681
+00:06:47,389 --> 00:06:54,389
+In those dense models, every input will activate all the parameters in the network.
+
+682
+00:06:48,046 --> 00:06:55,165
+we approximate the 8 using two small metrics.
+
+683
+00:06:48,050 --> 00:06:50,251
+We cannot control.
+
+684
+00:06:49,303 --> 00:06:50,783
+that means he will over.
+
+685
+00:06:50,251 --> 00:06:55,050
+But we are focused on the second and the third steps
+
+686
+00:06:50,783 --> 00:06:55,783
+So he will be penalized with 10k of points.
+
+687
+00:06:51,120 --> 00:06:59,279
+Okay, so this table lets you compare across the three stages. Just now we have table shows who can do it,
+
+688
+00:06:54,389 --> 00:06:57,389
+But on the other hand, these MOE models,
+
+689
+00:06:55,050 --> 00:06:57,091
+of large hand model training.
+
+690
+00:06:55,165 --> 00:06:57,326
+That's what we showed just now.
+
+691
+00:06:55,709 --> 00:07:03,709
+So this means in my case, if he decided to go front, what's the reward he can get?
+
+692
+00:06:55,944 --> 00:06:58,343
+Of course, if nothing happens,
+
+693
+00:06:57,091 --> 00:07:01,331
+Which is SFT and alignment.
+
+694
+00:06:57,375 --> 00:07:07,295
+all the weak values. Then find the maximum values, the minimum and maximum values. So absolute
+
+695
+00:06:57,389 --> 00:07:02,389
+they only activate a small subset of network.
+
+696
+00:06:57,406 --> 00:06:59,086
+We call them B and A.
+
+697
+00:06:57,916 --> 00:07:05,916
+training on label data alone is not enough for modern large-length models. Here, with this
+
+698
+00:06:58,343 --> 00:07:02,264
+he will not be rewarded or penalized.
+
+699
+00:06:59,086 --> 00:07:02,366
+We have two smaller metrics.
+
+700
+00:06:59,359 --> 00:07:07,839
+and what's the output. This table gives you more details of each stages, each training stages.
+
+701
+00:06:59,944 --> 00:07:05,944
+And last slide will be the teaching feedback module and teaching feedback.
+
+702
+00:07:01,331 --> 00:07:07,011
+So in SFT, you can use Lora to do parameter efficient training.
+
+703
+00:07:02,264 --> 00:07:04,424
+So this is a reward function.
+
+704
+00:07:02,389 --> 00:07:07,389
+So that's, that follows the example I just give.
+
+705
+00:07:03,086 --> 00:07:06,766
+Both have the R as a rank.
+
+706
+00:07:03,709 --> 00:07:07,709
+If he decided to go up, what's the reward he can get?
+
+707
+00:07:04,424 --> 00:07:08,783
+This is very important because every step Mario goes,
+
+708
+00:07:05,944 --> 00:07:17,944
+Just for your information, it will be good for you to write down what did we do well and what we are not doing well for this module.
+
+709
+00:07:05,996 --> 00:07:15,516
+four key limitations, even we train and remember for the state, three stage LM training model.
+
+710
+00:07:07,011 --> 00:07:12,170
+In alignment, you can use many optimization methods
+
+711
+00:07:07,295 --> 00:07:16,255
+value means the smallest and biggest value. Then we get a range of these values. We know how
+
+712
+00:07:07,389 --> 00:07:10,389
+So imagine this is a clinic,
+
+713
+00:07:07,406 --> 00:07:12,046
+So when we multiply these two B and A together,
+
+714
+00:07:07,709 --> 00:07:14,709
+So in every state, Mary will need to make that calculation.
+
+715
+00:07:08,719 --> 00:07:17,599
+The key insight for us for AI practitioners is the cost. So the first thing we need to consider
+
+716
+00:07:08,783 --> 00:07:10,984
+it will depend on the reward.
+
+717
+00:07:10,389 --> 00:07:15,389
+where you have different specialists to the different stuff.
+
+718
+00:07:10,984 --> 00:07:15,264
+So every time suppose Mario should do the action
+
+719
+00:07:12,046 --> 00:07:15,165
+we can still get a metric of in this rank.
+
+720
+00:07:12,170 --> 00:07:17,691
+like the DPO, JRPO, or the new method I mentioned just now.
+
+721
+00:07:14,709 --> 00:07:18,709
+So this is calculated using value model.
+
+722
+00:07:15,264 --> 00:07:17,783
+that maximize the reward.
+
+723
+00:07:15,389 --> 00:07:17,389
+So that's MOE.
+
+724
+00:07:15,516 --> 00:07:22,396
+Now we are in the second stage. We already train the model for instruction following,
+
+725
+00:07:15,966 --> 00:07:17,806
+So during inference,
+
+726
+00:07:16,254 --> 00:07:24,894
+in this matrix what our maximum and minimum number will be. So we get them into a scale. Then
+
+727
+00:07:17,389 --> 00:07:21,389
+MOE enables very large model capacity.
+
+728
+00:07:17,599 --> 00:07:28,000
+is this one. Pre-training is essentially beyond us. So SFT supervised fine-tuning or instruction
+
+729
+00:07:17,691 --> 00:07:22,170
+So all these methods is to train a large hand model
+
+730
+00:07:17,806 --> 00:07:21,006
+imagine we trained these two small metrics.
+
+731
+00:07:17,944 --> 00:07:26,944
+So in the future, this will greatly help us to improve our teaching and also help your juniors.
+
+732
+00:07:18,709 --> 00:07:23,709
+So same as in LM training here.
+
+733
+00:07:18,783 --> 00:07:23,783
+So in each state, he needs to find the best action
+
+734
+00:07:21,389 --> 00:07:27,389
+So that means you have a, for example, I have an MOE model can do everything.
+
+735
+00:07:21,486 --> 00:07:23,406
+Then during inference,
+
+736
+00:07:22,170 --> 00:07:25,691
+as we are currently used.
+
+737
+00:07:22,396 --> 00:07:30,396
+but they're still not enough. Here are the four key limitations. Firstly, this is a label quality
+
+738
+00:07:23,406 --> 00:07:26,526
+we just add the original weights,
+
+739
+00:07:23,709 --> 00:07:32,709
+In order to calculate those, we have we have other terminology called advantage.
+
+740
+00:07:24,894 --> 00:07:33,295
+we can divide this absolute value to all the weights with numbers. So all the numbers will be
+
+741
+00:07:25,184 --> 00:07:27,184
+that gets the good reward.
+
+742
+00:07:25,691 --> 00:07:29,611
+Currently, the other large hand model on the market
+
+743
+00:07:26,526 --> 00:07:29,886
+which is frozen, does not change,
+
+744
+00:07:26,944 --> 00:07:32,944
+So I appreciate all those who did the feedback for us. Thank you very much.
+
+745
+00:07:27,184 --> 00:07:28,984
+For example, in this scenario,
+
+746
+00:07:27,389 --> 00:07:35,389
+But inside here, it consists several small experts can do different things very well
+
+747
+00:07:28,079 --> 00:07:36,959
+tuning in alignment are absolutely within our reach. You can find you a relatively small model in a
+
+748
+00:07:28,984 --> 00:07:32,464
+the best action could be jump up, right?
+
+749
+00:07:29,611 --> 00:07:32,931
+or even open source or not,
+
+750
+00:07:30,526 --> 00:07:34,685
+and add the new to the multiplication
+
+751
+00:07:31,036 --> 00:07:38,877
+ceiling. This is obvious, right? Because those models are data dripping. So the quality of the
+
+752
+00:07:32,464 --> 00:07:35,784
+Because it will get coin here.
+
+753
+00:07:32,709 --> 00:07:46,709
+I won't give a discuss more here, but advantage is how to decide how to get reward from the reward model and value model.
+
+754
+00:07:32,931 --> 00:07:36,971
+they are generally follow this training process.
+
+755
+00:07:32,944 --> 00:07:50,944
+Okay, there are some questions just to some school is do you you can submit together with the others like videos and presentation on do and April tree together.
+
+756
+00:07:33,295 --> 00:07:41,134
+scaled into minus one to one range. So this is the first step. In the next step we will
+
+757
+00:07:34,685 --> 00:07:37,245
+of these two small metrics together.
+
+758
+00:07:35,389 --> 00:07:37,389
+in a specific domain.
+
+759
+00:07:35,784 --> 00:07:39,664
+And he is quite far from the gongba yet.
+
+760
+00:07:36,971 --> 00:07:40,211
+So now we want to shift to a broader set
+
+761
+00:07:37,389 --> 00:07:39,389
+So that's the MOE model.
+
+762
+00:07:37,680 --> 00:07:45,279
+single computer GPU using Laura parameter efficient fine-tuning. We'll talk about it later.
+
+763
+00:07:37,966 --> 00:07:40,286
+So after Lora,
+
+764
+00:07:38,877 --> 00:07:47,836
+model train is significantly based on the data you give. So the annotators quality will decide
+
+765
+00:07:39,389 --> 00:07:43,389
+So the example is like mixture, deep seek,
+
+766
+00:07:39,664 --> 00:07:43,064
+He may not bump into gongba after he joked down.
+
+767
+00:07:40,211 --> 00:07:43,331
+of advanced optimization techniques
+
+768
+00:07:40,286 --> 00:07:43,165
+the inference time does not increase,
+
+769
+00:07:42,095 --> 00:07:54,975
+separate these values into several buckets. This depends on how many bits you have. So you can
+
+770
+00:07:43,064 --> 00:07:45,464
+So that might be the action.
+
+771
+00:07:43,165 --> 00:07:48,045
+because it's only a addition here.
+
+772
+00:07:43,331 --> 00:07:45,011
+beyond the fine tuning.
+
+773
+00:07:43,389 --> 00:07:46,389
+Lamar for you.
+
+774
+00:07:45,011 --> 00:07:50,171
+Because sometimes when we train a model,
+
+775
+00:07:45,464 --> 00:07:50,464
+So imagine this is a game, this is only one state.
+
+776
+00:07:46,160 --> 00:07:50,639
+But on the other hand, we also need to look at the risk flow here.
+
+777
+00:07:46,389 --> 00:07:50,389
+If you are interested, you can look for the details of how these models are built
+
+778
+00:07:46,709 --> 00:07:56,709
+So it actually calculates the reward of the whole accumulator reward of the whole past.
+
+779
+00:07:47,836 --> 00:07:58,476
+the ceiling of the model performance. The second one, no notion of preference. So because the model
+
+780
+00:07:48,045 --> 00:07:52,446
+It does not change too much on the inference performance or speed.
+
+781
+00:07:50,171 --> 00:07:53,811
+depends on different scenarios of applications,
+
+782
+00:07:50,389 --> 00:07:57,389
+and what's the performance for your consideration when you build real applications.
+
+783
+00:07:50,944 --> 00:08:03,944
+So for for the quiz right for the quiz, it will be in the similar format as the midterm quiz, it will be on site using the examiner.
+
+784
+00:07:51,039 --> 00:08:02,079
+Our catastrophic forgetting in SFT and reward height in alignment are real failure models. We need to
+
+785
+00:07:51,224 --> 00:07:53,704
+So going through the games,
+
+786
+00:07:53,245 --> 00:08:00,285
+So here, the rank R is a very important
+
+787
+00:07:53,704 --> 00:07:57,664
+the Mario will make multiple decisions
+
+788
+00:07:53,811 --> 00:07:58,771
+we need to make the models matter and faster and more efficient.
+
+789
+00:07:56,495 --> 00:08:05,215
+build several buckets to represent all the values between these bucket branch. So this is the
+
+790
+00:07:56,709 --> 00:08:05,709
+So that you can consider this one is just for this state, but advantage is accumulated one.
+
+791
+00:07:57,389 --> 00:08:05,389
+So now we almost covered all the concept we want to introduce for today.
+
+792
+00:07:57,663 --> 00:08:02,663
+based on the objective to maximum the reward.
+
+793
+00:07:58,556 --> 00:08:09,116
+is doing as sft, the model just gives a question and answer pairs. So it will learn how to produce
+
+794
+00:07:58,771 --> 00:08:02,971
+Because the whole training in the first three steps
+
+795
+00:08:00,285 --> 00:08:02,525
+hyper parameter you can control.
+
+796
+00:08:02,079 --> 00:08:11,360
+consider when we do those. So let's say the major ways to do the fine-tuning. So this graph is from
+
+797
+00:08:02,525 --> 00:08:08,045
+So a smaller R means of future fewer parameters you need to train.
+
+798
+00:08:02,903 --> 00:08:04,423
+So that's the goal.
+
+799
+00:08:02,971 --> 00:08:06,851
+is to make the model perform well.
+
+800
+00:08:03,944 --> 00:08:14,944
+So the time will also be a when hour around that time. So most question will be an MCQs.
+
+801
+00:08:04,423 --> 00:08:07,783
+So if you simulate this scenario,
+
+802
+00:08:05,295 --> 00:08:13,935
+second step. Then the last step will be we assign the original weights into the bucket which is
+
+803
+00:08:05,389 --> 00:08:09,389
+There are many excellent tools to choose for fine tuning.
+
+804
+00:08:05,709 --> 00:08:11,709
+It keeps adding for each action the LM did.
+
+805
+00:08:06,851 --> 00:08:11,491
+So usually those models are huge and hard to apply
+
+806
+00:08:07,783 --> 00:08:10,983
+you will have this kind of trajectory.
+
+807
+00:08:09,116 --> 00:08:17,276
+an answer, but because this is a probability-based model, every time it will generate
+
+808
+00:08:09,389 --> 00:08:11,389
+You can search for them.
+
+809
+00:08:09,645 --> 00:08:16,125
+Actually, a later one show a very small R can do quite a good job already.
+
+810
+00:08:10,983 --> 00:08:12,903
+So in each state,
+
+811
+00:08:11,360 --> 00:08:18,639
+the, this our textbook. You can take a look at all the details of them. Here, I just list some
+
+812
+00:08:11,389 --> 00:08:15,389
+But here I just list some popular tools for fine tuning,
+
+813
+00:08:11,491 --> 00:08:16,291
+to be applied into certain edge device, for example.
+
+814
+00:08:11,709 --> 00:08:17,709
+This can be generating a sentence one token by one token.
+
+815
+00:08:12,903 --> 00:08:16,623
+remember this one, you will have state action reward.
+
+816
+00:08:13,935 --> 00:08:25,535
+closest to the scaled value. So we will run them into different buckets. So in this case all the
+
+817
+00:08:14,944 --> 00:08:31,944
+So maybe small like a few short questions. Yeah, yeah. So for the quiz, the question will only be covered topics we introduce in the second half.
+
+818
+00:08:15,389 --> 00:08:18,389
+a large length model fine tuning.
+
+819
+00:08:16,291 --> 00:08:20,771
+So after that, some optimization method
+
+820
+00:08:16,845 --> 00:08:20,765
+So we already talked about during Lora inference.
+
+821
+00:08:17,463 --> 00:08:22,623
+Those triplets to record what's the Mario's pass,
+
+822
+00:08:17,709 --> 00:08:25,709
+So advantage will be under this stage, all the tokens I have generated and in the future, what's the reward I get?
+
+823
+00:08:18,389 --> 00:08:23,389
+But you know many of them are in difficult to use.
+
+824
+00:08:18,556 --> 00:08:25,996
+maybe slightly different or quite different answers. But it does not know which answer
+
+825
+00:08:19,439 --> 00:08:29,439
+key points we want to consider. For example, this classification fine-tuning or mask LM,
+
+826
+00:08:20,771 --> 00:08:23,571
+need to be applied on those big models.
+
+827
+00:08:20,846 --> 00:08:22,526
+We just add them together.
+
+828
+00:08:22,526 --> 00:08:26,605
+So the inference will be significantly increased.
+
+829
+00:08:22,623 --> 00:08:24,423
+how it gets to the end.
+
+830
+00:08:23,389 --> 00:08:29,389
+So maybe if you want to do fine tuning on certain tasks,
+
+831
+00:08:23,571 --> 00:08:27,171
+That's why we will talk about it now.
+
+832
+00:08:24,424 --> 00:08:28,264
+So if we simulate this process,
+
+833
+00:08:25,535 --> 00:08:34,894
+values will be mapped into a four bit precision. So that's the idea of this ABS max quantization.
+
+834
+00:08:25,709 --> 00:08:27,709
+So this is the advantage.
+
+835
+00:08:25,997 --> 00:08:33,836
+are most related to the question being asked. So this means no notion of preference.
+
+836
+00:08:27,171 --> 00:08:30,051
+So first, the quantization.
+
+837
+00:08:27,566 --> 00:08:30,766
+Next, let's look at the implementation.
+
+838
+00:08:27,709 --> 00:08:35,708
+So you can see there are, of course there are other stuff, but you can read the details of PPO.
+
+839
+00:08:28,264 --> 00:08:31,384
+we can teach Mario in next time,
+
+840
+00:08:29,389 --> 00:08:33,389
+you may try hadn't faced or unsolved first.
+
+841
+00:08:29,439 --> 00:08:39,439
+it will only train the last layers, the output layers of the model. So it usually will be used
+
+842
+00:08:30,051 --> 00:08:33,410
+Quantization is a process of reducing
+
+843
+00:08:31,646 --> 00:08:34,766
+We can see this during implementation,
+
+844
+00:08:31,944 --> 00:08:39,945
+So the first half content you already you have already been tested. So don't need to worry about that.
+
+845
+00:08:32,384 --> 00:08:36,384
+what he can do is to maximize this reward
+
+846
+00:08:33,389 --> 00:08:38,389
+Because those tools are easy, relatively easy to use
+
+847
+00:08:33,410 --> 00:08:38,291
+the numerical precision of a model with and activities.
+
+848
+00:08:34,557 --> 00:08:41,677
+The third one is also obvious. It cannot learn from feedback because when the model is trained,
+
+849
+00:08:34,766 --> 00:08:40,766
+we have slightly different formula like as the previous theory part.
+
+850
+00:08:34,894 --> 00:08:43,215
+Of course during this process we were in order to not lose the precision. We will still store the
+
+851
+00:08:35,708 --> 00:08:42,708
+I won't give you too much details here, but just remember a PPO policy.
+
+852
+00:08:37,344 --> 00:08:40,384
+in order to go to the end of the game
+
+853
+00:08:38,291 --> 00:08:42,571
+We actually have introduced quantization method
+
+854
+00:08:38,389 --> 00:08:46,389
+and give you speed and memory improvements with not much changes on the code itself.
+
+855
+00:08:39,439 --> 00:08:47,600
+in classification kind of scenario. So for example, the bird for text classification is using
+
+856
+00:08:39,945 --> 00:08:57,945
+I will give you more information, maybe next week before the quiz. So you will understand more on the quiz. And also I need to draw your attention that because this year we are using a new quiz system examiner.
+
+857
+00:08:40,384 --> 00:08:43,184
+instead of touch a gongba and fail.
+
+858
+00:08:40,766 --> 00:08:44,206
+We add some small factors there.
+
+859
+00:08:41,677 --> 00:08:48,397
+it's the parameters that not change animal. So it just can produce answers. It won't give
+
+860
+00:08:42,571 --> 00:08:44,691
+during QLora.
+
+861
+00:08:42,708 --> 00:08:48,708
+This is an optimization policy for reinforcement learning.
+
+862
+00:08:43,184 --> 00:08:48,104
+So that's the whole learning process in a game environment.
+
+863
+00:08:44,691 --> 00:08:49,130
+QLora is to quantize the values of the width
+
+864
+00:08:44,926 --> 00:08:49,406
+For example, this alpha is scaling factor.
+
+865
+00:08:45,134 --> 00:08:55,454
+scaling factor. So that's the power point of those values. So we only work on the base values here.
+
+866
+00:08:46,389 --> 00:08:49,389
+So it's a good starting point.
+
+867
+00:08:47,840 --> 00:08:57,759
+this kind of fine-tuning. But for us, we were more consider about how to use parameter efficient
+
+868
+00:08:48,104 --> 00:08:52,704
+So this is a very famous one.
+
+869
+00:08:48,708 --> 00:08:56,708
+It will request four models, which is quite memory, not efficient, right?
+
+870
+00:08:49,130 --> 00:08:53,130
+during the parameter efficient training process.
+
+871
+00:08:49,357 --> 00:08:57,117
+do any learning at all. So the last one is objective misalignment. So this means
+
+872
+00:08:49,389 --> 00:08:54,389
+And this Lamar factory is actually a no code web interface.
+
+873
+00:08:50,125 --> 00:08:56,525
+This will be used to adjust the influence of this new metrics
+
+874
+00:08:52,704 --> 00:08:55,744
+Actually, we can learn from this process,
+
+875
+00:08:53,170 --> 00:08:58,050
+So the quantization generally follows the same way.
+
+876
+00:08:54,389 --> 00:08:58,389
+So you can also explore this one here.
+
+877
+00:08:55,744 --> 00:09:00,744
+this reinforcement learning process for LM alignment.
+
+878
+00:08:56,174 --> 00:09:05,854
+So in this way we convert all those values in big 16 or 32 bit values into four bit ones.
+
+879
+00:08:56,525 --> 00:08:58,925
+towards the whole original metrics.
+
+880
+00:08:56,708 --> 00:09:00,708
+It's complex because you are dealing with four models at the same time.
+
+881
+00:08:57,759 --> 00:09:04,879
+fine-tuning. That's what we're going to discuss later, which is Laura. But when you
+
+882
+00:08:57,837 --> 00:09:06,157
+when we train the sft, our objective function is to minimize the cross entropy, to minimize the loss.
+
+883
+00:08:57,945 --> 00:09:11,945
+We received a lot of complaints about the two. I will recommend you to test using the mock test to test your system first before you come in.
+
+884
+00:08:58,050 --> 00:09:01,530
+It's just for all the model parameters,
+
+885
+00:08:59,389 --> 00:09:08,389
+So those are just some references for you to refer to if you really go into fine tuning stage.
+
+886
+00:09:00,605 --> 00:09:04,205
+Drop out, this is a drop out rate.
+
+887
+00:09:00,708 --> 00:09:08,708
+So that's why instead of PPO, there are other advantages.
+
+888
+00:09:01,024 --> 00:09:05,144
+Let's see, the LM is an agent making decisions.
+
+889
+00:09:01,530 --> 00:09:05,451
+it will do the quantization to reduce its size.
+
+890
+00:09:04,846 --> 00:09:09,485
+This is a common strategy we were used in deep learning
+
+891
+00:09:05,144 --> 00:09:09,544
+For example, we can consider LM is Mario here.
+
+892
+00:09:05,451 --> 00:09:10,211
+So I won't go to that details on how quantization is made.
+
+893
+00:09:05,600 --> 00:09:14,800
+ask what kind of fine-tuning strategy there are, you may refer to this table because this chart,
+
+894
+00:09:06,494 --> 00:09:15,694
+Then during the inference if we want to decontextation we want to let this value come back to the
+
+895
+00:09:07,037 --> 00:09:16,237
+It might be a cross entropy loss, right? But this is a learning objective, but this loss does not
+
+896
+00:09:08,389 --> 00:09:13,389
+And this table summarizes what we talk about today.
+
+897
+00:09:08,708 --> 00:09:17,708
+So this table, we show some challenges of reinforcement learning using PPO.
+
+898
+00:09:09,485 --> 00:09:11,565
+to prevent overfitting.
+
+899
+00:09:09,544 --> 00:09:13,304
+So the state here, instead of this picture,
+
+900
+00:09:10,211 --> 00:09:14,770
+It's largely similar as QLora.
+
+901
+00:09:11,565 --> 00:09:14,925
+I believe you all know this in deep learning modules.
+
+902
+00:09:11,945 --> 00:09:20,945
+But of course, on site we will invite these IT people to come and solve your problem if there's any.
+
+903
+00:09:13,304 --> 00:09:18,304
+we can see the state for LM game is input prompt.
+
+904
+00:09:13,389 --> 00:09:18,389
+And when you face fine tuning scenario,
+
+905
+00:09:14,770 --> 00:09:18,530
+Just for your information, after quantization, for example,
+
+906
+00:09:15,679 --> 00:09:25,519
+this chart gives you a very clear illustration on what the training will adjust and what's the
+
+907
+00:09:15,694 --> 00:09:25,374
+original precision. We just multiply the quantized value with the scaling factor which is stored
+
+908
+00:09:15,725 --> 00:09:18,125
+So we won't discuss more here.
+
+909
+00:09:16,317 --> 00:09:23,916
+equal to the model is helpful, honest or safety. It does not do that. It just
+
+910
+00:09:17,708 --> 00:09:23,708
+First, as I mentioned earlier, you will need four models in memory simultaneously.
+
+911
+00:09:18,389 --> 00:09:23,389
+this table lists fine tuning strategy for your reference.
+
+912
+00:09:18,531 --> 00:09:22,291
+a seven billion model parameters,
+
+913
+00:09:18,624 --> 00:09:22,504
+So every time the LM gets input,
+
+914
+00:09:18,925 --> 00:09:24,846
+So this table here shows some empirical parameters you can start with.
+
+915
+00:09:20,945 --> 00:09:26,945
+But it's good for you to to to prepare first.
+
+916
+00:09:22,291 --> 00:09:26,211
+if it's in original IP 32 bits,
+
+917
+00:09:22,504 --> 00:09:27,504
+then action is the next token he gave out.
+
+918
+00:09:23,389 --> 00:09:26,389
+But of course this is just empirical.
+
+919
+00:09:23,708 --> 00:09:31,708
+Like every time you were dealing with these four models, you need to have the memory to store all the widths of these four models.
+
+920
+00:09:24,846 --> 00:09:27,805
+So this is just for your information.
+
+921
+00:09:25,036 --> 00:09:30,557
+tries to give you similar answer for the same question. So this is the whole
+
+922
+00:09:25,519 --> 00:09:34,639
+output of the model fine-tuning process. Just now we mentioned fine-tuning may cause catastrophic
+
+923
+00:09:25,934 --> 00:09:33,294
+somewhere in the memory. So we will still come back to the original precision. So that's the
+
+924
+00:09:26,211 --> 00:09:30,891
+it may have a 20-inch gate of size.
+
+925
+00:09:26,389 --> 00:09:29,389
+This is not a golden rule.
+
+926
+00:09:26,945 --> 00:09:46,945
+Oh, this timeline and deliverable is from top-down line. I may, I may, I didn't think with him about it, but I think we can, I can discuss with him.
+
+927
+00:09:27,504 --> 00:09:32,504
+Similar as the action jump left, right, this decision.
+
+928
+00:09:27,805 --> 00:09:30,685
+This is not the golden rule or something.
+
+929
+00:09:29,389 --> 00:09:36,389
+Our principle is to always start from a simplest method.
+
+930
+00:09:30,685 --> 00:09:32,925
+This is just a reference for you.
+
+931
+00:09:30,891 --> 00:09:35,411
+But after quantization, it will be reduced into 3.5G,
+
+932
+00:09:31,516 --> 00:09:38,876
+some key limitations after sft. Now we are in the second step. So that's
+
+933
+00:09:31,708 --> 00:09:48,708
+And secondly, PPO training is sensitive to hyper parameters because all the value model advantage they have, they have some parameters that drive the performance of this policy.
+
+934
+00:09:33,224 --> 00:09:38,224
+And the policy here is how the LM do generate the output
+
+935
+00:09:34,045 --> 00:09:36,846
+Our idea of choosing hyper parameter
+
+936
+00:09:34,334 --> 00:09:40,814
+the whole idea of quantization. Just to follow your information this ABS max is just one of the
+
+937
+00:09:34,639 --> 00:09:43,039
+forgetting. This means after tuning, the model doesn't remember what it needs to stay
+
+938
+00:09:35,411 --> 00:09:40,931
+which is significant, almost eight times reduction
+
+939
+00:09:36,389 --> 00:09:41,389
+So that means if you want to do something using large length model,
+
+940
+00:09:36,846 --> 00:09:41,245
+meters during Lora training is you can start with some
+
+941
+00:09:39,836 --> 00:09:47,676
+bring us the following training, further training. So that's the alignment we're going to talk about.
+
+942
+00:09:39,903 --> 00:09:42,464
+is the original LM width,
+
+943
+00:09:40,814 --> 00:09:47,214
+quantization approach. This is the simplest one. But the idea will be similar.
+
+944
+00:09:40,931 --> 00:09:42,811
+on the memory requirement.
+
+945
+00:09:41,245 --> 00:09:43,966
+default values, for example, those ones.
+
+946
+00:09:41,389 --> 00:09:44,389
+prompt engineering, maybe the first,
+
+947
+00:09:42,464 --> 00:09:46,864
+which is original large length models, right?
+
+948
+00:09:42,811 --> 00:09:46,491
+So that's the beauty of the quantization.
+
+949
+00:09:43,919 --> 00:09:49,120
+before it fine-tuning. That means it forgot the knowledge it learned. It just
+
+950
+00:09:44,046 --> 00:09:47,485
+Then you will tune the learning rate first
+
+951
+00:09:44,389 --> 00:09:49,389
+because it's free and you get instant results right.
+
+952
+00:09:46,490 --> 00:09:49,490
+But the quantization, the objective is
+
+953
+00:09:46,864 --> 00:09:51,543
+And then because we want to teach the LM to the correct,
+
+954
+00:09:46,945 --> 00:09:56,945
+And I think you can submit together with the whole system with the presentation and and videos.
+
+955
+00:09:48,236 --> 00:09:57,036
+So in the next session we'll talk about alignment. So just now we talk about
+
+956
+00:09:48,365 --> 00:09:51,326
+with a fixed alpha and a rank.
+
+957
+00:09:48,708 --> 00:09:51,708
+So it's quite sensitive.
+
+958
+00:09:48,814 --> 00:09:56,894
+A different quantization method is just different how they store the scales of base values.
+
+959
+00:09:49,389 --> 00:09:52,389
+And if you say it first, if that fails,
+
+960
+00:09:49,490 --> 00:09:53,010
+while we reduce the size, we don't want
+
+961
+00:09:50,480 --> 00:09:57,439
+minimizes losses on your training data. So that means the model is over-trained on your own data.
+
+962
+00:09:51,543 --> 00:09:53,343
+to human preference,
+
+963
+00:09:51,708 --> 00:09:57,708
+That means every time the training result cannot be predicted.
+
+964
+00:09:52,125 --> 00:09:54,686
+You tune the learning rate first.
+
+965
+00:09:52,389 --> 00:09:59,389
+you decide if rack will help need to build a database line so forth.
+
+966
+00:09:53,010 --> 00:09:56,610
+to reduce the performance, the accuracy.
+
+967
+00:09:53,343 --> 00:09:57,943
+so we will use human preference as a reward function here.
+
+968
+00:09:54,686 --> 00:10:00,525
+Then if until certain number of tuning you'll stand.
+
+969
+00:09:56,610 --> 00:10:01,610
+So there are two main approaches for model quantization.
+
+970
+00:09:57,037 --> 00:10:05,197
+Laura sft. The pre-trained RM even after sft may not know.
+
+971
+00:09:57,454 --> 00:10:04,814
+And what's the bucket distribution mechanism they use?
+
+972
+00:09:57,708 --> 00:10:00,708
+So that's another drawback of this PPO training.
+
+973
+00:09:57,943 --> 00:10:00,903
+To teach LM, you should always.
+
+974
+00:09:59,389 --> 00:10:02,389
+But if you need behavior changes.
+
