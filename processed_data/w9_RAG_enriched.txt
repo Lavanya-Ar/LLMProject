@@ -1,0 +1,3276 @@
+
+============================================================
+📄 PAGE 1
+============================================================
+
+
+# SIT Internal
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# AAI3008 Large language models
+
+# Retrieval Augmented Generation (RAG)
+
+Tong Rong
+
+Email: Tong.rong@singaporetech.edu.sg
+
+Website: SingaporeTech.edu.sg
+
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 2
+============================================================
+
+
+
+SIT Internal
+
+# From last week
+
+# SiT SINGAPORE
+
+# INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+- In-context learning via prompt engineering
+- Documents → Entity Extraction → Knowledge Graph
+- Clarity is key: Be specific, structured, clear, and iterative.
+- Zero shot, Few shot
+- Complex relationship queries
+- Chain of thoughts (COT), self consistency
+- Entity-centric questions
+- Prevent prompt Hacking
+
+# LLM Evaluation
+
+- Gpt-4
+- Openai
+- Simple factual lookups
+- Automatic
+- Unstructured text, no clear entities
+- LLM-as-Judge
+
+# KEY PARAMETERS:
+
+- Human
+- Subject
+- Openai models
+- Dario Amodei
+- Office 365
+- retriever mode: keyword / embedding / hybrid
+- similarity_top_k: 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+- LLM: Groq (1lama-3.1-8b-instant)
+- Embeddings: HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+# Competitors in
+
+- Amazon
+- Claude
+- Google workspace
+
+52
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 3
+============================================================
+
+
+
+SIT Internal
+# Learning outcomes
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+- Understand the role of Retrieval-Augmented Generation (RAG) and knowledge graphs in enhancing the information retrieval capabilities of Large Language Models.
+- Query → Graph Traversal → Connected Entities → LLM Answer
+
+# Complex relationship queries
+
+- Multi-hop reasoning needed
+- Gain insights into sentence embedding, document chunking, vector databases, indexing, similarity search and advanced retrieval techniques.
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Explore graph databases, knowledge graphs, and community detection algorithms, along with the Graph RAG pipeline.
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode
+- Apply RAG evaluation frameworks (RAGAS) and understand emerging paradigms including Agentic RAG, Self-RAG.
+
+# FREE TOOLS USED
+
+| LLM        | Groq (1lama-3.1-8b-instant)          |
+| ---------- | ------------------------------------ |
+| Embeddings | HuggingFace (BAAI/bge-small-en-v1.5) |
+| Graph DB   | SimpleGraphStore (in-memory)         |
+
+# Competitors in
+
+- Google
+- Deepmind
+- Openai
+- Anthropic
+- Amazon
+- Claude
+- Google workspace
+
+52
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 4
+============================================================
+
+
+
+Story line                                                SIT Internal                                                   SiT SINGAPORE
+
+# Tutorial: GraphRAG
+
+# Why RAG?
+
+# How do we chunking &#x26;
+
+# How do we store &#x26; search
+
+# PIPELINE:
+
+LLMs are limited → RAG solves this →
+
+chunking &#x26; indexing, retrieval &#x26; generation
+
+embeddings Chunking strategies → Search algorithms (KNN → HNSW) → Tools → Metadata filtering
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+erging google brain and deepmind
+
+# WHEN TO USE Traditional RAG:
+
+What if we need relationships?
+
+# What types of RAG exist?
+
+- Simple factual lookups Naive →
+- Semantic similarity search Advanced →
+- Object Knowledge graphs →
+- Hybrid search → Google deepmind RRF →
+- Modular → Self-RAG → Agentic
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+Community detection → Reranking → Deepmind
+
+# Comparison: KG vs Vector DB
+
+Subject Openai models
+
+Microsoft Demis hassabis
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+
+# How do we measure &#x26; build?
+
+RAGAS evaluation → RAG Frameworks → Checklist
+
+4
+
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 5
+============================================================
+
+
+
+SIT Internal
+What LLMs cannot do (well)
+SiT SINGAPORE
+INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+| Problem                                             | Example                                                                        | Impact                                      |
+| --------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------- |
+| WHEN TO USE GraphRAG:                               | Complex relationship queries "Who won the 2025 Super Bowl?" → wrong or refuses | Cannot answer questions about recent events |
+|                                                     | Entity-centric questions                                                       |                                             |
+|                                                     | Connected domains (medical, legal, finance)                                    |                                             |
+| Hallucination                                       | "Cite a paper by Smith on RAG" → fabricates title/DOI                          | Generates confident but false information   |
+|                                                     | Simple factual lookups                                                         |                                             |
+| No domain specific data access                      | "What is our company's refund policy?" → generic answer                        | Useless for enterprise-specific tasks       |
+|                                                     |                                                                                | Deepmind                                    |
+| KEY PARAMETERS:                                     | "Where did you get that?" → "I was trained on diverse data"                    | Users cannot verify answers                 |
+| No source attribution                               |                                                                                |                                             |
+| • similarity\_top\_k : 2-5 (graph neighbors)        | Static knowledge                                                               | Model weights frozen after training         |
+| LLM : Groq (1lama-3.1-8b-instant)                   | Competitors in                                                                 | retraining                                  |
+| • Embeddings : HuggingFace (BAAI/bge-small-en-v1.5) | RAG is designed to solve all five of these problems                            |                                             |
+| • Graph DB: SimpleGraphStore (in-memory)            |                                                                                |                                             |
+
+5
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 6
+============================================================
+
+
+
+SIT Internal
+
+# Retrieval Augmented Generation (RAG) PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# Key properties:
+
+- Knowledge-grounded: answers are based on real
+- retrieved documents: keyword / embedding / hybrid
+- Updatable: Swap/update document without retraining the model
+- Auditable: You can see which sources were used
+- Cost-effective: No GPU-heavy training needed
+
+| Sam Altman                         | Elon Musk      |
+| ---------------------------------- | -------------- |
+| Emerging Google Brain and DeepMind | GPT-4          |
+| OpenAI                             | Object         |
+| Google DeepMind                    | Gemini         |
+| DeepMind                           | London         |
+| OpenAI Models                      | Dario Amodei   |
+| Office 365                         | Microsoft      |
+| Demis Hassabis                     | Google         |
+| Anthropic                          | Competitors in |
+| Amazon                             | Claude         |
+| Google Workspace                   |                |
+
+6
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 7
+============================================================
+
+
+
+SIT Internal
+
+# Basic RAG pipeline
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph Query → Graph Traversal → Connected Entities → LLM Answer
+
+Step 1: data indexing (offline)
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+erging google brain and deepmind
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+Step 2: data retrieval &#x26; generation (online)
+
+# FREE TOOLS USED
+
+- LLM : Groq (1lama-3.1-8b-instant)
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+# Competitors in
+
+- Google
+- Amazon
+
+# Source
+
+7
+
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 8
+============================================================
+
+
+
+SIT Internal
+Data indexing – prepare your knowledge base (offline) SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+| Step                  | What Happens                                           | Key Decisions                                 |
+| --------------------- | ------------------------------------------------------ | --------------------------------------------- |
+| Documents             | Entity Extraction → Knowledge Graph                    |                                               |
+| Query                 | Graph Traversal → Connected Entities → LLM Answer      |                                               |
+| 1. Load documents     | Ingest PDFs, HTML, Markdown, databases, APIs           | Which file types? How to parse tables/images? |
+|                       | Complex relationship queries                           | Sam Altman, Elon Musk                         |
+|                       | Multi-hop reasoning needed                             |                                               |
+|                       | Entity-centric questions                               |                                               |
+|                       | Connected domains (medical, legal, finance)            |                                               |
+| 2. Clean & preprocess | Remove headers/footers, fix encoding, extract metadata | How much cleaning? Preserve structure?        |
+|                       | Simple factual lookups                                 | Gpt-4                                         |
+|                       | Semantic similarity search                             | Google DeepMind                               |
+|                       | Unstructured text, no clear entities                   | Which strategy? What size? How much overlap?  |
+| 3. Chunk              | Split documents into smaller pieces                    |                                               |
+|                       | max\_triplets\_per\_chunk: 2-10 (higher = more detail) |                                               |
+|                       | retriever mode: keyword / embedding / hybrid           |                                               |
+|                       | similarity\_top\_k: 2-5 (graph neighbors)              |                                               |
+| 4. Embed              | Convert each chunk to a vector (array of numbers)      | Which embedding model? Dimensions?            |
+| FREE TOOLS USED       | LLM: Groq (1lama-3.1-8b-instant)                       | Competitors in                                |
+|                       | Embeddings: HuggingFace (BAAI/bge-small-en-v1.5)       |                                               |
+|                       | Graph DB: SimpleGraphStore (in-memory)                 | Which vector DB? Which index type?            |
+| 5. Store              | Save vectors + metadata in a vector database           | Google Workspace                              |
+
+8
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 9
+============================================================
+
+
+
+SIT Internal
+
+# Data retrieval &#x26; generation (online)
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+| Step                                            | What Happens                                              | Key Decisions                    |
+| ----------------------------------------------- | --------------------------------------------------------- | -------------------------------- |
+| Documents → Entity Extraction → Knowledge Graph | Query → Graph Traversal → Connected Entities → LLM Answer |                                  |
+| 1. Embed query                                  | Convert user question to a vector                         | Same embedding model as indexing |
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+# WHEN TO USE Traditional RAG:
+
+| 3. (Optional) Rerank | Re-score retrieved chunks with a cross-encoder | Openai                               |
+| -------------------- | ---------------------------------------------- | ------------------------------------ |
+|                      | Semantic similarity search                     | Unstructured text, no clear entities |
+|                      | Use reranker?                                  | Which model?                         |
+
+Often the high-value improvement for minimal cost.
+
+Prompt template design Deepmind
+
+# KEY PARAMETERS:
+
+| 4. Build prompt | Combine: system instruction + retrieved chunks + user question | e.g., "Use ONLY the context below to answer. Context: {chunks}. Question: {query}" |
+| --------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| retriever mode  | • similarity\_top\_k: 2-5 (graph neighbors)                    |                                                                                    |
+
+# FREE TOOLS USED
+
+| LLM                | 5. Generate                          | LLM produces answer grounded in context |
+| ------------------ | ------------------------------------ | --------------------------------------- |
+| • Embeddings       | HuggingFace (BAAI/bge-small-en-v1.5) |                                         |
+| • Graph DB         | SimpleGraphStore (in-memory)         |                                         |
+| 6. (Optional) Cite | Attach source references to answer   | How to format citations?                |
+
+9
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 10
+============================================================
+
+
+
+SIT Internal
+Real-world RAG Applications
+SiT SINGAPORE
+INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+| Domain                                                    | Example System               | What RAG Does                                             |
+| --------------------------------------------------------- | ---------------------------- | --------------------------------------------------------- |
+| Query → Graph Traversal → Connected Entities → LLM Answer | Enterprise Search            | Microsoft Copilot, Glean                                  |
+|                                                           |                              | Searches internal docs, emails, Slack                     |
+| Complex relationship queries                              |                              | Sam Altman, Elon Musk                                     |
+| Legal                                                     | Harvey AI, CoCounsel         | Retrieves case law, contracts                             |
+| Entity-centric questions                                  |                              | Connected domains (medical, legal, finance)               |
+|                                                           |                              | Emerging Google Brain and DeepMind                        |
+| WHEN TO USE Traditional RAG:                              | Google Med-PaLM + RAG        | Retrieves medical literature for evidence-based answers   |
+| Healthcare                                                | OpenEvidence                 | Semantic similarity search                                |
+|                                                           |                              | Unstructured text, no clear entities                      |
+| Customer Support                                          | Intercom Fin, Zendesk AI     | Retrieves from help center articles                       |
+|                                                           |                              | • max\_triplets\_per\_chunk : 2-10 (higher = more detail) |
+|                                                           |                              | Subject OpenAI models                                     |
+| Software Engineering                                      | Cursor, GitHub Copilot       | Retrieves from codebase, API docs                         |
+| FREE TOOLS USED                                           | LLM                          | Groq (1lama-3.1-8b-instant)                               |
+| Education                                                 | Khanmigo, NotebookLM         | Retrieves from textbooks, lecture notes                   |
+| Graph DB                                                  | SimpleGraphStore (in-memory) |                                                           |
+| Finance                                                   | BloombergGPT + RAG           | Retrieves real-time market data, filings                  |
+
+Claude Google workspace
+10
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 11
+============================================================
+
+
+
+Story line                                                SIT Internal                                                   SiT SINGAPORE
+Tutorial: GraphRAG                                                                                                                        INSTITUTE OF
+
+# Why RAG?
+
+# PIPELINE:
+
+LLMs are limited → RAG solves this →
+
+chunking &#x26; indexing, retrieval &#x26; generation
+
+embeddings Chunking strategies → Search algorithms (KNN → HNSW) → Tools → Metadata filtering
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+# WHEN TO USE Traditional RAG:
+
+What if we need relationships?
+
+What types of RAG exist?
+
+- Simple factual lookups Naive →
+- Semantic similarity search Advanced →
+- Object Knowledge graphs →
+- Hybrid search →
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# Community detection →
+
+Reranking → Deepmind
+
+GraphRAG → Dario Amodei
+
+# Comparison: KG vs Vector DB
+
+Subject OpenAI models
+
+Microsoft Demis Hassabis
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+
+# How do we measure &#x26; build?
+
+RAGAS evaluation → RAG Frameworks → Checklist
+
+11
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 12
+============================================================
+
+
+
+SIT Internal
+
+# Why chunking matters
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+# WHEN TO USE GraphRAG:
+
+|                                             | Document Type | Chunk Size      | Overlap\* |
+| ------------------------------------------- | ------------- | --------------- | --------- |
+| Complex relationship queries                | General text  | 512–1024 tokens | 10–20%    |
+| Multi-hop reasoning needed                  | Legal/medical | 256–512 tokens  | 20%       |
+| Entity-centric questions                    |               |                 |           |
+| Connected domains (medical, legal, finance) |               |                 |           |
+
+# WHEN TO USE Traditional RAG:
+
+|                                      | Document Type     | Chunk Size     | Overlap\* |
+| ------------------------------------ | ----------------- | -------------- | --------- |
+| Simple factual lookups               | Openai            | Gpt-4          |           |
+| Semantic similarity search           | Conversational    | 128–256 tokens | 10%       |
+| Unstructured text, no clear entities | (Q\&A, chat logs) |                |           |
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+*Overlap ensures no context is lost at chunk boundaries
+
+# FREE TOOLS USED
+
+- LLM : Groq (1lama-3.1-8b-instant)
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+# Competitors in
+
+- Anthropic
+- Google
+- Amazon
+- Claude
+- Google workspace
+
+12
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 13
+============================================================
+
+
+
+SIT Internal
+Chunking strategies
+SiT SINGAPORE
+INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+| Strategy                   | How It Works                         | Pros               | Cons                 | Best For          |
+| -------------------------- | ------------------------------------ | ------------------ | -------------------- | ----------------- |
+| Fixed-size                 | Split every N characters/tokens      | Simple, fast       | Breaks mid-sentence  | Quick prototyping |
+| Recursive                  | sentence → word                      | Respects structure | Variable chunk sizes | General documents |
+| V Sentence-based           | Split on sentence boundaries         | Semantic coherence | Uneven sizes         | Narrative text    |
+| Semantic similarity search | Unstructured text, no clear entities |                    |                      |                   |
+
+# WHEN TO USE GraphRAG:
+
+Complex relationship queries
+
+Multi-hop reasoning needed
+
+# WHEN TO USE Traditional RAG:
+
+Connected domains (medical, legal, finance)
+
+# KEY PARAMETERS:
+
+| Parameter          | Description                  |
+| ------------------ | ---------------------------- |
+| similarity\_top\_k | 2-5 (graph neighbors)        |
+| Document-LLM       | Groq (1lama-3.1-8b-instant)  |
+| Graph DB           | SimpleGraphStore (in-memory) |
+| Agentic            | LLM decides boundaries       |
+
+# Pros and Cons:
+
+| Pros             | Cons            | Best For             |
+| ---------------- | --------------- | -------------------- |
+| Most intelligent | Slow, expensive | High-value use cases |
+
+Sam Altman, Elon Musk, Google Brain, DeepMind, OpenAI, Microsoft, Demis Hassabis, Amazon
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 14
+============================================================
+
+
+
+SIT Internal
+
+# Embedding: Sentence embedding
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+# Simple solution - representing a sentence by averaging word/token embeddings:
+
+- Loss of contextual information: fails to capture the complex relationships and contextual nuances within a sentence
+- Entity-centric questions
+- Inability to handle sentence structure: disregards the order and grammatical structure of words in a sentence
+
+Sam Altman, Elon Musk
+
+Merging Google Brain and DeepMind
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk: 2-10 (higher = more detail)
+- retriever mode: keyword / embedding / hybrid
+- similarity_top_k: 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+- LLM: Groq (1lama-3.1-8b-instant)
+- Embeddings: HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+Competitors in
+
+| Subject          | OpenAI models  |
+| ---------------- | -------------- |
+| Microsoft        | Demis Hassabis |
+| Anthropic        | Google         |
+| Amazon           | Claude         |
+| Google Workspace |                |
+
+source 15
+
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 15
+============================================================
+
+
+
+SIT Internal
+
+# SBERT: Sentence Embeddings using Siamese BERT-Networks
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+- Fine-tune from BERT
+
+# WHEN TO USE GraphRAG:
+
+- Siamese network: same architecture, parameters, weights
+- Multi-hop reasoning needed
+
+# SBERT architecture with classification objective
+
+function: cross entropy loss
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+| Competitors in |                  |
+| -------------- | ---------------- |
+| Google         | Amazon           |
+| Deepmind       | Claude           |
+| Office 365     | Google workspace |
+| Gemini         |                  |
+| Microsoft      |                  |
+| Dario amodei   |                  |
+| Demis hassabis |                  |
+| Sam altman     | Elon musk        |
+
+https://sbert.net/ 16
+
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 16
+============================================================
+
+
+
+SIT Internal
+Embedding models
+SiT SINGAPORE
+INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+| Model                  | Provider | Dimensions |
+| ---------------------- | -------- | ---------- |
+| text-embedding-3-large | OpenAI   | 3,072      |
+| text-embedding-3-small | OpenAI   | 1,536      |
+| Cohere embed-v4        | Cohere   | 1,536      |
+| BGE-M3                 | BAAI     | 1,024      |
+| nomic-embed-text-v1.5  | Nomic    | 768        |
+| all-MiniLM-L6-v2       | SBERT    | 384        |
+
+# WHEN TO USE Traditional RAG:
+
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# FREE TOOLS USED
+
+- Embeddings: HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+# Max Tokens
+
+| Source?                           | Key Strength                       |
+| --------------------------------- | ---------------------------------- |
+| Good commercial model             | Sam Altman, Elon Musk              |
+| Cost-effective                    | Emerging Google Brain and DeepMind |
+| Search-optimized, multilingual    | Gpt-4, OpenAI                      |
+| 128K                              | Google DeepMind                    |
+| Multilingual, multi-granularity   | Gemini, DeepMind                   |
+| Open-source                       | Microsoft                          |
+| Tiny, fast, great for prototyping | Anthropic, Google                  |
+|                                   | Amazon                             |
+
+Always use the SAME embedding model for both indexing and retrieval.
+
+17
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 17
+============================================================
+
+
+
+Story line                                                SIT Internal                                                   SiT SINGAPORE
+
+# Tutorial: GraphRAG
+
+# Why RAG?
+
+# How do we chunking &#x26;
+
+# How do we store &#x26; search
+
+# PIPELINE:
+
+LLMs are limited → RAG solves this →
+
+chunking &#x26; indexing, retrieval &#x26; generation
+
+embeddings Chunking strategies → Search algorithms (KNN → HNSW) → Tools → Metadata filtering
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+erging google brain and deepmind
+
+# WHEN TO USE Traditional RAG:
+
+# What if we need relationships?
+
+What types of RAG exist?
+
+- Simple factual lookups Naive →
+- Semantic similarity search Advanced →
+- Object Knowledge graphs →
+- Hybrid search → Google deepmind RRF →
+- Modular → Self-RAG → Agentic
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+Community detection → Reranking → Deepmind
+
+GraphRAG → Dario amodei
+
+Query transformation London Office 365
+
+Subject Openai models Microsoft Demis hassabis
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+
+# How do we measure &#x26; build?
+
+RAGAS evaluation → RAG Frameworks → Checklist
+
+18
+
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 18
+============================================================
+
+
+
+SIT Internal
+
+# Vector database – a database of embeddings
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+Vector DBs complement traditional DBs, they don't replace them.
+
+# PIPELINE:
+
+Most production systems use both.
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+# WHEN TO USE GraphRAG:
+
+| Feature                    | Traditional DB (SQL)         | NoSQL DB                                  | Vector Database                     |
+| -------------------------- | ---------------------------- | ----------------------------------------- | ----------------------------------- |
+| Multi-hop reasoning needed |                              |                                           | Sam Altman, Elon Musk               |
+| Entity-centric questions   |                              |                                           |                                     |
+| Data type                  | Rows, columns, text, numbers | Documents, key-value, graphs, wide-column | High-dimensional vectors + metadata |
+
+# WHEN TO USE Traditional RAG:
+
+Simple factual lookups
+
+| Query type      |                                                |
+| --------------- | ---------------------------------------------- |
+| SELECT \* WHERE | name = 'Alice'                                 |
+|                 | db.find({ name: 'Alice' })                     |
+|                 | "Find 10 nearest vectors to this query vector" |
+
+# KEY PARAMETERS:
+
+| Index type   | retriever mode               | similarity\_top\_k    | Use case                              |
+| ------------ | ---------------------------- | --------------------- | ------------------------------------- |
+| B-tree, hash | keyword / embedding / hybrid | 2-5 (graph neighbors) | Structured data lookup                |
+|              |                              |                       | Flexible schema, high-write workloads |
+|              |                              |                       | Semantic similarity search            |
+
+# FREE TOOLS USED
+
+LLM: Groq (1lama-3.1-8b-instant)
+
+Embeddings: HuggingFace (BAAI/bge-small-en-v1.5)
+
+# Competitors in
+
+| Pinecone | Weaviate | Qdrant | Chroma | Amazon | Google workspace |
+| -------- | -------- | ------ | ------ | ------ | ---------------- |
+
+Claude
+
+52
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 19
+============================================================
+
+
+
+SIT Internal
+
+# SIT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+KNN or similarity search
+
+- Complex relationship queries
+- Top K
+- Multi-hop reasoning needed
+- Entity-centric questions
+- brute-force search
+
+erging google brain and deepmind
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+- LLM : Groq (1lama-3.1-8b-instant)
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+Competitors in
+
+- Google
+- Amazon
+
+Claude
+
+Google workspace
+
+20
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 20
+============================================================
+
+
+
+SIT Internal
+
+# Six degrees of separation: A social network analogy
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+▪ Small-world experiment by Stanley Milgram
+
+Any two people on Earth are connected by a chain of at most 6 acquaintances
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+▪ Facebook: three and half
+
+# Competitors in
+
+- Amazon
+- Claude
+- Google workspace
+
+Image Source
+
+21
+
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 21
+============================================================
+
+
+
+SIT Internal
+
+# Navigable Small World (NSW) graphs
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+Mmax: the max number of edges a node can have
+
+Multi-hop reasoning needed
+
+Entity-centric questions
+
+Greedily traverses to connected nodes that are nearer to the query vector.
+
+Simple factual lookups
+
+Semantic similarity search
+
+Unstructured text, no clear entities
+
+Keep top-K among visited nodes
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+# Competitors in
+
+| Google         | Amazon           |
+| -------------- | ---------------- |
+| Openai         | Claude           |
+| Deepmind       | Google workspace |
+| Sam altman     | Elon musk        |
+| Dario amodei   | Office 365       |
+| Demis hassabis | Gemini           |
+| Anthropic      |                  |
+
+Image source
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 22
+============================================================
+
+
+
+SIT Internal
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph Query → Graph Traversal → Connected Entities → LLM Answer
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+https://www.pinecone.io/learn/series/faiss/hnsw/
+
+23
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 23
+============================================================
+
+
+
+SIT Internal
+# Hierarchical Navigable Small World (HNSW)
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+HNSW graphs are among the top-performing indexes for vector similarity search
+
+Sam Altman, Elon Musk
+
+Complex relationship queries
+
+- Multi-hop reasoning needed
+- Similar to skip-list but using graph
+- Connected domains (medical, legal, finance)
+
+Layer 0 has original NSW graph
+
+# WHEN TO USE Traditional RAG:
+
+Construction:
+
+- Semantic similarity search
+- Start with empty graph
+- Insert node one by one
+- max_triplets_per_chunk: 2-10 (higher = more detail)
+- Random choose which level:
+- retriever mode
+- distribution of layers, high layer has less nodes, eg (100, 10, 1)
+- similarity_top_k
+
+FREE TOOLS USED
+
+LLM
+
+- Add node to chosen layer and lower layers, connect to nearest neighbours of each layer
+
+Competitors in
+
+| Amazon       | Claude          | Google Workspace |
+| ------------ | --------------- | ---------------- |
+| OpenAI       | Google DeepMind | Anthropic        |
+| Microsoft    | Demis Hassabis  | Gemini           |
+| Dario Amodei | Office 365      | London           |
+
+https://github.com/erikbern/ann-benchmarks
+
+24
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 24
+============================================================
+
+
+
+SIT Internal
+
+# Why HNSW
+
+# PIPELINE:
+
+- Hierarchy:
+- starting with a global search (top layer)
+- narrowing down (lower layers)
+- Small-world property:
+- maintains a balance of local clustering (for accuracy)
+- long-range links (for speed), similar to social networks.
+- Low complexity: O(logN).
+- Eg. 10M vectors: Brute-Force ≈ seconds/query; HNSW ≈ milliseconds/query.
+
+Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+- LLM : Groq (1lama-3.1-8b-instant)
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+Sam Altman, Elon Musk, merging Google Brain and DeepMind, GPT-4, OpenAI, Google DeepMind, DeepMind, Dario Amodei, Office 365, Gemini, London, Microsoft, Demis Hassabis, Anthropic, Google, Amazon, Claude, Google Workspace
+
+52
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 25
+============================================================
+
+
+SIT Internal
+# Tools
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+| PIPELINE:                                    | Library         | Developer                    | Key Feature                       | Best For                                         |
+| -------------------------------------------- | --------------- | ---------------------------- | --------------------------------- | ------------------------------------------------ |
+| Vector search libraries (embed in your code) | Annoy           | Spotify                      | Tree-based ANN, low memory        | Static indexes & memory-constrained environments |
+| Databricks                                   | Databricks      | Complex relationship queries | Enterprise-scale cloud workflows  |                                                  |
+| WHEN TO USE Traditional RAG:                 | DocArray        | Jina AI / LF AI              | Multi-hop reasoning needed        | Deep learning & multimodal pipelines             |
+| FAISS                                        | Meta (Facebook) | Entity-centric questions     | Billion-scale, GPU acceleration   |                                                  |
+| ScaNN                                        | Google          | Semantic similarity search   | Large-scale offline vector search |                                                  |
+
+# KEY PARAMETERS:
+
+| Vector DB | Type          |
+| --------- | ------------- |
+| Pinecone  | Cloud-managed |
+| Weaviate  | Open-source   |
+| Qdrant    | Open-source   |
+| Chroma    | Open-source   |
+| Milvus    | Open-source   |
+
+# Parameters
+
+- max_triplets_per_chunk: 2-10 (higher = more detail)
+- retriever mode
+- similarity_top_k: 2-5 (graph neighbors)
+- Embeddings: HuggingFace (BAAI/bge-small-en-v1.5)
+
+# Managed cloud integration
+
+Multimodal data support
+
+# Key Feature
+
+# Best For
+
+| Openai models               | Serverless, zero-ops            | Teams wanting managed service |
+| --------------------------- | ------------------------------- | ----------------------------- |
+| Microsoft                   | Hybrid search built-in, modules | Full-featured open-source     |
+| Rust-based, fast, filtering | Performance-critical apps       | Prototyping, learning         |
+| Billion-scale, GPU support  | Claude                          | Large-scale enterprise        |
+| pgvector                    | PostgreSQL ext.                 | Use existing Postgres         |
+
+Teams already on PostgreSQL
+
+26
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 26
+============================================================
+
+
+
+SIT Internal
+
+# Metadata filtering – vectors alone are not enough
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+Sometimes you need to filter before or after vector search.
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+
+# Query
+
+| Vector Search Alone                            | Filter                                     |
+| ---------------------------------------------- | ------------------------------------------ |
+| "Leave policy for US employees"                | Might return UK policy                     |
+| Gpt-4                                          | Filter: country = "US", then vector search |
+| Unstructured text, no clear entities           | Might return 2023 report (similar content) |
+| "2024 financial report"                        | Filter: year = 2024, then vector search    |
+| retriever mode                                 | keyword / embedding / hybrid               |
+| similarity\_top\_k                             | 2-5 (graph neighbors)                      |
+| "Python tutorials for beginners"               | Might return advanced content              |
+| Filter: level = "beginner", then vector search |                                            |
+
+# LLM
+
+Groq (1lama-3.1-8b-instant)
+
+# Embeddings
+
+HuggingFace (BAAI/bge-small-en-v1.5)
+
+# Graph DB
+
+SimpleGraphStore (in-memory)
+
+# Competitors in
+
+- Amazon
+- Claude
+- Google workspace
+
+27
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 27
+============================================================
+
+
+
+SIT Internal
+Limitations of pure vector search
+SiT SINGAPORE
+INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+# Solution
+
+| Limitation                          | Example                                                  | Why It Happens                                |
+| ----------------------------------- | -------------------------------------------------------- | --------------------------------------------- |
+| WHEN TO USE GraphRAG:               | Query: "error code E-4012" —                             | Embeddings capture meaning, not exact strings |
+| Keyword blindness                   | vector search misses exact match                         | Hybrid search (BM25 + dense)                  |
+| Multi-hop reasoning needed          |                                                          |                                               |
+| Entity-centric questions            |                                                          |                                               |
+| Acronym/jargon mismatch             | Query: "CSAT scores" — retrieves "customer satisfaction" | Acronyms may not embed well                   |
+|                                     | Gpt-4 Openai embedding fine-tuning                       | Domain-specific                               |
+| Simple factual lookups tangentially |                                                          | Semantic similarity search                    |
+| Global/thematic queries             | "What are the main themes across all documents?"         | No single chunk contains the answer           |
+|                                     |                                                          | GraphRAG or community summaries               |
+|                                     |                                                          | Deepmind London                               |
+
+# KEY PARAMETERS:
+
+"How does Policy A affect Outcome B?"
+
+Requires Subject connecting info across multiple chunks
+
+- Multi-hop reasoning
+- similarity_top_k: 2-5 (graph neighbors)
+- Recency bias
+- Retrieves old docs that are semantically closer
+- No built-in recency awareness
+
+# LLM:
+
+Groq (1lama-3.1-8b-instant)
+
+# Embeddings:
+
+HuggingFace (BAAI/bge-small-en-v1.5)
+
+# Graph DB:
+
+SimpleGraphStore (in-memory)
+
+# Competitors in
+
+Amazon Claude Google workspace
+
+28
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 28
+============================================================
+
+
+
+Story line                                                SIT Internal                                                   SiT SINGAPORE
+
+# Tutorial: GraphRAG
+
+# Why RAG?
+
+# How do we chunking &#x26;
+
+# How do we store &#x26; search
+
+# PIPELINE:
+
+LLMs are limited → RAG solves this →
+
+chunking &#x26; indexing, retrieval &#x26; generation
+
+embeddings Chunking strategies → Search algorithms (KNN → HNSW) → Tools → Metadata filtering
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+# WHEN TO USE Traditional RAG:
+
+What if we need relationships?
+
+What types of RAG exist?
+
+- Simple factual lookups Naive →
+- Semantic similarity search Advanced →
+- Object Knowledge graphs →
+- Hybrid search →
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# Community detection → Reranking → Deepmind
+
+# GraphRAG → Dario Amodei
+
+# Comparison: KG vs Vector DB
+
+Subject OpenAI models
+
+Microsoft Demis Hassabis
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+
+# How do we measure &#x26; build?
+
+RAGAS evaluation → RAG Frameworks → Checklist
+
+29
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 29
+============================================================
+
+
+
+SIT Internal
+Advanced retrieval – hybrid search
+SiT SINGAPORE
+INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+| Search Type                  | Strength                                                                                                               | Weakness                       | Example |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------- |
+| WHEN TO USE GraphRAG:        | Exact term matching, Multi-hop reasoning needed, Entity-centric questions, Connected domains (medical, legal, finance) | Misses synonyms, acronyms, IDs |         |
+| WHEN TO USE Traditional RAG: | Sparse (BM25\*) understanding, Semantic similarity search, Unstructured text, no clear entities                        | Misses exact terms             |         |
+| V Dense (Vector)             | Finds both exact and semantic matches                                                                                  |                                |         |
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+
+* BM25(Best Match 25): a probabilistic keyword ranking algorithm powering traditional search engines like Elasticsearch.
+
+# Competitors in
+
+| Openai models | Microsoft        | Google    |
+| ------------- | ---------------- | --------- |
+| Dario amodei  | Demis hassabis   | Anthropic |
+| Claude        | Google workspace | Amazon    |
+
+30
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 30
+============================================================
+
+
+
+SIT Internal
+
+# Reciprocal Rank Fusion (RRF) – merge two ranked lists
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+erging google brain and deepmind
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+RRF(d) = Σ 1/(k + rank(d))
+
+LLM
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+In above example, k=0, d=4
+
+# Competitors in
+
+| Claude | Google           |
+| ------ | ---------------- |
+| Amazon | Google workspace |
+
+source 31
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 31
+============================================================
+
+
+
+SIT Internal
+
+# Reranking – Refining Retrieval Before Generation
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+| Type                         | How It Works                                         | Speed / Accuracy   | Best For                                         |
+| ---------------------------- | ---------------------------------------------------- | ------------------ | ------------------------------------------------ |
+| PIPELINE:                    | Bi-encoder Refinement                                | Fast / Good        | Lightweight reranking without cross-encoder cost |
+| WHEN TO USE GraphRAG:        | Jointly encodes \[query + passage] → relevance score | Slower / Highest   | Multi-hop reasoning needed                       |
+|                              | Cross-encoder Neural                                 |                    | Entity-centric questions                         |
+| LLM-based                    | LLM prompted to rank or select passages              | Slowest / Highest  | queries merging google brain and deepmind        |
+| WHEN TO USE Traditional RAG: | Score-based / Heuristic                              | Fastest / Moderate | First-pass improvement, search engines           |
+|                              | BM25 + dense + recency via weighted sum or RRF       |                    | Object                                           |
+|                              | Semantic similarity search                           |                    |                                                  |
+| Dynamic / RL-based           | Agent adjusts ranking + K via LLM feedback           | Slowest / Adaptive | Adaptive RAG, DynamicRAG                         |
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- similarity_top_k : 2-5 (graph neighbors)
+
+# Common: bi-encoder + cross-encoder
+
+# FREE TOOLS USED
+
+# Popular Reranking Tools
+
+- Cohere Rerank: The industry standard for managed reranking.
+- Graph DB: SimpleGraphStore (in-memory)
+- BGE-Reranker: A high-performance open-source model.
+- Jina Reranker: Optimized for multilingual and long-document support.
+
+32
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 32
+============================================================
+
+
+
+SIT Internal
+
+# Query transformation - Improving Retrieval by Rewriting the Query
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+| Technique                                                 | How It Works                                              | Example                                                                                |
+| --------------------------------------------------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Documents → Entity Extraction → Knowledge Graph           | Query → Graph Traversal → Connected Entities → LLM Answer | Query: "What causes aurora?" → LLM generates a hypothetical answer, embed that instead |
+| HyDE (Hypothetical Document Embeddings)                   | Multi-hop reasoning needed                                | LLM writes a paragraph → embed the paragraph as query                                  |
+| Multi-query retrieval                                     | LLM generates multiple query variants, retrieve for all   | "RAG evaluation" → also searches "how to measure RAG quality", "RAGAS metrics"         |
+| Simple factual lookups                                    | Semantic similarity search                                | Google deepmind                                                                        |
+| Unstructured text, no clear entities                      | Step-back prompting                                       | "Why did the 2008 crash happen?" → first retrieve "causes of financial crises"         |
+| Subject                                                   | Openai models                                             | LLM: Groq (1lama-3.1-8b-instant)                                                       |
+| • max\_triplets\_per\_chunk : 2-10 (higher = more detail) | retriever mode: keyword / embedding / hybrid              | • similarity\_top\_k: 2-5 (graph neighbors)                                            |
+| Sub-question decomposition                                | Break complex question into parts                         | Q1: "What is RAG?" sub-Q2: "What is fine-tuning?"                                      |
+| Embeddings                                                | HuggingFace (BAAI/bge-small-en-v1.5)                      | Graph DB: SimpleGraphStore (in-memory)                                                 |
+
+Claude Google workspace
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 33
+============================================================
+
+
+
+SIT Internal
+
+# Advanced Retrieval: Full Pipeline
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+Sam Altman, Elon Musk
+
+Merging Google Brain and DeepMind
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+GPT-4, OpenAI
+
+Object, Google DeepMind
+
+DeepMind
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk: 2-10 (higher = more detail)
+- retriever mode: keyword / embedding / hybrid
+- similarity_top_k: 2-5 (graph neighbors)
+
+Subject, OpenAI models
+
+Microsoft, Dario Amodei, Office 365, Gemini, London
+
+# FREE TOOLS USED
+
+LLM: Groq (1lama-3.1-8b-instant)
+
+- Embeddings: HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+Competitors in
+
+Claude, Google Workspace
+
+Anthropic, Google
+
+Amazon
+
+34
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 34
+============================================================
+
+
+
+Story line                                                SIT Internal                                                   SiT SINGAPORE
+Tutorial: GraphRAG                                                                                                                        INSTITUTE OF
+
+# Why RAG?
+
+# PIPELINE:
+
+LLMs are limited → RAG solves this →
+
+chunking &#x26; indexing, retrieval &#x26; generation
+
+# How do we chunking &#x26;
+
+embeddings
+
+# How do we store &#x26; search
+
+Vector DB → Search algorithms (KNN → HNSW) → Tools → Metadata filtering
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+# WHEN TO USE Traditional RAG:
+
+What if we need relationships?
+
+# What types of RAG exist?
+
+- Simple factual lookups Naive →
+- Semantic similarity search Advanced →
+- Object Knowledge graphs →
+- Hybrid search →
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# Community detection →
+
+Reranking → Deepmind
+
+# Comparison: KG vs Vector DB
+
+Subject Openai models
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+
+# How do we measure &#x26; build?
+
+RAGAS evaluation → RAG Frameworks → Checklist
+
+35
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 35
+============================================================
+
+
+
+SIT Internal
+Knowledge graph
+SiT SINGAPORE
+INSTITUTE OF TECHNOLOGY
+
+# Nodes:
+
+- Documents → Entity Extraction → Knowledge Graph
+- Query → Graph Traversal → Connected Entities → LLM Answer
+- Represent the entities or objects in the graph.
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Entity-centric questions
+- Store values of these entities can be any type of data.
+
+# Edges:
+
+- Simple factual lookups
+- Semantic similarity search
+- Represent the relationships between the entities as triples (ℎ,r,t): head (ℎ) has relation r with tail (t)
+
+# KEY PARAMETERS:
+
+- Hold information about the nature of the relationship between the connected nodes.
+- similarity_top_k: 2-5 (graph neighbors)
+- providing additional information (e.g., age, location, date of birth).
+
+# LLM
+
+- Embeddings: HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+# Competitors in
+
+| Gpt-4           | Openai           |
+| --------------- | ---------------- |
+| Google deepmind | Deepmind         |
+| Dario amodei    | Gemini           |
+| Microsoft       | Office 365       |
+| Demis hassabis  | Anthropic        |
+| Google          | Google workspace |
+
+52
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 36
+============================================================
+
+
+
+SIT Internal
+
+# Tutorial: GraphRAG
+
+# Community Detection
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Community: a subset of graph
+
+# WHEN TO USE GraphRAG:
+
+How do we measure the “quality” of community detection?
+
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+- LLM : Groq (1lama-3.1-8b-instant)
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+# 3 communities or 2 communities?
+
+Intuition: more edges within community than among community.
+
+An example            52
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 37
+============================================================
+
+
+
+SIT Internal
+
+# KG pipeline: GraphRAG
+
+# SiT SINGAPORE
+
+# INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Source documents to text chunks
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+Sentence Splitter
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Text chunks to element instances
+- Triplet extraction (source, target, relation)
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+- Merging google brain and deepmind
+
+# WHEN TO USE Traditional RAG:
+
+Gpt-4 Openai
+
+- Element Instances to Element Summaries
+- Summarization with LLM
+- Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- Element Summaries to Graph Communities
+- retriever mode
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+Competitors in
+
+Graph communities to community summaries
+
+Summarization with LLM
+
+# GraphRAG
+
+Most expensive step: requires an LLM call per chunk. This is an offline, one-time process.
+
+38
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 38
+============================================================
+
+
+
+SIT Internal
+
+# Direct LLM, RAG, and GraphRAG
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+- LLM : Groq (1lama-3.1-8b-instant)
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+# Competitors in
+
+- Google
+- Amazon
+
+# source
+
+52
+
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 39
+============================================================
+
+
+
+SIT Internal
+
+# Knowledge graph vs vector DB
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+erging google brain and deepmind
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+| Competitors in | link           | 40               |
+| -------------- | -------------- | ---------------- |
+| Openai         | Gpt-4          | Google deepmind  |
+| Microsoft      | Demis hassabis | Anthropic        |
+| Google         | Claude         | Google workspace |
+| Gemini         | London         |                  |
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 40
+============================================================
+
+
+
+Story line                                                SIT Internal                                                   SiT SINGAPORE
+
+# Tutorial: GraphRAG
+
+# Why RAG?
+
+# How do we chunking &#x26;
+
+# How do we store &#x26; search
+
+# PIPELINE:
+
+LLMs are limited → RAG solves this →
+
+chunking &#x26; indexing, retrieval &#x26; generation
+
+embeddings Chunking strategies → Search algorithms (KNN → HNSW) → Tools → Metadata filtering
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+# WHEN TO USE Traditional RAG:
+
+What if we need relationships?
+
+# What types of RAG exist?
+
+- Simple factual lookups Naive →
+- Semantic similarity search Advanced →
+- Object Knowledge graphs →
+- Hybrid search →
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# Community detection → Reranking → Deepmind
+
+# GraphRAG → Dario Amodei
+
+# Comparison: KG vs Vector DB
+
+Subject OpenAI models
+
+Microsoft Demis Hassabis
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+
+# How do we measure &#x26; build?
+
+RAGAS evaluation → RAG Frameworks → Checklist
+
+41
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 41
+============================================================
+
+
+SIT Internal
+# Types of RAG
+
+# SiT SINGAPORE
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+Sam Altman, Elon Musk
+
+Merging Google Brain and DeepMind
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+Gpt-4, OpenAI
+
+Object, Google DeepMind
+
+DeepMind
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk: 2-10 (higher = more detail)
+- retriever mode: keyword / embedding / hybrid
+- similarity_top_k: 2-5 (graph neighbors)
+
+Subject, OpenAI models
+
+Microsoft, Demis Hassabis
+
+# FREE TOOLS USED
+
+LLM: Groq (1lama-3.1-8b-instant)
+
+- Embeddings: HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+Competitors in
+
+Amazon
+
+Claude, Google Workspace
+
+Simple, no optimization
+
+Pre+post retrieval enhancement
+
+Mix and match components
+
+Source
+
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 42
+============================================================
+
+
+
+SIT Internal
+
+# Self RAG
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+# RAG with self reflection:
+
+instruct the LLM to output special 'reflection tokens’: Sam altman, Elon musk
+
+Complex relationship queries [Retrieve], [Relevant], [Supported], [Partially]
+
+So it can critique its own answers.
+
+# WHEN TO USE Traditional RAG:
+
+Simple factual lookups
+
+Semantic similarity search
+
+Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+Competitors in
+
+| Openai   | Microsoft    | Anthropic      | Google           |
+| -------- | ------------ | -------------- | ---------------- |
+| Gpt-4    | Gemini       | Claude         | Google workspace |
+| Deepmind | Dario amodei | Demis hassabis | Amazon           |
+
+Link
+
+43
+
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 43
+============================================================
+
+
+
+SIT Internal
+
+# Agentic RAG
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+
+AI Agent orchestrates the RAG Pipeline:
+
+# V Simple factual lookups
+
+Query Semantic similarity search → Rewrite → Decide
+
+source → Retrieve → Generate → Evaluate → Output: keyword / embedding / hybrid
+
+# • max_triplets_per_chunk : 2-10 (higher = more detail)
+
+(loop if needed) → Output : keyword / embedding / hybrid
+
+# • similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+- LLM : Groq (1lama-3.1-8b-instant)
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+# Competitors in
+
+- Anthropic
+- Google
+- Amazon
+
+# Claude
+
+# Google workspace
+
+Link Source 44
+
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 44
+============================================================
+
+
+
+Story line                                                SIT Internal                                                   SiT SINGAPORE
+
+# Tutorial: GraphRAG
+
+# Why RAG?
+
+# How do we chunking &#x26;
+
+# How do we store &#x26; search
+
+# PIPELINE:
+
+LLMs are limited → RAG solves this →
+
+chunking &#x26; indexing, retrieval &#x26; generation
+
+# embeddings
+
+Chunking strategies → Search algorithms (KNN → HNSW) →
+
+Tools → Metadata filtering
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+erging google brain and deepmind
+
+# WHEN TO USE Traditional RAG:
+
+# What if we need relationships?
+
+What types of RAG exist?
+
+- Simple factual lookups Naive →
+- Semantic similarity search Advanced →
+- Object Knowledge graphs →
+- Hybrid search →
+
+Google deepmind RRF →
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+Community detection → Reranking → Deepmind
+
+# GraphRAG → Dario amodei
+
+# Comparison: KG vs Vector DB
+
+Subject Openai models
+
+Microsoft Demis hassabis
+
+# FREE TOOLS USED
+
+LLM : Groq (1lama-3.1-8b-instant)
+
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+
+# How do we measure &#x26; build?
+
+RAGAS evaluation → RAG Frameworks →
+
+# Checklist
+
+45
+
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 45
+============================================================
+
+
+SIT Internal
+# RAG evaluation - If you can’t measure it, you can’t improve it
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+| Metric              | What It Measures                  | Formula/Method                        | Good Score |
+| ------------------- | --------------------------------- | ------------------------------------- | ---------- |
+| Context Precision   | Are retrieved docs relevant?      | Relevant retrieved / Total retrieved  | > 0.8      |
+| Context Recall      | Did we find all relevant info?    | Relevant retrieved / All relevant     | > 0.9      |
+| Faithfulness        | Is answer grounded in context?    | LLM checks each claim against context | > 0.9      |
+| Answer Relevancy    | Does answer address the question? | Cosine sim(question, answer)          | > 0.85     |
+| VAnswer Correctness | Is the answer factually correct?  | Compare to ground truth               | > 0.8      |
+| RAGAS Score         | Combined evaluation               | Harmonic mean of above metrics        | > 0.85     |
+
+# WHEN TO USE Traditional RAG:
+
+Gpt-4 Openai
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+- LLM : Groq (1lama-3.1-8b-instant)
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+# Competitors in
+
+Anthropic Google
+
+Claude Google workspace
+
+Amazon
+
+52 46
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 46
+============================================================
+
+
+
+SIT Internal RAG Framework
+
+# SIT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+| Framework                                                 | Best For                   | Key Feature                                              | Complexity |
+| --------------------------------------------------------- | -------------------------- | -------------------------------------------------------- | ---------- |
+| Query → Graph Traversal → Connected Entities → LLM Answer | LangChain                  | Full RAG pipelines, Largest ecosystem, most integrations | Medium     |
+| Complex relationship queries                              | Multi-hop reasoning needed | Property graphs, multi-modal                             |            |
+| LlamaIndex                                                | Data indexing + retrieval  | Connected domains (medical, legal, finance)              | Medium     |
+|                                                           | agents                     | erging google brain and deepmind                         |            |
+
+# WHEN TO USE
+
+- Traditional RAG: Agentic RAG, stateful workflows
+- LangGraph: Semantic similarity search
+- Unstructured text, no clear entities
+- Haystack (deepset): Production RAG
+
+| max\_triplets\_per\_chunk | 2-10 (higher = more detail)  |
+| ------------------------- | ---------------------------- |
+| retriever mode            | keyword / embedding / hybrid |
+| similarity\_top\_k        | 2-5 (graph neighbors)        |
+
+# FREE TOOLS USED
+
+- LLM: Groq (1lama-3.1-8b-instant)
+- Dify: Low-code RAG apps
+- Graph DB: SimpleGraphStore (in-memory)
+- RAGFlow: Enterprise RAG
+
+| Cycles, persistence, human-in-loop    | High            |
+| ------------------------------------- | --------------- |
+| Openai                                | Google deepmind |
+| Pipeline-based, modular, Docker-ready | Medium          |
+| Openai models                         | Dario amodei    |
+| Office 365                            | Gemini          |
+| Subject                               | Microsoft       |
+| Agent role-playing, collaboration     | Medium          |
+| Google                                | Anthropic       |
+| Visual workflow builder, GUI          | Low             |
+| Advanced document parsing             | Medium          |
+| Google workspace                      |                 |
+
+48
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 47
+============================================================
+
+
+
+SIT Internal
+Building your RAG: checklist
+SiT SINGAPORE
+INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+| Step                   | Decision          | Standard RAG                    | GraphRAG                                                                                |
+| ---------------------- | ----------------- | ------------------------------- | --------------------------------------------------------------------------------------- |
+| 1. Documents           | What data?        | Any unstructured docs           | Entity-rich docs (research, legal, medical)                                             |
+| 2. Chunking            | Which strategy?   | Recursive / Semantic + metadata | Sentence splitter (smaller, cleaner chunks)                                             |
+| 3. Embedding           | Which model?      | all-MiniLM-L6-v2 → BGE-M3       | BGE-M3 or text-embedding-3-large                                                        |
+| 4. Storage             | Which store?      | Chroma → Pinecone / Qdrant      | Vector DB + Graph DB (Neo4j, FalkorDB)                                                  |
+| 5. Entity Extraction   | Build the graph?  | NA                              | LLM extracts triplets: (source, relation, target)                                       |
+| 6. Community Detection | Cluster entities? | NA                              | Leiden / Louvain algorithm                                                              |
+| 7. Retrieval           | Which method?     | Hybrid search + reranking       | Local search / Global search                                                            |
+| 8. LLM                 | Which model?      | GPT-5 / Claude 4.6 Sonnet       | Embeddings: HuggingFace (BAAI/bge-small-en-v1.5) Graph DB: SimpleGraphStore (in-memory) |
+| 9. Evaluation          | Which metrics?    | Full RAGAS suite                | + graph coverage + community coherence                                                  |
+
+49
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 48
+============================================================
+
+
+
+SIT Internal References
+
+# SIT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+- DeepLearning.AI: RAG Overview
+- IBM: What is Retrieval-Augmented Generation
+
+# WHEN TO USE GraphRAG:
+
+- LangChain: RAG from Scratch
+- Multi-hop reasoning needed
+- LlamaIndex: High-Level Concepts
+- Connected domains (medical, legal, finance)
+- DeepLearning.AI: Short Course on Knowledge Graphs for RAG
+
+# WHEN TO USE Traditional RAG:
+
+- Agentic RAG Survey (2025 Updates)
+- Ragas (RAG Assessment)
+
+# KEY PARAMETERS:
+
+- The RAG Survey Paper (Zhao et al., 2024)
+- retriever mode: keyword / embedding / hybrid
+- similarity_top_k: 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+- LLM: Groq (1lama-3.1-8b-instant)
+- Embeddings: HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+# Competitors in
+
+- Deepmind
+- Dario Amodei
+- Gemini
+- London
+- OpenAI models
+- Office 365
+- Microsoft
+- Demis Hassabis
+- Anthropic
+- Google
+- Amazon
+- Claude
+- Google Workspace
+
+50
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 49
+============================================================
+
+
+
+SIT Internal
+
+# Lab
+
+# SiT SINGAPORE
+
+# INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+- LLM : Groq (1lama-3.1-8b-instant)
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+# Competitors in
+
+| Openai | Microsoft | Google | Anthropic | Amazon |
+| ------ | --------- | ------ | --------- | ------ |
+
+# Claude
+
+# Google workspace
+
+51
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+
+
+============================================================
+📄 PAGE 50
+============================================================
+
+
+
+# SIT Internal
+
+# Tutorial: GraphRAG
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# PIPELINE:
+
+Documents → Entity Extraction → Knowledge Graph
+
+Query → Graph Traversal → Connected Entities → LLM Answer
+
+# WHEN TO USE GraphRAG:
+
+- Complex relationship queries
+- Multi-hop reasoning needed
+- Entity-centric questions
+- Connected domains (medical, legal, finance)
+
+# WHEN TO USE Traditional RAG:
+
+- Simple factual lookups
+- Semantic similarity search
+- Unstructured text, no clear entities
+
+# KEY PARAMETERS:
+
+- max_triplets_per_chunk : 2-10 (higher = more detail)
+- retriever mode : keyword / embedding / hybrid
+- similarity_top_k : 2-5 (graph neighbors)
+
+# FREE TOOLS USED
+
+- LLM : Groq (1lama-3.1-8b-instant)
+- Embeddings : HuggingFace (BAAI/bge-small-en-v1.5)
+- Graph DB: SimpleGraphStore (in-memory)
+
+# Competitors in
+
+- Google
+- Anthropic
+- Microsoft
+
+52
+
+
+
+---
+
+> **Diagram Description:** a white sheet with a red border and a black border
+
+> **Diagram Description:** the logo for st
+
+> **Diagram Description:** the new building for the singapore university of technology
+
+

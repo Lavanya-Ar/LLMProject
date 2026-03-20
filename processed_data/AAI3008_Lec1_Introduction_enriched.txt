@@ -1,0 +1,1237 @@
+
+============================================================
+📄 PAGE 1
+============================================================
+
+
+SIT Internal
+
+# AAI3008
+
+# Large Language Models
+
+# Introduction
+
+Zhang Zhengchen
+
+zhengchen.zhang@singaporetech.edu.sg
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 2
+============================================================
+
+
+Module Roadmap  SIT Internal    SiT
+
+# Data &#x26; Representation
+
+# Model Architecture
+
+# Tasks &#x26; Evaluation
+
+# System &#x26; Applications
+
+| Transformer              | Question & Answering       | Prompt Engineering |
+| ------------------------ | -------------------------- | ------------------ |
+| Recurrent Neural Network | Machine Translation        | Generation (RAG)   |
+| Embedding                | Spoken Language Processing |                    |
+| LLM Adaptation           | Chatbot                    | Multimodal LLM     |
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 3
+============================================================
+
+
+Outline                     SIT Internal       SiT
+
+# Natural Language Processing Tasks
+
+- Word Level, Sentence Level, Article Level …
+- NLTK
+
+# Recurrent Neural Network (RNN)
+
+- For sequence processing
+- Application: POS Tagging
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 4
+============================================================
+
+
+SIT Internal
+# NLTK (Natural Language Toolkit)
+
+- A Python library for processing human language data.
+- Developed by Steven Bird and Edward Loper in 2001.
+- Provides tools for tasks like tokenization, tagging, parsing, and semantic reasoning.
+- Includes a wide range of corpora and lexical resources.
+- Install NLTK library
+
+pip install nltk
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 5
+============================================================
+
+
+NLTK                                 SIT Internal          SiT
+
+# Core Functionalities
+
+- Lexical Analysis
+- Part-of-Speech (POS) tagging.
+- Stemming and Lemmatization.
+- Syntactic Parsing
+- Context-Free Grammar (CFG).
+- Dependency Parsing.
+- Text Preprocessing
+- Tokenization (splitting text into words/sentences).
+- Stopword removal.
+- Semantic Analysis
+- WordNet integration for word relationships.
+
+1. Summarized by ChatGPT
+
+2. https://www.cybrosys.com/blog/what-are-the-key-features-of-the-natural-language-toolkit-nltk-in-python
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 6
+============================================================
+
+
+
+# Steps to Install NLTK SIT
+
+# ᴵⁿᵗᵉʳⁿᵃˡ SiT
+
+- Download NLTK datasets:
+- import nltk
+
+# NLTK Downloader
+
+|                 | File        | View    | Sort   | Help         |
+| --------------- | ----------- | ------- | ------ | ------------ |
+| nltk.download() | Collections | Corpora | Models | All Packages |
+
+| Identifier  | Name                                                 | Status        |
+| ----------- | ---------------------------------------------------- | ------------- |
+| all         | All packages                                         | not installed |
+| all-corpora | All the corpora                                      | not installed |
+| all-nltk    | All packages available on nltk\_data gh-pages branch | not installed |
+| book        | Everything used in the NLTK Book                     | not installed |
+| popular     | Popular packages                                     | not installed |
+| tests       | Packages for running tests                           | not installed |
+| third-party | Third-party data packages                            | not installed |
+
+- Cancel
+- Refresh
+
+Server Index: https://raw.githubusercontent.com/nltk/nltk
+
+Download Directory: e:\
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 7
+============================================================
+
+
+Spacy              SIT Internal                                  SiT
+
+# Spacy
+
+- pip install spacy
+- python -m spacy download en_core_web_sm
+
+An open-source NLP library designed for efficient, production-ready natural language processing.
+
+It provides fast and accurate implementations of core NLP tasks such as tokenization, part-of-speech tagging, named entity recognition, and syntactic parsing (both dependency and constituency-related representations).
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 8
+============================================================
+
+
+Review and Discussion
+
+# SIT Internal
+
+# SiT
+
+- What does it mean to understand a piece of text?
+- I can identify typos.
+- I can answer questions about the text:
+- Who, when, what, why, and how.
+- Phrase Chunking: Identifying noun phrases.
+- Coreference Resolution: Determining who "she" refers to.
+- Discourse Relationship Recognition: Understanding why "she" stays at home.
+- Summarizing the text.
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 9
+============================================================
+
+
+Review and SIT Internal Discussion
+
+# How to understand it?
+
+- Try to find the answers in this module
+- Words → Phrases → Sentences
+- Divide and conquer
+- Machine Learning
+- Attention is all you need but data is king
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 10
+============================================================
+
+
+
+# Impact of SIT Internal SiT
+
+# Large Language Models
+
+- Emergent Abilities
+- Large Language Models (LLMs) such as GPT-4 exhibit emergent capabilities
+- Perform tasks like POS tagging without explicit task-specific training
+- This reduces reliance on traditional supervised learning pipelines and feature engineering
+
+# Perform part of speech tagging for the following sentence: "John bought 3 apples for $5.99"
+
+Here is the Part-of-Speech (POS) tagging for the sentence "John bought 3 apples for $5.99":
+
+| Word   | Part of Speech         | Description                                          |
+| ------ | ---------------------- | ---------------------------------------------------- |
+| John   | Proper Noun (NNP)      | Represents a specific person's name.                 |
+| bought | Verb, Past Tense (VBD) | Describes an action (past tense of "buy").           |
+| 3      | Cardinal Number (CD)   | Indicates a specific quantity.                       |
+| apples | Noun, Plural (NNS)     | Refers to multiple objects (plural form of "apple"). |
+| for    | Preposition (IN)       | Indicates purpose or exchange.                       |
+| $      | Symbol ($)             | Denotes currency.                                    |
+| 5.99   | Cardinal Number (CD)   |                                                      |
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 11
+============================================================
+
+
+
+SIT Internal    SiT
+
+# Keynote Talk: Academic NLP research in the Age of LLMs: Nothing but blue skies!
+
+# Large Language Models
+
+Christopher D. Manning
+Stanford University
+
+• EMNLP2023
+Sunday, December 10 - Time: 14:00 - 15:00 - Room: East &#x26; Center
+
+# Abstract:
+
+There has been a certain amount of handwringing by students - and faculty - about the prospects for academic research in the Age of Large Language Models (LLMs). Now, there is a need for universities and governments to do more to support computational research. And it is indeed the case that any major inflection point in a research field does change the best questions to concentrate your time on. But a reorientation of research is healthy, coming off a decade when students in academia had often drifted into playing the Kaggle game rather than thinking hard about fundamental ideas. A time of transformation is principally a time of opportunity: All sorts of new and exciting research questions, either not explored or only explored in very different contexts, come to the fore. These questions provide compelling opportunities for fresh and exciting work. I see many examples of this sort of work already happening and encourage many more. I will illustrate with two pieces of work from my own students: the Backpack, which explores an alternative, more interpretable architecture than the Transformer (by John Hewitt and colleagues) and Direct Preference Optimization, which explores an alternative to the Proximal Policy Optimization normally used for steering LLMs in the Reinforcement Learning from Human Feedback (RLHF) phase (by Eric Mitchell and colleagues).
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 12
+============================================================
+
+
+Impact of Large Language Models
+
+# New Research Directions
+
+- Multilingual and Low-Resource Scenarios
+- Cross-Modal Integration
+- Video understanding
+- Efficient Adaptation
+- Prompt engineering
+- Lightweight fine-tuning (e.g., LoRA, Adapters)
+- Retrieval-augmented generation
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 13
+============================================================
+
+
+Outline                     SIT Internal       SiT
+
+# Natural Language Processing Tasks
+
+- Applications
+- Word Level, Sentence Level, Article Level …
+
+# Recurrent Neural Network (RNN)
+
+- For sequence processing
+- Application: POS Tagging
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 14
+============================================================
+
+
+Sequential Data                     SIT Internal                                      SiT
+
+• Task: Classify the sentiment category of a sentence
+
+• Dataset
+
+| • Today’s weather is not bad. | Positive |
+| ----------------------------- | -------- |
+| • The weather is bad.         | Negative |
+
+• Model
+
+• Feedforward Neural Network
+
+• Output
+
+• Sentiment category: -1, 1
+
+• Input
+
+• Word? Word→Vector
+
+| Word    | One-hot Encoding |
+| ------- | ---------------- |
+| Today   | \[1,0,0,0,0,0,0] |
+| 's      | \[0,1,0,0,0,0,0] |
+| Weather | \[0,0,1,0,0,0,0] |
+| Is      | \[0,0,0,1,0,0,0] |
+| Not     | \[0,0,0,0,1,0,0] |
+| Bad     | \[0,0,0,0,0,1,0] |
+| the     | \[0,0,0,0,0,0,1] |
+
+https://text2data.com/Demo
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 15
+============================================================
+
+
+Feedforward Neural Network
+# Feedforward Neural Network
+
+# Hidden Layers
+
+ℎ = ReLU 𝑊𝑊 X + 𝑏𝑏
+
+# Output Layer
+
+Y = Softmax 𝑊𝑊 ℎ + 𝑏𝑏
+
+# Input layer
+
+| L-2=2 | x1           | $w^{2}$   | $x\2}$    |
+| ----- | ------------ | --------- | --------- |
+|       | $w^{2}$      | 𝑛𝑛      | $w\ra23}$ |
+|       | $w\r2}$      | Loss = 1  | 𝑦𝑦      |
+|       | 2            | x2        | $w^{2}$   |
+|       | $x2}$        | $wr23$    |           |
+|       | 𝑛𝑛         | 𝑖𝑖      | 𝑖𝑖      |
+|       | x3           | $w^{2}$   | $x\a3}$   |
+|       | $w^{\ac3}$   | $b^{ra2}$ |           |
+|       | bl = 1       | $b\r2}$   | b2=1      |
+|       | $b \rac{23}$ |           |           |
+
+# L-1=3
+
+| L=4    | $w^{\ }$  | $x^{\f2}$ | $w\r{1}$     |
+| ------ | --------- | --------- | ------------ |
+| $x\\}$ | a\f}      | $w\2}$    |              |
+| wi2    | wi3       | $w\2}$    | $w{2w2}$     |
+| $w\2}$ | $x\2}$    | $x^{      |              |
+| $w\23$ | $w23$     |           |              |
+|        | w}        | $x^{3}$   | w32          |
+| $x\3}$ | a$\fra3}$ | $w \a3$   | $w \ra3}$    |
+|        | $b\f}$    | $b\fra}$  |              |
+|        | b3=1      | $b\ra{3}$ | $b \frab{3}$ |
+
+# Figure 1
+
+https://whyml.wordpress.com/2017/04/24/back-propagation-learning-for-multi-layer-feedforward-neural-network/
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 16
+============================================================
+
+
+Sequential Data  SIT Internal    SiT
+
+• Variable-Length Text vs. Fixed-Length Input
+
+• Multiple words have to be mapped into a single fixed-dimensional vector
+
+| 1 | Word    | One-hot Encoding |
+| - | ------- | ---------------- |
+| 1 | Today   | \[1,0,0,0,0,0,0] |
+| 2 | 's      | \[0,1,0,0,0,0,0] |
+| 3 | Weather | \[0,0,1,0,0,0,0] |
+| 4 | Is      | \[0,0,0,1,0,0,0] |
+| 5 | Not     | \[0,0,0,0,1,0,0] |
+| 6 | Bad     | \[0,0,0,0,0,1,0] |
+| 7 | the     | \[0,0,0,0,0,0,1] |
+
+• Summation and Average
+
+- Sum all word vectors and divided by word numbers
+- Problem?
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 17
+============================================================
+
+
+
+# Sequential Data
+
+# SIT Internal
+
+# SiT
+
+# Variable-Length Text vs. Fixed-Length
+
+| Word    | One-hot Encoding |
+| ------- | ---------------- |
+| Today   | \[1,0,0,0,0,0,0] |
+| 's      | \[0,1,0,0,0,0,0] |
+| Weather | \[0,0,1,0,0,0,0] |
+| Is      | \[0,0,0,1,0,0,0] |
+| Not     | \[0,0,0,0,1,0,0] |
+| Bad     | \[0,0,0,0,0,1,0] |
+| the     | \[0,0,0,0,0,0,1] |
+
+# Concatenation and Padding
+
+Concatenate all words to form a long vector.
+
+# Problem?
+
+- High dimension
+- - 7 times number of words
+
+A lot of zeros
+- The meaning of each dimension is different
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 18
+============================================================
+
+
+
+# Recurrent Neural Networks (RNNs)
+
+• Process the inputs one by one
+
+• Remember the history
+
+| X | H | Y |
+| - | - | - |
+| X | H | Y |
+
+https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 19
+============================================================
+
+
+
+# RNN Unfold
+
+# SIT Internal
+
+# SiT
+
+|   | determiner | noun  | verb  |
+| - | ---------- | ----- | ----- |
+| + | 𝑦𝑦1      | 𝑦𝑦2 | 𝑦𝑦3 |
+| 0 | ℎ1         | ℎ2    | ℎ3    |
+
+| X | H | Y |
+| - | - | - |
+
+• Time Step 𝑡𝑡
+
+- A word
+- A segment of audio
+- Stock price of a day
+
+The weather is
+
+| 𝑥𝑥1  | 𝑥𝑥2 | 𝑥𝑥3  |
+| ------ | ----- | ------ |
+| 𝑥𝑥   | 𝑥𝑥  | 𝑥𝑥   |
+| 𝑡𝑡−1 | 𝑡𝑡  | 𝑡𝑡+1 |
+
+https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 20
+============================================================
+
+
+SIT Internal
+# Forward Computation Process
+
+- ℎt = 𝑓(𝑊ℎℎt-1 + 𝑊x𝑥t + 𝑏)
+- 𝑦t = 𝑔(𝑊ℎℎt + 𝑏)
+- Y = Softmax(𝑊ℎℎ + 𝑏)
+- Time Step t
+- A word
+- A segment of audio
+- Stock price of a day
+
+|    | 𝑤1 | 𝑤2 | 𝑤3 |
+| -- | --- | --- | --- |
+| ℎ1 | 𝑤ℎ |     |     |
+| ℎ2 | 𝑤ℎ |     |     |
+| ℎ3 | 𝑤ℎ |     |     |
+
+| 𝑥t-1 | 𝑥t     | 𝑥t+1 |
+| ----- | ------- | ----- |
+| The   | weather | is    |
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 21
+============================================================
+
+
+
+# RNN + SIT Internal SiT
+
+X H Y
+
+• ℎ = 𝑓𝑓 𝑊𝑊 ℎ + 𝑊𝑊 𝑥𝑥 + 𝑏𝑏
+
+𝑡𝑡 ℎ 𝑡𝑡−1 𝑥𝑥 𝑡𝑡
+
+• 𝑦𝑦𝑡𝑡 = 𝑔𝑔 𝑊𝑊 ℎ + 𝑏𝑏
+
+• Y 𝑦𝑦 𝑡𝑡 𝑦𝑦
+
+Y = Softmax 𝑊𝑊 ℎ + 𝑏𝑏
+
+• Time Step 𝑡𝑡
+
+• a word
+
+• A segment of audio
+
+• Stock price of a day
+
+https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 22
+============================================================
+
+
+
+# RNN
+
+# SIT Internal
+
+# Recurrence
+
+- Hidden state ℎ𝑡𝑡 depends on the current input (𝑥𝑡𝑡) and the previous state (ℎ𝑡𝑡−1)
+- ℎ𝑡𝑡 stores information from current and past time steps
+- Context information
+- Variant length input
+
+# Equations
+
+| X                                        | H                                         | Y                          |
+| ---------------------------------------- | ----------------------------------------- | -------------------------- |
+| ℎ𝑡𝑡 = 𝑓(𝑊ℎℎ𝑡𝑡−1 + 𝑊𝑥𝑥𝑡𝑡 + 𝑏) | 𝑦𝑡𝑡 = 𝑔(𝑊ℎℎ𝑡𝑡−1 + 𝑊𝑥𝑥𝑡𝑡 + 𝑏) | Y = Softmax(𝑊ℎℎ𝑡𝑡 + 𝑏) |
+
+# Time Step
+
+- 𝑡t is a word
+- A segment of audio
+- Stock price of a day
+
+https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 23
+============================================================
+
+
+Types Of Recurrent Neural Networks
+
+# Types Of Recurrent Neural Networks
+
+• Many to many determiner noun verb
+
+|            |    | 𝑦𝑦1    | 𝑦𝑦2 | 𝑦𝑦3 |       |            |
+| ---------- | -- | -------- | ----- | ----- | ----- | ---------- |
+| 0          | ℎ1 | ℎ2       | ℎ3    |       |       |            |
+| 𝑥𝑥1      |    |          |       |       | 𝑥𝑥2 | 𝑥𝑥3      |
+| 𝑥𝑥𝑡𝑡−1 |    | 𝑥𝑥𝑡𝑡 |       |       |       | 𝑥𝑥𝑡𝑡+1 |
+
+The weather is
+
+https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 24
+============================================================
+
+
+# Types Of Recurrent Neural Networks
+
+# Many to one
+
+|            |          | Negative   |    |
+| ---------- | -------- | ---------- | -- |
+|            |          | 𝑦𝑦3      |    |
+| 0          | ℎ1       | ℎ2         | ℎ3 |
+| 𝑥𝑥1      | 𝑥𝑥2    | 𝑥𝑥3      |    |
+| 𝑥𝑥𝑡𝑡−1 | 𝑥𝑥𝑡𝑡 | 𝑥𝑥𝑡𝑡+1 |    |
+
+Weather is bad
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 25
+============================================================
+
+
+Types Of Recurrent SIT Internal
+# Neural Networks
+
+- One to one
+- One to many
+
+https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 26
+============================================================
+
+
+FNN to RNN  SIT Internal    SiT
+
+| 0.6 | 0.6 | 0.9 | 0.9 |     |     |     |     |     |     |     |   |   |   |   |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | - | - | - | - |
+| 0.2 | 0.2 | 0.2 | 0.6 | 0.3 | 0.3 | 0.3 | 0.9 |     |     |     |   |   |   |   |
+| 0.2 |     | 0.2 |     | 0.2 |     | 0.3 |     | 0.3 | 0.3 |     |   |   |   |   |
+|     |     | 0.2 |     |     |     | 1   | 0   | 0   |     | 0.3 |   | 1 | 0 | 0 |
+
+𝑥𝑥 = 0.2
+
+𝑊𝑊 =
+| 0 | 1 | 0 |
+| - | - | - |
+| 0 | 1 | 0 |
+
+𝑥𝑥 = 0.3
+
+𝑊𝑊 =
+| 0 | 0 | 1 |
+| - | - | - |
+| 1 | 1 | 1 |
+
+ℎ = 𝑊𝑊 𝑥𝑥
+
+ℎ1 = 0.2
+
+0.2  0.2     0.6
+
+ℎ2 = 0.3
+
+0.3     0.3  0.9
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 27
+============================================================
+
+
+SIT Internal SiT
+
+# 0.6
+
+|      | ℎ1    | 𝑊𝑊ℎ    | ℎ1            | ℎ′                                      |
+| ---- | ----- | -------- | ------------- | --------------------------------------- |
+| 0.2  | 0.2   | 0.2      | 0.6           | 𝑊𝑊 𝑥𝑥                               |
+| 0.2  |       | 0.2      | 0.2           | ℎ𝑡𝑡 = 𝑊𝑊ℎ ℎ𝑡𝑡−1 + 𝑊𝑊 𝑥𝑥 𝑥𝑥2 |
+|      | 0.2   |          | 1             | 0 0                                     |
+| 𝑥𝑥 | = 0.2 | 𝑊𝑊 = 0 | 1 0           | ℎ′ = 𝐼𝐼 ∗ ℎ + ℎ = 0.5                 |
+| 0.5  | 0.5   | 1.5      | 𝑇𝑇          |                                         |
+|      | 0.2   | 𝑥𝑥     | 0             | 0 1                                     |
+| 2    | 1     | 2        |               |                                         |
+|      | 1     | 1        | ℎ = 𝑊𝑊 𝑥𝑥 | 𝑥𝑥                                    |
+
+# ℎ1 = 0.2
+
+| 0.2      | 0.2 | 0.6 | 𝑇𝑇 |      |
+| -------- | --- | --- | ---- | ---- |
+| ℎ2 = 0.3 | 0.3 | 0.3 | 0.9  | 𝑇𝑇 |
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 28
+============================================================
+
+
+SIT Internal SiT
+
+determiner noun verb
+
+| 𝑦𝑦1 |       |    |       |    | 𝑦𝑦2 | 𝑦𝑦3 |
+| ----- | ----- | -- | ----- | -- | ----- | ----- |
+| ℎ1    | 𝑊𝑊ℎ | ℎ′ |       |    |       |       |
+|       |       |    |       |    | 2     |       |
+|       | 𝑊𝑊  | 0  | ℎ1    | ℎ2 |       | ℎ3    |
+|       | 𝑥𝑥  |    | 𝑥𝑥2 |    |       |       |
+
+ℎ𝑡𝑡 = 𝑊𝑊ℎ ℎ𝑡𝑡−1 + 𝑊𝑊 𝑥𝑥
+
+𝑥𝑥1 𝑥𝑥2 𝑥𝑥3
+
+𝑥𝑥  𝑡𝑡
+
+Wℎ = 𝐼𝐼
+
+𝑥𝑥𝑡𝑡−1 𝑥𝑥𝑡𝑡 𝑥𝑥𝑡𝑡+1
+
+ℎ′ = 𝐼𝐼 ∗ ℎ1 + ℎ2 = 0.5 0.5 0.5 1.5 𝑇𝑇
+
+The weather is
+
+2
+
+ℎ𝑡𝑡 = 𝑓𝑓 𝑊𝑊ℎ ℎ𝑡𝑡−1 + 𝑊𝑊 𝑥𝑥 + 𝑏𝑏𝑏𝑏𝑏𝑏𝑏𝑏
+
+𝑥𝑥  𝑡𝑡
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 29
+============================================================
+
+
+Backpropagation           SIT Internal                                    SiT
+
+# Through Time (BPTT)
+
+- Vanishing Gradient
+- Gradients diminish as they pass through each time step, leading to minimal weight updates.
+- This limits the RNN’s ability to learn long-term dependencies, which is crucial for tasks like language translation.
+- Basic gradient descent update rule
+
+𝑤𝑤 = 𝑤𝑤 − 𝜆𝜆∇𝑤𝑤 ℒ
+
+https://www.geeksforgeeks.org/vanishing-and-exploding-gradients-problems-in-deep-learning/
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 30
+============================================================
+
+
+Backpropagation           SIT Internal                                    SiT
+
+# Backpropagation Through Time (BPTT)
+
+# Vanishing Gradient
+
+- Gradients diminish as they pass through each time step, leading to minimal weight updates.
+- This limits the RNN’s ability to learn long-term dependencies, which is crucial for tasks like language translation.
+
+# Exploding Gradient
+
+- Sometimes, gradients grow uncontrollably, causing excessively large weight updates that destabilize training.
+- Gradient clipping is a common technique to manage this issue.
+
+Source: GeeksforGeeks
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 31
+============================================================
+
+
+RNN Variants
+# SIT Internal
+
+# SiT
+
+- Long Short-Term Memory (LSTM)
+- Designed to overcome vanishing gradients.
+- Includes gates (input, forget, output) to control information flow.
+- Gated Recurrent Unit (GRU)
+- Simplified version of LSTM with fewer gates.
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 32
+============================================================
+
+
+Applications of RNNs
+# SIT ᴵⁿᵗᵉʳⁿᵃˡ
+
+# Natural Language Processing:
+
+- Language modeling
+- Machine translation
+
+# Speech Recognition:
+
+- Audio-to-text systems
+
+# Time Series Analysis:
+
+- Stock price prediction
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 33
+============================================================
+
+
+
+# POS tagging
+
+| Tag     | SIT Internal | Description                              | Examples                       |
+| ------- | ------------ | ---------------------------------------- | ------------------------------ |
+|         | CC           | Coordinating conjunction                 | and, but, or, so               |
+|         | CD           | Cardinal number                          | one, two, 100, 2023            |
+|         | DT           | Determiner                               | the, a, an, this               |
+|         | EX           | Existential there                        | there (in "there is")          |
+|         | FW           | Foreign word                             | en route, doppelgänger         |
+|         | IN           | Preposition or subordinating conjunction | in, on, by, because            |
+|         | JJ           | Adjective                                | big, green, amazing            |
+|         | JJR          | Adjective, comparative                   | bigger, better, faster         |
+|         | JJS          | Adjective, superlative                   | biggest, best, fastest         |
+|         | LS           | List item marker                         | 1., 2., A., B.                 |
+|         | MD           | Modal                                    | can, should, will              |
+| NN      |              | Noun, singular or mass                   | dog, car, freedom              |
+|         | NNS          | Noun, plural                             | dogs, cars, freedoms           |
+| are     | VBP          | B-VP                                     |                                |
+| at      | IN           | B-PP                                     |                                |
+|         | NNP          | Proper noun, singular                    | John, London, Apple            |
+|         | NNPS         | Proper noun, plural                      | Americans, Rockies             |
+|         | PDT          | Predeterminer                            | all, both, half                |
+| their   | PRP$         | B-NP                                     |                                |
+| highest | JJS          | I-NP                                     |                                |
+| level   | NN           | I-NP                                     |                                |
+| in      | IN           | B-PP                                     |                                |
+| eight   | CD           | B-NP                                     |                                |
+| years   | NNS          | I-NP                                     |                                |
+| .       | O            |                                          |                                |
+|         | UH           | Interjection                             | oh, wow, hey                   |
+|         | VB           | Verb, base form                          | run, eat, go                   |
+|         | VBD          | Verb, past tense                         | ran, ate, went                 |
+|         | VBG          | Verb, gerund/present participle          | running, eating, going         |
+|         | VBN          | Verb, past participle                    | run, eaten, gone               |
+|         | VBP          | Verb, non-3rd person singular present    | run, eat (I run, you eat)      |
+|         | VBZ          | Verb, 3rd person singular present        | runs, eats (He runs, she eats) |
+|         | WDT          | Wh-determiner                            | which, that                    |
+|         | WP           | Wh-pronoun                               | who, what, whom                |
+|         | WP$          | Possessive wh-pronoun                    | whose                          |
+|         | WRB          | Wh-adverb                                | where, when, why, how          |
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 34
+============================================================
+
+
+POS tagging
+# SIT Internal
+
+# SiT
+
+- Lab 1: Given a sentence, predict the POS class of each word
+- What problem is this? Classification or Regression?
+- Which type of RNN should be used?
+- 1. Many to one
+2. Many to many
+
+What are the input and output?
+- How to get the data?
+- How to evaluate the model?
+
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+
+
+============================================================
+📄 PAGE 35
+============================================================
+
+
+Summary                         SIT Internal                                SiT
+
+# Feedforward Neural Network
+
+- Cannot handle variant length inputs
+- No context information in sequences
+
+# Recurrent Neural Network (RNN)
+
+- Processes data in time steps
+- Considers the output of the last step (captures sequential dependencies)
+
+
+
+---
+
+> **Diagram Description:** the st logo
+
+> **Diagram Description:** the st logo
+
+

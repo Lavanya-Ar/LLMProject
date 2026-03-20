@@ -1,0 +1,157 @@
+[
+  {
+    "page": 1,
+    "text": "\nSIT Internal\n\n# AAI3008\n\n# Large Language Models\n\n# Tokenization and Word Embedding\n\nZhang Zhengchen\n\nzhengchen.zhang@singaporetech.edu.sg\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 2,
+    "text": "\n\nReview                          SIT Internal                                     SiT\n\n# NLP Tasks\n\n- Document\n- Text Summarization\n- Document Classification (e.g., News Sentiment / Topic)\n- Corpus-Level\n- Language Modelling: N-grams\n- Collocation Extraction\n\n- Word\n- POS Tagging\n- Stemming and Lemmatization\n- Sentence\n- Sentiment Analysis\n- Syntactic Parsing\n- Text Generation\n- Named Entity Recognition (NER)\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 3,
+    "text": "\nReview-RNN  SIT Internal    SiT\n\n# Sequential Data\n\n- determiner\n- noun\n- verb\n\n# Time Step 𝑡\n\n| 𝑦𝑦1    | 𝑦𝑦2              | 𝑦𝑦3    |\n| -------- | ------------------ | -------- |\n| A word   | A segment of audio | 𝑤𝑤𝑦𝑦 |\n| 𝑤𝑤𝑦𝑦 | 𝑤𝑤𝑦𝑦           |          |\n\n# Stock price of a day\n\nHidden state ℎ𝑡 depends on the current input (𝑥𝑡) and the previous state (ℎ𝑡−1)\n\nℎ𝑡 = 𝑓(𝑊ℎ𝑡−1 + 𝑊𝑥𝑡 + 𝑏)\n\n# ℎ𝑡 stores information from current and past time steps\n\n| 0    | 𝑤𝑤ℎ | ℎ1  | 𝑤𝑤ℎ | ℎ2 | 𝑤𝑤ℎ | ℎ3 |\n| ---- | ----- | --- | ----- | -- | ----- | -- |\n| 𝑤𝑤 | 𝑤𝑤  |     |       |    |       |    |\n| 𝑥1  | 𝑥2   | 𝑥3 |       |    |       |    |\n\n# 𝑥𝑡−1 The weather is\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 4,
+    "text": "\nTokenization          SIT Internal                                   SiT\n\n# Tokenization\n\nThe process of dividing a text into smaller units known as tokens.\n\n- Sub-word matters\n- Run, runs, running\n- Fair, fairness\n- Tokens\n- Words or sub-words in the context of natural language processing.\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 5,
+    "text": "\n\nOutline    SIT Internal    SiT\n\n# From Raw Text to Neural Network Input\n\n- One-hot Encoding\n- | Raw Text | Tokens             | Token ID      | Embedding             |\n| -------- | ------------------ | ------------- | --------------------- |\n| (words)  | (normalized units) | (1,2,3,4,5,…) | \\[1,0,0,..]           |\n|          |                    |               | \\[0.12, -0.32,0.48,…] |\n\nBPE\n- Word2Vec\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 6,
+    "text": "\nByte Pair Encoding   SIT Internal                                                SiT\n\n# (BPE)\n\n- A sub-word tokenization algorithm that builds sub-words from characters by merging frequent pairs\n- Represent rare words as combinations of frequent sub-words.\n\n# Sub-word matters: from a Machine Translation Perspective\n\n- Various word classes are translatable via smaller units than words\n\n¹ Sennrich R. Neural machine translation of rare words with subword units[J]. arXiv preprint arXiv:1508.07909, 2015. https://arxiv.org/pdf/1508.07909\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 7,
+    "text": "\nByte Pair Encoding             SIT Internal                   SiT\n\n# Byte Pair Encoding (BPE)\n\n- A sub-word tokenization algorithm that builds sub-words from characters by merging frequent pairs\n\n# Input\n\n- A set of words\n\n# Output\n\n- A set of sub-words (tokens)\n- Merge rules\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 8,
+    "text": "\nByte Pair Encoding                              SIT Internal                                                 SiT\n\n# Algorithm 1 Learn BPE operations\n\n1. Split word into characters, form a vocabulary\n- low → l o w\n- ‘l o w ’ : 5\n\nCount the frequency of each bigram, get pair statistics\n- Tow characters:\n- ‘l o’ : 7; ‘o w’ : 7\n\n- A sub-word and a character: lo w\n2. Merge the most frequently appeared bigram\n- l o → lo\n- ‘lo w ’ : 5\n3. Repeat 2 and 3 until some threshold is met\n- Number of merges\n- Vocabulary size\n\ndef get_stats(vocab):\npairs = collections.defaultdict(int)\nfor word, freq in vocab.items():\nsymbols = word.split()\nfor i in range(len(symbols)-1):\npairs[symbols[i], symbols[i+1]] += freq\nreturn pairs\n\ndef merge_vocab(pair, v_in):\nv_out = {}\nbigram = re.escape(' '.join(pair))\np = re.compile(r'(?\n\nvocab = {'l o w ' : 5, 'l o w e r ' : 2,\n'n e w e s t ': 6, 'w i d e s t ': 3}\nnum_merges = 10\nfor i in range(num_merges):\npairs = get_stats(vocab)\nbest = max(pairs, key=pairs.get)\nvocab = merge_vocab(best, vocab)\nprint(best)\n\nSennrich R. Neural machine translation of rare words with subword units[J]. arXiv preprint arXiv:1508.07909, 2015.\n\nhttps://www.pure.ed.ac.uk/ws/portalfiles/portal/174256085/Neural_Machine_Translation_SENN\nRICH_DOA24052016_VOR_CC_BY.pdf\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 9,
+    "text": "\n# Byte Pair Encoding\n\n# SIT Internal\n\n# SiT (BPE)\n\n- Output\n- - A set of sub-words\n- Merge rules (order is important)\n\nnew sub-word dictionary (token list):\n- - {'est', '', 'e', 'wi', 'low', 'd', 'low', 'r', 'newest'}\n\nMerge Rules\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 10,
+    "text": "\nTokenize New Text  SIT Internal\n# SiT\n\n- Convert words in new text into subwords.\n- Apply each learned merge rule in the order they were learned.\n- Any token not in the vocabulary is replaced with the unknown token “[UNK]”.\n- Cache tokenization results for words seen in the training set.\n\nhttps://medium.com/@hsinhungw/understanding-byte-pair-encoding-fd196ebfe93f\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 11,
+    "text": "\nTokenizers in real world\n\n# Input\n\n- paper:\n- A set of words\n- Word to character sequences\n- Count\n- GPT2\n- A sequence of characters, including whitespace\n- Whitespace is treated as a character\n- Count\n\n# Output\n\n- A set of tokens\n- Merge rules\n\nSIT Internal SiT\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 12,
+    "text": "\n\nOutline    SIT Internal    SiT\n\n# Concepts about Text Processing\n\n# BPE\n\n# Word Embedding\n\n| Raw Text | Tokens             | Token ID      | Embedding             |\n| -------- | ------------------ | ------------- | --------------------- |\n| (words)  | (normalized units) | (1,2,3,4,5,…) | \\[1,0,0,..]           |\n|          |                    |               | \\[0.12, -0.32,0.48,…] |\n| BPE      |                    |               | Word2Vec              |\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 13,
+    "text": "\nWord Embedding\n# SIT Internal\n\n# SiT\n\n# • Why Do We Need Word Embeddings?\n\n- • Efficient Representation\n- • Dense vectors (e.g., 100-300 dimensions) reduce memory usage\n- • Capture Semantic Relationships\n- • One-hot Embeddings are just random IDs\n- • For example: happy/glad\n- • Similar words have similar vector representations\n- • Cosine Similarity\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 14,
+    "text": "\n\n# How Are Embeddings Learned?\n\n# • Pre-trained Embeddings\n\n- Learned in advance on large datasets\n- Reused in downstream tasks\n\n# • Trainable Embeddings\n\n- Randomly initialized\n- Learned together with the task\n- e.g. nn.Embedding (used in our labs)\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 15,
+    "text": "\nWord2Vec                SIT Internal                           SiT\n\n# Pre-trained Embeddings\n\n- Learns vector representations of words using a neural network\n- Continuous Bag of Words (CBOW)\n- Predicts a target word from its surrounding context.\n- Skip-Gram\n- Predicts surrounding words given a target word.\n\nMikolov T. Efficient estimation of word representations in vector space[J]. arXiv preprint arXiv:1301.3781, 2013, 3781. https://arxiv.org/pdf/1301.3781\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 16,
+    "text": "\n\n# Continuous SIT Internal SiT\n\n# Bag of Words (CBOW)\n\n# What is Bag of Words?\n\nA text document is represented as a vector of word counts by ignoring word order and position, while retaining only the frequency of each word.\n\nI love this movie! It's sweet, but with satirical humor. The dialogue is great and the adventure scenes are fun. It manages to be whimsical and romantic while laughing at the conventions of the fairy tale genre. I would recommend it to just about anyone. I've seen it several times, and I'm always happy to see it again whenever I have a friend who hasn't seen it yet!\n\nFigure 4.1 Intuition of the multinomial naive Bayes classifier applied to a movie review. The position of the words is ignored (the bag-of-words assumption) and we make use of the frequency of each word.\n\nChapter 4, https://web.stanford.edu/~jurafsky/slp3/\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 17,
+    "text": "\nBag of Words  SIT Internal    SiT\n\n• Today’s weather is not bad.\n\n| Word    | One-hot Encoding |\n| ------- | ---------------- |\n| Today   | \\[1,0,0,0,0,0,0] |\n| 's      | \\[0,1,0,0,0,0,0] |\n| Weather | \\[0,0,1,0,0,0,0] |\n| Is      | \\[0,0,0,1,0,0,0] |\n| Not     | \\[0,0,0,0,1,0,0] |\n| Bad     | \\[0,0,0,0,0,1,0] |\n| the     | \\[0,0,0,0,0,0,1] |\n\n• The weather is bad.\n\n[0,0,1,1,0,1,1]\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 18,
+    "text": "\n\n# Continuous SIT Internal SiT\n\n# Bag of Words (CBOW)\n\n- Represent words in a continuous vector space\n- Predicts a target word from its surrounding context.\n\n| INPUT  | PROJECTION | OUTPUT | INPUT  | PROJECTION | OUTPUT |\n| ------ | ---------- | ------ | ------ | ---------- | ------ |\n| w(t-2) |            | w(t-2) | w(t-1) | SUM        | w(t)   |\n| w(t+1) |            | w(t+1) | w(t+2) |            | w(t+2) |\n\nFigure 1: New model architectures. The CBOW architecture predicts the current word based on the context, and the Skip-gram predicts surrounding words given the current word.\n\nMikolov T. Efficient estimation of word representations in vector space[J]. arXiv preprint arXiv:1301.3781, 2013, 3781. https://arxiv.org/pdf/1301.3781\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 19,
+    "text": "\nContinuous SIT Internal SiT\n\n# Bag of Words (CBOW)\n\n• \"The cat sat on the mat.\"\n\n| Output                                                                              | INPUT                          | PROJECTION | OUTPUT |\n| ----------------------------------------------------------------------------------- | ------------------------------ | ---------- | ------ |\n| • Vector of the target word                                                         | w(t-2)                         |            | w(t-2) |\n| • \"sat\", 𝑤𝑤(𝑡𝑡)                                                                 | Input                          |            |        |\n| • Context words within a fixed-size window around the target word                   |                                |            |        |\n| • Context words (window size = 2)                                                   | • \\[\"The\", \"cat\", \"on\", \"the\"] |            |        |\n| • 𝑤𝑤 𝑡𝑡 − 2 , 𝑤𝑤 𝑡𝑡 − 1 , 𝑤𝑤 𝑡𝑡 + 1 , 𝑤𝑤(𝑡𝑡 + 2)                    |                                |            |        |\n| • Each word is represented as a one-hot encoded vector of size V (vocabulary size). |                                |            |        |\n| w(t-1)                                                                              | SUM                            |            | w(t-1) |\n| w(t)                                                                                |                                |            | w(t)   |\n| w(t+1)                                                                              |                                |            | w(t+1) |\n| w(t+2)                                                                              |                                |            | w(t+2) |\n\n# CBOW\n\n# Skip-gram\n\nFigure 1: New model architectures. The CBOW architecture predicts the current word based on the context, and the Skip-gram predicts surrounding words given the current word.\n\nMikolov T. Efficient estimation of word representations in vector space[J]. arXiv preprint arXiv:1301.3781, 2013, 3781. https://arxiv.org/pdf/1301.3781\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 20,
+    "text": "\n\n# Continuous Bag of Words (CBOW)\n\n- Project one-hot vector to a dense, low-dimensional embedding space.\n- 𝑊 is a 𝑉 ∗ 𝑁 matrix\n- 𝑉 is the vocabulary size\n- 𝑁 is the embedding dimension (e.g., 100 or 300).\n- Embedding vector for a word 𝑥𝑖\n- ℎ𝑖 = 𝑊T𝑥𝑖\n- Averaging Embeddings\n- ℎ = 1/𝐶 ∑𝑖=1𝐶 ℎ𝑖\n- 𝐶 is the number of context words.\n- Output word 𝑜 = 𝑊Tℎ\n- Size of 𝑊 is 𝑁 ∗ 𝑉\n- 𝑜 is a vector of size 𝑉\n\nSoftmax Function P𝑤𝑡 = ∑𝑗=1𝑉 𝑒𝑐𝑗\n\nThe model predicts the word with the highest probability.\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 21,
+    "text": "\n\n# Continuous SIT Internal SiT\n\n# Bag of Words (CBOW)\n\n- Loss Function\n- cross-entropy loss\n- 𝐿 = − ∑𝑉  𝑦𝑖 log(𝑦𝑖)𝑖=1\n- 𝑦𝑖 = 𝑒𝑐𝑖 / ∑𝑉  𝑒𝑐𝑗\n- If the true label 𝑦𝑖 is one hot embedding\n- 𝑦𝑖 = 1\n- 𝑦𝑗≠𝑖 = 0\n- 𝐿 = −log 𝑦𝑖\n\n# Inference\n\n- We take ℎ𝑖 = 𝑊T 𝑥𝑖 of word 𝑖 as its word embedding\n\n|         |   | 1000000 | 0.1  | 0.2     |        |     |     |       |     |      |\n| ------- | - | ------- | ---- | ------- | ------ | --- | --- | ----- | --- | ---- |\n| 0100000 | W | 0.5     | -0.9 | Average |        |     |     |       |     |      |\n| 0001000 |   |         | -0.2 | 0.3     |        |     |     |       |     |      |\n|         |   | 0000100 | 0.7  | 0.1     |        |     |     |       |     |      |\n|         |   |         |      | 0.275   | -0.075 | W   |     |       |     |      |\n|         | o |         |      |         |        |     |     |       |     |      |\n|         |   |         |      | 1.6     | -0.69  | 3.6 | 1.2 | -0.69 | 0.4 | 0.00 |\n\n|   | 0.1  | 0.01 | Softmax |      |      |\n| - | ---- | ---- | ------- | ---- | ---- |\n|   | 0.76 | 0.07 | 0.01    | 0.03 | 0.02 |\n\nWord ID\n\n2\n\nhttps://ml-cheatsheet.readthedocs.io/en/latest/loss_functions.html\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 22,
+    "text": "\nAn Engineering        SIT Internal          SiT\n\n# Insight\n\n• One-Hot × Weight Matrix = Embedding Lookup\n\n| 1 | 0 | 0 | 0.2 | 0.5  | 0.2 | 0.5  |\n| - | - | - | --- | ---- | --- | ---- |\n| 0 | 1 | 0 | 1.3 | −0.7 | 1.3 | −0.7 |\n| 0 | 0 | 1 | 0.1 | 0.9  | 0.1 | 0.9  |\n\n• identity matrix\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 23,
+    "text": "\nGensim                                                              SIT Internal                                                                                       SiT\n\n• Gensim is a free open-source Python library for representing documents as semantic vectors, as efficiently (computer-wise) and painlessly (human-wise) as possible.\n\n• https://radimrehurek.com/gensim/index.html\n\nimport gensim.downloader\nprint(list(gensim.downloader.info()['models'].keys()))\n# ['fasttext-wiki-news-subwords-300', 'conceptnet-numberbatch-17-06-300', 'word2vec-ruscorpora-300', 'word2vec-google-news-300', 'glove-wiki-gigaword-\n50', 'glove-wiki-gigaword-100', 'glove-wiki-gigaword-200', 'glove-wiki-gigaword-300', 'glove-twitter-25', 'glove-twitter-50', 'glove-twitter-100', 'glove-twitter-200',\n'__testing_word2vec-matrix-synopsis']\n\ngoogle_news =  gensim.downloader.load('word2vec-google-news-300')\n#[==================================================] 100.0% 1662.8/1662.8MB downloaded\nwords  = google_news.most_similar('happy')\nprint(words)\n#[('glad', 0.7408890724182129), ('pleased', 0.6632170677185059), ('ecstatic', 0.6626912355422974), ('overjoyed', 0.6599286794662476), ('thrilled',\n0.6514049172401428), ('satisfied', 0.6437949538230896), ('proud', 0.636042058467865), ('delighted', 0.627237856388092), ('disappointed',\n0.6269949674606323), ('excited', 0.6247665286064148)]\n\nking_man_vector = google_news['king'] - google_news['man']\nqueen_woman_vector  = google_news['queen']           - google_news['woman']\nsimilarity_vectors  = google_news.cosine_similarities(king_man_vector,              [queen_woman_vector])\nprint(f\"Cosine similarity between 'king -            man' and 'queen - woman': {similarity_vectors[0]:.4f}\")\n# Cosine similarity between 'king - man' and 'queen - woman': 0.7580\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 24,
+    "text": "\nCosine Similarity  SIT Internal\n# Cosine Similarity\n\n- Measures semantic similarity between vectors\n- Tells us whether two representations point in a similar direction\n- Focuses on direction (angle) rather than length\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 25,
+    "text": "\nCosine Similarity  SIT Internal    SiT\n\n• Dot Product / Inner Product\n\n𝑑𝑑𝑜𝑜𝑡𝑡 𝑝𝑝𝑝𝑝𝑜𝑜𝑑𝑑𝑝𝑝𝑝𝑝𝑡𝑡(𝐯𝐯, 𝐰𝐰) = 𝐯𝐯 • 𝐰𝐰 = ∑𝑖=1𝑁 𝑣𝑣𝑖𝑖𝑤𝑤𝑖𝑖 = 𝑣𝑣1𝑤𝑤1 + 𝑣𝑣2𝑤𝑤2 + ⋯ + 𝑣𝑣𝑁𝑁𝑤𝑤𝑁𝑁\n\n• Vector Length\n\n|𝐯𝐯| = √∑𝑖=1𝑁 𝑣𝑣2𝑖𝑖\n\n• Cosine Similarity\n\n𝑝𝑝𝑜𝑜𝑐𝑐𝑖𝑖𝑐𝑐𝑐𝑐(𝐯𝐯, 𝐰𝐰) =  𝐯𝐯 • 𝐰𝐰 / (√|𝐯𝐯| • √|𝐰𝐰|)\n\n# Chapter 6.4\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 26,
+    "text": "\nReview - Word2Vec SIT Internal SiT\n\n| 1000000 | 0.1   | 0.2    |\n| ------- | ----- | ------ |\n| 0100000 | 0.5   | -0.9   |\n| 0001000 | -0.2  | 0.3    |\n| 0000100 | 0.7   | 0.1    |\n| Average | 0.275 | -0.075 |\n\nWₒ\n\n| 1.6 | -0.69 | 3.6 | 1.2 | -0.69 | 0.4 | 0.00 |\n| --- | ----- | --- | --- | ----- | --- | ---- |\n\nSoftmax\n\n| 0.1 | 0.01 | 0.76 | 0.07 | 0.01 | 0.03 | 0.02 |\n| --- | ---- | ---- | ---- | ---- | ---- | ---- |\n\nWord ID\n\n2\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 27,
+    "text": "\n\nSkip-Gram                          SIT Internal                                                                                                     SiT\n\nThe model will try to predict each context word given the target word.\n\n\"The cat sat on the mat.\"\n\nTarget word 𝑤𝑤𝑡𝑡 ='sat'\n\nWindow Size (𝑁𝑁=2)\n\nContext words: {𝑤𝑤𝑡𝑡−2, 𝑤𝑤𝑡𝑡−1, 𝑤𝑤𝑡𝑡+1, 𝑤𝑤𝑡𝑡+2}\n\n{\"the\", \"cat\", \"on\", \"the\"}\n\nCompose training Pairs\n\n- (\"sat\",\"the\")\n- (\"sat\",\"cat\")\n- (\"sat\",\"on\")\n- (\"sat\",\"the\")\n\n| INPUT  | PROJECTION | OUTPUT | INPUT | PROJECTION | OUTPUT |\n| ------ | ---------- | ------ | ----- | ---------- | ------ |\n| w(t-2) |            | w(t-2) |       |            |        |\n| w(t-1) | SUM        | w(t-1) |       |            |        |\n|        | w(t)       | w(t)   |       |            |        |\n|        |            |        |       | w(t+1)     | w(t+1) |\n| w(t+2) |            | w(t+2) |       |            |        |\n\nCBOW                         Skip-gram\n\nFigure 1: New model architectures. The CBOW architecture predicts the current word based on the context, and the Skip-gram predicts surrounding words given the current word.\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 28,
+    "text": "\nSkip-Gram    SIT Internal    SiT\n\n# Input\n\n| INPUT  | PROJECTION | OUTPUT |\n| ------ | ---------- | ------ |\n| \"sat\"  | w(t-2)     |        |\n| Output | w(t-1)     | SUM    |\n| \"cat\"  |            | w(t)   |\n| \"on\"   | w(t+1)     |        |\n| \"the\"  | w(t+2)     |        |\n\n# CBOW\n\n# Skip-gram\n\nFigure 1: New model architectures. The CBOW architecture predicts the current word based on the context, and the Skip-gram predicts surrounding words given the current word.\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 29,
+    "text": "\nSkip-Gram    SIT Internal    SiT\n\n# 1. Skip-Gram\n\n- Project one-hot vector to a dense, low-dimensional embedding space.\n- 𝑊𝑊 is a 𝑉𝑉 ∗ 𝑁𝑁 matrix\n- 𝑉𝑉 is the vocabulary size\n- 𝑁𝑁 is the embedding dimension (e.g., 100 or 300).\n- Embedding vector for a word 𝑤𝑤𝑡𝑡\n- ℎ𝑡𝑡 = 𝑊𝑊T𝑥𝑥𝑡𝑡\n- Output word 𝑜𝑜 = 𝑊𝑊Tℎ\n- Size of 𝑊𝑊 is 𝑁𝑁 ∗ 𝑉𝑉\n- o is a vector of size 𝑉𝑉\n- Softmax Function P(𝑤𝑤i | 𝑤𝑤t) = \\frac{∑𝑗=1𝑉𝑉𝑒𝑒𝑐𝑐𝑗}{𝑒𝑒𝑐𝑐i}\n- The model predicts the word with the highest probability\n\n|   |   | 0.1 | 0.2 |       |     |       |     |      |\n| - | - | --- | --- | ----- | --- | ----- | --- | ---- |\n|   |   | 1.6 | 3.6 | −0.69 | 1.2 | −0.69 | 0.4 | 0.00 |\n\n| 0.1 | 0.76 | 0.01 | 0.07 | 0.01 | 0.03 | 0.02 |\n| --- | ---- | ---- | ---- | ---- | ---- | ---- |\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 30,
+    "text": "\nSkip-Gram    SIT Internal    SiT\n\n# Discussion\n\n- One input, multiple true output\n- The training target is to get the vectors\n- Not the one-to-one mapping\n- Reduce the computational complexity\n- Negative Sampling*\n- Focuses on a small subset of \"negative\" samples instead of the full vocabulary\n- Hierarchical Softmax*\n- Reduces computational complexity by structuring the vocabulary as a binary tree\n- Huffman Tree*\n- Huffman tree is built by repeatedly merging the two least frequent nodes.\n- Assign shorter paths to more frequent words, making training even more efficient.\n\nMikolov T, Sutskever I, Chen K, et al. Distributed representations of words and phrases and their compositionality[J]. Advances in neural information processing systems, 2013, 26.\n\nhttps://arxiv.org/pdf/1310.4546\n\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  },
+  {
+    "page": 31,
+    "text": "\n\n# Learning outcomes\n\n- Gain an understanding of the BPE (Byte Pair Encoding) algorithm.\n- Build foundational knowledge to comprehend more complex models, such as BERT and GPT.\n- Understand the principles and mechanisms behind Word2Vec.\n\n\n\n---\n\n> **Diagram Description:** the st logo\n\n> **Diagram Description:** the st logo\n",
+    "metadata": {}
+  }
+]
