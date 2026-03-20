@@ -97,73 +97,358 @@ class LLMClientProtocol(Protocol):
 #         except Exception as e:
 #             raise RuntimeError(f"{self.provider} request failed: {e}")
 
+# class CodexLLMClient:
+#     """
+#     Primary provider: NVIDIA NIM
+#     Fallback provider: Mistral
+
+#     You can still override through .env if needed:
+#     - PRIMARY_LLM_PROVIDER (default: nim)
+#     - FALLBACK_LLM_PROVIDER (default: mistral)
+
+#     Supported providers:
+#     - groq
+#     - openrouter
+#     - mistral
+#     - nim
+#     """
+
+#     def __init__(self, model: Optional[str] = None):
+#         self.primary_provider = os.getenv("PRIMARY_LLM_PROVIDER", "nim").lower()
+#         self.fallback_provider = os.getenv("FALLBACK_LLM_PROVIDER", "mistral").lower()
+
+#         # keep this mainly for debug compatibility with your current prints
+#         self.provider = self.primary_provider
+
+#         self.primary_model, self.primary_client = self._build_provider_client(
+#             provider=self.primary_provider,
+#             model_override=model
+#         )
+#         self.fallback_model, self.fallback_client = self._build_provider_client(
+#             provider=self.fallback_provider,
+#             model_override=None
+#         )
+
+#     def _build_provider_client(self, provider: str, model_override: Optional[str] = None):
+#         if provider == "groq":
+#             api_key = os.getenv("GROQ_API_KEY")
+#             if not api_key:
+#                 raise ValueError("GROQ_API_KEY is not set. Please add it to your .env file.")
+#             model = model_override or os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+#             client = Groq(api_key=api_key)
+#             return model, client
+
+#         elif provider == "openrouter":
+#             api_key = os.getenv("OPENROUTER_API_KEY")
+#             if not api_key:
+#                 raise ValueError("OPENROUTER_API_KEY is not set. Please add it to your .env file.")
+#             model = model_override or os.getenv("OPENROUTER_MODEL", "openrouter/free")
+#             client = OpenAI(
+#                 api_key=api_key,
+#                 base_url="https://openrouter.ai/api/v1",
+#             )
+#             return model, client
+
+#         elif provider == "mistral":
+#             api_key = os.getenv("MISTRAL_API_KEY")
+#             if not api_key:
+#                 raise ValueError("MISTRAL_API_KEY is not set. Please add it to your .env file.")
+#             model = model_override or os.getenv("MISTRAL_MODEL", "mistral-small-latest")
+#             client = OpenAI(
+#                 api_key=api_key,
+#                 base_url="https://api.mistral.ai/v1",
+#             )
+#             return model, client
+
+#         elif provider == "nim":
+#             api_key = os.getenv("NIM_API_KEY")
+#             if not api_key:
+#                 raise ValueError("NIM_API_KEY is not set. Please add it to your .env file.")
+#             model = model_override or os.getenv("NIM_MODEL", "meta/llama-3.1-8b-instruct")
+#             client = OpenAI(
+#                 api_key=api_key,
+#                 base_url="https://integrate.api.nvidia.com/v1",
+#             )
+#             return model, client
+
+#         else:
+#             raise ValueError(f"Unsupported provider: {provider}")
+
+#     def _extract_content(self, response) -> str:
+#         if not getattr(response, "choices", None):
+#             raise RuntimeError(f"{self.provider} returned no choices: {response}")
+
+#         message = response.choices[0].message
+#         content = getattr(message, "content", None)
+
+#         if isinstance(content, str):
+#             return content.strip()
+
+#         if isinstance(content, list):
+#             parts = []
+#             for item in content:
+#                 if isinstance(item, dict) and item.get("type") == "text":
+#                     parts.append(item.get("text", ""))
+#                 else:
+#                     text = getattr(item, "text", None)
+#                     if text:
+#                         parts.append(text)
+#             joined = "".join(parts).strip()
+#             if joined:
+#                 return joined
+
+#         raise RuntimeError(f"{self.provider} returned empty message content: {response}")
+
+#     def _request(self, client, model: str, provider: str, system_prompt: str, user_prompt: str) -> str:
+#         self.provider = provider
+#         print(f"[LLM] Provider: {provider}")
+#         print(f"[LLM] Model: {model}")
+#         print("[LLM] Sending request...")
+
+#         response = client.chat.completions.create(
+#             model=model,
+#             temperature=0,
+#             messages=[
+#                 {"role": "system", "content": system_prompt},
+#                 {"role": "user", "content": user_prompt},
+#             ],
+#             timeout=60,
+#         )
+
+#         print("[LLM] Response received.")
+#         return self._extract_content(response)
+
+#     def generate(self, system_prompt: str, user_prompt: str) -> str:
+#         primary_error = None
+
+#         try:
+#             return self._request(
+#                 client=self.primary_client,
+#                 model=self.primary_model,
+#                 provider=self.primary_provider,
+#                 system_prompt=system_prompt,
+#                 user_prompt=user_prompt,
+#             )
+#         except Exception as e:
+#             primary_error = e
+#             print(f"[LLM] Primary provider failed ({self.primary_provider}): {e}")
+#             print(f"[LLM] Falling back to {self.fallback_provider}...")
+
+#         try:
+#             return self._request(
+#                 client=self.fallback_client,
+#                 model=self.fallback_model,
+#                 provider=self.fallback_provider,
+#                 system_prompt=system_prompt,
+#                 user_prompt=user_prompt,
+#             )
+#         except Exception as fallback_error:
+#             print(f"[LLM] Fallback provider failed ({self.fallback_provider}): {fallback_error}")
+#             raise RuntimeError(
+#                 f"Both providers failed. "
+#                 f"Primary ({self.primary_provider}): {primary_error} | "
+#                 f"Fallback ({self.fallback_provider}): {fallback_error}"
+#             )
 class CodexLLMClient:
     """
-    Uses Groq, OpenRouter, Mistral, or NVIDIA NIM based on LLM_PROVIDER.
-
-    Supported providers:
-    - groq
-    - openrouter
-    - mistral
-    - nim
+    Primary provider: NVIDIA NIM
+    Fallback provider: Mistral
     """
 
     def __init__(self, model: Optional[str] = None):
-        self.provider = os.getenv("LLM_PROVIDER", "groq").lower()
+        self.primary_provider = os.getenv("PRIMARY_LLM_PROVIDER", "nim").lower()
+        self.fallback_provider = os.getenv("FALLBACK_LLM_PROVIDER", "mistral").lower()
 
-        if self.provider == "groq":
+        self.primary_model, self.primary_client = self._build_provider_client(
+            provider=self.primary_provider,
+            model_override=model
+        )
+        self.fallback_model, self.fallback_client = self._build_provider_client(
+            provider=self.fallback_provider,
+            model_override=None
+        )
+
+        # keep these so old code that expects self.provider/self.model/self.client will not break
+        self.provider = self.primary_provider
+        self.model = self.primary_model
+        self.client = self.primary_client
+
+    def _build_provider_client(self, provider: str, model_override: Optional[str] = None):
+        if provider == "groq":
             api_key = os.getenv("GROQ_API_KEY")
             if not api_key:
                 raise ValueError("GROQ_API_KEY is not set. Please add it to your .env file.")
+            model = model_override or os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+            client = Groq(api_key=api_key)
+            return model, client
 
-            self.model = model or os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
-            self.client = Groq(api_key=api_key)
-
-        elif self.provider == "openrouter":
+        elif provider == "openrouter":
             api_key = os.getenv("OPENROUTER_API_KEY")
             if not api_key:
                 raise ValueError("OPENROUTER_API_KEY is not set. Please add it to your .env file.")
-
-            self.model = model or os.getenv("OPENROUTER_MODEL", "openrouter/free")
-            self.client = OpenAI(
+            model = model_override or os.getenv("OPENROUTER_MODEL", "openrouter/free")
+            client = OpenAI(
                 api_key=api_key,
                 base_url="https://openrouter.ai/api/v1",
             )
+            return model, client
 
-        elif self.provider == "mistral":
+        elif provider == "mistral":
             api_key = os.getenv("MISTRAL_API_KEY")
             if not api_key:
                 raise ValueError("MISTRAL_API_KEY is not set. Please add it to your .env file.")
-
-            self.model = model or os.getenv("MISTRAL_MODEL", "mistral-small-latest")
-            self.client = OpenAI(
+            model = model_override or os.getenv("MISTRAL_MODEL", "mistral-small-latest")
+            client = OpenAI(
                 api_key=api_key,
                 base_url="https://api.mistral.ai/v1",
             )
-        
-        elif self.provider == "nim":
+            return model, client
+
+        elif provider == "nim":
             api_key = os.getenv("NIM_API_KEY")
             if not api_key:
                 raise ValueError("NIM_API_KEY is not set. Please add it to your .env file.")
-
-            self.model = model or os.getenv("NIM_MODEL", "meta/llama-3.1-8b-instruct")
-            self.client = OpenAI(
+            model = model_override or os.getenv("NIM_MODEL", "meta/llama-3.1-8b-instruct")
+            client = OpenAI(
                 api_key=api_key,
                 base_url="https://integrate.api.nvidia.com/v1",
             )
+            return model, client
 
         else:
-            raise ValueError(f"Unsupported LLM_PROVIDER: {self.provider}")
+            raise ValueError(f"Unsupported provider: {provider}")
+
+    def _extract_content(self, response) -> str:
+        if not getattr(response, "choices", None):
+            raise RuntimeError(f"{self.provider} returned no choices: {response}")
+
+        message = response.choices[0].message
+        content = getattr(message, "content", None)
+
+        if isinstance(content, str):
+            return content.strip()
+
+        if isinstance(content, list):
+            parts = []
+            for item in content:
+                if isinstance(item, dict) and item.get("type") == "text":
+                    parts.append(item.get("text", ""))
+                else:
+                    text = getattr(item, "text", None)
+                    if text:
+                        parts.append(text)
+            joined = "".join(parts).strip()
+            if joined:
+                return joined
+
+        raise RuntimeError(f"{self.provider} returned empty message content: {response}")
+
+    def _request(self, client, model: str, provider: str, system_prompt: str, user_prompt: str) -> str:
+        self.provider = provider
+        self.model = model
+        self.client = client
+
+        print(f"[LLM] Provider: {provider}")
+        print(f"[LLM] Model: {model}")
+        print("[LLM] Sending request...")
+
+        response = client.chat.completions.create(
+            model=model,
+            temperature=0,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            timeout=60,
+        )
+
+        print("[LLM] Response received.")
+        return self._extract_content(response)
 
     def generate(self, system_prompt: str, user_prompt: str) -> str:
-        # response = self.client.chat.completions.create(
-        #     model=self.model,
-        #     temperature=0,
-        #     messages=[
-        #         {"role": "system", "content": system_prompt},
-        #         {"role": "user", "content": user_prompt},
-        #     ],
-        # )
+        primary_error = None
+
+        try:
+            return self._request(
+                client=self.primary_client,
+                model=self.primary_model,
+                provider=self.primary_provider,
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+            )
+        except Exception as e:
+            primary_error = e
+            print(f"[LLM] Primary provider failed ({self.primary_provider}): {e}")
+            print(f"[LLM] Falling back to {self.fallback_provider}...")
+
+        try:
+            return self._request(
+                client=self.fallback_client,
+                model=self.fallback_model,
+                provider=self.fallback_provider,
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
+            )
+        except Exception as fallback_error:
+            print(f"[LLM] Fallback provider failed ({self.fallback_provider}): {fallback_error}")
+            raise RuntimeError(
+                f"Both providers failed. "
+                f"Primary ({self.primary_provider}): {primary_error} | "
+                f"Fallback ({self.fallback_provider}): {fallback_error}"
+            )
+
+    # def generate(self, system_prompt: str, user_prompt: str) -> str:
+    #     # response = self.client.chat.completions.create(
+    #     #     model=self.model,
+    #     #     temperature=0,
+    #     #     messages=[
+    #     #         {"role": "system", "content": system_prompt},
+    #     #         {"role": "user", "content": user_prompt},
+    #     #     ],
+    #     # )
+    #     try:
+    #         response = self.client.chat.completions.create(
+    #             model=self.model,
+    #             temperature=0,
+    #             messages=[
+    #                 {"role": "system", "content": system_prompt},
+    #                 {"role": "user", "content": user_prompt},
+    #             ],
+    #         )
+    #     except Exception as e:
+    #         raise RuntimeError(f"{self.provider} request failed: {e}")
+
+
+    #     # print("DEBUG raw response:", response)
+
+    #     if not getattr(response, "choices", None):
+    #         raise RuntimeError(f"{self.provider} returned no choices: {response}")
+
+    #     message = response.choices[0].message
+    #     content = getattr(message, "content", None)
+
+    #     if isinstance(content, str):
+    #         return content.strip()
+
+    #     if isinstance(content, list):
+    #         parts = []
+    #         for item in content:
+    #             if isinstance(item, dict) and item.get("type") == "text":
+    #                 parts.append(item.get("text", ""))
+    #             else:
+    #                 text = getattr(item, "text", None)
+    #                 if text:
+    #                     parts.append(text)
+    #         joined = "".join(parts).strip()
+    #         if joined:
+    #             return joined
+
+    #     raise RuntimeError(f"{self.provider} returned empty message content: {response}")
+    def generate(self, system_prompt: str, user_prompt: str) -> str:
+        print(f"[LLM] Provider: {self.provider}")
+        print(f"[LLM] Model: {self.model}")
+        print("[LLM] Sending request...")
+
         try:
             response = self.client.chat.completions.create(
                 model=self.model,
@@ -172,12 +457,12 @@ class CodexLLMClient:
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt},
                 ],
+                timeout=60,
             )
+            print("[LLM] Response received.")
         except Exception as e:
+            print(f"[LLM] Request failed: {e}")
             raise RuntimeError(f"{self.provider} request failed: {e}")
-
-
-        # print("DEBUG raw response:", response)
 
         if not getattr(response, "choices", None):
             raise RuntimeError(f"{self.provider} returned no choices: {response}")

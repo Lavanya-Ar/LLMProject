@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 from groq import Groq
 from openai import OpenAI
 
+from content_extraction import CodexLLMClient
+
 load_dotenv(override=True)
 
 
@@ -100,52 +102,185 @@ def infer_topic_heuristic(segment_text: str, segment_id: int) -> str:
 
     return topic if topic else f"Segment {segment_id}"
 
-class TopicLabeler:
-    def __init__(self, model: Optional[str] = None):
-        # api_key = os.getenv("GROQ_API_KEY")
-        # if not api_key:
-        #     raise ValueError("GROQ_API_KEY is not set. Please add it to your .env file.")
+# class TopicLabeler:
+#     # def __init__(self, model: Optional[str] = None):
+#         # api_key = os.getenv("GROQ_API_KEY")
+#         # if not api_key:
+#         #     raise ValueError("GROQ_API_KEY is not set. Please add it to your .env file.")
 
-        # self.model = model or os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
-        # self.client = Groq(api_key=api_key)
-        self.provider = os.getenv("LLM_PROVIDER", "groq").lower()
+#         # self.model = model or os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+#         # self.client = Groq(api_key=api_key)
+#         # self.provider = os.getenv("LLM_PROVIDER", "groq").lower()
 
-        if self.provider == "groq":
-            api_key = os.getenv("GROQ_API_KEY")
-            if not api_key:
-                raise ValueError("GROQ_API_KEY is not set. Please add it to your .env file.")
-            self.model = model or os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
-            self.client = Groq(api_key=api_key)
+#         # if self.provider == "groq":
+#         #     api_key = os.getenv("GROQ_API_KEY")
+#         #     if not api_key:
+#         #         raise ValueError("GROQ_API_KEY is not set. Please add it to your .env file.")
+#         #     self.model = model or os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+#         #     self.client = Groq(api_key=api_key)
 
-        elif self.provider == "openrouter":
-            api_key = os.getenv("OPENROUTER_API_KEY")
-            if not api_key:
-                raise ValueError("OPENROUTER_API_KEY is not set. Please add it to your .env file.")
-            self.model = model or os.getenv("OPENROUTER_MODEL", "openrouter/free")
-            self.client = OpenAI(
-                api_key=api_key,
-                base_url="https://openrouter.ai/api/v1",
-            )
-        elif self.provider == "mistral":
-            api_key = os.getenv("MISTRAL_API_KEY")
-            if not api_key:
-                raise ValueError("MISTRAL_API_KEY is not set. Please add it to your .env file.")
-            self.model = model or os.getenv("MISTRAL_MODEL", "mistral-small-latest")
-            self.client = OpenAI(
-                api_key=api_key,
-                base_url="https://api.mistral.ai/v1",
-            )
-        elif self.provider == "nim":
-            api_key = os.getenv("NIM_API_KEY")
-            if not api_key:
-                raise ValueError("NIM_API_KEY is not set. Please add it to your .env file.")
-            self.model = model or os.getenv("NIM_MODEL", "meta/llama-3.1-8b-instruct")
-            self.client = OpenAI(
-                api_key=api_key,
-                base_url="https://integrate.api.nvidia.com/v1",
-            )
-        else:
-            raise ValueError(f"Unsupported LLM_PROVIDER: {self.provider}")
+#         # elif self.provider == "openrouter":
+#         #     api_key = os.getenv("OPENROUTER_API_KEY")
+#         #     if not api_key:
+#         #         raise ValueError("OPENROUTER_API_KEY is not set. Please add it to your .env file.")
+#         #     self.model = model or os.getenv("OPENROUTER_MODEL", "openrouter/free")
+#         #     self.client = OpenAI(
+#         #         api_key=api_key,
+#         #         base_url="https://openrouter.ai/api/v1",
+#         #     )
+#         # elif self.provider == "mistral":
+#         #     api_key = os.getenv("MISTRAL_API_KEY")
+#         #     if not api_key:
+#         #         raise ValueError("MISTRAL_API_KEY is not set. Please add it to your .env file.")
+#         #     self.model = model or os.getenv("MISTRAL_MODEL", "mistral-small-latest")
+#         #     self.client = OpenAI(
+#         #         api_key=api_key,
+#         #         base_url="https://api.mistral.ai/v1",
+#         #     )
+#         # elif self.provider == "nim":
+#         #     api_key = os.getenv("NIM_API_KEY")
+#         #     if not api_key:
+#         #         raise ValueError("NIM_API_KEY is not set. Please add it to your .env file.")
+#         #     self.model = model or os.getenv("NIM_MODEL", "meta/llama-3.1-8b-instruct")
+#         #     self.client = OpenAI(
+#         #         api_key=api_key,
+#         #         base_url="https://integrate.api.nvidia.com/v1",
+#         #     )
+#         # else:
+#         #     raise ValueError(f"Unsupported LLM_PROVIDER: {self.provider}")
+#     def __init__(self, model: Optional[str] = None):
+#             self.llm = CodexLLMClient(model=model)
+
+# #     def generate_topic(self, segment_text: str, segment_id: int) -> str:
+# #         """
+# #         Generate a short lecture-style topic title for one segment.
+# #         """
+# #         truncated_text = segment_text[:1800]
+
+# #         system_prompt = """
+# # You label lecture transcript segments with short topic titles.
+
+# # Return ONLY the topic title as plain text.
+# # Do not return JSON.
+# # Do not return quotes.
+# # Do not return explanations.
+
+# # Rules:
+# # - 2 to 6 words only
+# # - Use lecture-style wording
+# # - Focus on the main technical concept
+# # - Avoid filler words, numbers, and sentence fragments
+# # - Avoid generic titles like "Introduction" or "Example" unless truly appropriate
+# # """.strip()
+
+# #         user_prompt = f"""Transcript segment:
+# # {truncated_text}
+
+# # Write one short topic title only."""
+
+# #         try:
+# #         #     response = self.client.chat.completions.create(
+# #         #         model=self.model,
+# #         #         temperature=0,
+# #         #         messages=[
+# #         #             {"role": "system", "content": system_prompt},
+# #         #             {"role": "user", "content": user_prompt},
+# #         #         ],
+# #         #     )
+
+# #         #     topic = response.choices[0].message.content.strip()
+# #         #     topic = topic.replace('"', "").replace("'", "").strip()
+# #         #     topic = re.sub(r"\s+", " ", topic)
+
+# #         #     if not topic or len(topic.split()) > 8:
+# #         #         return infer_topic_heuristic(segment_text, segment_id)
+
+# #         #     return topic
+
+# #         # except Exception:
+# #         #     return infer_topic_heuristic(segment_text, segment_id)
+# #             if self.provider in {"groq", "openrouter"}:
+# #                 response = self.client.chat.completions.create(
+# #                     model=self.model,
+# #                     temperature=0,
+# #                     messages=[
+# #                         {"role": "system", "content": system_prompt},
+# #                         {"role": "user", "content": user_prompt},
+# #                     ],
+# #                 )
+# #                 topic = response.choices[0].message.content.strip()
+
+# #             elif self.provider == "gemini":
+# #                 prompt = f"""System instruction:
+# #             {system_prompt}
+
+# #             User request:
+# #             {user_prompt}
+# #             """
+# #                 response = self.client.models.generate_content(
+# #                     model=self.model,
+# #                     contents=prompt,
+# #                 )
+# #                 topic = response.text.strip()
+
+# #             else:
+# #                 return infer_topic_heuristic(segment_text, segment_id)
+# #         except Exception:
+# #             return infer_topic_heuristic(segment_text, segment_id)
+
+#     # def generate_topic(self, segment_text: str, segment_id: int) -> str:
+#     #     """
+#     #     Generate a short lecture-style topic title for one segment.
+#     #     """
+#     #     truncated_text = segment_text[:1800]
+
+#     #     system_prompt = """
+#     # You label lecture transcript segments with short topic titles.
+
+#     # Return ONLY the topic title as plain text.
+#     # Do not return JSON.
+#     # Do not return quotes.
+#     # Do not return explanations.
+
+#     # Rules:
+#     # - 2 to 6 words only
+#     # - Use lecture-style wording
+#     # - Focus on the main technical concept
+#     # - Avoid filler words, numbers, and sentence fragments
+#     # - Avoid generic titles like "Introduction" or "Example" unless truly appropriate
+#     # """.strip()
+
+#     #     user_prompt = f"""Transcript segment:
+#     # {truncated_text}
+
+#     # Write one short topic title only."""
+
+#     #     try:
+#     #         response = self.client.chat.completions.create(
+#     #             model=self.model,
+#     #             temperature=0,
+#     #             messages=[
+#     #                 {"role": "system", "content": system_prompt},
+#     #                 {"role": "user", "content": user_prompt},
+#     #             ],
+#     #         )
+#     #         topic = response.choices[0].message.content
+
+#     #         if not isinstance(topic, str):
+#     #             return infer_topic_heuristic(segment_text, segment_id)
+
+#     #         topic = topic.strip()
+#     #         topic = topic.replace('"', "").replace("'", "").strip()
+#     #         topic = re.sub(r"\s+", " ", topic)
+
+#     #         if not topic or len(topic.split()) > 8:
+#     #             return infer_topic_heuristic(segment_text, segment_id)
+
+#     #         return topic
+
+#     #     except Exception as e:
+#     #         print(f"Topic generation failed for segment {segment_id}: {e}")
+#     #         return infer_topic_heuristic(segment_text, segment_id)
 
 #     def generate_topic(self, segment_text: str, segment_id: int) -> str:
 #         """
@@ -154,25 +289,25 @@ class TopicLabeler:
 #         truncated_text = segment_text[:1800]
 
 #         system_prompt = """
-# You label lecture transcript segments with short topic titles.
+#     You label lecture transcript segments with short topic titles.
 
-# Return ONLY the topic title as plain text.
-# Do not return JSON.
-# Do not return quotes.
-# Do not return explanations.
+#     Return ONLY the topic title as plain text.
+#     Do not return JSON.
+#     Do not return quotes.
+#     Do not return explanations.
 
-# Rules:
-# - 2 to 6 words only
-# - Use lecture-style wording
-# - Focus on the main technical concept
-# - Avoid filler words, numbers, and sentence fragments
-# - Avoid generic titles like "Introduction" or "Example" unless truly appropriate
-# """.strip()
+#     Rules:
+#     - 2 to 6 words only
+#     - Use lecture-style wording
+#     - Focus on the main technical concept
+#     - Avoid filler words, numbers, and sentence fragments
+#     - Avoid generic titles like "Introduction" or "Example" unless truly appropriate
+#     """.strip()
 
 #         user_prompt = f"""Transcript segment:
-# {truncated_text}
+#     {truncated_text}
 
-# Write one short topic title only."""
+#     Write one short topic title only."""
 
 #         try:
 #         #     response = self.client.chat.completions.create(
@@ -184,7 +319,27 @@ class TopicLabeler:
 #         #         ],
 #         #     )
 
-#         #     topic = response.choices[0].message.content.strip()
+#         #     if not getattr(response, "choices", None):
+#         #         return infer_topic_heuristic(segment_text, segment_id)
+
+#         #     message = response.choices[0].message
+#         #     content = getattr(message, "content", None)
+
+#         #     if isinstance(content, str):
+#         #         topic = content.strip()
+#         #     elif isinstance(content, list):
+#         #         parts = []
+#         #         for item in content:
+#         #             if isinstance(item, dict) and item.get("type") == "text":
+#         #                 parts.append(item.get("text", ""))
+#         #             else:
+#         #                 text = getattr(item, "text", None)
+#         #                 if text:
+#         #                     parts.append(text)
+#         #         topic = "".join(parts).strip()
+#         #     else:
+#         #         return infer_topic_heuristic(segment_text, segment_id)
+
 #         #     topic = topic.replace('"', "").replace("'", "").strip()
 #         #     topic = re.sub(r"\s+", " ", topic)
 
@@ -193,90 +348,25 @@ class TopicLabeler:
 
 #         #     return topic
 
-#         # except Exception:
+#         # except Exception as e:
+#         #     print(f"Topic generation failed for segment {segment_id}: {e}")
 #         #     return infer_topic_heuristic(segment_text, segment_id)
-#             if self.provider in {"groq", "openrouter"}:
-#                 response = self.client.chat.completions.create(
-#                     model=self.model,
-#                     temperature=0,
-#                     messages=[
-#                         {"role": "system", "content": system_prompt},
-#                         {"role": "user", "content": user_prompt},
-#                     ],
-#                 )
-#                 topic = response.choices[0].message.content.strip()
+#             topic = self.llm.generate(system_prompt, user_prompt)
+#             topic = topic.replace('"', "").replace("'", "").strip()
+#             topic = re.sub(r"\s+", " ", topic)
 
-#             elif self.provider == "gemini":
-#                 prompt = f"""System instruction:
-#             {system_prompt}
-
-#             User request:
-#             {user_prompt}
-#             """
-#                 response = self.client.models.generate_content(
-#                     model=self.model,
-#                     contents=prompt,
-#                 )
-#                 topic = response.text.strip()
-
-#             else:
+#             if not topic or len(topic.split()) > 8:
 #                 return infer_topic_heuristic(segment_text, segment_id)
-#         except Exception:
+
+#             return topic
+
+#         except Exception as e:
+#             print(f"Topic generation failed for segment {segment_id}: {e}")
 #             return infer_topic_heuristic(segment_text, segment_id)
 
-    # def generate_topic(self, segment_text: str, segment_id: int) -> str:
-    #     """
-    #     Generate a short lecture-style topic title for one segment.
-    #     """
-    #     truncated_text = segment_text[:1800]
-
-    #     system_prompt = """
-    # You label lecture transcript segments with short topic titles.
-
-    # Return ONLY the topic title as plain text.
-    # Do not return JSON.
-    # Do not return quotes.
-    # Do not return explanations.
-
-    # Rules:
-    # - 2 to 6 words only
-    # - Use lecture-style wording
-    # - Focus on the main technical concept
-    # - Avoid filler words, numbers, and sentence fragments
-    # - Avoid generic titles like "Introduction" or "Example" unless truly appropriate
-    # """.strip()
-
-    #     user_prompt = f"""Transcript segment:
-    # {truncated_text}
-
-    # Write one short topic title only."""
-
-    #     try:
-    #         response = self.client.chat.completions.create(
-    #             model=self.model,
-    #             temperature=0,
-    #             messages=[
-    #                 {"role": "system", "content": system_prompt},
-    #                 {"role": "user", "content": user_prompt},
-    #             ],
-    #         )
-    #         topic = response.choices[0].message.content
-
-    #         if not isinstance(topic, str):
-    #             return infer_topic_heuristic(segment_text, segment_id)
-
-    #         topic = topic.strip()
-    #         topic = topic.replace('"', "").replace("'", "").strip()
-    #         topic = re.sub(r"\s+", " ", topic)
-
-    #         if not topic or len(topic.split()) > 8:
-    #             return infer_topic_heuristic(segment_text, segment_id)
-
-    #         return topic
-
-    #     except Exception as e:
-    #         print(f"Topic generation failed for segment {segment_id}: {e}")
-    #         return infer_topic_heuristic(segment_text, segment_id)
+class TopicLabeler:
+    def __init__(self, model: Optional[str] = None):
+        self.llm = CodexLLMClient(model=model)
 
     def generate_topic(self, segment_text: str, segment_id: int) -> str:
         """
@@ -285,57 +375,28 @@ class TopicLabeler:
         truncated_text = segment_text[:1800]
 
         system_prompt = """
-    You label lecture transcript segments with short topic titles.
+You label lecture transcript segments with short topic titles.
 
-    Return ONLY the topic title as plain text.
-    Do not return JSON.
-    Do not return quotes.
-    Do not return explanations.
+Return ONLY the topic title as plain text.
+Do not return JSON.
+Do not return quotes.
+Do not return explanations.
 
-    Rules:
-    - 2 to 6 words only
-    - Use lecture-style wording
-    - Focus on the main technical concept
-    - Avoid filler words, numbers, and sentence fragments
-    - Avoid generic titles like "Introduction" or "Example" unless truly appropriate
-    """.strip()
+Rules:
+- 2 to 6 words only
+- Use lecture-style wording
+- Focus on the main technical concept
+- Avoid filler words, numbers, and sentence fragments
+- Avoid generic titles like "Introduction" or "Example" unless truly appropriate
+""".strip()
 
         user_prompt = f"""Transcript segment:
-    {truncated_text}
+{truncated_text}
 
-    Write one short topic title only."""
+Write one short topic title only."""
 
         try:
-            response = self.client.chat.completions.create(
-                model=self.model,
-                temperature=0,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt},
-                ],
-            )
-
-            if not getattr(response, "choices", None):
-                return infer_topic_heuristic(segment_text, segment_id)
-
-            message = response.choices[0].message
-            content = getattr(message, "content", None)
-
-            if isinstance(content, str):
-                topic = content.strip()
-            elif isinstance(content, list):
-                parts = []
-                for item in content:
-                    if isinstance(item, dict) and item.get("type") == "text":
-                        parts.append(item.get("text", ""))
-                    else:
-                        text = getattr(item, "text", None)
-                        if text:
-                            parts.append(text)
-                topic = "".join(parts).strip()
-            else:
-                return infer_topic_heuristic(segment_text, segment_id)
-
+            topic = self.llm.generate(system_prompt, user_prompt)
             topic = topic.replace('"', "").replace("'", "").strip()
             topic = re.sub(r"\s+", " ", topic)
 

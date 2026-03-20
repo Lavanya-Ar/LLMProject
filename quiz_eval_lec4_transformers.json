@@ -1,0 +1,71 @@
+{
+  "lecture_id": "lec4_transformers",
+  "original_question_count": 4,
+  "kept_question_count": 4,
+  "results": [
+    {
+      "question_id": "lec4_transformers_s2_q1",
+      "segment_id": 2,
+      "topic": "BPE Merging Procedure",
+      "question": "What is the primary step in the BPE Merging Procedure to build a subword vocabulary?",
+      "evaluation": {
+        "groundedness": 5,
+        "clarity": 5,
+        "single_correctness": 5,
+        "distractor_quality": 4,
+        "difficulty_fit": 5,
+        "hallucinated": false,
+        "decision": "keep",
+        "notes": "The question directly aligns with the BPE Merging Procedure concept, options are clear, and distractors (especially B) are plausible but incorrect. Difficulty matches the medium level as it tests core understanding without overcomplication."
+      }
+    },
+    {
+      "question_id": "lec4_transformers_s3_q1",
+      "segment_id": 3,
+      "topic": "Begin of Sequence Token",
+      "question": "What is the primary function of the Begin of Sequence Token in a transformer model?",
+      "evaluation": {
+        "groundedness": 5,
+        "clarity": 5,
+        "single_correctness": 5,
+        "distractor_quality": 5,
+        "difficulty_fit": 5,
+        "hallucinated": false,
+        "decision": "keep",
+        "notes": "The question directly tests the definition of the Begin of Sequence Token with clear, unambiguous options. All distractors correspond to other explicitly mentioned concepts (End of Sequence Token, Encoder, Decoder), making them plausible but incorrect. Difficulty aligns with the 'easy' label as it requires basic recall of a defined term."
+      }
+    },
+    {
+      "question_id": "lec4_transformers_s4_q1",
+      "segment_id": 4,
+      "topic": "Context Vector (C)",
+      "question": "What is the primary purpose of incorporating the context vector (C) in the decoder's hidden state calculation during sequence-to-sequence translation?",
+      "evaluation": {
+        "groundedness": 5,
+        "clarity": 5,
+        "single_correctness": 5,
+        "distractor_quality": 4,
+        "difficulty_fit": 5,
+        "hallucinated": false,
+        "decision": "keep",
+        "notes": "The question directly aligns with the context vector's definition in the transcript and concepts. All options are plausible but only A is explicitly supported by the material. Difficulty level matches the concept's medium rating."
+      }
+    },
+    {
+      "question_id": "lec4_transformers_s5_q1",
+      "segment_id": 5,
+      "topic": "Weighted Context Vector",
+      "question": "What is the primary function of a weighted context vector in the translation process described?",
+      "evaluation": {
+        "groundedness": 5,
+        "clarity": 5,
+        "single_correctness": 5,
+        "distractor_quality": 4,
+        "difficulty_fit": 5,
+        "hallucinated": false,
+        "decision": "keep",
+        "notes": "Question accurately reflects the transcript's explanation of weighted context vectors applying different weights to encoder states per decoder state. Distractors are plausible but clearly incorrect. Difficulty matches the medium-rated concept."
+      }
+    }
+  ]
+}

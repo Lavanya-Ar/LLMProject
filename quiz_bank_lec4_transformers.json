@@ -1,0 +1,96 @@
+{
+  "lecture_id": "lec4_transformers",
+  "title": "lec4_transformers",
+  "difficulty_filter": "mixed",
+  "total_questions": 4,
+  "questions": [
+    {
+      "question_id": "lec4_transformers_s2_q1",
+      "lecture_id": "lec4_transformers",
+      "segment_id": 2,
+      "topic": "BPE Merging Procedure",
+      "question_type": "understanding",
+      "difficulty": "medium",
+      "concept_ids": [
+        "lec4_transformers_s2_c1"
+      ],
+      "question": "What is the primary step in the BPE Merging Procedure to build a subword vocabulary?",
+      "options": {
+        "A": "Merge the most frequent subword pairs iteratively",
+        "B": "Split all words into individual characters",
+        "C": "Assign random embeddings to unknown words",
+        "D": "Update word frequencies based on context similarity"
+      },
+      "correct_answer": "A",
+      "correct_option_text": "Merge the most frequent subword pairs iteratively",
+      "explanation": "The BPE Merging Procedure specifically involves iteratively merging the most frequent subword pairs to expand the vocabulary. This process reduces the number of unique tokens while preserving meaningful subword units.",
+      "evidence": "merge the most frequently, up here, the way"
+    },
+    {
+      "question_id": "lec4_transformers_s3_q1",
+      "lecture_id": "lec4_transformers",
+      "segment_id": 3,
+      "topic": "Begin of Sequence Token",
+      "question_type": "understanding",
+      "difficulty": "easy",
+      "concept_ids": [
+        "lec4_transformers_s3_c1"
+      ],
+      "question": "What is the primary function of the Begin of Sequence Token in a transformer model?",
+      "options": {
+        "A": "Initiate the generation process by signaling the start of a sequence",
+        "B": "Signal the termination of a sequence during generation",
+        "C": "Encode input data into internal vector representations",
+        "D": "Generate output tokens based on contextual information"
+      },
+      "correct_answer": "A",
+      "correct_option_text": "Initiate the generation process by signaling the start of a sequence",
+      "explanation": "The Begin of Sequence Token is a special marker used to indicate the start of a sequence, enabling the model to commence the generation process. This aligns with the lecture's description of its role in initiating token prediction.",
+      "evidence": "special token, called Begin of Sequence"
+    },
+    {
+      "question_id": "lec4_transformers_s4_q1",
+      "lecture_id": "lec4_transformers",
+      "segment_id": 4,
+      "topic": "Context Vector (C)",
+      "question_type": "understanding",
+      "difficulty": "medium",
+      "concept_ids": [
+        "lec4_transformers_s4_c1"
+      ],
+      "question": "What is the primary purpose of incorporating the context vector (C) in the decoder's hidden state calculation during sequence-to-sequence translation?",
+      "options": {
+        "A": "To retain critical information from the entire input sequence when generating the target output",
+        "B": "To accelerate the translation process by reducing computational complexity",
+        "C": "To handle rare vocabulary words not present in the training data",
+        "D": "To synchronize the encoder and decoder processing timelines"
+      },
+      "correct_answer": "A",
+      "correct_option_text": "To retain critical information from the entire input sequence when generating the target output",
+      "explanation": "The context vector (C) serves as a compressed representation of the input sequence's essential information, ensuring the decoder maintains access to this context throughout the generation process, particularly for long sequences where earlier information might otherwise be forgotten.",
+      "evidence": "hidden state not only affected by the input and the previous hidden state, but also the context vector we call it C"
+    },
+    {
+      "question_id": "lec4_transformers_s5_q1",
+      "lecture_id": "lec4_transformers",
+      "segment_id": 5,
+      "topic": "Weighted Context Vector",
+      "question_type": "understanding",
+      "difficulty": "medium",
+      "concept_ids": [
+        "lec4_transformers_s5_c1"
+      ],
+      "question": "What is the primary function of a weighted context vector in the translation process described?",
+      "options": {
+        "A": "To combine all encoder hidden states equally for every decoder state",
+        "B": "To compute attention weights using additive mechanisms with learned parameters",
+        "C": "To directly map decoder states to output words without contextual information",
+        "D": "To apply different weights to encoder hidden states for each decoder state, enabling focus on relevant input parts"
+      },
+      "correct_answer": "D",
+      "correct_option_text": "To apply different weights to encoder hidden states for each decoder state, enabling focus on relevant input parts",
+      "explanation": "The weighted context vector allows each decoder hidden state to dynamically emphasize specific encoder hidden states (e.g., words in the source sentence) during translation, ensuring relevant contextual information is prioritized for predicting target words.",
+      "evidence": "weighted sum of hidden state HG"
+    }
+  ]
+}

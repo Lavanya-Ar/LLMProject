@@ -21,3 +21,6 @@ __pycache__/
 segments_*.json
 concepts_*.json
 concept_eval.json
+quiz_bank_lec4_transformers.bak_*.json
+quiz_bank_lec4_transformers_filtered.bak_*.json
+quiz_eval_lec4_transformers.bak_*.json
