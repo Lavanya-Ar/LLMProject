@@ -248,6 +248,23 @@ def save_json(data: object, path_str: str) -> None:
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
+def get_eval_model_for_provider(provider: str) -> str:
+    explicit = os.getenv("EVAL_MODEL", "").strip()
+    if explicit:
+        return explicit
+
+    if provider == "openrouter":
+        return os.getenv("OPENROUTER_EVAL_MODEL", os.getenv("OPENROUTER_MODEL", "openrouter/free"))
+    if provider == "mistral":
+        return os.getenv("MISTRAL_EVAL_MODEL", os.getenv("MISTRAL_MODEL", "mistral-small-latest"))
+    if provider == "nim":
+        return os.getenv("NIM_EVAL_MODEL", os.getenv("NIM_MODEL", "meta/llama-3.1-8b-instruct"))
+    if provider == "groq":
+        return os.getenv("GROQ_EVAL_MODEL", os.getenv("GROQ_MODEL", "llama-3.1-8b-instant"))
+
+    raise ValueError(f"Unsupported EVAL_LLM_PROVIDER: {provider}")
+
+
 def main() -> None:
     print("[START] run_quiz_generation.py")
 
@@ -321,11 +338,33 @@ def main() -> None:
     backup_existing(args.filtered_quiz_output)
 
     print("[STEP] Evaluating quiz bank...")
+    eval_provider = os.getenv("EVAL_LLM_PROVIDER", "openrouter").strip().lower()
+    eval_fallback_provider = os.getenv("EVAL_FALLBACK_LLM_PROVIDER", "").strip().lower() or None
+    eval_model = get_eval_model_for_provider(eval_provider)
+
+    eval_client = CodexLLMClient(
+        model=eval_model,
+        primary_provider=eval_provider,
+        fallback_provider=None,
+        enable_fallback=False,
+    )
+
+    eval_fallback_client = None
+    if eval_fallback_provider:
+        eval_fallback_model = get_eval_model_for_provider(eval_fallback_provider)
+        eval_fallback_client = CodexLLMClient(
+            model=eval_fallback_model,
+            primary_provider=eval_fallback_provider,
+            fallback_provider=None,
+            enable_fallback=False,
+        )
+
     evaluated = evaluate_quiz_bank(
         quiz_bank=quiz_bank,
         segments=segments,
         concepts_data=concepts,
-        client=client,
+        client=eval_client,
+        fallback_client=eval_fallback_client,
         sleep_between_calls=args.sleep_between_calls
     )
 

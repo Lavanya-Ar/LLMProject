@@ -278,6 +278,7 @@ def render_quiz_player(quiz_bank: Dict[str, Any]) -> None:
 
     if submit_clicked:
         st.session_state.submitted = True
+        st.rerun()
 
     if st.session_state.submitted:
         correct = 0
