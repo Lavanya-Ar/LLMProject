@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "lecture_id": "w8-llm-icl-eval-enriched",
+    "question_count": 3,
+    "difficulty": "mixed",
+    "topic_filter": "All",
+    "fallback_used": false,
+    "llm_attempts": 1,
+    "source_concept_count": 490,
+    "generator": "v2"
+  },
+  "questions": [
+    {
+      "question_id": "easy_uni_logo",
+      "lecture_id": "w8-llm-icl-eval-enriched",
+      "topic": "University branding visuals",
+      "difficulty": "easy",
+      "question": "Which of the following is defined as a visual symbol representing the Singapore University of Technology?",
+      "options": [
+        "A red border around a diagram",
+        "The logo for ST",
+        "A white sheet background",
+        "A new building structure"
+      ],
+      "answer_index": 1,
+      "explanation": "The correct answer is 'The logo for ST' as it is explicitly defined in the source material (concept w8-llm-icl-eval-enriched_s31_c1) as a visual symbol for the university. The other options describe elements like borders or buildings, which are part of branding visuals but not the logo itself.",
+      "source_concept_ids": [
+        "w8-llm-icl-eval-enriched_s31_c1"
+      ]
+    },
+    {
+      "question_id": "medium_incontext_learning",
+      "lecture_id": "w8-llm-icl-eval-enriched",
+      "topic": "LLM in-context learning evaluation",
+      "difficulty": "medium",
+      "question": "What does in-context learning involve according to the provided definition?",
+      "options": [
+        "Using examples in the input context without additional training",
+        "Requiring full retraining of the model for each task",
+        "Relying on external databases for information",
+        "Ignoring user prompts during processing"
+      ],
+      "answer_index": 0,
+      "explanation": "The correct answer is 'Using examples in the input context without additional training' as per concept w8-llm-icl-eval-enriched_s3_c1. The other options contradict the definition: in-context learning does not require retraining, external databases, or ignoring prompts.",
+      "source_concept_ids": [
+        "w8-llm-icl-eval-enriched_s3_c1"
+      ]
+    },
+    {
+      "question_id": "hard_bell_measurement",
+      "lecture_id": "w8-llm-icl-eval-enriched",
+      "topic": "Quantum entanglement overview",
+      "difficulty": "hard",
+      "question": "Which quantum measurement technique is specifically mentioned for verifying entanglement between particles?",
+      "options": [
+        "Bell state measurement",
+        "Schrödinger equation application",
+        "Heisenberg uncertainty principle",
+        "Quantum tunneling observation"
+      ],
+      "answer_index": 0,
+      "explanation": "The correct answer is 'Bell state measurement' as stated in concept w8-llm-icl-eval-enriched_s72_c2. The other options are quantum concepts but not specific measurements for entanglement verification. Schrödinger's equation describes system evolution, Heisenberg's principle addresses uncertainty, and quantum tunneling is a different phenomenon.",
+      "source_concept_ids": [
+        "w8-llm-icl-eval-enriched_s72_c2"
+      ]
+    }
+  ]
+}

@@ -255,34 +255,30 @@ class CodexLLMClient:
     Fallback provider: Mistral
     """
 
-    def __init__(
-        self,
-        model: Optional[str] = None,
-        primary_provider: Optional[str] = None,
-        fallback_provider: Optional[str] = None,
-        enable_fallback: bool = True,
-    ):
-        self.primary_provider = (primary_provider or os.getenv("PRIMARY_LLM_PROVIDER", "nim")).lower()
-        resolved_fallback = fallback_provider if fallback_provider is not None else os.getenv("FALLBACK_LLM_PROVIDER", "mistral")
-        self.fallback_provider = (resolved_fallback or "").lower()
-        self.enable_fallback = bool(enable_fallback and self.fallback_provider)
+    def __init__(self, model: Optional[str] = None):
+        self.primary_provider = os.getenv("PRIMARY_LLM_PROVIDER", "nim").lower()
+        self.fallback_provider = os.getenv("FALLBACK_LLM_PROVIDER", "mistral").lower()
+        self.default_timeout_seconds = float(os.getenv("LLM_TIMEOUT_SECONDS", "60"))
+        self.nim_timeout_seconds = float(os.getenv("NIM_TIMEOUT_SECONDS", os.getenv("LLM_TIMEOUT_SECONDS", "180")))
 
         self.primary_model, self.primary_client = self._build_provider_client(
             provider=self.primary_provider,
             model_override=model
         )
-        self.fallback_model = None
-        self.fallback_client = None
-        if self.enable_fallback:
-            self.fallback_model, self.fallback_client = self._build_provider_client(
-                provider=self.fallback_provider,
-                model_override=None
-            )
+        self.fallback_model, self.fallback_client = self._build_provider_client(
+            provider=self.fallback_provider,
+            model_override=None
+        )
 
         # keep these so old code that expects self.provider/self.model/self.client will not break
         self.provider = self.primary_provider
         self.model = self.primary_model
         self.client = self.primary_client
+
+    def _request_timeout(self, provider: str) -> float:
+        if provider == "nim":
+            return self.nim_timeout_seconds
+        return self.default_timeout_seconds
 
     def _build_provider_client(self, provider: str, model_override: Optional[str] = None):
         if provider == "groq":
@@ -358,6 +354,7 @@ class CodexLLMClient:
         self.provider = provider
         self.model = model
         self.client = client
+        timeout_seconds = self._request_timeout(provider)
 
         print(f"[LLM] Provider: {provider}")
         print(f"[LLM] Model: {model}")
@@ -370,7 +367,7 @@ class CodexLLMClient:
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
-            timeout=60,
+            timeout=timeout_seconds,
         )
 
         print("[LLM] Response received.")
@@ -390,11 +387,6 @@ class CodexLLMClient:
         except Exception as e:
             primary_error = e
             print(f"[LLM] Primary provider failed ({self.primary_provider}): {e}")
-            if not self.enable_fallback:
-                raise RuntimeError(
-                    f"Primary provider failed ({self.primary_provider}) and fallback is disabled: {e}"
-                )
-
             print(f"[LLM] Falling back to {self.fallback_provider}...")
 
         try:
@@ -702,8 +694,6 @@ def extract_key_concepts(
         topic = seg.get("topic", "")
 
         raw_concepts = _call_llm_for_concepts(client, text, topic)
-        generation_provider = str(getattr(client, "provider", "")).strip().lower()
-        generation_model = str(getattr(client, "model", "")).strip()
 
         concepts = []
 
@@ -749,8 +739,6 @@ def extract_key_concepts(
         results.append({
             "lecture_id": lecture_id,
             "segment_id": segment_id,
-            "generation_provider": generation_provider,
-            "generation_model": generation_model,
             "concepts": concepts
         })
 

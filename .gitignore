@@ -1,10 +1,11 @@
 .DS_Store
 *.mp4
 *.wav
+*.zip
 # Virtual environment
 .venv/
 venv/
-
+s
 # Environment variables
 .env
 

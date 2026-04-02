@@ -1,8 +1,8 @@
 {
   "metadata": {
     "lecture_id": "gmt20260319-005955-recording-1920x1080",
-    "question_count": 10,
-    "difficulty": "hard",
+    "question_count": 3,
+    "difficulty": "mixed",
     "topic_filter": "All",
     "fallback_used": false,
     "llm_attempts": 1,
@@ -11,186 +11,57 @@
   },
   "questions": [
     {
-      "question_id": "gmt20260319-005955-recording-1920x1080_q1",
+      "question_id": "easy_1",
       "lecture_id": "gmt20260319-005955-recording-1920x1080",
-      "topic": "Fine-tuning language model adaptation",
-      "difficulty": "hard",
-      "question": "Which of the following conditions must be met to justify fine-tuning a pre-trained language model for a specific task?",
+      "topic": "Instruction tuning necessity",
+      "difficulty": "easy",
+      "question": "Why does a base model trained only on pre-training data typically fail to follow human instructions?",
       "options": [
-        "The task requires external knowledge not present in the pre-training data.",
-        "The task requires new behavior or writing style, and sufficient training data or GPU resources are available.",
-        "The task can be solved by prompt engineering alone without modifying model parameters.",
-        "The task involves only text completion and does not require instruction-following behavior."
+        "It lacks fine-tuning on instruction-response pairs",
+        "It uses low-rank matrix decomposition",
+        "It was trained to perform text completion rather than instruction-following",
+        "It requires reinforcement learning from human feedback"
+      ],
+      "answer_index": 2,
+      "explanation": "The correct answer is option C because base models are trained on raw pre-training data with the objective of text completion, not instruction-following. Option A describes supervised fine-tuning (SFT), which addresses this limitation but is not the reason for the base model's behavior. Option B refers to LoRA, a parameter-efficient fine-tuning method unrelated to base model training. Option D involves RLHF, which is used for alignment after SFT.",
+      "source_concept_ids": [
+        "gmt20260319-005955-recording-1920x1080_s6_c3"
+      ]
+    },
+    {
+      "question_id": "medium_2",
+      "lecture_id": "gmt20260319-005955-recording-1920x1080",
+      "topic": "LoRA parameter tuning strategy",
+      "difficulty": "medium",
+      "question": "What is the recommended first step in tuning LoRA hyperparameters according to the lecture?",
+      "options": [
+        "Adjust the rank hyperparameter R",
+        "Optimize the learning rate",
+        "Modify the batch size",
+        "Change the matrix decomposition method"
       ],
       "answer_index": 1,
-      "explanation": "According to the lecture, fine-tuning should be considered only when a task requires new behavior or writing style and sufficient training data or GPU resources are available. The other options either describe scenarios where fine-tuning is unnecessary or conditions that do not align with the criteria provided.",
+      "explanation": "The correct answer is option B because the lecture explicitly states that hyperparameter tuning should start with optimizing the learning rate before adjusting the rank. Option A (adjusting rank) is the second step in the process. Options C and D are not mentioned in the source material as part of LoRA tuning strategy.",
       "source_concept_ids": [
-        "gmt20260319-005955-recording-1920x1080_s1_c3"
+        "gmt20260319-005955-recording-1920x1080_s4_c2"
       ]
     },
     {
-      "question_id": "gmt20260319-005955-recording-1920x1080_q2",
-      "lecture_id": "gmt20260319-005955-recording-1920x1080",
-      "topic": "Fine-tuning stages and costs",
-      "difficulty": "hard",
-      "question": "Which of the following best describes the role of supervised fine-tuning (SFT) in the context of large language model development?",
-      "options": [
-        "SFT is the initial pre-training stage where the model learns general language patterns from a large corpus.",
-        "SFT transforms a pre-trained base model into one that follows human instructions by training on labeled instruction-response pairs.",
-        "SFT is primarily used to reduce the computational cost of pre-training by using parameter-efficient methods like LoRA.",
-        "SFT aligns the model with human values such as helpfulness and harmlessness by optimizing a reward function."
-      ],
-      "answer_index": 1,
-      "explanation": "The lecture explicitly states that supervised fine-tuning (SFT) transforms a pre-trained base model into one that follows human instructions by training on labeled instruction-response pairs. The other options describe pre-training, parameter efficiency, and alignment, which are distinct stages or methods.",
-      "source_concept_ids": [
-        "gmt20260319-005955-recording-1920x1080_s2_c1",
-        "gmt20260319-005955-recording-1920x1080_s6_c2"
-      ]
-    },
-    {
-      "question_id": "gmt20260319-005955-recording-1920x1080_q3",
-      "lecture_id": "gmt20260319-005955-recording-1920x1080",
-      "topic": "Low-rank matrix decomposition benefits",
-      "difficulty": "hard",
-      "question": "In the context of LoRA (Low-Rank Adaptation), what is the primary purpose of decomposing a weight matrix into two smaller matrices?",
-      "options": [
-        "To increase the model's capacity to learn complex patterns by expanding the parameter space.",
-        "To reduce the number of trainable parameters and computational cost while approximating the original weight matrix.",
-        "To enable the model to perform catastrophic forgetting by selectively updating only a subset of parameters.",
-        "To align the model's outputs with human preferences by optimizing a reward function during training."
-      ],
-      "answer_index": 1,
-      "explanation": "The lecture explains that LoRA decomposes a weight matrix into two smaller matrices to reduce the number of trainable parameters and computational cost while approximating the original weight matrix. This is the core idea behind parameter-efficient fine-tuning. The other options describe unrelated concepts such as model capacity, catastrophic forgetting, and alignment.",
-      "source_concept_ids": [
-        "gmt20260319-005955-recording-1920x1080_s3_c1",
-        "gmt20260319-005955-recording-1920x1080_s3_c2"
-      ]
-    },
-    {
-      "question_id": "gmt20260319-005955-recording-1920x1080_q4",
-      "lecture_id": "gmt20260319-005955-recording-1920x1080",
-      "topic": "Quantization reduces model precision",
-      "difficulty": "hard",
-      "question": "Which of the following best describes the ABS max quantization mechanism used in model optimization?",
-      "options": [
-        "A method that scales all weights to a range between the minimum and maximum absolute values, then maps them into discrete buckets to represent the weights in lower precision.",
-        "A technique that reduces the precision of model weights by averaging them to a single value to decrease model size.",
-        "A process that shifts data not currently needed for computation from GPU memory to CPU memory to avoid GPU overload.",
-        "A procedure that decomposes weight matrices into smaller matrices to reduce the number of trainable parameters."
-      ],
-      "answer_index": 0,
-      "explanation": "The lecture explicitly describes ABS max quantization as a mechanism that scales all weights to a range between the minimum and maximum absolute values, then maps them into discrete buckets to represent the weights in lower precision (e.g., 4-bit). The other options describe unrelated techniques such as averaging, memory shifting, and matrix decomposition.",
-      "source_concept_ids": [
-        "gmt20260319-005955-recording-1920x1080_s5_c2"
-      ]
-    },
-    {
-      "question_id": "gmt20260319-005955-recording-1920x1080_q5",
-      "lecture_id": "gmt20260319-005955-recording-1920x1080",
-      "topic": "Supervised fine-tuning limitations",
-      "difficulty": "hard",
-      "question": "Which of the following is NOT one of the four key limitations of supervised fine-tuning (SFT) as described in the lecture?",
-      "options": [
-        "SFT relies on high-quality labels, which can create a ceiling on model performance.",
-        "SFT does not incorporate human preferences or feedback into the training process.",
-        "SFT cannot learn from feedback or corrections provided after the initial training.",
-        "SFT requires the use of reinforcement learning algorithms like PPO to align the model with human values."
-      ],
-      "answer_index": 3,
-      "explanation": "The lecture lists four key limitations of SFT: label quality ceiling, no notion of preference, inability to learn from feedback, and objective misalignment. The requirement to use reinforcement learning algorithms like PPO is not listed as a limitation of SFT. Instead, PPO is introduced as a subsequent alignment method.",
-      "source_concept_ids": [
-        "gmt20260319-005955-recording-1920x1080_s7_c1"
-      ]
-    },
-    {
-      "question_id": "gmt20260319-005955-recording-1920x1080_q6",
+      "question_id": "hard_3",
       "lecture_id": "gmt20260319-005955-recording-1920x1080",
       "topic": "Reinforcement learning for LM alignment",
       "difficulty": "hard",
-      "question": "In the context of reinforcement learning for language model alignment, how is human preference data typically collected?",
+      "question": "How is human preference data typically collected for reinforcement learning in language model alignment?",
       "options": [
-        "By assigning absolute scores to each answer generated by the model.",
-        "By presenting pairs of answers to questions and selecting the preferred one, rather than assigning absolute scores.",
-        "By using a reward model to predict human preferences and then training the model on those predictions.",
-        "By fine-tuning the model on instruction-response pairs to mimic human-like behavior."
+        "By assigning numerical scores to individual responses",
+        "By comparing pairs of answers and selecting the preferred one",
+        "Through automated metric evaluations",
+        "Using pre-trained reward models without human input"
       ],
       "answer_index": 1,
-      "explanation": "The lecture explains that human preference data is collected by presenting pairs of answers to questions and selecting the preferred one, rather than assigning absolute scores. This method is used to train the model to align with human preferences. The other options describe different processes such as absolute scoring, reward modeling, and fine-tuning.",
+      "explanation": "The correct answer is option B because the source material specifies that human preference data is collected by presenting pairs of answers (good vs. bad) and selecting the preferred one, rather than assigning absolute scores. Option A describes an absolute scoring method not used in this context. Options C and D involve automated or model-based approaches that do not rely on direct human comparisons as described.",
       "source_concept_ids": [
         "gmt20260319-005955-recording-1920x1080_s9_c3"
-      ]
-    },
-    {
-      "question_id": "gmt20260319-005955-recording-1920x1080_q7",
-      "lecture_id": "gmt20260319-005955-recording-1920x1080",
-      "topic": "Direct Preference Optimization",
-      "difficulty": "hard",
-      "question": "Which of the following is a key advantage of Direct Preference Optimization (DPO) over Proximal Policy Optimization (PPO) in the context of language model alignment?",
-      "options": [
-        "DPO requires fewer models to handle during training, reducing memory requirements.",
-        "DPO directly optimizes the model's parameters without the need for a reward function.",
-        "DPO uses a reward model to predict human preferences, which improves alignment accuracy.",
-        "DPO is more computationally expensive but achieves better performance in most cases."
-      ],
-      "answer_index": 0,
-      "explanation": "The lecture states that DPO is a better choice than PPO because it has fewer models to handle and directly uses preference data to estimate rewards, reducing memory requirements. The other options either misrepresent DPO's process or describe unrelated advantages.",
-      "source_concept_ids": [
-        "gmt20260319-005955-recording-1920x1080_s11_c3"
-      ]
-    },
-    {
-      "question_id": "gmt20260319-005955-recording-1920x1080_q8",
-      "lecture_id": "gmt20260319-005955-recording-1920x1080",
-      "topic": "Quantization for model optimization",
-      "difficulty": "hard",
-      "question": "What is the primary difference between post-training quantization and quantization-aware training?",
-      "options": [
-        "Post-training quantization applies quantization to a pre-trained model after standard training, while quantization-aware training integrates quantization objectives directly into the model training process.",
-        "Post-training quantization reduces the model's precision to 4-bit, while quantization-aware training reduces it to 8-bit.",
-        "Post-training quantization is used only for inference, while quantization-aware training is used only for training.",
-        "Post-training quantization requires a reward model, while quantization-aware training does not."
-      ],
-      "answer_index": 0,
-      "explanation": "The lecture explains that post-training quantization applies quantization to a pre-trained model after standard training, while quantization-aware training integrates quantization objectives directly into the model training process. The other options either misrepresent the bit precision or the use cases of these methods.",
-      "source_concept_ids": [
-        "gmt20260319-005955-recording-1920x1080_s12_c2",
-        "gmt20260319-005955-recording-1920x1080_s12_c3"
-      ]
-    },
-    {
-      "question_id": "gmt20260319-005955-recording-1920x1080_q9",
-      "lecture_id": "gmt20260319-005955-recording-1920x1080",
-      "topic": "Alignment method selection",
-      "difficulty": "hard",
-      "question": "Under what condition is Direct Preference Optimization (DPO) recommended as a better choice than Proximal Policy Optimization (PPO) for aligning a language model?",
-      "options": [
-        "When the model requires a high level of customization and fine-grained control over its behavior.",
-        "When the model needs to be trained on a large dataset of human preference pairs and computational resources are limited.",
-        "When the model's alignment requires a separate reward model to predict human preferences.",
-        "When the model's primary goal is to perform text completion rather than instruction-following."
-      ],
-      "answer_index": 1,
-      "explanation": "The lecture recommends DPO as a better choice than PPO when the model needs to be trained on a large dataset of human preference pairs and computational resources are limited, as DPO reduces memory requirements and simplifies the training process. The other options describe scenarios where DPO is not necessarily the better choice.",
-      "source_concept_ids": [
-        "gmt20260319-005955-recording-1920x1080_s14_c3"
-      ]
-    },
-    {
-      "question_id": "gmt20260319-005955-recording-1920x1080_q10",
-      "lecture_id": "gmt20260319-005955-recording-1920x1080",
-      "topic": "Reinforcement learning fundamentals",
-      "difficulty": "hard",
-      "question": "In reinforcement learning, what is the role of a reward function in guiding the policy model's learning process?",
-      "options": [
-        "The reward function assigns numerical values to actions or states to guide the agent toward desired behaviors by maximizing positive rewards and avoiding penalties.",
-        "The reward function decomposes weight matrices into smaller matrices to reduce the number of trainable parameters.",
-        "The reward function scales all weights to a range between the minimum and maximum absolute values to reduce model precision.",
-        "The reward function transforms a pre-trained base model into one that follows human instructions by training on labeled instruction-response pairs."
-      ],
-      "answer_index": 0,
-      "explanation": "The lecture describes the reward function as assigning numerical values to actions or states to guide the agent toward desired behaviors by maximizing positive rewards and avoiding penalties. This is a fundamental concept in reinforcement learning. The other options describe unrelated techniques such as matrix decomposition, quantization, and supervised fine-tuning.",
-      "source_concept_ids": [
-        "gmt20260319-005955-recording-1920x1080_s8_c3"
       ]
     }
   ]

@@ -556,7 +556,7 @@ def _call_llm_for_questions_v1(
     concepts: List[Dict[str, Any]],
     num_questions: int,
     difficulty: Optional[str] = None,
-) -> Tuple[List[Dict[str, Any]], str, str]:
+) -> List[Dict[str, Any]]:
     system_prompt = _quiz_system_prompt_v1()
     user_prompt = _quiz_user_prompt_v1(
         lecture_id=lecture_id,
@@ -570,13 +570,11 @@ def _call_llm_for_questions_v1(
 
     try:
         raw = client.generate(system_prompt, user_prompt)
-        used_provider = str(getattr(client, "provider", "")).strip().lower()
-        used_model = str(getattr(client, "model", "")).strip()
     except Exception as e:
         print(f"Quiz generation failed for segment {segment_id} ({topic}): {e}")
-        return [], "", ""
+        return []
 
-    return _safe_parse_questions_v1(raw), used_provider, used_model
+    return _safe_parse_questions_v1(raw)
 
 
 def _pick_segment_question_count_v1(concepts_count: int, requested_total: int, total_segments: int) -> int:
@@ -784,7 +782,7 @@ def generate_quiz_bank_v1(
             total_segments=len(segments_with_concepts),
         )
 
-        raw_questions, generated_provider, generated_model = _call_llm_for_questions_v1(
+        raw_questions = _call_llm_for_questions_v1(
             client=client,
             lecture_id=lecture_id,
             segment_id=segment_id,
@@ -796,7 +794,7 @@ def generate_quiz_bank_v1(
         )
 
         if not raw_questions:
-            raw_questions, generated_provider, generated_model = _call_llm_for_questions_v1(
+            raw_questions = _call_llm_for_questions_v1(
                 client=client,
                 lecture_id=lecture_id,
                 segment_id=segment_id,
@@ -840,8 +838,6 @@ def generate_quiz_bank_v1(
                 )
 
             if cleaned:
-                cleaned["generation_provider"] = generated_provider
-                cleaned["generation_model"] = generated_model
                 questions.append(cleaned)
                 local_idx += 1
 
@@ -900,8 +896,6 @@ def convert_quiz_bank_v1_to_v2(bank_v1: Dict[str, Any]) -> Dict[str, Any]:
                 "segment_id": q.get("segment_id"),
                 "question_type": q.get("question_type"),
                 "evidence": q.get("evidence", ""),
-                "generation_provider": q.get("generation_provider", ""),
-                "generation_model": q.get("generation_model", ""),
             }
         )
 
@@ -978,19 +972,19 @@ def generate_quiz_bank(
     validated_questions: List[Dict[str, Any]] = []
 
     for _ in range(2):
-        raw = client.generate(mcq_system_prompt(), prompt)
-        generated_provider = str(getattr(client, "provider", "")).strip().lower()
-        generated_model = str(getattr(client, "model", "")).strip()
-        attempts.append(raw)
+        try:
+            raw = client.generate(mcq_system_prompt(), prompt)
+            attempts.append(raw)
+        except Exception as exc:
+            attempts.append(f"ERROR: {exc}")
+            continue
+
         validated_questions = validate_questions(
             raw_questions=safe_parse_quiz(raw),
             lecture_id=lecture_id,
             requested_count=question_count,
             requested_difficulty=difficulty,
         )
-        for q in validated_questions:
-            q["generation_provider"] = generated_provider
-            q["generation_model"] = generated_model
         if len(validated_questions) >= question_count:
             break
 
@@ -1004,9 +998,6 @@ def generate_quiz_bank(
         )
         if fallback_questions:
             fallback_used = True
-            for q in fallback_questions:
-                q["generation_provider"] = "rule-based"
-                q["generation_model"] = "rule-based"
             validated_questions.extend(fallback_questions)
 
     questions = validated_questions[:question_count]

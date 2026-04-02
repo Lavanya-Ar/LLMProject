@@ -1,4 +1,5 @@
 import os
+import json
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -133,7 +134,7 @@ def render_sidebar() -> None:
 
 def find_local_transcripts() -> List[str]:
     candidates = []
-    for pattern in ["*.txt", "preprocessing/transcription_output/*_transcript.txt"]:
+    for pattern in ["*.txt", "preprocessing/transcription_output/*_transcript.txt", "processsed_data/"]:
         for path in sorted(Path(".").glob(pattern)):
             if path.is_file():
                 candidates.append(str(path))
@@ -144,6 +145,116 @@ def find_local_transcripts() -> List[str]:
             seen.add(item)
             ordered.append(item)
     return ordered
+
+
+def find_existing_runs() -> List[str]:
+    runs_dir = Path("runs")
+    if not runs_dir.exists():
+        return []
+
+    candidates: List[Path] = []
+    for path in runs_dir.iterdir():
+        if not path.is_dir():
+            continue
+        has_summary = (path / "pipeline_summary.json").exists()
+        has_core_artifacts = (path / "segments.json").exists() and (path / "concepts.json").exists()
+        if has_summary or has_core_artifacts:
+            candidates.append(path)
+
+    return [str(path) for path in sorted(candidates, key=lambda item: item.name, reverse=True)]
+
+
+def _safe_read_json(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _resolve_artifact_path(path_str: Optional[str], run_dir: Path, fallback_name: Optional[str] = None) -> Optional[Path]:
+    if path_str:
+        direct = Path(path_str)
+        if direct.exists():
+            return direct
+
+        # Some saved summaries contain workspace-relative paths; resolve against the run folder if needed.
+        run_relative = run_dir / Path(path_str).name
+        if run_relative.exists():
+            return run_relative
+
+    if fallback_name:
+        fallback = run_dir / fallback_name
+        if fallback.exists():
+            return fallback
+
+    return None
+
+
+def _build_statistics(summary: Dict[str, Any], segments: List[Dict[str, Any]], concepts: List[Dict[str, Any]]) -> Dict[str, Any]:
+    current = summary.get("statistics") or {}
+    word_count = int(current.get("word_count", 0))
+    duration = current.get("duration", "N/A")
+    duration_seconds = float(current.get("duration_seconds", 0.0))
+    total_segments = int(current.get("total_segments", 0))
+    detected_topics = int(current.get("detected_topics", 0))
+    concept_count = int(current.get("concept_count", 0))
+
+    if detected_topics == 0:
+        detected_topics = len({seg.get("topic", "").strip() for seg in segments if seg.get("topic")})
+    if concept_count == 0:
+        concept_count = sum(len(entry.get("concepts", [])) for entry in concepts)
+
+    return {
+        "word_count": word_count,
+        "total_segments": total_segments,
+        "duration_seconds": duration_seconds,
+        "duration": duration,
+        "detected_topics": detected_topics,
+        "concept_count": concept_count,
+    }
+
+
+def load_summary_from_run(run_dir_str: str) -> Dict[str, Any]:
+    run_dir = Path(run_dir_str)
+    if not run_dir.exists() or not run_dir.is_dir():
+        raise FileNotFoundError(f"Run folder not found: {run_dir_str}")
+
+    summary_path = run_dir / "pipeline_summary.json"
+    summary: Dict[str, Any] = _safe_read_json(summary_path) if summary_path.exists() else {}
+
+    segments_path = _resolve_artifact_path(summary.get("segments_path"), run_dir, "segments.json")
+    concepts_path = _resolve_artifact_path(summary.get("concepts_path"), run_dir, "concepts.json")
+    transcript_path = _resolve_artifact_path(summary.get("transcript_path"), run_dir)
+
+    if segments_path is None:
+        raise FileNotFoundError(f"segments.json not found in run: {run_dir}")
+    if concepts_path is None:
+        raise FileNotFoundError(f"concepts.json not found in run: {run_dir}")
+
+    segments = _safe_read_json(segments_path)
+    concepts = _safe_read_json(concepts_path)
+    if not isinstance(segments, list) or not isinstance(concepts, list):
+        raise ValueError("Run artifacts are invalid. Expected list-based JSON for segments and concepts.")
+
+    lecture_title = summary.get("lecture_title") or run_dir.name
+    lecture_id = summary.get("lecture_id") or slugify(str(lecture_title))
+
+    transcript_preview = summary.get("transcript_preview") or ""
+    if not transcript_preview and transcript_path and transcript_path.exists():
+        transcript_preview = transcript_path.read_text(encoding="utf-8", errors="ignore")[:1500]
+
+    enriched_summary = {
+        **summary,
+        "lecture_id": lecture_id,
+        "lecture_title": lecture_title,
+        "run_dir": str(run_dir),
+        "transcript_path": str(transcript_path) if transcript_path else summary.get("transcript_path"),
+        "segments_path": str(segments_path),
+        "concepts_path": str(concepts_path),
+        "statistics": _build_statistics(summary, segments, concepts),
+        "topics": [seg.get("topic", "") for seg in segments if isinstance(seg, dict) and seg.get("topic")],
+        "transcript_preview": transcript_preview,
+        "segments": segments,
+        "concepts": concepts,
+    }
+    return enriched_summary
 
 
 def save_quiz_if_possible(quiz_bank: Dict[str, Any], run_dir: str) -> Optional[str]:
@@ -278,7 +389,6 @@ def render_quiz_player(quiz_bank: Dict[str, Any]) -> None:
 
     if submit_clicked:
         st.session_state.submitted = True
-        st.rerun()
 
     if st.session_state.submitted:
         correct = 0
@@ -326,11 +436,11 @@ def main() -> None:
     )
 
     st.markdown('<div class="section-card">', unsafe_allow_html=True)
-    st.markdown("### 1. Upload and Process Lecture")
+    st.markdown("### 1. Load or Process Lecture")
 
     process_mode = st.radio(
         "Input mode",
-        options=["Upload MP4", "Upload transcript", "Use local transcript"],
+        options=["Upload MP4", "Upload transcript", "Use local transcript", "Use existing run (/runs)"],
         horizontal=True,
     )
 
@@ -338,6 +448,7 @@ def main() -> None:
     uploaded_file = None
     uploaded_transcript = None
     selected_local_transcript = None
+    selected_run_dir = None
 
     with left_col:
         if process_mode == "Upload MP4":
@@ -355,17 +466,35 @@ def main() -> None:
             )
             default_title = Path(uploaded_transcript.name).stem if uploaded_transcript else "AAI3008 transcript"
         else:
-            local_transcripts = find_local_transcripts()
-            selected_local_transcript = st.selectbox(
-                "Choose a local transcript",
-                options=local_transcripts,
-                index=0 if local_transcripts else None,
-                placeholder="No transcript files found",
-            )
-            default_title = Path(selected_local_transcript).stem if selected_local_transcript else "AAI3008 transcript"
+            if process_mode == "Use local transcript":
+                local_transcripts = find_local_transcripts()
+                selected_local_transcript = st.selectbox(
+                    "Choose a local transcript",
+                    options=local_transcripts,
+                    index=0 if local_transcripts else None,
+                    placeholder="No transcript files found",
+                )
+                default_title = Path(selected_local_transcript).stem if selected_local_transcript else "AAI3008 transcript"
+            else:
+                existing_runs = find_existing_runs()
+                selected_run_dir = st.selectbox(
+                    "Choose a run folder",
+                    options=existing_runs,
+                    index=0 if existing_runs else None,
+                    placeholder="No run folders with artifacts found",
+                )
+                default_title = Path(selected_run_dir).name if selected_run_dir else "existing run"
 
-        lecture_title = st.text_input("Lecture title", value=default_title)
-        lecture_id = st.text_input("Lecture ID", value=slugify(lecture_title or default_title))
+        lecture_title = st.text_input(
+            "Lecture title",
+            value=default_title,
+            disabled=process_mode == "Use existing run (/runs)",
+        )
+        lecture_id = st.text_input(
+            "Lecture ID",
+            value=slugify(lecture_title or default_title),
+            disabled=process_mode == "Use existing run (/runs)",
+        )
 
     with right_col:
         transcription_model = st.selectbox(
@@ -387,7 +516,11 @@ def main() -> None:
             value=10,
             disabled=process_mode != "Upload MP4",
         )
-        process_clicked = st.button("Process Lecture", type="primary", use_container_width=True)
+        process_clicked = st.button(
+            "Load Run" if process_mode == "Use existing run (/runs)" else "Process Lecture",
+            type="primary",
+            use_container_width=True,
+        )
 
     provider_status = get_provider_status()
     if not provider_status["configured"]:
@@ -395,6 +528,8 @@ def main() -> None:
             f"LLM concept extraction needs `{provider_status['key_name']}`. "
             "Transcription may still run, but the full quiz pipeline will fail without an API key."
         )
+    elif process_mode == "Use existing run (/runs)":
+        st.info("Load a previous run from the runs folder to generate quiz questions without reprocessing the lecture.")
     elif process_mode != "Upload MP4":
         st.info("Transcript mode bypasses Whisper and ffmpeg. This is the fastest way to continue frontend integration work.")
 
@@ -434,21 +569,29 @@ def main() -> None:
                     progress_callback=progress_callback,
                 )
             else:
-                if not selected_local_transcript:
-                    st.error("Select a local transcript before processing.")
-                    st.stop()
+                if process_mode == "Use local transcript":
+                    if not selected_local_transcript:
+                        st.error("Select a local transcript before processing.")
+                        st.stop()
 
-                transcript_path = Path(selected_local_transcript)
-                summary = process_transcript_text(
-                    transcript_name=transcript_path.name,
-                    transcript_text=transcript_path.read_text(encoding="utf-8"),
-                    lecture_title=lecture_title,
-                    lecture_id=lecture_id,
-                    progress_callback=progress_callback,
-                )
+                    transcript_path = Path(selected_local_transcript)
+                    summary = process_transcript_text(
+                        transcript_name=transcript_path.name,
+                        transcript_text=transcript_path.read_text(encoding="utf-8"),
+                        lecture_title=lecture_title,
+                        lecture_id=lecture_id,
+                        progress_callback=progress_callback,
+                    )
+                else:
+                    if not selected_run_dir:
+                        st.error("Select a run folder before loading.")
+                        st.stop()
+
+                    summary = load_summary_from_run(selected_run_dir)
 
             st.session_state.pipeline_summary = summary
-            status_box.update(label="Lecture processed successfully", state="complete", expanded=True)
+            success_label = "Run loaded successfully" if process_mode == "Use existing run (/runs)" else "Lecture processed successfully"
+            status_box.update(label=success_label, state="complete", expanded=True)
         except Exception as exc:
             status_box.update(label="Lecture processing failed", state="error", expanded=True)
             status_box.write(str(exc))
