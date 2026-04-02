@@ -9,5 +9,6 @@ torch
 llama-parse==0.5.15
 llama-index==0.11.20
 llama-index-core==0.11.20
+llama-index-embeddings-huggingface
 boto3==1.35.36
 pymupdf==1.24.11

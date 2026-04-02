@@ -6,7 +6,7 @@
 
 # SIT Internal
 
-# SINGAPORE INSTITUTE OF TECHNOLOGY
+# SIT SINGAPORE INSTITUTE OF TECHNOLOGY
 
 # AAI3008 Large language models
 
@@ -21,15 +21,6 @@ Website: SingaporeTech.edu.sg
 
 
 
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
-
-
 
 ============================================================
 📄 PAGE 2
@@ -38,7 +29,6 @@ Website: SingaporeTech.edu.sg
 
 
 SIT Internal
-
 # Learning outcome
 
 # SiT SINGAPORE INSTITUTE OF TECHNOLOGY
@@ -51,21 +41,7 @@ SIT Internal
 - Identify advanced optimization techniques including Quantization, Knowledge Distillation, and Mixture of Experts
 - Select the appropriate fine-tuning framework and strategy for a given task and resource constraint
 
-Feedback AY25/26, Tri 2
 
-Thank you for your feedback!
-
-2
-
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -75,45 +51,21 @@ Thank you for your feedback!
 
 
 
-SIT Internal Outline
+# SIT Internal
 
-# SIT SINGAPORE INSTITUTE OF TECHNOLOGY
+# Singapore Institute of Technology
 
-# 1. Motivation — Why Fine-Tune
+# Outline
 
-# 2. LLM Training Pipeline
-
-# 3. Parameter Efficient Fine-Tuning (PEFT)
-
-# 4. Instruction Tuning (SFT)
-
-1. Complete both module and teaching feedback.
-
-# 5. Alignment (RLHF, DPO, GRPO, and Beyond)
-
-# 6. Advanced Optimization Techniques
-
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-
-# 7. Choosing the Right Strategy
-
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
-
-# Module and Teaching Feedback AY25/26, Tri 2
-
-Thank you for your feedback!
-
-3
+1. Motivation — Why Fine-Tune
+2. LLM Training Pipeline
+3. Parameter Efficient Fine-Tuning (PEFT)
+4. Instruction Tuning (SFT)
+5. Alignment (RLHF, DPO, GRPO, and Beyond)
+6. Advanced Optimization Techniques
+7. Choosing the Right Strategy
 
 
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -131,39 +83,20 @@ SIT Internal
 
 # What we solved with RAG &#x26; Agents
 
-- Access to external/real-time knowledge
-- Multi-step reasoning with tools
-- Dynamic, document-grounded answers
-- Reduced hallucination on factual queries
-
 # What RAG &#x26; Agents still can’t do
 
-- Cannot change the model’s behavior or writing style
-- Data quality dependency (garbage in, garbage out)
-- Fragmented outputs from disconnected chunks
-- Academic Staff will not be able to identify the student. All be shared with the academic staff after the release of exam results.
-- Cannot teach model new skills
-- Higher latency: vector search overhead
-- Complex pipeline: multiple components
-
-# Module and Teaching Feedback AY25/26, Tri 2
-
-Thank you for your feedback!
+| Access to external/real-time knowledge   | Cannot change the model’s behavior or writing style |
+| ---------------------------------------- | --------------------------------------------------- |
+| Multi-step reasoning with tools          | Data quality dependency (garbage in, garbage out)   |
+| Dynamic, document-grounded answers       | Fragmented outputs from disconnected chunks         |
+| Reduced hallucination on factual queries | Cannot teach model new skills                       |
+|                                          | Higher latency: vector search overhead              |
+|                                          | Complex pipeline: multiple components               |
 
 To fix these, we need to change the model itself — Fine-Tuning
 
-# 4
+4
 
-
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -173,35 +106,25 @@ To fix these, we need to change the model itself — Fine-Tuning
 
 
 
+# When to Fine-Tune (and When NOT To)
+
 # SIT Internal
 
-# When to Fine-Tune (and When NOT To)
+# SiT
 
 # SINGAPORE INSTITUTE OF TECHNOLOGY
 
 Before diving into fine-tuning, let's ask: should you fine-tune at all?
 
-1. Complete both module and teaching feedback.
-2. Please share constructive feedback in the free text sections.
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
-
-# Module and Teaching Feedback AY25/26, Tri 2
-
-Thank you for your feedback!
+| No        |                          | Prompt Engineering |                              |     |             |
+| --------- | ------------------------ | ------------------ | ---------------------------- | --- | ----------- |
+| No        | Need new behavior/style? |                    |                              |     |             |
+| Your Task | Need external knowledge? | Yes                | Have training data + budget? | Yes | Fine-tuning |
+| Yes       | RAG                      |                    |                              |     |             |
 
 Start with prompt engineering → add RAG → only fine-tune when behavior/style/skill gaps remain.
 
 
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -215,30 +138,35 @@ SIT Internal
 
 # LLM training pipeline
 
-# SINGAPORE INSTITUTE OF TECHNOLOGY
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
 
-1. Complete both module and teaching feedback.
-2. Please share constructive feedback in the free text sections.
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
+# Stage 1:
 
-| Module and Teaching Feedback AY25/26, Tri 2 | Stage        | Goal                             | Who?                 | Output                          |
-| ------------------------------------------- | ------------ | -------------------------------- | -------------------- | ------------------------------- |
-|                                             | Pre-training | Learn language, facts, reasoning | Meta, OpenAI, Google | Base Model (e.g., Llama 4 Base) |
-|                                             | SFT          | Follow instructions              | Labs + You           | Instruct Model                  |
-|                                             | Alignment    | Learn human values               | Labs + You           | Chat Model                      |
+Pre-training
+
+Trillions of tokens
+
+Next-token prediction
+
+# Stage 2:
+
+Supervised Fine-Tuning (SFT / Instruction Tuning)
+
+Base Model (e.g., Llama 3 Base)
+
+100K+ instruction pairs
+
+# Stage 3:
+
+| Alignment         | Instruct Model           | Goal                             | Who?                 | Output                          |
+| ----------------- | ------------------------ | -------------------------------- | -------------------- | ------------------------------- |
+| RLHF / DPO / ORPO | (e.g., Llama 3 Instruct) | Learn language, facts, reasoning | Meta, OpenAI, Google | Base Model (e.g., Llama 4 Base) |
+| SFT               |                          | Follow instructions              | Labs + You           | Instruct Model                  |
+| Alignment         |                          | Learn human values               | Labs + You           | Chat Model                      |
+| Chat Model        | (e.g., Llama 3 Chat)     |                                  |                      |                                 |
 
 6
 
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -262,19 +190,8 @@ SINGAPORE INSTITUTE OF TECHNOLOGY
 | Output        | Base model (completion engine)         | Instruct model (follows instructions)  | Chat model (helpful, harmless, honest)          |
 | Cost          | $ (millions)                        | $ (hundreds to thousands)             | $ (similar to SFT)                             |
 
-Thank you for your feedback!
-
 7
 
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -285,42 +202,33 @@ Thank you for your feedback!
 
 
 SIT Internal
-Fine tuning overview
-SINGAPORE INSTITUTE OF TECHNOLOGY
+Fine tuning overview    SiT SINGAPORE
+INSTITUTE OF
+TECHNOLOGY
 
-# Approach
+# Fine tuning overview
 
-# When to Use
+| Approach                               | When to Use                            | What Changes                | Example                      |
+| -------------------------------------- | -------------------------------------- | --------------------------- | ---------------------------- |
+| Continued Pre-training                 | Adapt to new domain (e.g., medical)    | All parameters              | Fine-tune on clinical notes  |
+| Instruction Tuning (SFT)               | Teach instruction-following            | All or LoRA adapters        | Fine-tune on Q\&A pairs      |
+| Classification Fine-tuning (Masked LM) | Task-specific output (e.g., sentiment) | Output layer only           | BERT for text classification |
+| PEFT / LoRA                            | Limited compute, large model           | Small adapter matrices only | LoRA on Llama 3              |
 
-# What Changes
+# Finetuning
 
-# Example
+Continued finetuning on domain
 
-| Continued Pre-training                 | Adapt to new domain (e.g., medical)    | All parameters              | Fine-tune on clinical notes |
-| -------------------------------------- | -------------------------------------- | --------------------------- | --------------------------- |
-| Instruction Tuning (SFT)               | Teach instruction-following            |                             |                             |
-| Classification Fine-tuning (Masked LM) | Task-specific output (e.g., sentiment) |                             |                             |
-| All or LoRA adapters                   | Fine-tune on Q\&A pairs                |                             |                             |
-| Output layer only                      | BERT for text classification           |                             |                             |
-| PEFT / LoRA                            | Limited compute, large model           | Small adapter matrices only | LoRA on Llama 3             |
+# Inference
 
-Feedback AY25/26, Tri 2
+Next word prediction objective
 
-Thank you for your feedback!
+# Footnotes
 
 https://web.stanford.edu/~jurafsky/slp3/
 
 8
 
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -329,7 +237,9 @@ https://web.stanford.edu/~jurafsky/slp3/
 ============================================================
 
 
+
 SIT Internal
+
 # Risk of fine-tuning: catastrophic forgetting
 
 # SINGAPORE INSTITUTE OF TECHNOLOGY
@@ -340,32 +250,16 @@ E.g., after tuning to summarize legal text, the model no longer answers geograph
 
 # Preventing catastrophic forgetting
 
-1. Complete both module and teaching feedback.
-2. Please share constructive feedback in the free text sections.
-
-# How It Works
-
-| Low learning rate           | Smaller weight changes → less forgetting             | ★★★★☆ |
-| --------------------------- | ---------------------------------------------------- | ----- |
-| Short training (few epochs) | Stop before overfitting to new task                  | ★★★★☆ |
-| Data mixing                 | Mix task-specific data with general data             | ★★★★☆ |
-| PEFT (LoRA)                 | Only change a few parameters → base knowledge intact | ★★★★★ |
-| Replay buffer               | Include examples from pre-training data              | ★★★★☆ |
-
-Feedback AY25/26, Tri 2
-
-Thank you for your feedback!
+| How It Works                | Effectiveness |
+| --------------------------- | ------------- |
+| Low learning rate           | ★★★☆☆         |
+| Short training (few epochs) | ★★★☆☆         |
+| Data mixing                 | ★★★☆☆         |
+| PEFT (LoRA)                 | ★★★★☆         |
+| Replay buffer               | ★★★★☆         |
 
 9
 
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -374,18 +268,9 @@ Thank you for your feedback!
 ============================================================
 
 
-# SINGAPORE INSTITUTE OF TECHNOLOGY
+# INSTITUTE OF SINGAPORE TECHNOLOGY
 
 # Parameter efficient finetuning
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -403,31 +288,30 @@ SIT Internal
 
 Weight update matrices are low-rank, we don't need to store the full update.
 
-1. Complete both module and teaching feedback.
-2. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-3. Their grades will not be affected as the feedback results will only be used for improvement.
+# Describe the three stages of LLM training
 
-| d x k                                    | d x r             | r x d                                                  |
-| ---------------------------------------- | ----------------- | ------------------------------------------------------ |
-| original parameters: 𝑑 × 𝑘 = 5,000,000 | • r: adapter rank | • d: input dimension (e.g., 1,000)                     |
-| • k: output dimension (e.g., 5,000)      | Let 𝑟 = 5,       | we get (𝑑 × 𝑟) + (𝑟 × 𝑘) = 5,000 + 25,000 = 30,000 |
-| (< 1% of original)                       |                   |                                                        |
+- Pre-training
+- Supervised Fine-Tuning (SFT)
+- Alignment
 
-Thank you for your feedback!
+# Apply Parameter Efficient Fine-Tuning techniques
+
+(LoRA, QLoRA) and explain how they reduce memory and compute requirements.
+
+# Compare alignment methods
+
+RLHF (PPO), DPO, GRPO, and their trade-offs in terms of complexity, stability, and memory.
+
+| d x k              | d x r                                                  | r x d                               |
+| ------------------ | ------------------------------------------------------ | ----------------------------------- |
+| Mixture of Experts | original parameters: 𝑑 × 𝑘 = 5,000,000               |                                     |
+| • r: adapter rank  | • d: input dimension (e.g., 1,000)                     | • k: output dimension (e.g., 5,000) |
+| Let 𝑟 = 5,        | we get (𝑑 × 𝑟) + (𝑟 × 𝑘) = 5,000 + 25,000 = 30,000 | (< 1% of original)                  |
 
 Instead of storing a full HD photo (d×k), we store a compressed sketch (d×r and r×k) that captures the important changes.
 
 11
 
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -436,38 +320,30 @@ Instead of storing a full HD photo (d×k), we store a compressed sketch (d×r an
 ============================================================
 
 
-
 SIT Internal
-
 # Regular finetuning vs LoRA
 
 # SiT SINGAPORE INSTITUTE OF TECHNOLOGY
 
-1. Complete both module and teaching feedback.
-2. Please share constructive feedback in the free text sections.
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
+# What we solved with RAG &#x26; Agents
 
-# Module and Teaching Feedback AY25/26, Tri 2
+- Access to external/real-time knowledge
+- Multi-step reasoning with tools
+- Dynamic, document-grounded answers
+- Reduced hallucination on factual queries
 
-Thank you for your feedback!
+# What RAG &#x26; Agents still can't do
 
-Regular fine-tuning updates ΔW directly (huge).
+- Cannot change the model's behavior or writing style
+- Data quality dependency (garbage in, garbage out)
+- Fragmented outputs from disconnected chunks
+- Cannot teach model new skills
+- Higher latency: vector search overhead
+- Complex pipeline: multiple components
 
-LoRA approximates ΔW = BA where B and A are small matrices.
-
-At inference time, the LoRA matrices can be merged back into W₀: W_new = W₀ + BA.
+Regular fine-tuning updates ΔW directly (huge). LoRA approximates ΔW = BA where B and A are small matrices. At inference time, the LoRA matrices can be merged back into W₀: W_new = W₀ + BA.
 
 
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -476,23 +352,27 @@ At inference time, the LoRA matrices can be merged back into W₀: W_new = W₀ 
 ============================================================
 
 
-
 SIT Internal
-LoRA Hyperparameters
-SINGAPORE INSTITUTE OF TECHNOLOGY
+# LoRA Hyperparameters
 
 # How to Choose:
 
 - Start with defaults
 - Tune learning rate with a fixed alpha and rank.
 - Adjust rank: with a good learning rate, adjust rank based on task complexity.
+- Dynamic, document-grounded answers
 - Keep alpha constant
+- Reduced hallucination on factual queries
 
-2. Please share constructive feedback in the free text sections
+# What RAG &#x26; Agents still can't do
 
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
+- Cannot change the model's behavior or writing style
+- Fragmented outputs from disconnected chunks
+- Cannot teach model new skills
 
-4. Their grades will not be affected as the feedback results will only
+Data quality dependency (garbage in, garbage out)
+
+Higher latency: vector search overhead
 
 | Hyperparameter | Typical Default  | Notes                    |
 | -------------- | ---------------- | ------------------------ |
@@ -502,27 +382,9 @@ SINGAPORE INSTITUTE OF TECHNOLOGY
 | Learning rate  | 2e-4             | Start here               |
 | Target modules | q\_proj, v\_proj | Per original paper       |
 
-WQ: original parameters
-
-α: scaling factor, adjust the influence of BA
-
-r: rank,
-
-drop: dropout rate
-
-Thank you for your feedback!
+To fix these, we need to change the model itself — Fine-Tuning
 
 13
-
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -534,29 +396,22 @@ Thank you for your feedback!
 
 SIT Internal
 
-# SINGAPORE INSTITUTE OF TECHNOLOGY
+# SIT SINGAPORE INSTITUTE OF TECHNOLOGY
 
-1. Complete both module and teaching feedback.
-2. Please share constructive feedback in the free text sections.
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
+# What to adapt
 
-# Module and Teaching Feedback AY25/26, Tri 2
+- Understand the limitations of RAG and Agents, and explain when fine-tuning is the better choice
+- Describe the three stages of LLM training — Pre-training, Supervised Fine-Tuning (SFT), and Alignment
+- Apply Parameter Efficient Fine-Tuning techniques (LoRA, QLoRA) and explain how they reduce memory and compute requirements
+- Explain how Instruction Tuning transforms a base model into an instruction-following assistant
+- Compare alignment methods, RLHF (PPO), DPO, GRPO, and their trade-offs in terms of complexity, stability, and memory
+- Identify advanced optimization techniques including Quantization, Knowledge Distillation, and Mixture of Experts
+- Select the appropriate fine-tuning framework and strategy for a given task and resource constraint
 
-Thank you for your feedback!
+Source: arxiv.org/pdf/2106.09685
 
-https://arxiv.org/pdf/2106.09685 14
+14
 
-
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -567,38 +422,37 @@ https://arxiv.org/pdf/2106.09685 14
 
 
 SIT Internal
-QLoRA – Fine-Tuning Large Models on Consumer Hardware  SiT SINGAPORE INSTITUTE OF TECHNOLOGY
 
-# 1. Complete both module and teaching feedback.
+# QLoRA – Fine-Tuning Large Models on Consumer Hardware
 
-LoRA: Large model request huge memory
+# SINGAPORE INSTITUTE OF TECHNOLOGY
 
-# QLoRA:
+# Learning Objectives
+
+- Understand the limitations of RAG and Agents, and explain when fine-tuning is the better choice
+- Describe the three stages of LLM training — Pre-training, Supervised Fine-Tuning (SFT), and Alignment
+- Apply Parameter Efficient Fine-Tuning techniques (LoRA, QLoRA) and explain how they reduce memory and compute requirements
+- Compare alignment methods, RLHF (PPO), DPO, GRPO, and their trade-offs in terms of
+- Select the appropriate fine-tuning framework and strategy for a given task and resource constraint
+
+# LoRA
+
+Large model request huge memory
+
+# QLoRA
 
 - Quantizing the model to 4-bit precision
 - Paged optimizer: offload optimizer states to CPU
 
-# Module and Teaching Feedback AY25/26, Tri 2
+# Advanced Optimization Techniques
 
-Thank you for your feedback!
+- Quantization
+- Knowledge Distillation
+- Mixture of Experts
 
 https://arxiv.org/pdf/2305.14314
 
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
-
 15
-
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -612,32 +466,24 @@ SIT Internal
 
 # How QLoRA Quantizes: Absmax Quantization
 
-# Goal:
+# SINGAPORE INSTITUTE OF TECHNOLOGY
 
-Represent 32-bit float weights using only 4 bits, with minimal precision loss.
+Goal: Represent 32-bit float weights using only 4 bits, Understand the limitations of RAG and Agents, and explain when fine-tuning is the better choice with minimal precision loss.
+
+Describe the three stages of LLM training — Pre-training, Supervised Fine-Tuning (SFT), and Alignment
 
 1. Step 1 — Scale: Find the max absolute value → use it to scale all values to [-1, 1]
 2. Step 2 — Map: Divide [-1, 1] into 16 equal buckets (since 4 bits = 24 = 16 values)
 3. Step 3 — Assign: Round each value to the nearest bucket center → store as 4-bit code
 4. Step 4 — Dequantize: To compute, multiply 4-bit code × scaling factor back to approximate float
 
-# Module and Teaching Feedback AY25/26, Tri 2
+Compare alignment methods, RLHF (PPO), DPO, GRPO, and their trade-offs in terms of
+
+Identify advanced optimization techniques including Quantization, Knowledge Distillation, and Select the appropriate fine-tuning framework and strategy for a given task and resource constraint
 
 Memory savings: 32-bit → 4-bit = 8× compression.
 
-Thank you for your feedback!
 
-16
-
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -646,20 +492,11 @@ Thank you for your feedback!
 ============================================================
 
 
-# SINGAPORE INSTITUTE OF TECHNOLOGY
+# INSTITUTE OF SINGAPORE TECHNOLOGY
 
 # Instruction tuning (Supervised Fine-Tuning / SFT)
 
 17
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -675,30 +512,26 @@ SIT Internal
 
 # SINGAPORE INSTITUTE OF TECHNOLOGY
 
+Understand the limitations of RAG and Agents, and explain when fine-tuning is the better choice.
+
+Describe the three stages of LLM training — Pre-training, Supervised Fine-Tuning (SFT), and Alignment.
+
 Pretrained LM are not aligned with user intent.
 
-1. Please share constructive feedback in the free text sections.
-2. Do completions instead of feedback received are anonymous.
-3. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
+Explain how Instruction Tuning transforms a base model into an instruction-following assistant.
 
-# Module and Teaching
+Do completions instead of following instructions.
 
-Instruction Tuning (SFT) = Training the model on (instruction, response) pairs
+Compare alignment methods, RLHF (PPO), DPO, GRPO, and their trade-offs in terms of complexity, stability, and memory.
 
-# Feedback AY25/26, Tri 2
+Identify advanced optimization techniques including Quantization, Knowledge Distillation, and Mixture of Experts.
 
-Thank you for your feedback!
+Select the appropriate fine-tuning framework and strategy for a given task and resource constraint.
+
+Instruction Tuning (SFT) = Training the model on (instruction, response) pairs.
 
 18
 
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -712,31 +545,41 @@ SIT Internal
 Instruction tuning – multi task
 SiT SINGAPORE INSTITUTE OF TECHNOLOGY
 
-# Module and Teaching Feedback AY25/26, Tri 2
+# Instruction tuning – multi task
 
 - A diverse dataset: includes a wide variety of instructions:
 - Fine-tune the LLM on the dataset
-- Understand and interpret different types of instructions.
-- Generate appropriate outputs based on the given instructions.
-- Follow complex instructions and handle variations in phrasing.
+- Learn to follow instructions
+- Learn human preferences &#x26; values
+- 10K-100K preference pairs (chosen vs. rejected)
 
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
+# What changes
 
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
+| All weights from scratch | All or some weights (from pre-trained) | All or some weights (from SFT model) |
+| ------------------------ | -------------------------------------- | ------------------------------------ |
 
-Thank you for your feedback!
+# Who does this
+
+| Meta, OpenAI, Google, etc. | Labs + you! |
+| -------------------------- | ----------- |
+
+# Risk
+
+| Underfitting | Overfitting, catastrophic forgetting | Reward hacking, over-optimization |
+| ------------ | ------------------------------------ | --------------------------------- |
+
+# Output
+
+| Base model (completion engine) | Instruct model (follows instructions) | Chat model (helpful, honest) |
+| ------------------------------ | ------------------------------------- | ---------------------------- |
+
+# Cost
+
+| $ (millions) | $ (hundreds to thousands) | $ (similar to SFT) |
+| --------------- | -------------------------- | ------------------- |
 
 19
 
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -745,43 +588,27 @@ Thank you for your feedback!
 ============================================================
 
 
+Supervised Fine-Tuning (SFT) SIT Internal
+# What Changes?
 
-Supervised Fine-Tuning (SFT) SIT Internal — What Changes? SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+# Comparing the Three Training Stages
 
-# SFT teaches the model HOW to respond to instructions, not just HOW to predict the next token.
+# SINGAPORE INSTITUTE OF TECHNOLOGY
 
-# BEFORE SFT · Base Model Output
+SFT teaches the model HOW to respond to instructions, not just HOW to predict the next token.
 
-Prompt: "Explain what photosynthesis is."
-Model output:
-photosynthesis photosynthesis chlorophyll sunlight carbon dioxide oxygen glucose plant cell membrane mitochondria ATP synthesis Calvin cycle light-dependent reactions NADPH electron transport …
+| BEFORE SFT · Base Model Output                                                                                                                                                                                                                                    | AFTER SFT · Instruct Model Output                                                                                                                                                                                                                                                                                  |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Goal** Learn language, facts, **Data** Trillions of tokens (web, books, code)                                                                                                                                                                                   | **Goal** Learn to follow instructions **Data** 10K-1M instruction-response pairs                                                                                                                                                                                                                                   |
+| **Prompt:** "Explain what photosynthesis is." **Model output:** photosynthesis photosynthesis chlorophyll sunlight carbon dioxide oxygen glucose plant cell membrane mitochondria ATP synthesis Calvin cycle light-dependent reactions NADPH electron transport … | **Prompt:** "Explain what photosynthesis is." **Model output:** Photosynthesis is the process by which plants convert sunlight into food. Using sunlight, water, and carbon dioxide, plants produce glucose (for energy) and oxygen (released into the air). **Simple equation:** CO₂ + H₂O + light → glucose + O₂ |
+| **Who does this** Meta, OpenAI, Google, etc. Labs + you!                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                                                                    |
 
-# AFTER SFT · Instruct Model Output
-
-Prompt: "Explain what photosynthesis is."
-Model output:
-Photosynthesis is the process by which plants convert sunlight into food.
-Using sunlight, water, and carbon dioxide, plants produce glucose (for energy) and oxygen (released into the air).
-Simple equation:
-CO₂ + H₂O + light → glucose + O₂
-
-# Comparison of Outputs
-
-| Raw completion                     | Unstructured                                | Token prediction              | Instruction-following         | Structured                   | Goal-oriented                     |
-| ---------------------------------- | ------------------------------------------- | ----------------------------- | ----------------------------- | ---------------------------- | --------------------------------- |
-| ✗ Continues text, doesn't answer   | ✓ Follows the instruction directly          | ✗ No concept of 'user intent' | ✓ Understands the user's goal | ✗ Dumps tokens, no structure | ✓ Structures response for clarity |
-| ✗ Trained to predict — not to help | ✓ Trained on (prompt, ideal response) pairs |                               |                               |                              |                                   |
+| Raw completion                     | Unstructured                                | Token prediction              | forgetting                    | Instruction-following        | Structured                        | Goal-oriented optimization |
+| ---------------------------------- | ------------------------------------------- | ----------------------------- | ----------------------------- | ---------------------------- | --------------------------------- | -------------------------- |
+| ✗ Continues text, doesn't answer   | ✓ Follows the instruction directly          | ✗ No concept of 'user intent' | ✓ Understands the user's goal | ✗ Dumps tokens, no structure | ✓ Structures response for clarity | $ (millions)              |
+| ✗ Trained to predict — not to help | ✓ Trained on (prompt, ideal response) pairs | $ (hundreds to thousands)     | $ (similar to SFT)            |                              |                                   |                            |
 
 
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -793,10 +620,11 @@ CO₂ + H₂O + light → glucose + O₂
 
 SIT Internal
 Limitations of Supervised Learning for LLMs
-SiT SINGAPORE
-INSTITUTE OF TECHNOLOGY
+SINGAPORE INSTITUTE OF TECHNOLOGY
 
 # Why training on labeled data alone is not enough for modern language models?
+
+# Alignment
 
 # 01 Label Quality Ceiling
 
@@ -814,17 +642,14 @@ SL has no mechanism to incorporate post-deployment signals. The model cannot imp
 
 Minimizing cross-entropy loss does not equal being helpful, honest, or safe. SL rewards the most likely next token — not the most useful or aligned response.
 
-Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
+| Risk                                 | Cost                       |
+| ------------------------------------ | -------------------------- |
+| Underfitting                         | $ (millions)            |
+| Overfitting, catastrophic forgetting | $ (hundreds to thousands) |
+| Reward hacking, over-optimization    | $ (similar to SFT)        |
 
+7
 
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -840,15 +665,6 @@ Their grades will not be affected as the feedback results will only be shared wi
 22
 
 
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
-
-
 
 ============================================================
 📄 PAGE 23
@@ -857,11 +673,18 @@ Their grades will not be affected as the feedback results will only be shared wi
 
 
 SIT Internal
-Why alignment    SiTSINGAPORE
-INSTITUTE OF
-TECHNOLOGY
+
+# Why alignment
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Stage 1: Pre-training
 
 # Problem
+
+Trillions of tokens
+
+# Next-token prediction
 
 # Alignment
 
@@ -869,38 +692,36 @@ Pre-trained LLMs don’t know:
 
 - What’s helpful vs harmful
 - What’s true vs false
-- What’s appropriate vs offensive
+- What’s appropriate vs offensive (e.g., Llama 3 Base)
 
 Teach the model human values:
 
-1. Complete both module and teaching feedback.
-2. - Helpful: follow user intent
+- Helpful: follow user intent
 - Harmless: refuse unsafe requests
 - Honest: Admit uncertainty
 
-Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
+# Stage 3: Alignment
 
 # Problem
 
-| Unaligned Model Response | Aligned Model Response                           |
-| ------------------------ | ------------------------------------------------ |
-| Harmful content          | "Here's how to build a weapon..."                |
-|                          | "I can't help with that. This could cause harm." |
-| Verbosity                | 500-word answer for a yes/no question            |
-|                          | "Yes. Here's why in brief: ..."                  |
-| Uncertainty              | Confidently states false information             |
-|                          | "I'm not sure about this. Let me clarify..."     |
+(RLHF / DPO / ORPO) Unaligned Model Response
 
+Aligned Model Response
 
+| Who?            | Output                                           |
+| --------------- | ------------------------------------------------ |
+| Meta, OpenAI    | Base Model (e.g., Llama 4 Base)                  |
+| Harmful content | "Here's how to build a weapon..."                |
+|                 | "I can't help with that. This could cause harm." |
+| Verbosity       | 500-word answer for a yes/no question            |
+| SFT             | "Yes. Here's why in brief: ..."                  |
+| Uncertainty     | Confidently states false information             |
+|                 | "I'm not sure about this. Let me clarify..."     |
 
+Chat Model (e.g., Llama 3 Chat)
 
----
+6
 
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -914,42 +735,51 @@ SIT Internal
 
 # Reinforcement learning
 
-# SINGAPORE INSTITUTE OF TECHNOLOGY
+# Stage 1: Pre-training
 
-# (state, action, reward) trajectory
+(state, action, reward) trajectory
+
+Trillions of tokens
+
+Next-token prediction
 
 # Goal of learning
 
-1. Complete both module and teaching feedback.
-2. Please share constructive feedback in the free text sections.
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
+# Stage 2: Supervised Fine-Tuning
 
-# Policy π
+(SFT / Instruction Tuning)
 
-# Reward R
+Base Model (e.g., Llama 3 Base)
 
-be shared with the academic staff after the release of exam results.
+100K+ instruction pairs
 
-# Module and Teaching Feedback AY25/26, Tri 2
+Policy π
 
-| RL Concept | LLM equivalent         |
-| ---------- | ---------------------- |
-| State      | Input prompt           |
-| Action     | Next token             |
-| Policy     | LLM weights            |
-| Reward     | Human preference score |
+Reward R
 
-24
+# Stage 3: Alignment
 
+(RLHF / DPO / ORPO)
 
+Instruct Model (e.g., Llama 3 Instruct)
 
----
+| Stage          | Goal                             | RL Concept             |
+| -------------- | -------------------------------- | ---------------------- |
+| Pre-training   | State                            | Input prompt           |
+|                | Learn language, facts, reasoning | Base Model             |
+| Action         | Policy                           | Google (e.g., Llama 4) |
+|                | Follow instructions              | Next token Base        |
+| Instruct Model | Reward                           | Labs + You             |
 
-> **Diagram Description:** a white sheet with a red border and a black border
+# Chat Model
 
-> **Diagram Description:** the logo for st
+(e.g., Llama 3 Chat)
 
-> **Diagram Description:** the new building for the singapore university of technology
+Learn human values
+
+Human preference score
+
+24 6
 
 
 
@@ -959,39 +789,28 @@ be shared with the academic staff after the release of exam results.
 
 
 
-SIT Internal
+Collect human feedback SIT Internal
+SiT SINGAPORE INSTITUTE OF TECHNOLOGY
 
-# Collect human feedback
+# It is not easy to create a reward model for language models
 
-# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
-
-It is not easy to create a reward model for language models
+Before diving into fine-tuning, let's ask: should you fine-tune at all?
 
 Different ways of phrasing, how to score? Comparation is easier!
 
-1. Complete both module and teaching feedback.
-2. Please share constructive feedback in the free text sections.
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
-
-# Module and Teaching Feedback AY25/26, Tri 2
-
-Thank you for your feedback!
+| No        |                          | Prompt Engineering |                              |     |             |
+| --------- | ------------------------ | ------------------ | ---------------------------- | --- | ----------- |
+| No        | Need new behavior/style? | No                 |                              |     |             |
+| Your Task | Need external knowledge? | Yes                | Have training data + budget? | Yes | Fine-tuning |
+| Yes       | RAG                      |                    |                              |     |             |
 
 These pairwise comparisons are used to train a Reward Model (RM) that scores any response.
+
+Start with prompt engineering → add RAG → only fine-tune when behavior/style/skill gaps remain.
 
 25
 
 
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1005,34 +824,32 @@ SIT Internal
 
 # Reinforcement learning from human feedback (RLHF)
 
-# SINGAPORE INSTITUTE OF TECHNOLOGY
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
 
 - Reward: human preference
 - Policy: LLM
 
-1. Complete both module and teaching feedback.
-2. Please share constructive feedback in the free text sections.
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
+E.g., after tuning to summarize legal text, the model no longer answers geography questions correctly.
 
-# Module and Teaching Feedback AY25/26, Tri 2
+# Preventing catastrophic forgetting
 
-Thank you for your feedback!
+# How It Works
 
-| source | Reward: human preference | Policy: LLM |
-| ------ | ------------------------ | ----------- |
+# Effectiveness
+
+- Low learning rate: Smaller weight changes → less forgetting
+- Short training (few epochs): Stop before overfitting to new task
+- Data mixing: Mix task-specific data with general data
+- PEFT (LoRA): Only change a few parameters → base knowledge intact
+
+source Replay buffer
+
+- Reward: human preference
+- Policy: LLM
 
 26
 
 
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1041,12 +858,14 @@ Thank you for your feedback!
 ============================================================
 
 
-
-SIT Internal
-
+Proximal Policy Optimization
 # Proximal Policy Optimization
 
-Advantage: obtained from reward model and value model, it measures the relative benefit by comparing expected cumulative reward to the value baseline.
+# SIT Internal
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+(PPO) is complex. Advantage: obtained from reward model and value model, it measures the relative benefit by comparing expected cumulative reward to the value baseline.
 
 PPO requires 4 models in memory simultaneously:
 
@@ -1055,17 +874,17 @@ PPO requires 4 models in memory simultaneously:
 3. Reward Model (scores responses)
 4. Value Model (estimates expected future reward)
 
-1. Complete both module and teaching feedback.
+Need external knowledge? No
 
-2. Please share constructive feedback in the free text sections.
+# Prompt Engineering
 
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
+Need new behavior/style? No
 
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
+Have training data + budget?
 
-# Module and Teaching Feedback AY25/26, Tri 2
+Yes Fine-tuning
 
-Thank you for your feedback!
+Yes RAG
 
 Value: expected cumulative future reward on old policy
 
@@ -1075,52 +894,35 @@ https://arxiv.org/pdf/2307.04964
 
 
 
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
-
-
-
 ============================================================
 📄 PAGE 28
 ============================================================
 
 
+RLHF challenges
+# SIT Internal
 
-SIT Internal
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
 
-# RLHF challenges
+Before diving into fine-tuning, let's ask: should you fine-tune at all?
 
-# SINGAPORE INSTITUTE OF TECHNOLOGY
+| RLHF Challenge        | Detail                                   | Impact                       |
+| --------------------- | ---------------------------------------- | ---------------------------- |
+| 4 models in memory    | Policy + Reference + Reward + Value      | Enormous GPU memory          |
+| PPO instability       | model                                    | No requirement               |
+|                       | Training is sensitive to hyperparameters | Results vary across runs     |
+| No                    | Need new behavior/style?                 | No                           |
+| Reward hacking        | Model finds loopholes to maximize reward | Degraded output quality      |
+| Your Task             | Need external knowledge?                 | Have training data + budget? |
+| Yes                   | Fine-tuning                              |                              |
+| Human annotation cost | Pay for pairwise comparison              | Expensive to scale           |
+| Yes                   | RAG                                      |                              |
 
-| RLHF Challenge        | Detail                                    | Impact                                                |
-| --------------------- | ----------------------------------------- | ----------------------------------------------------- |
-| 4 models in memory    | Policy + Reference + Reward + Value model | Enormous GPU memory requirement                       |
-| PPO instability       | Training is sensitive to hyperparameters  | Results vary across runs                              |
-| Reward hacking        | score finds loopholes to maximize reward  | Degraded output quality without actually being better |
-| Human annotation cost | Pay for pairwise comparison               | Expensive to scale                                    |
-
-Feedback AY25/26, Tri 2
-
-Thank you for your feedback!
-
-These challenges motivated simpler alternatives — DPO and GRPO
+These challenges motivated simpler alternatives — DPO and GRPO. Start with prompt engineering → add RAG → only fine-tune when behavior/style/skill gaps remain.
 
 28
 
 
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1130,11 +932,11 @@ These challenges motivated simpler alternatives — DPO and GRPO
 
 
 
-SIT Internal
+# Direct SIT Internal SiT
 
-# Direct Preference Optimization (DPO)
+# Preference Optimization (DPO)
 
-# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+# SINGAPORE INSTITUTE OF TECHNOLOGY
 
 No reward model, directly optimized with preference data
 
@@ -1142,27 +944,19 @@ No reward model, directly optimized with preference data
 
 σ: sigmoid function.
 
-1. Complete both module and teaching feedback.
-2. Please share constructive feedback in the free text sections.
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
+| No  | Prompt Engineering           |     |             |
+| --- | ---------------------------- | --- | ----------- |
+| No  | Need new behavior/style?     |     |             |
+| No  | Have training data + budget? | Yes | Fine-tuning |
+| Yes | RAG                          |     |             |
 
-# Module and Teaching Feedback AY25/26, Tri 2
+Start with prompt engineering → add RAG → only fine-tune when behavior/style/skill gaps remain.
 
-Thank you for your feedback!
+source RLHF needs 4 models. DPO needs only 2
 
-source RLHF needs 4 models. DPO needs only 2 29
-
-
+29
 
 
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1172,41 +966,50 @@ source RLHF needs 4 models. DPO needs only 2 29
 
 
 
-SIT Internal
+Group Relative Policy     SIT Internal                        SiT
+Optimization (GRPO)                                                           SINGAPORE
+INSTITUTE OF
+TECHNOLOGY
 
 # Group Relative Policy Optimization (GRPO)
 
-# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+▪ Used in Deepseek
 
-- Used in Deepseek
 - PPO needs a value model to estimate "how good is this state?"
 - GRPO computes this baseline empirically from the group of responses
 - Result: 3 models instead of 4; more stable training
 
-1. Complete both module and teaching feedback.
-2. Please share constructive feedback in the free text sections.
-3. Academic Staff will not be able to identify the student. All their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
+# No
+
+Prompt Engineering
+
+# No
+
+Need new behavior/style?
+
+# Your Task
+
+Need external data + budget?
+
+# Yes
+
+RAG
 
 # How GRPO works:
 
 1. For each prompt, generate G responses
 2. Score each response with a reward model
-3. Compute advantage for each response: Aᵢ = (rᵢ - mean(r)) / std(r)
-4. Update model to increase probability of high-advantage responses
+3. Compute advantage for each response:
+4. Aᵢ = (rᵢ - mean(r)) / std(r)
+
+Update model to increase probability of high-advantage responses
+
+Start with prompt engineering → add RAG → only fine-tune when behavior/style/skill gaps remain.
 
 DeepSeek-R1 achieved GPT-4-level reasoning using GRPO
 
 30
 
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1215,43 +1018,34 @@ DeepSeek-R1 achieved GPT-4-level reasoning using GRPO
 ============================================================
 
 
-
-SIT Internal
 Beyond DPO and GRPO
-SiT SINGAPORE
-INSTITUTE OF TECHNOLOGY
+# SIT Internal
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
 
 # Method
 
-| Key Innovation | Best For                                 | Memory                            |
-| -------------- | ---------------------------------------- | --------------------------------- |
-| RLHF (PPO)     | Reward model + RL                        | General alignment                 |
-| DPO            | No reward model; direct loss             | Most alignment tasks              |
-| GRPO           | Group-relative advantages                | Reasoning/math/code               |
-| ORPO           | Single-stage SFT + alignment             | Efficiency; no reference model    |
-| SimPO          | Reference-free; length-normalized reward | High-quality preference alignment |
-| RLVR           | Verifiable rewards (math, code)          | Tasks with ground truth           |
-| KTO            | Binary thumbs-up/down feedback           | Noisy/implicit feedback signals   |
+# Key Innovation
 
-2. Please share constructive feedback in the free text sections feedback received are anonymous.
+# Best For
 
-4. Their grades will not be affected as the feedback results will only.
+# Memory
 
-Feedback AY25/26, Tri 2
+Before diving into fine-tuning, let's ask: should you fine-tune at all?
 
-Thank you for your feedback!
+| RLHF (PPO) | Reward model + RL                        | General alignment                 |                                | 4 models    |
+| ---------- | ---------------------------------------- | --------------------------------- | ------------------------------ | ----------- |
+| DPO        | No reward model; direct loss             | Most alignment tasks              |                                | 2 models    |
+| GRPO       | Group-relative advantages                | No                                | Reasoning/math/code            | 3 models    |
+| ORPO       | Single-stage SFT + alignment             | Need new behavior/style?          | Efficiency; no reference model | 1 model     |
+| SimPO      | Reference-free; length-normalized reward | High-quality preference alignment | 1 model                        |             |
+| Your Task  | Have training data + budget?             |                                   | Yes                            | Fine-tuning |
+| RLVR       | Verifiable rewards (math, code)          | Tasks with ground truth           |                                | 3 models    |
+| KTO        | Binary thumbs-up/down feedback           | Noisy/implicit feedback signals   |                                | 2 models    |
+
+Start with prompt engineering → add RAG → only fine-tune when behavior/style/skill gaps remain.
 
 31
-
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1260,20 +1054,11 @@ Thank you for your feedback!
 ============================================================
 
 
-# SINGAPORE INSTITUTE OF TECHNOLOGY
+# INSTITUTE OF SINGAPORE TECHNOLOGY
 
 # Advanced Model Optimization Techniques
 
 32
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1283,49 +1068,27 @@ Thank you for your feedback!
 
 
 
-SIT Internal
-# Quantization: model compression
+# Quantization: model
 
-# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+# SIT Internal
+
+# SiT
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
 
 # Quantization: reducing the precision of numerical values.
 
-# Post-Training Quantization (PTQ)
-
-Start with a pre-trained model and evaluate it on a calibration dataset.
-
-Calibration data is used to calibrate the model. It can be a subset of training data.
-
-Calculate dynamic ranges of weights and activations in the network to compute quantization parameters (q-params).
-
-Quantize the network using q-params and run inference.
-
-# Quantization-Aware Training (QAT)
-
-Start with a pre-trained model and introduce quantization ops at various layers.
-
-Finetune it for a small number of epochs.
-
-| A 7B model | in FP32: 28GB | in INT4: 3.5GB |
-| ---------- | ------------- | -------------- |
-
-Simulates the quantization process that occurs during inference.
-
-The goal is to learn the q-params which can help to reduce the accuracy drop between the quantized model and pre-trained model.
-
-Thank you for your feedback!
+| Post-Training Quantization (PTQ)                                                                                  | Quantization-Aware Training (QAT)                                                                                               | Prompt Engineering               |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| Start with a pre-trained model and evaluate it on a calibration dataset.                                          | Start with a pre-trained model and introduce quantization ops at various layers.                                                | No                               |
+| Calibration data is used to calibrate the model. It can be a subset of training data.                             | Finetune it for a small number of epochs.                                                                                       | A 7B model                       |
+| Calculate dynamic ranges of weights and activations in the network to compute quantization parameters (q-params). | Simulates the quantization process that occurs during inference.                                                                | * in FP32: 28GB
+* in INT4: 3.5GB |
+| Quantize the network using q-params and run inference.                                                            | The goal is to learn the q-params which can help to reduce the accuracy drop between the quantized model and pre-trained model. |                                  |
 
 33
 
 
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1334,36 +1097,28 @@ Thank you for your feedback!
 ============================================================
 
 
-SIT Internal
-# Knowledge distillation
 
-# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+Knowledge distillation SIT Internal    SiTSINGAPORE
+INSTITUTE OF
+TECHNOLOGY
 
-# Big model, well distilled
+# Before diving into fine-tuning, let's ask: should you fine-tune at all?
 
-1. Complete both module and teaching feedback.
-2. Please share constructive feedback in the free text sections.
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
+| Big model, well trained on huge datasets | No                       | Distilled model |
+| ---------------------------------------- | ------------------------ | --------------- |
+| No Need new behavior/style?              | No                       |                 |
+| Your Task                                | Need external knowledge? | Yes             |
+|                                          | Fine-tuning              | Yes             |
+|                                          | RAG                      |                 |
 
-# Module and Teaching Feedback AY25/26, Tri 2
+- Scale down the complexity of teacher to student model without significantly accuracy degrading
+- Teacher and student may or may not have same architecture
+- Student may perform better than teacher in specific task
+- E.g., DistilBERT is a distilled version of BERT — 40% smaller, 60% faster, retaining 97% of performance
+- DeepSeek-R1 distilled versions (1.5B, 7B, 14B, 32B) rival models 10× their size on math benchmarks
 
-- Scale down the complexity of teacher to student model without significantly accuracy degrading.
-- Teacher and student may or may not have same architecture.
-- Student may perform better than teacher in specific task.
-- E.g., DistilBERT is a distilled version of BERT — 40% smaller, 60% faster, retaining 97% of performance.
-- DeepSeek-R1 distilled versions (1.5B, 7B, 14B, 32B) rival models 10× their size on math benchmarks.
+34
 
-
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1372,38 +1127,32 @@ SIT Internal
 ============================================================
 
 
-
-SIT Internal
-
-# Mixture of experts (MoE) fine-tuning
+Mixture of experts (MoE)  SIT Internal
+# Fine-tuning
 
 # SINGAPORE INSTITUTE OF TECHNOLOGY
 
-"Expert" Analogy: Instead of one generalist doctor, you have a clinic of specialists (e.g., a cardiologist, a neurologist, and a pediatrician).
+Before diving into fine-tuning, let's ask: should you fine-tune at all?
 
-1. Please share constructive feedback in the free text sections
-2. Academic Staff will not be able to identify the student. All feedback received are anonymous.
+# "Expert" Analogy:
 
-•Dense Models: Every input token activates every parameter in the network, computationally expensive to scale.
+Instead of one generalist doctor, you have a clinic of specialists (e.g., a cardiologist, a neurologist, and a pediatrician).
 
-•Sparse (MoE) Models: Only a small subset of the network is activated for any given input.
+| No  | Prompt Engineering           |
+| --- | ---------------------------- |
+| No  | Need new behavior/style?     |
+| Yes | Have training data + budget? |
+| Yes | Fine-tuning                  |
 
-Thank you for your feedback!
+• Dense Models: Every input token activates every parameter in the network, computationally expensive to scale.
+
+• Sparse (MoE) Models: Only a small subset of the network is activated for any given input.
+
+Start with prompt engineering → add RAG → only fine-tune when behavior/style/skill gaps remain.
 
 Example models: Mixtral 8×7B, DeepSeek-V3, Llama 4 Scout/Maverick
 
 source 35
-
-
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1412,54 +1161,72 @@ source 35
 ============================================================
 
 
-SIT Internal
-# Fine-tuning frameworks
 
-# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+Fine-tuning frameworks                                 SIT Internal                                                      SiTSINGAPORE
+INSTITUTE OF
+TECHNOLOGY
 
-| Framework   | Best For              |
-| ----------- | --------------------- |
+# Framework
+
+# Best For
+
 | HuggingFace | SFT + DPO/GRPO + RLHF |
-| TRL         |                       |
+| ----------- | --------------------- |
 | HuggingFace | LoRA/QLoRA adapter    |
 | PEFT        | management            |
 
-| Key Feature                                                                        |                                           | Difficulty                                                                                                                 | What Changed                                                                                            |                                                                                                            |                                      |
-| ---------------------------------------------------------------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| Full pipeline; includes GRPOTrainer, vLLM accelerated generation, VLM support, CLI |                                           | Medium                                                                                                                     | Added GRPO (DeepSeek-R1 style reasoning), vLLM integration, OpenEnv for agentic RL, multimodal training |                                                                                                            |                                      |
-| supports DoRA, LoRA+, PiSSA, rsLoRA; easy adapter save/load/share                  |                                           | Low                                                                                                                        | Broader adapter method coverage beyond vanilla LoRA                                                     |                                                                                                            |                                      |
-| Unsloth                                                                            | Fast fine-tuning on limited hardware      |                                                                                                                            |                                                                                                         |                                                                                                            |                                      |
-|                                                                                    |                                           | 2–5× faster, 70% less VRAM; Added GRPO support, vision models (Llama 3.2 Vision, Qwen2.5-VL), Llama 4, dynamic 4-bit quant |                                                                                                         |                                                                                                            |                                      |
-|                                                                                    |                                           | Low                                                                                                                        | multi-GPU via Axolotl/TRL backends; MS M12 funded                                                       |                                                                                                            |                                      |
-|                                                                                    |                                           |                                                                                                                            |                                                                                                         | Axolotl                                                                                                    | Config-driven, multi-GPU fine-tuning |
-|                                                                                    |                                           | YAML config; Ring FlashAttention for long-context; sequence parallelism                                                    |                                                                                                         |                                                                                                            |                                      |
-|                                                                                    |                                           | Medium                                                                                                                     | v0.8.x adds LLaMA 4, Gemma-3, sequence parallelism — now competitive for multi-GPU long-context         |                                                                                                            |                                      |
-| LLaMA-Factory                                                                      |                                           | GUI + CLI unified fine-tuning                                                                                              |                                                                                                         |                                                                                                            |                                      |
-|                                                                                    |                                           | Web UI; 150+ model families; multimodal, audio, OFT/OFTv2, Muon/APOLLO optimizers                                          |                                                                                                         |                                                                                                            |                                      |
-|                                                                                    |                                           | Low                                                                                                                        | Expanded to VLMs, audio models (Qwen2-Audio), advanced optimizers, SGLang inference backend             |                                                                                                            |                                      |
-| torchtune                                                                          | PyTorch-native, research-grade tuning     |                                                                                                                            |                                                                                                         |                                                                                                            |                                      |
-|                                                                                    |                                           | Clean, modular; now multi-node training, LLaMA 4, Qwen2.5, Gemma2                                                          |                                                                                                         |                                                                                                            |                                      |
-|                                                                                    |                                           | Medium                                                                                                                     | Added multi-node training (Feb 2025), broader model family support, stronger ecosystem composability    |                                                                                                            |                                      |
-| DeepSpeed                                                                          |                                           | Large-scale distributed training                                                                                           |                                                                                                         |                                                                                                            |                                      |
-|                                                                                    |                                           | ZeRO-3/Infinity, MoE support; widely used as backend in TRL, Axolotl, LLaMA-Factory                                        |                                                                                                         |                                                                                                            |                                      |
-|                                                                                    |                                           |                                                                                                                            | High                                                                                                    | Now primarily used as a backend engine rather than standalone; ZeRO-Infinity for >100B models              |                                      |
-| FSDP (PyTorch)                                                                     |                                           | Native distributed training                                                                                                |                                                                                                         |                                                                                                            |                                      |
-|                                                                                    |                                           | FSDP2 in PyTorch 2.x — better composability, no external deps                                                              |                                                                                                         |                                                                                                            |                                      |
-|                                                                                    |                                           |                                                                                                                            | High                                                                                                    | FSDP2 redesign improves memory efficiency and composability with torch.compile                             |                                      |
-| OpenRLHF                                                                           | Large-scale RL / reasoning model training |                                                                                                                            |                                                                                                         |                                                                                                            |                                      |
-|                                                                                    |                                           | Ray + vLLM; PPO + GRPO; designed for 70B+ reasoning model RL                                                               |                                                                                                         |                                                                                                            |                                      |
-|                                                                                    |                                           |                                                                                                                            | High                                                                                                    | Added GRPO, vLLM-based generation for throughput, now the go-to for large-scale DeepSeek-R1–style training |                                      |
+# Key Feature
 
+# Difficulty
 
+# What Changed
 
+| Full pipeline; includes GRPOTrainer, vLLM-accelerated generation, VLM support, CLI | Medium | Added GRPO (DeepSeek-R1 style reasoning), vLLM integration, OpenEnv for agentic RL, multimodal training |
+| ---------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------- |
+| supports DoRA, LoRA+, PiSSA, rsLoRA; easy adapter save/load/share                  | Low    | Broader adapter method coverage beyond vanilla LoRA                                                     |
 
----
+# Unsloth
 
-> **Diagram Description:** a white sheet with a red border and a black border
+| Fast fine-tuning on limited hardware | 2–5× faster, 70% less VRAM; | No | Added GRPO support, vision models (Llama 3.2 Vision, Qwen2.5-VL), Llama 4, 500K context, multi-GPU via Axolotl/TRL backends; MS M12 funded |
+| ------------------------------------ | --------------------------- | -- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 
-> **Diagram Description:** the logo for st
+# Axolotl
 
-> **Diagram Description:** the new building for the singapore university of technology
+| Config-driven, multi-GPU fine-tuning | YAML config; Ring FlashAttention for long-context; sequence parallelism | Medium | v0.8.x adds LLaMA 4, Gemma-3, sequence parallelism — now competitive for multi-GPU long-context |
+| ------------------------------------ | ----------------------------------------------------------------------- | ------ | ----------------------------------------------------------------------------------------------- |
+
+# LLaMA-Factory
+
+| GUI + CLI unified fine-tuning | Web UI; 150+ model families; multimodal, data + budget? | Expanded to VLMs, audio models (Qwen2-Audio), advanced optimizers, SGLang inference backend |
+| ----------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+
+# Your Task
+
+| Need external knowledge? | audio, OFT/OFTv2, Muon/APOLLO optimizers | Low | Yes | Fine-tuning |
+| ------------------------ | ---------------------------------------- | --- | --- | ----------- |
+
+# torchtune
+
+| PyTorch-native, research-grade tuning | Clean, modular; now multi-node training, LLaMA 4, Qwen2.5, Gemma2 | Medium | Added multi-node training (Feb 2025), broader model family support, stronger ecosystem composability |
+| ------------------------------------- | ----------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------- |
+
+# DeepSpeed
+
+| Large-scale distributed training | Yes | Now primarily used as a backend engine rather than standalone; ZeRO-Infinity for >100B models | High | ZeRO-3/Infinity, MoE support; widely used as backend in TRL, Axolotl, LLaMA-Factory |
+| -------------------------------- | --- | --------------------------------------------------------------------------------------------- | ---- | ----------------------------------------------------------------------------------- |
+
+# FSDP (PyTorch)
+
+| Native distributed training | FSDP2 in PyTorch 2.x — better composability, no external deps | High | FSDP2 redesign improves memory efficiency and composability with torch.compile |
+| --------------------------- | ------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------ |
+
+# OpenRLHF
+
+| Large-scale RL / reasoning model training | Ray + vLLM; PPO + GRPO; designed for 70B+ reasoning model RL | High | Added GRPO, vLLM-based generation for throughput, now the go-to for large-scale DeepSeek-R1–style training |
+| ----------------------------------------- | ------------------------------------------------------------ | ---- | ---------------------------------------------------------------------------------------------------------- |
+
+36
+
 
 
 
@@ -1469,22 +1236,25 @@ SIT Internal
 
 
 
-# SIT Internal
+How to Choose the Right SIT Internal Strategy
+SINGAPORE INSTITUTE OF TECHNOLOGY
 
-# How to Choose the Right Strategy
+# Your Situation
 
-# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+# Recommended Approach
 
-| Your Situation                         | Recommended Approach                                                                                                                                                   |
-| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Need external/live knowledge           | RAG (+ optionally fine-tune for style)                                                                                                                                 |
-| Need consistent tone/style/brand voice | SFT (Instruction Tuning)                                                                                                                                               |
-| Need new skill (math reasoning, code)  | SFT + GRPO with verifiable rewards                                                                                                                                     |
-| Need safety/helpfulness alignment      | SFT + DPO or ORPO Academic Staff will not be able to identify the student. All feedback received are anonymous.                                                        |
-| Limited GPU (single consumer card)     | QLoRA (4-bit) + LoRA adapters Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results. |
-| Very limited data (<1K examples)       | Prompt engineering + few-shot, or DPO                                                                                                                                  |
-| Need a smaller deployable model        | Knowledge Distillation or Quantization                                                                                                                                 |
-| Large team, production deployment      | SFT → DPO/ORPO → Quantize → Deploy                                                                                                                                     |
+Before diving into fine-tuning, let's ask: should you fine-tune at all?
+
+| Need external/live knowledge           | RAG (+ optionally fine-tune for style)                |                                        |     |             |
+| -------------------------------------- | ----------------------------------------------------- | -------------------------------------- | --- | ----------- |
+| Need consistent tone/style/brand voice | SFT (Instruction Tuning)                              |                                        |     |             |
+| Need new skill (math reasoning, code)  | SFT + GRPO with verifiable rewards Prompt Engineering |                                        |     |             |
+| Need safety/helpfulness alignment      | Need new behavior/style?                              | SFT + DPO or ORPO                      | No  |             |
+| Limited GPU (single consumer card)     | QLoRA (4-bit) + LoRA adapters                         |                                        |     |             |
+| Your Task                              | Need external data + budget?                          | Very limited data (<1K examples)       | Yes | Fine-tuning |
+|                                        |                                                       | Prompt engineering + few-shot, or DPO  |     |             |
+| Need a smaller deployable model        | RAG                                                   | Knowledge Distillation or Quantization |     |             |
+| Large team, production deployment      | SFT → DPO/ORPO → Quantize → Deploy                    |                                        |     |             |
 
 In practice: Prompt Engineering → RAG → SFT (LoRA/QLoRA) → Alignment (DPO/ORPO) → Quantization. Each step adds cost and complexity — stop when you've solved the problem.
 
@@ -1493,62 +1263,38 @@ In practice: Prompt Engineering → RAG → SFT (LoRA/QLoRA) → Alignment (DPO/
 
 
 
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
-
-
-
 ============================================================
 📄 PAGE 38
 ============================================================
 
 
-
-SIT Internal References
-
+SIT Internal
 # SIT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# References
 
 - https://github.com/rasbt/LLMs-from-scratch
 - https://github.com/pdaicode/awesome-LLMs-finetuning
 - https://github.com/huggingface/peft
 - https://github.com/artidoro/qlora
-- https://huggingface.co/learn/deep-rl-course/unit0/introduction
-- https://www.manning.com/books/grokking-deep-reinforcement-learning
-- https://www.mit.edu/%7Edimitrib/RLbook.html
+- https://huggingface.co/learn/deep-rl-course/unit0/introduction No
+- https://www.manning.com/books/grokking-deep-reinforcement-learning Prompt Engineering
+- https://www.mit.edu/%7Edimitrib/RLbook.html No Need new
 
 # Core Papers:
 
 - LoRA: https://arxiv.org/abs/2106.09685
-- QLoRA: https://arxiv.org/abs/2305.14314
-- InstructGPT / RLHF: https://arxiv.org/abs/2203.02155
+- QLoRA: https://arxiv.org/abs/2305.14314 Yes Have training
+- InstructGPT / RLHF: https://arxiv.org/abs/2203.02155 data + budget? Yes Fine-tuning
 - DPO: https://arxiv.org/abs/2305.18290
 - GRPO / DeepSeek-R1: https://arxiv.org/abs/2501.12948
 - DoRA: https://arxiv.org/abs/2402.09353
 - SimPO: https://arxiv.org/abs/2405.14734
 - ORPO: https://arxiv.org/abs/2403.07691
 
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
-
-Thank you for your feedback!
+Start with prompt engineering → add RAG → only fine-tune when behavior/style/skill gaps remain.
 
 38
-
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1557,18 +1303,9 @@ Thank you for your feedback!
 ============================================================
 
 
-# SINGAPORE INSTITUTE OF TECHNOLOGY
+# INSTITUTE OF SINGAPORE TECHNOLOGY
 
 # Tutorial &#x26; Group project submission
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1578,31 +1315,25 @@ Thank you for your feedback!
 
 
 
-# SIT Internal Tutorial
+SIT Internal
+# Tutorial
 
-# SINGAPORE INSTITUTE OF TECHNOLOGY
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
 
-# LLM Alignment with DPO
+| Approach                               | When to Use                            | What Changes         | Example                      | Pretrained LLM   | Finetuning                          | Inference                               |
+| -------------------------------------- | -------------------------------------- | -------------------- | ---------------------------- | ---------------- | ----------------------------------- | --------------------------------------- |
+| Continued Pre-training                 | Adapt to new domain (e.g., medical)    | All parameters       | Fine-tune on clinical notes  | Data from domain | Continue training on finetuning     | Next word prediction objective          |
+| Instruction Tuning (SFT)               | Teach instruction-following            | All or LoRA adapters | Fine-tune on Q\&A pairs      | Pretrained LLM   | Parameter T                         | Train only new parameters on finetuning |
+| Classification Fine-tuning (Masked LM) | Task-specific output (e.g., sentiment) | Output layer only    | BERT for text classification | Pretrained LLM   | Supervised task classification loss | On finetuning task                      |
+| PEFT / LoRA                            | Large model                            | Matrices only        | LoRA on Llama 3              | Finetuning       | Supervised instructions             | Next word prediction objective          |
 
-1. Complete both module and teaching feedback.
-2. Please share constructive feedback in the free text sections.
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
+Instruction tuning on diverse tasks
 
-# Module and Teaching Feedback AY25/26, Tri 2
+On unseen tasks
 
-Thank you for your feedback!
+https://web.stanford.edu/~jurafsky/slp3/
 
 
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1614,38 +1345,32 @@ Thank you for your feedback!
 
 SIT Internal
 Group project final submission
-SiTSINGAPORE
+SiT SINGAPORE
 INSTITUTE OF TECHNOLOGY
 
 # Requirement
 
-| Detail                         |                                                                                                                                                                                                |   |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
-| Deadline                       | Apr 3 2026 11:59 PM                                                                                                                                                                            |   |
-| Presentation & video: speakers | We encourage every team member to speak                                                                                                                                                        |   |
-| Presentation & video           | Face is optional, screen recording + voiceover is fine                                                                                                                                         |   |
-| Content                        | Clearly summarize Problem → Approach → Results                                                                                                                                                 |   |
-| Submission Format              | Submit slide, video, source code in xSite Dropbox.                                                                                                                                             |   |
-|                                | • Large Files: If your zipped source code exceeds the file size limit (>2GB), please provide a GitHub link instead.                                                                            |   |
-|                                | • Documentation: Ensure your repository includes a self-explanatory README file.                                                                                                               |   |
-| Module and Teaching            | • Security: Do not share API keys in your source code. Instead, provide clear instructions in the README on how to configure them (e.g., using a configuration file or environment variables). |   |
-
-Feedback AY25/26, Tri 2
-
-Thank you for your feedback!
+| Detail                         | Pretraining                                                                                                                                                                                    | Finetuning                                             | Inference      |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------------- |
+| Deadline                       | Apr 3 2026 11:59 PM                                                                                                                                                                            | Data from                                              | prediction     |
+| Approach                       | When to Use                                                                                                                                                                                    | Pretrained LLM finetuning                              | domain         |
+| Presentation & video: speakers | We encourage every team member to speak                                                                                                                                                        | On finetuning                                          |                |
+| Continued Pre-training         | Adapt to new                                                                                                                                                                                   | clinical notes                                         |                |
+| medical                        | All parameters                                                                                                                                                                                 | Face is optional, screen recording + voiceover is fine |                |
+| Content                        | Clearly summarize Problem → Approach →                                                                                                                                                         | Pretrained LLM                                         | domain         |
+| Instruction                    | Teach                                                                                                                                                                                          | instruction-following                                  |                |
+| Tuning (SFT)                   | All or LoRA                                                                                                                                                                                    | adapters                                               |                |
+| Submission Format              | Submit slide, video, source code in xSite Dropbox.                                                                                                                                             | On finetuning                                          |                |
+|                                | • Large Files: If your zipped source code exceeds the file size limit (>2GB), please provide a GitHub link instead.                                                                            | Task                                                   |                |
+|                                | • Documentation: Ensure your repository includes a self-explanatory README file.                                                                                                               | Train only                                             | classification |
+|                                | • Security: Do not share API keys in your source code. Instead, provide clear instructions in the README on how to configure them (e.g., using a configuration file or environment variables). |                                                        |                |
+|                                | Instruction tuning                                                                                                                                                                             | Instruction tuning on                                  | diverse tasks  |
 
 Your video may be selected to showcase at SIT events, e.g. Open House. Make it something you're proud of, imagine explaining it to a curious first-year student!
 
+https://web.stanford.edu/~jurafsky/slp3/
 
 
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1657,12 +1382,20 @@ Your video may be selected to showcase at SIT events, e.g. Open House. Make it s
 
 SIT Internal
 Tentative Presentation Outline
-SINGAPORE INSTITUTE OF TECHNOLOGY
+SiT SINGAPORE
+INSTITUTE OF TECHNOLOGY
 
 # Opening
 
 - State the problem clearly
 - Briefly explain why this problem matters
+- What Changes
+- Example
+- Pretrained LLM
+- Finetuning
+- Inference
+- Data from finetuning
+- Next word prediction
 
 # System Demo
 
@@ -1671,10 +1404,11 @@ SINGAPORE INSTITUTE OF TECHNOLOGY
 
 # Technical Explanation
 
-1. Please share constructive feedback in the free text sections
-2. Explain your architecture (which LLM, RAG/fine-tuning, what tools etc)
-3. Show an architecture diagram
-4. Mention key design decisions and why you made them
+# Instruction Tuning (SFT)
+
+- Explain your architecture (which LLM, RAG/fine-tuning, what tools etc.)
+- Show an architecture diagram (e.g., LoRA)
+- Mention key design decisions and why you made them
 
 # Evaluation
 
@@ -1688,18 +1422,9 @@ SINGAPORE INSTITUTE OF TECHNOLOGY
 - What would you add if you had more time?
 - What surprised you or didn't work as expected?
 
-Thank you for your feedback!
+https://web.stanford.edu/~jurafsky/slp3/
 
 
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
 
 
 
@@ -1710,25 +1435,21 @@ Thank you for your feedback!
 
 
 SIT Internal
-SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+Fine tuning overview
+SiT SINGAPORE
+INSTITUTE OF TECHNOLOGY
 
-# Module and Teaching Feedback AY25/26, Tri 2
+# Fine tuning overview
+
+| Approach                 | When to Use                            | What Changes                | Example                                                                                                                             | Pretrained LLM                                                                                | Finetuning                  | Inference                |
+| ------------------------ | -------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------- | ------------------------ |
+| Continued Pre-training   | Adapt to new domain (e.g., medical)    | All parameters              | 1. Fine-tune on domain                                                                                                              | Continued                                                                                     | training all parameters     | On finetuning            |
+| Instruction Tuning (SFT) | Teach instruction-following            | All or LoRA adapters        | 2. Please share constructive feedback in the free text sections                                                                     | Academic Staff will not be able to identify the student. All feedback received are anonymous. | On finetuning               | parameters on finetuning |
+| Classification           | Task-specific output (e.g., sentiment) | Output layer only           | 3. Their grades will not be affected as the feedback will only be shared with the academic staff after the release of exam results. | Train only                                                                                    | classification head on task | Finetuning               |
+| PEFT / LoRA              | Limited compute, large model           | Small adapter matrices only | LoRA on Llama 3                                                                                                                     | Supervised                                                                                    | Next word objective         | On unseen tasks          |
 
 Thank you for your feedback!
 
-1. Complete both module and teaching feedback.
-2. Please share constructive feedback in the free text sections.
-3. Academic Staff will not be able to identify the student. All feedback received are anonymous.
-4. Their grades will not be affected as the feedback results will only be shared with the academic staff after the release of exam results.
-
-
-
----
-
-> **Diagram Description:** a white sheet with a red border and a black border
-
-> **Diagram Description:** the logo for st
-
-> **Diagram Description:** the new building for the singapore university of technology
+https://web.stanford.edu/~jurafsky/slp3/
 
 

@@ -1,6 +1,7 @@
 import json
 import re
 import os
+import html
 from pathlib import Path
 from typing import List, Dict, Optional
 
@@ -13,8 +14,46 @@ from content_extraction import CodexLLMClient
 load_dotenv(override=True)
 
 
+def _clean_processed_txt_export(raw_text: str) -> str:
+    """
+    Clean page-based enriched TXT exports from processed_data.
+    Removes page separators and repetitive diagram-description boilerplate.
+    """
+    cleaned_lines: List[str] = []
+
+    for raw_line in raw_text.splitlines():
+        line = html.unescape(raw_line).strip()
+
+        if not line:
+            cleaned_lines.append("")
+            continue
+
+        if re.fullmatch(r"=+", line):
+            continue
+        if re.fullmatch(r"📄\s*PAGE\s*\d+", line, flags=re.IGNORECASE):
+            continue
+        if line == "---":
+            continue
+        if re.match(r"^>\s*\*\*Diagram Description:\s*", line, flags=re.IGNORECASE):
+            continue
+
+        cleaned_lines.append(line)
+
+    # Collapse excessive blank lines while preserving paragraph boundaries.
+    text = "\n".join(cleaned_lines)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
+
+
 def read_transcript(path: str) -> str:
-    return Path(path).read_text(encoding="utf-8").strip()
+    transcript_path = Path(path)
+    text = transcript_path.read_text(encoding="utf-8").strip()
+
+    # Support processed_data enriched TXT exports without requiring JSON conversion.
+    if transcript_path.suffix.lower() == ".txt" and "📄 PAGE" in text:
+        return _clean_processed_txt_export(text)
+
+    return text
 
 
 def split_paragraphs(text: str) -> List[str]:

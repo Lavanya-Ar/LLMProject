@@ -11,55 +11,55 @@
   },
   "questions": [
     {
-      "question_id": "easy_1",
+      "question_id": "base_model_behavior",
       "lecture_id": "gmt20260319-005955-recording-1920x1080",
       "topic": "Instruction tuning necessity",
       "difficulty": "easy",
-      "question": "Why does a base model trained only on pre-training data typically fail to follow human instructions?",
+      "question": "What is the primary behavior of a base model trained only on pre-training data?",
       "options": [
-        "It lacks fine-tuning on instruction-response pairs",
-        "It uses low-rank matrix decomposition",
-        "It was trained to perform text completion rather than instruction-following",
-        "It requires reinforcement learning from human feedback"
+        "It follows human instructions accurately.",
+        "It performs text completion rather than instruction-following.",
+        "It aligns with human values like helpfulness and honesty.",
+        "It uses reinforcement learning to optimize rewards."
       ],
-      "answer_index": 2,
-      "explanation": "The correct answer is option C because base models are trained on raw pre-training data with the objective of text completion, not instruction-following. Option A describes supervised fine-tuning (SFT), which addresses this limitation but is not the reason for the base model's behavior. Option B refers to LoRA, a parameter-efficient fine-tuning method unrelated to base model training. Option D involves RLHF, which is used for alignment after SFT.",
+      "answer_index": 1,
+      "explanation": "The correct answer is B because base models are trained on raw pre-training data, which leads them to generate text based on patterns rather than follow instructions. Options A and C describe behaviors achieved after fine-tuning (e.g., SFT or alignment), and D refers to reinforcement learning, which is unrelated to base model behavior.",
       "source_concept_ids": [
         "gmt20260319-005955-recording-1920x1080_s6_c3"
       ]
     },
     {
-      "question_id": "medium_2",
+      "question_id": "lora_tuning_strategy",
       "lecture_id": "gmt20260319-005955-recording-1920x1080",
       "topic": "LoRA parameter tuning strategy",
       "difficulty": "medium",
-      "question": "What is the recommended first step in tuning LoRA hyperparameters according to the lecture?",
+      "question": "What is the recommended order for tuning LoRA hyperparameters according to the lecture?",
       "options": [
-        "Adjust the rank hyperparameter R",
-        "Optimize the learning rate",
-        "Modify the batch size",
-        "Change the matrix decomposition method"
+        "Adjust rank first, then optimize learning rate.",
+        "Optimize learning rate first, then adjust rank.",
+        "Set rank and learning rate simultaneously.",
+        "Fix rank and vary learning rate iteratively."
       ],
       "answer_index": 1,
-      "explanation": "The correct answer is option B because the lecture explicitly states that hyperparameter tuning should start with optimizing the learning rate before adjusting the rank. Option A (adjusting rank) is the second step in the process. Options C and D are not mentioned in the source material as part of LoRA tuning strategy.",
+      "explanation": "The correct answer is B because the lecture explicitly states that the tuning strategy involves first optimizing the learning rate and then adjusting the rank. Option A reverses this order, while C and D describe methods not mentioned in the source material.",
       "source_concept_ids": [
         "gmt20260319-005955-recording-1920x1080_s4_c2"
       ]
     },
     {
-      "question_id": "hard_3",
+      "question_id": "human_preference_data",
       "lecture_id": "gmt20260319-005955-recording-1920x1080",
       "topic": "Reinforcement learning for LM alignment",
       "difficulty": "hard",
-      "question": "How is human preference data typically collected for reinforcement learning in language model alignment?",
+      "question": "How is human preference data typically collected for reinforcement learning in language models?",
       "options": [
-        "By assigning numerical scores to individual responses",
-        "By comparing pairs of answers and selecting the preferred one",
-        "Through automated metric evaluations",
-        "Using pre-trained reward models without human input"
+        "By assigning numerical scores to individual answers.",
+        "By comparing pairs of answers and selecting the preferred one.",
+        "By training a reward model on absolute ratings.",
+        "By using automated metrics to evaluate responses."
       ],
       "answer_index": 1,
-      "explanation": "The correct answer is option B because the source material specifies that human preference data is collected by presenting pairs of answers (good vs. bad) and selecting the preferred one, rather than assigning absolute scores. Option A describes an absolute scoring method not used in this context. Options C and D involve automated or model-based approaches that do not rely on direct human comparisons as described.",
+      "explanation": "The correct answer is B because the lecture specifies that human preference data is collected by presenting pairs of answers and selecting the preferred one, rather than using absolute scores. Option A describes a different method not mentioned, while C and D refer to reward model training and automated metrics, which are not the primary data collection approach described.",
       "source_concept_ids": [
         "gmt20260319-005955-recording-1920x1080_s9_c3"
       ]

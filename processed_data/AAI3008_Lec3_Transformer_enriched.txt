@@ -17,36 +17,28 @@ Zhang Zhengchen
 zhengchen.zhang@singaporetech.edu.sg
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 2
 ============================================================
 
 
-SIT Internal Algorithm 1 Learn BPE operations
+SIT Internal
+# Algorithm 1 Learn BPE operations
 
-• Byte Pair Encoding (BPE
-
-- To build subwords from characters by merging frequent pairs
-- Handle rare words using subwords
-
-1. word → characters, build a vocabulary
-2. Count the frequencies of bigrams
-3. - Higher order function in Python
-- max and dictionary
-
-Merge the most frequently appeared one
-4. - Replace 'lo w' by 'low’ in the vocabulary
-- Get a new vocabulary
-
-Repeat 2 and 3 until some threshold is achieved
+import re, collections
+• Byte Pair Encoding (BPE)
+•   To build subwords from characters by merging
+frequent pairs
+•   Handle rare words using subwords
+1.   word → characters, build a vocabulary
+2.   Count the frequencies of bigrams
+•   Higher order function in Python
+•   max and dictionary
+3.   Merge the most frequently appeared one
+•   Replace 'lo w' by 'low’ in the vocabulary
+•   Get a new vocabulary
+4.   Repeat 2 and 3 until some threshold is achieved
 
 def get_stats(vocab):
 pairs = collections.defaultdict(int)
@@ -70,13 +62,6 @@ print(best)
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 3
@@ -95,21 +80,12 @@ SIT Internal
 | happy and glad: | 0.74 |
 | --------------- | ---- |
 
-# Softmax
+| Softmax | 0.1 | 0.76 | 0.01 | 0.07 | 0.01 | 0.03 | 0.02 |
+| ------- | --- | ---- | ---- | ---- | ---- | ---- | ---- |
 
-| 0.1 | 0.76 | 0.01 | 0.07 | 0.01 | 0.03 | 0.02 |
-| --- | ---- | ---- | ---- | ---- | ---- | ---- |
+| Word ID | 1 |
+| ------- | - |
 
-# Word ID
-
-1
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -118,10 +94,9 @@ SIT Internal
 ============================================================
 
 
-SIT Internal SiT
-# Outline
+Outline        SIT Internal    SiT
+# Transformer
 
-- Transformer
 - Attention
 - Encoder and Decoder
 - Normalization
@@ -131,41 +106,25 @@ SIT Internal SiT
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 5
 ============================================================
 
 
-Attention is              SIT Internal    SiT
-# All You Need
+Attention is            SIT Internal    SiT
+# Attention is All You Need
 
 - Transformer
 - A network architecture
 - Based solely on attention mechanisms
 - No recurrence, no convolutions
 
-+
-
-X  H  Y
+X H Y
 
 Vaswani A. Attention is all you need[J]. Advances in Neural Information Processing Systems, 2017. https://arxiv.org/pdf/1706.03762
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -174,33 +133,51 @@ Vaswani A. Attention is all you need[J]. Advances in Neural Information Processi
 ============================================================
 
 
-Model Architecture  SIT Internal
-# Output
 
-# SiT
+# Model Architecture
 
-# Probabilities
+# SIT Internal
 
-|                     |                      | Softmax                     | Linear |
-| ------------------- | -------------------- | --------------------------- | ------ |
-| Encoder             | Add & Norm           | Feed Forward                |        |
-| Decoder             | Add & Norm           | Feed Forward                |        |
-| Add & Norm          | Multi-Head Attention | N×                          |        |
-| Nx                  | Add & Norm           | Masked Multi-Head Attention |        |
-| Positional Encoding | Positional Encoding  |                             |        |
-| Input Embedding     | Output Embedding     |                             |        |
-|                     | Inputs               | Outputs (shifted right)     |        |
+| Output        | SiT |
+| ------------- | --- |
+| Probabilities |     |
+
+# Softmax
+
+# Linear
+
+- Encoder
+- Decoder
+
+# Add &#x26; Norm
+
+# Feed Forward
+
+# Add &#x26; Norm
+
+# Multi-Head Attention
+
+# N×
+
+# Nx Add &#x26; Norm
+
+# Multi-Head Attention
+
+# Masked Multi-Head Attention
+
+# Positional Encoding
+
+# Input Embedding
+
+# Output Embedding
+
+# Inputs
+
+# Outputs (shifted right)
 
 Figure 1: The Transformer - model architecture.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -209,7 +186,6 @@ Figure 1: The Transformer - model architecture.
 ============================================================
 
 
-RNN                                      SIT Internal    SiT
 
 # RNN based Encoder-Decoder
 
@@ -230,43 +206,25 @@ RNN                                      SIT Internal    SiT
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 8
 ============================================================
 
 
+# RNN SIT Internal SiT based Encoder-Decoder
 
-RNN     SIT Internal    SiT
+# Encoder
 
-# 1. Encoder
+- An encoder is a component that takes an input and converts it into a meaningful internal representation.
+- The final hidden state of the model represents the context/summary of the whole input sequence
+- It acts as the initial hidden state of the decoder part of the model
 
-An encoder is a component that takes an input and converts it into a meaningful internal representation.
+| ℎ1    | ℎ2    | ℎ3    |
+| ----- | ----- | ----- |
+| 𝑥𝑥1 | 𝑥𝑥2 | 𝑥𝑥3 |
 
-The final hidden state of the model represents the context/summary of the whole input sequence
-
-| ℎ1   | ℎ2   | ℎ3   |
-| ---- | ---- | ---- |
-| 𝑥𝑥 | 𝑥𝑥 | 𝑥𝑥 |
-| 1    | 2    | 3    |
-
-It acts as the initial hidden state of the decoder part of the model.
-
-
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
+# Encoder
 
 
 
@@ -275,34 +233,35 @@ It acts as the initial hidden state of the decoder part of the model.
 ============================================================
 
 
-RNN SIT Internal SiT
+
+# RNN SIT Internal SiT based Encoder-Decoder
 
 # Decoder
 
-- A decoder is a component that takes an internal representation and generates an output.
+A decoder is a component that takes an internal representation and generates an output.
 
 # Input to the Decoder
 
 - Predicted 𝑦𝑦𝑡𝑡−1
-- Starting output 𝑦𝑦0: <bos></bos>
+- Starting output 𝑦𝑦0: &#x3C;BOS>
 - Initial hidden state 𝑠𝑠0 = 𝑐𝑐
-- 𝑠𝑠 = 𝑖𝑖 𝑔𝑔 𝑊𝑊 𝑠𝑠 + 𝑊𝑊 𝑦𝑦 + 𝑊𝑊 𝑐𝑐 + 𝑏𝑏1
-- 𝑦𝑦𝑖𝑖 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑊𝑊 𝑠𝑠 + 𝑏𝑏2
+- 𝑠𝑠𝑖𝑖 = The final hidden state of encoder 𝑐𝑐
 
-𝑦𝑦1 𝑦𝑦2 <eos></eos>
+𝑔𝑔 𝑊𝑊𝑠𝑠 𝑠𝑠𝑖𝑖−1 + 𝑊𝑊𝑦𝑦 𝑦𝑦𝑖𝑖−1 + 𝑊𝑊𝑐𝑐𝑐𝑐 + 𝑏𝑏1
 
-| ℎ1    | ℎ2    | 𝑠𝑠0 | 𝑠𝑠1 | 𝑠𝑠2   | 𝑠𝑠3 |         |
-| ----- | ----- | ----- | ----- | ------- | ----- | ------- |
-| 𝑥𝑥1 | 𝑥𝑥2 | 𝑥𝑥3 |       | Encoder | 𝑦𝑦0 | Decoder |
+𝑦𝑦𝑖𝑖 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑊𝑊𝑜𝑜𝑠𝑠𝑖𝑖 + 𝑏𝑏2
+
+𝑦𝑦1 𝑦𝑦2 &#x3C;EOS>
+
+ℎ1 ℎ2 𝑠𝑠0 𝑠𝑠1 𝑠𝑠2 𝑠𝑠3
+
+𝑥𝑥1 𝑥𝑥2 𝑥𝑥3 &#x3C;BOS>
+
+# Encoder
+
+𝑦𝑦0 Decoder
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -311,10 +270,9 @@ RNN SIT Internal SiT
 ============================================================
 
 
+RNN SIT Internal SiT
 
-# RNN SIT Internal SiT
-
-# based Encoder-Decoder
+# RNN based Encoder-Decoder
 
 - The Encoder processes and encodes the information from all input elements.
 - How does the decoding process begin?
@@ -322,19 +280,12 @@ RNN SIT Internal SiT
 - When does the decoding process stop?
 - It stops upon encountering the special token: &#x3C;EOS> (End of Sequence).
 
-|       |       | 𝑦𝑦1 | 𝑦𝑦2   | `<EOS>` |       |
-| ----- | ----- | ----- | ------- | ------- | ----- |
-| ℎ1    | ℎ2    | 𝑠𝑠0 | 𝑠𝑠1   | 𝑠𝑠2   | 𝑠𝑠3 |
-| 𝑥𝑥1 | 𝑥𝑥2 | 𝑥𝑥3 | `<BOS>` | 𝑦𝑦0   |       |
+|       |       |       | 𝑦𝑦1   | 𝑦𝑦2 | `<EOS>` |
+| ----- | ----- | ----- | ------- | ----- | ------- |
+| ℎ1    | ℎ2    | 𝑠𝑠0 | 𝑠𝑠1   | 𝑠𝑠2 | 𝑠𝑠3   |
+| 𝑥𝑥1 | 𝑥𝑥2 | 𝑥𝑥3 | `<BOS>` | 𝑦𝑦0 |         |
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -354,19 +305,12 @@ RNN SIT Internal SiT
 - By computing a weighted sum of all ℎ𝑗𝑗 into a single vector
 - 𝒄𝒄 = ∑ 𝛼𝛼𝑗𝑗𝒉𝒉𝑗𝑗
 
-|       |       | 𝑐𝑐  | 𝑦𝑦1 | 𝑦𝑦2 |       |
-| ----- | ----- | ----- | ----- | ----- | ----- |
-| ℎ1    | ℎ2    | ℎ3    | 𝑠𝑠1 | 𝑠𝑠2 | 𝑠𝑠3 |
-| 𝑥𝑥1 | 𝑥𝑥2 | 𝑥𝑥3 |       |       | 𝑦𝑦0 |
+|   |       | 𝑐𝑐  | 𝑦𝑦1 | 𝑦𝑦2 |       |       |
+| - | ----- | ----- | ----- | ----- | ----- | ----- |
+|   | ℎ1    | ℎ2    | ℎ3    | 𝑠𝑠1 | 𝑠𝑠2 | 𝑠𝑠3 |
+|   | 𝑥𝑥1 | 𝑥𝑥2 | 𝑥𝑥3 |       |       | 𝑦𝑦0 |
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -378,27 +322,19 @@ RNN SIT Internal SiT
 
 # Problems of the context vector 𝑐𝑐
 
-- For all the hidden states 𝑠𝑠𝑖𝑖 in the Decoder, the context vector 𝑐𝑐 remains the same.
-- 𝑠𝑠𝑖𝑖 = 𝑔𝑔 𝑊𝑊 𝑠𝑠 𝑖𝑖−1 + 𝑊𝑊 𝑦𝑦 𝑖𝑖−1 + 𝑊𝑊 𝑐𝑐 + 𝑏𝑏1
+- For all the hidden states 𝑠𝑠𝑖𝑖 in the Decoder, the context vector 𝑐𝑐 remains the same. 𝑦𝑦1  𝑦𝑦2  <eos></eos>
+- 𝑠𝑠𝑖𝑖 = 𝑔𝑔 𝑊𝑊𝑠𝑠𝑠𝑠𝑖𝑖−1 + 𝑊𝑊𝑦𝑦𝑦𝑦𝑖𝑖−1 + 𝑊𝑊𝑐𝑐 𝑐𝑐 + 𝑏𝑏1
 - Can we give different context 𝑐𝑐𝑖𝑖 to each 𝑠𝑠𝑖𝑖?
 - 𝒄𝒄𝟎𝟎 = ∑ 𝛼𝛼0𝑗𝑗 𝒉𝒉𝒋𝒋
 - 𝒄𝒄𝟏𝟏 = ∑ 𝛼𝛼1𝑗𝑗 𝒉𝒉𝒋𝒋
 - 𝒄𝒄𝒊𝒊 = ∑ 𝛼𝛼𝑖𝑖𝑗𝑗 𝒉𝒉𝒋𝒋
 
-|   |   |       |       |       | 𝑦𝑦0 |
-| - | - | ----- | ----- | ----- | ----- |
-|   |   |       | 𝑐𝑐0 | 𝑐𝑐1 |       |
-|   |   | ℎ1    | ℎ2    | ℎ3    |       |
-|   |   | 𝑥𝑥1 | 𝑥𝑥2 | 𝑥𝑥3 |       |
+|   |       | 𝑐𝑐0 | 𝑐𝑐1 |
+| - | ----- | ----- | ----- |
+|   | ℎ1    | ℎ2    | ℎ3    |
+|   | 𝑥𝑥1 | 𝑥𝑥2 | 𝑥𝑥3 |
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -408,38 +344,33 @@ RNN SIT Internal SiT
 
 
 
+Assigning Unique Context 𝑐𝑐𝑖𝑖 to Each Decoder Step
+
 # Assigning Unique Context 𝑐𝑐𝑖𝑖 to Each Decoder Step
 
-- 𝒄𝒄𝒊𝒊 = ∑ 𝛼𝛼𝑖𝑖𝑗𝑗 𝒉𝒉𝑗𝑗
-- Use all hidden states of the Encoder
-- Assign a unique context to each hidden state in the Decoder
-- How to determine 𝛼𝛼𝑖𝑖𝑗𝑗?
+• 𝒄𝒄𝒊𝒊• = ∑ 𝛼𝛼𝑖𝑖𝑗𝑗 𝒉𝒉𝑗𝑗
 
-| 𝑦𝑦  | 𝑦𝑦  |       |
-| ----- | ----- | ----- |
-| 1     | 2     |       |
-| 𝑠𝑠1 | 𝑠𝑠2 | 𝑠𝑠3 |
+Use all hidden states of the Encoder
 
-|   | 𝑦𝑦0 |
-| - | ----- |
+| 𝑦𝑦1 | 𝑦𝑦2 | \<EOS> |
+| ----- | ----- | ------ |
+| 𝑠𝑠1 | 𝑠𝑠2 | 𝑠𝑠3  |
 
+• Assign a unique context to each hidden state in the Decoder
+
+• How to determine 𝛼𝛼𝑖𝑖𝑗𝑗 ?
+
+&#x3C;BOS>
+
+𝑦𝑦0
 | 𝑐𝑐0 | 𝑐𝑐1 |
 | ----- | ----- |
 
-| ℎ1 | ℎ2 | ℎ3 |
-| -- | -- | -- |
-
-| 𝑥𝑥1 | 𝑥𝑥2 | 𝑥𝑥3 |
+| ℎ1    | ℎ2    | ℎ3    |
 | ----- | ----- | ----- |
+| 𝑥𝑥1 | 𝑥𝑥2 | 𝑥𝑥3 |
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -448,35 +379,34 @@ RNN SIT Internal SiT
 ============================================================
 
 
-Bahdanau Attention SIT Internal
-# Bahdanau Attention
 
-p(yi|y1, . . . , Yi−1, x) = g(yi−1, Si, Ci),
+Bahdanau Attention     SIT Internal                             SiT
 
-si = f(si−1, yi−1, ci)
+p(yi|y1, .. ., yi−1,x) = g(yi−1,Si,Ci),
+
+St−1        St
+
+si = f(si−1,yi−1ci).
 
 ci = ∑ αijhj.
 
-αij = exp(eij) / ∑ exp(eik)
+j=1
+
+αij = exp (eij)
+
+Tx exp(eik)
+
+k=1
 
 eij = a(si−1, hj)
 
-a(si−1, hj) = v + tanh(Wasi−1 + Uαhj)
+a(si−1, hj) = va tanh(Wαsi−1 + Uahj)
 
 Figure 1: The graphical illustration of the proposed model trying to generate the t-th target word yt given a source sentence (x1, x2, . . . , xT).
-
-# Additive attention
 
 Bahdanau D. Neural machine translation by jointly learning to align and translate[J]. arXiv preprint arXiv:1409.0473, 2014. https://arxiv.org/pdf/1409.0473
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -502,25 +432,15 @@ Vaswani A. Attention is all you need[J]. Advances in Neural Information Processi
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 16
 ============================================================
 
 
+Attention is all      SIT Internal        SiT
 
-# SIT Internal
-
-# Attention is all you need
-
-An Intuitive View of Attention (Learning / Project Context)
+# An Intuitive View of Attention (Learning / Project Context)
 
 - Query: the current problem you are trying to solve
 - e.g., a bug, a design decision, or a concept you are unsure about
@@ -529,27 +449,14 @@ An Intuitive View of Attention (Learning / Project Context)
 - used to identify which content might be relevant
 - Value: the concrete content
 - e.g., slides, example code, implementation details, explanations
-
-What Attention Does:
-
+- What Attention Does:
 - given a query, it finds the most relevant concepts (keys)
 - and retrieves only the corresponding content (values)
-
-Core Idea:
-
+- Core Idea:
 - you do not review everything every time
 - you focus only on what is most relevant to the current problem
 
 Vaswani A. Attention is all you need[J]. Advances in Neural Information Processing Systems, 2017. https://arxiv.org/pdf/1706.03762
-
-
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -558,46 +465,38 @@ Vaswani A. Attention is all you need[J]. Advances in Neural Information Processi
 ============================================================
 
 
+SIT Internal
 
 Attention is all you need
 
-# Attention is all you need
-
-# SIT Internal
-
-# SiT
-
-An attention function can be described as:
+# An attention function can be described as
 
 - mapping a query and a set of key-value pairs to an output
 - where the query, keys, values, and output are all vectors.
 
-Who is the query? Who is the key?
+# Who is the query? Who is the key?
 
 - The query is 𝑠𝑠𝑖𝑖−1
 - The keys are the hidden states ℎ𝑗𝑗
 
-The output is computed as a weighted sum of the values:
+# The output is computed as a weighted sum of the values
 
 - Who is the output? Who is the value?
 - 𝒄𝒄𝒊𝒊 = ∑ 𝛼𝛼𝑖𝑖𝑗𝑗 𝒉𝒉𝒋𝒋
 
-where the weight assigned to each value is computed by a compatibility function of the query with the corresponding key.
+# where the weight assigned to each value is computed by a
 
-- What is the weight?
-- Compatibility function: eij = a(si−1, hj)
-- a(si−1, hj) = va tanh(Wasi−1 + Uahj)
+- compatibility function of the query with the corresponding key.
+
+# What is the weight?
+
+- Compatibility function
+- eij = a(si−1, hj)
+- a(si−1, hj) = v tanh (Wasi−1 + Uahj)
 
 Vaswani A. Attention is all you need[J]. Advances in Neural Information Processing Systems, 2017. https://arxiv.org/pdf/1706.03762
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -610,7 +509,7 @@ SIT Internal SiT
 
 # Scaled Dot-Product Attention
 
-𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉  = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥  𝑄𝑄𝐾𝐾 𝑇𝑇  𝑉𝑉
+𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑄𝑄𝐾𝐾 𝑇𝑇 𝑉𝑉
 
 𝑑𝑑𝑘𝑘
 
@@ -623,13 +522,6 @@ Vaswani A. Attention is all you need[J]. Advances in Neural Information Processi
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 19
@@ -638,23 +530,15 @@ Vaswani A. Attention is all you need[J]. Advances in Neural Information Processi
 
 An Example  SIT Internal    SiT
 
-# output
-
-| output1 | output2 | output3 | output4 |        |        |        |        |
-| ------- | ------- | ------- | ------- | ------ | ------ | ------ | ------ |
-| softmax |         |         |         |        |        |        |        |
-| score1  | value1  | score2  | value2  | score3 | value3 | score4 | value4 |
-| key1    | key2    | key3    | key4    |        |        |        |        |
-| query   |         |         |         |        |        |        |        |
-
+| output1 | output2 | output3 | output4 |
+| ------- | ------- | ------- | ------- |
+| softmax |         |         |         |
+| score1  | value1  | score2  | value2  |
+| score3  | value3  | score4  | value4  |
+| key1    | key2    | key3    | key4    |
+| query   |         |         |         |
 
 
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -664,40 +548,25 @@ An Example  SIT Internal    SiT
 
 
 SIT Internal SiT
-
 # Dot-Product Attention
 
 - Given a query, the model compares it with all keys.
 - The dot product measures how similar the query is to each key.
-- 𝑑𝑑𝑠𝑠𝑠𝑠 𝑝𝑝𝑝𝑝𝑠𝑠𝑑𝑑𝑝𝑝𝑐𝑐𝑠𝑠 𝐯𝐯, 𝐰𝐰  = 𝐯𝐯 � 𝐰𝐰 = ∑𝑑𝑑 𝑣𝑣𝑖𝑖𝑤𝑤𝑖𝑖 = 𝑣𝑣1𝑤𝑤1 + 𝑣𝑣2𝑤𝑤2 + ⋯ + 𝑣𝑣𝑑𝑑 𝑤𝑤𝑑𝑑
+- 𝑑𝑑𝑠𝑠𝑠𝑠 𝑝𝑝𝑝𝑝𝑠𝑠𝑑𝑑𝑝𝑝𝑐𝑐𝑠𝑠 𝐯𝐯, 𝐰𝐰 = 𝐯𝐯 � 𝐰𝐰 = ∑𝑑𝑑 𝑣𝑣 𝑤𝑤 = 𝑣𝑣 𝑤𝑤 + 𝑣𝑣 𝑤𝑤 + ⋯ + 𝑣𝑣 𝑤𝑤
 - Higher dot-product values indicate stronger relevance.
-
-𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉  = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥  𝑄𝑄𝐾𝐾𝑇𝑇  𝑉𝑉
-
-𝑑𝑑𝑘𝑘
-
-𝒒𝒒 ∈ 𝑅𝑅𝑑𝑑 , 𝒌𝒌𝒌𝒌𝒌𝒌 ∈ 𝑅𝑅𝑑𝑑 , 𝑑𝑑 = 3. We have 4 keys → 𝐾𝐾 ∈ 𝑅𝑅4×𝑑𝑑
-
-𝑠𝑠𝑐𝑐𝑠𝑠𝑝𝑝𝐴𝐴 = 𝑞𝑞𝐾𝐾 𝑇𝑇 = 𝑞𝑞
-
-| 𝑞𝑞 | 𝑘𝑘11 | 𝑘𝑘12 | 𝑘𝑘13 |
-| ---- | ------ | ------ | ------ |
-| 𝑞𝑞 | 𝑘𝑘21 | 𝑘𝑘22 | 𝑘𝑘23 |
-| 𝑞𝑞 | 𝑘𝑘31 | 𝑘𝑘32 | 𝑘𝑘33 |
-| 𝑞𝑞 | 𝑘𝑘41 | 𝑘𝑘42 | 𝑘𝑘43 |
+- 𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑄𝑄𝐾𝐾𝑇𝑇 𝑉𝑉
+- 𝒒𝒒 ∈ 𝑅𝑅𝑑𝑑 , 𝒌𝒌𝒌𝒌𝒌𝒌 ∈ 𝑅𝑅𝑑𝑑 , 𝑑𝑑 = 3. We have 4 keys → 𝐾𝐾 ∈ 𝑅𝑅4×𝑑𝑑
+- 𝑠𝑠𝑐𝑐𝑠𝑠𝑝𝑝𝐴𝐴 = 𝑞𝑞𝐾𝐾 𝑇𝑇 = 𝑞𝑞1 𝑞𝑞2 𝑞𝑞3
+| 𝑘𝑘12 | … | 𝑘𝑘42 |
+| ------ | - | ------ |
+| 𝑘𝑘13 |   | 𝑘𝑘43 |
 
 | score1 | score2 | score3 | score4 |
 | ------ | ------ | ------ | ------ |
 | key1   | key2   | key3   | key4   |
+| query  |        |        |        |
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -706,8 +575,7 @@ SIT Internal SiT
 ============================================================
 
 
-SIT Internal    SiT
-
+SIT Internal SiT
 # Dot-Product Attention
 
 - 𝑠𝑠𝑐𝑐𝑠𝑠𝑝𝑝𝐴𝐴 = 𝑞𝑞𝐾𝐾 𝑇𝑇 = [𝛼𝛼00 , 𝛼𝛼01 , 𝛼𝛼02 , 𝛼𝛼03 ]
@@ -718,17 +586,9 @@ SIT Internal    SiT
 
 | score1 | value1 | score2 | value2 | score3 | value3 | score4 | value4 |
 | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
-|        | key1   |        | key2   |        | key3   |        | key4   |
-| query  |        |        |        |        |        |        |        |
+| key1   | key2   | key3   | key4   | query  |        |        |        |
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -737,32 +597,24 @@ SIT Internal    SiT
 ============================================================
 
 
+SIT Internal    SiT
+
 # Dot-Product Attention
 
-The output is computed as a weighted sum of the values
-
-In this case, keys and values are all ℎj
-
-𝑠p𝑠p𝑠p𝑠p𝑠p1 = 𝛼00 ∗ ℎ0 = 0.1 ∗ (1,1,1) = (0.1,0.1,0.1)
-
-𝑠p𝑠p𝑠p𝑠p𝑠p2 = 𝛼01 ∗ ℎ1 = 0.2 ∗ (2,2,2) = [0.4,0.4,0.4]
-
-𝑠p𝑠p𝑠p𝑠p𝑠p = ∑ 𝑠p𝑠p𝑠p𝑠p𝑠p𝑗 = ∑ 𝛼0j ∗ ℎj output
+- The output is computed as a weighted sum of the values
+- In this case, keys and values are all ℎj
+- 𝑠p𝑠p𝑠p𝑠p𝑠p1 = 𝛼00 ∗ ℎ0 = 0.1 ∗ (1,1,1) = (0.1,0.1,0.1)
+- 𝑠p𝑠p𝑠p𝑠p𝑠p2 = 𝛼01 ∗ ℎ1 = 0.2 ∗ (2,2,2) = [0.4,0.4,0.4]
+- 𝑠p𝑠p𝑠p𝑠p = ∑ 𝑠p𝑠p𝑠p𝑠p𝑠p𝑗 = ∑ 𝛼0𝑗 ∗ ℎj output
 
 Tx = ∑αijhj.
 
-|         |   | output1 | output2 | output3 | output4 |        |        |        |        |
-| ------- | - | ------- | ------- | ------- | ------- | ------ | ------ | ------ | ------ |
-| softmax |   | score1  | value1  | score2  | value2  | score3 | value3 | score4 | value4 |
-| query   |   | key1    | key2    | key3    |         | key4   |        |        |        |
+| output1 | output2 | output3 | output4 |        |        |        |        |        |
+| ------- | ------- | ------- | ------- | ------ | ------ | ------ | ------ | ------ |
+| softmax | score1  | value1  | score2  | value2 | score3 | value3 | score4 | value4 |
+| key1    | key2    | key3    | key4    |        |        |        |        |        |
 
 
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -776,25 +628,20 @@ SIT Internal    SiT
 # Dot-Product Attention
 
 - The output is computed as a weighted sum of the values
-- 𝑠𝑠𝑝𝑝𝑠𝑠𝑝𝑝𝑝𝑝𝑠𝑠 = ∑ 𝑠𝑠𝑝𝑝𝑠𝑠𝑝𝑝𝑝𝑝𝑠𝑠𝑗𝑗 = ∑ 𝛼𝛼𝑜𝑜𝑗𝑗 ∗ ℎ𝑗𝑗 = ∑ αijhj.
-- 𝑠𝑠𝑝𝑝𝑠𝑠𝑝𝑝𝑝𝑝𝑠𝑠 = 𝜶𝜶𝑉𝑉 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑞𝑞𝐾𝐾 𝑇𝑇 𝑉𝑉 = 0.1 0.2 0.3 0.4 = [3,3,3]
+- 𝑠𝑠𝑝𝑝𝑠𝑠𝑝𝑝𝑝𝑝𝑠𝑠  = ∑ 𝑠𝑠𝑝𝑝𝑠𝑠𝑝𝑝𝑝𝑝𝑠𝑠𝑗𝑗 = ∑ 𝛼𝛼𝑜𝑜𝑗𝑗 ∗ ℎ𝑗𝑗
+- ci = ∑ αijhj.
+- 𝑠𝑠𝑝𝑝𝑠𝑠𝑝𝑝𝑝𝑝𝑠𝑠  = 𝜶𝜶𝑉𝑉 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑞𝑞𝐾𝐾 𝑇𝑇 𝑉𝑉 = 0.1 0.2 0.3 0.4
 - 𝑉𝑉 ∈ 𝑅𝑅4×𝑑𝑑
 
-|      |      | output1 | output2 | output3 | output4 |        |        |        |        |
-| ---- | ---- | ------- | ------- | ------- | ------- | ------ | ------ | ------ | ------ |
-|      |      | score1  | value1  | score2  | value2  | score3 | value3 | score4 | value4 |
-| key1 | key2 | key3    |         | key4    |         |        |        |        |        |
+| output1 | output2 | output3 | output4 |
+| ------- | ------- | ------- | ------- |
+| softmax |         |         |         |
+| score1  | value1  | score2  | value2  |
+| score3  | value3  | score4  | value4  |
+| key1    | key2    | key3    | key4    |
+| query   |         |         |         |
 
-query
 
-
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -804,32 +651,28 @@ query
 
 
 SIT Internal SiT
-
 # Dot-Product Attention
 
-- 𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉  = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥  𝑄𝑄𝐾𝐾𝑇𝑇          𝑉𝑉
-- 𝑑𝑑𝑘𝑘
-- 𝑠𝑠𝑝𝑝𝑠𝑠𝑝𝑝𝑝𝑝𝑠𝑠 = 𝜶𝜶𝑉𝑉 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑞𝑞𝐾𝐾 𝑇𝑇       𝑉𝑉
-- How may queries do we have? Only 1.
-- What if there are 2 queries?
-- 𝒒𝒒𝒒𝒒𝒌𝒌𝒄𝒄 ∈ 𝑅𝑅𝑑𝑑 , 𝑠𝑠𝑐𝑐𝑠𝑠𝑝𝑝𝐴𝐴𝑠𝑠𝐴𝐴𝑐𝑐𝑠 = 𝑑𝑑𝑠𝑠𝑠𝑠 𝑝𝑝𝑝𝑝𝑠𝑠𝑑𝑑𝑝𝑝𝑐𝑐𝑠𝑠 𝒒𝒒𝒒𝒒𝒌𝒌𝒄𝒄, 𝒌𝒌𝒌𝒌𝒌𝒌
-- 𝑠𝑠𝑐𝑐𝑠𝑠𝑝𝑝𝐴𝐴𝑠𝑠𝐴𝐴𝑐𝑐 = 𝑞𝑞𝑠𝑠𝐴𝐴𝑐𝑐
+•  𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥  𝑄𝑄𝐾𝐾𝑇𝑇 𝑉𝑉
 
-|       |      |      | 𝐾𝐾 𝑇𝑇 | score1    | score2 | score3    | score4    |           |
-| ----- | ---- | ---- | --------- | --------- | ------ | --------- | --------- | --------- |
-|       |      |      |           | scoresec1 |        | scoresec2 | scoresec3 | scoresec4 |
-| key1  | key2 | key3 | key4      |           |        |           |           |           |
-| query |      |      |           |           |        |           |           |           |
-| qsec  |      |      |           |           |        |           |           |           |
+•  𝑠𝑠𝑝𝑝𝑠𝑠𝑝𝑝𝑝𝑝𝑠𝑠 = 𝜶𝜶𝑉𝑉 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑞𝑞𝐾𝐾 𝑇𝑇 𝑉𝑉
+
+•  How may queries do we have? Only 1.
+
+•  What if there are 2 queries?
+
+•  𝒒𝒒𝒒𝒒𝒌𝒌𝒄𝒄 ∈ 𝑅𝑅𝑑𝑑 , 𝑠𝑠𝑐𝑐𝑠𝑠𝑝𝑝𝐴𝐴𝑠𝑠𝐴𝐴𝑐𝑐𝑠 = 𝑑𝑑𝑠𝑠𝑠𝑠 𝑝𝑝𝑝𝑝𝑠𝑠𝑑𝑑𝑝𝑝𝑐𝑐𝑠𝑠 𝒒𝒒𝒒𝒒𝒌𝒌𝒄𝒄, 𝒌𝒌𝒌𝒌𝒌𝒌
+
+•  𝑠𝑠𝑐𝑐𝑠𝑠𝑝𝑝𝐴𝐴𝑠𝑠𝐴𝐴𝑐𝑐 = 𝑞𝑞𝑠𝑠𝐴𝐴𝑐𝑐 𝐾𝐾 𝑇𝑇
+
+| score1    | score2    | score3    | score4    |
+| --------- | --------- | --------- | --------- |
+| scoresec1 | scoresec2 | scoresec3 | scoresec4 |
+| key1      | key2      | key3      | key4      |
+| query     |           |           |           |
+| qsec      |           |           |           |
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -841,32 +684,25 @@ SIT Internal SiT
 SIT Internal SiT
 # Dot-Product Attention
 
-•  𝑠𝑠𝑐𝑐𝑠𝑠𝑝𝑝𝐴𝐴 = 𝑞𝑞1 𝐾𝐾 𝑇𝑇 = 𝑞𝑞1 [𝑘𝑘2 ]𝑇𝑇 = 𝑞𝑞1
+𝑞𝑞                                            𝑞𝑞   𝑘𝑘1
 
-| 𝑘𝑘1 | 𝑘𝑘2 | 𝑘𝑘3 | 𝑘𝑘4 |
-| ----- | ----- | ----- | ----- |
-| 0.1   | 0.2   | 0.3   | 0.4   |
-| 𝑘𝑘3 | 2     | 𝑘𝑘4 | 𝑣𝑣1 |
-| 0.21  | 0.22  | 0.23  | 0.24  |
+•  𝑠𝑠𝑐𝑐𝑠𝑠𝑝𝑝𝐴𝐴 = 𝑞𝑞1 𝐾𝐾 𝑇𝑇 =               1      𝑘𝑘2 𝑇𝑇              𝑞𝑞1        0.1     0.2     0.3                              0.4
 
-•  𝑂𝑂𝑝𝑝𝑠𝑠𝑝𝑝𝑝𝑝𝑠𝑠 = 𝜶𝜶𝑽𝑽 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑠𝑐𝑐𝑠𝑠𝑝𝑝𝐴𝐴 [𝑣𝑣2 ] = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑄𝑄𝐾𝐾 𝑇𝑇 𝑉𝑉
+2                             𝑞𝑞2 [𝑘𝑘3 ]  =              𝑞𝑞2     𝑘𝑘1 𝑘𝑘2 𝑘𝑘3            𝑘𝑘4 = 0.21 0.22 0.23 0.24
 
-𝑣𝑣3
+𝑘𝑘4                         𝑣𝑣1
+
+•  𝑂𝑂𝑝𝑝𝑠𝑠𝑝𝑝𝑝𝑝𝑝𝑝𝑠𝑠 = 𝜶𝜶𝑽𝑽 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑠𝑠𝑐𝑐𝑠𝑠𝑝𝑝𝐴𝐴    [𝑣𝑣2        𝑇𝑇
+
+𝑣𝑣3 ] = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑄𝑄𝐾𝐾 𝑉𝑉
 
 𝑣𝑣4
 
-•  𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾 , 𝑉𝑉  = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑄𝑄𝐾𝐾 𝑇𝑇 𝑉𝑉
+•  𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾 , 𝑉𝑉 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥   𝑄𝑄𝐾𝐾 𝑇𝑇 𝑉𝑉
 
 •  If the input of the softmax function is a matrix, Softmax is applied independently to each row of the matrix by default.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -875,40 +711,29 @@ SIT Internal SiT
 ============================================================
 
 
-SIT Internal    SiT
-
+SIT Internal SiT
 # Scaled Dot-Product Attention
 
-- 𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉  = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥  𝑄𝑄𝐾𝐾𝑇𝑇  𝑉𝑉
-- 𝑑𝑑𝑘𝑘 is the dimension of keys and values
-- Larger values of 𝑑𝑑𝑘𝑘 affects the performance of dot product attention
-- We suspect that for large values of 𝑑𝑑𝑘𝑘, the dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients.
-- To counteract this effect, we scale the dot products by 𝑑𝑑𝑘𝑘
+• 𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑄𝑄𝐾𝐾𝑇𝑇  𝑉𝑉
 
-| 0.9 | Devafive of Simond |
-| --- | ------------------ |
-| 0.8 |                    |
-| 0.7 |                    |
-| 0.6 |                    |
-| 0.5 |                    |
-| 0.3 |                    |
-| 0.2 |                    |
-| 0.1 |                    |
+•  𝑑𝑑𝑘𝑘 is the dimension of keys and values
 
-4    4    4
+•  Larger values of 𝑑𝑑𝑘𝑘 affects the performance of dot product attention
+
+•  We suspect that for large values of 𝑑𝑑𝑘𝑘 , the dot products grow large in magnitude, pushing the softmax function into regions where it has extremely small gradients.
+
+•  To counteract this effect, we scale the dot products by 𝑑𝑑𝑘𝑘
+
+| 0.9     | 0.8 | 0.7 | 0.6 | 0 | 0.3 | 0.2 | 0.1 |
+| ------- | --- | --- | --- | - | --- | --- | --- |
+| 90      |     |     |     |   |     |     |     |
+| - 4 4 0 |     |     |     |   |     |     |     |
 
 sigmoid function and its derivative
 
 Sigmoid is a two-class softmax.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -919,25 +744,19 @@ Sigmoid is a two-class softmax.
 
 Self-Attention  SIT Internal    SiT
 
-- RNN based Encoder-Decoder
+# RNN based Encoder-Decoder
+
 - Query
 - Hidden states of the Decoder
 - Key and Value
 - Hidden states of the Encoder
 
-|       |       | 𝑦𝑦1 | 𝑦𝑦2 |       |       |
+| 𝑦𝑦1 | 𝑦𝑦2 |       |       |       |       |
 | ----- | ----- | ----- | ----- | ----- | ----- |
 | ℎ1    | ℎ2    | 𝑠𝑠0 | 𝑠𝑠1 | 𝑠𝑠2 | 𝑠𝑠3 |
-| 𝑥𝑥1 | 𝑥𝑥2 | 𝑥𝑥3 |       |       | 𝑦𝑦0 |
+| 𝑥𝑥1 | 𝑥𝑥2 | 𝑥𝑥3 |       | 𝑦𝑦0 |       |
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -946,10 +765,10 @@ Self-Attention  SIT Internal    SiT
 ============================================================
 
 
+Self-Attention
+# SIT Internal
 
-Self-Attention             SIT Internal                                         Output         SiT
-
-# Probabilities
+# Output SiT Probabilities
 
 # Softmax
 
@@ -959,16 +778,10 @@ Self-Attention             SIT Internal                                         
 - The input sequence 𝑋𝑋 is linearly transformed to produce the Query, Key, and Value matrices
 - Using three independent learnable weight matrices 𝑊𝑊𝑄𝑄, 𝑊𝑊𝐾𝐾, and 𝑊𝑊𝑉𝑉
 - 𝑄𝑄 = 𝑋𝑋𝑊𝑊𝑄𝑄
-- 𝐾𝐾 = 𝑋𝑋𝑊𝑊𝐾𝐾
-- 𝑉𝑉 = 𝑋𝑋𝑊𝑊𝑉𝑉
+𝐾𝐾 = 𝑋𝑋𝑊𝑊𝐾𝐾
+𝑉𝑉 = 𝑋𝑋𝑊𝑊𝑉𝑉
 
-# Positional Encoding
-
-# Input
-
-# Output
-
-# Embedding
+Positional Encoding
 
 # Inputs
 
@@ -978,46 +791,30 @@ Figure 1: The Transformer - model architecture.
 
 
 
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
-
 ============================================================
 📄 PAGE 29
 ============================================================
 
 
 SIT Internal SiT
-
 # Dot-Product Attention
 
 # Scaled Dot-Product Attention
 
 # Multi-Head Attention
 
-| Linear      | MatMul                       |   |   |
-| ----------- | ---------------------------- | - | - |
-| SoftMax     | Concat                       |   |   |
-| Mask (opt.) | Scaled Dot-Product Attention |   |   |
-| Scale       | MatMul                       |   |   |
-| Q           | K                            | V |   |
-|             | V                            | K | Q |
+|             | Linear             | MatMul |        |
+| ----------- | ------------------ | ------ | ------ |
+| SoftMax     | Concat             |        |        |
+| Mask (opt.) | Scaled Dot-Product |        |        |
+| Scale       | Attention          |        |        |
+| MatMul      | Linear             | Linear | Linear |
+| Q           | K                  | V      |        |
+|             | V                  | K      | Q      |
 
 Figure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several attention layers running in parallel.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1026,9 +823,7 @@ Figure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention cons
 ============================================================
 
 
-# Multi Head Attention
-
-# SIT ᴵⁿᵗᵉʳⁿᵃˡ SiT
+Multi Head Attention
 
 It's beneficial to linearly project the queries, keys and values 𝒉𝒉 times with different, learned linear projections to 𝑑𝑑𝑘𝑘, 𝑑𝑑𝑘𝑘, and 𝑑𝑑𝑣𝑣 dimensions, respectively.
 
@@ -1044,18 +839,13 @@ Head number ℎ = 8, 𝑑𝑑𝑘𝑘 = 𝑑𝑑𝑣𝑣 = 𝑑𝑑𝑚𝑚𝑚�
 
 These are concatenated and once again projected, resulting in the final values.
 
-MultiHead(Q, K, V) = Concat(head1, ., headh)W0
+MultiHead(Q, K, V) = Concat(head1, ., headh)WO
 
 where headi = Attention(QWK, KWK, VWV)
 
-Where the projections are parameter matrices W ∈ Rdmodel×k, W ∈ Rdmodel×, W ∈ Rdm× and WO ∈ Rhd×dmodel.
+Where the projections are parameter matrices WQ ∈ Rdmodel×dk, WK ∈ Rdmodel×dk, WV ∈ Rdmodel×dv and WO ∈ Rh×dv.
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1074,14 +864,7 @@ Where the projections are parameter matrices W ∈ Rdmodel×k, W ∈ Rdmodel×, 
 
 ℎ = 3
 
-𝑑𝑑𝑘𝑘 = 𝑑𝑑𝑣𝑣 = 2
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
+𝑑𝑑𝑘𝑘  = 𝑑𝑑𝑣𝑣     = 2
 
 
 
@@ -1090,27 +873,21 @@ Where the projections are parameter matrices W ∈ Rdmodel×k, W ∈ Rdmodel×, 
 ============================================================
 
 
+
 # Multi Head Attention
 
-# SiT
+# SIT ᴵⁿᵗᵉʳⁿᵏᵃˡ
 
 Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions.
 
-With a single attention head, this diversity is lost due to averaging.
-
 # Multi-Head Attention
 
-MultiHead(Q, K, V) = Concat(head1, ., headh)W0
-where headi = Attention(QW , KWK , VWV )
+With a single attention head, this diversity is lost due to averaging.
 
-Where the projections are parameter matrices W dmode×, W dmodel×, V dmodel×d and WO hdv×dmodel.
+MultiHead(Q, K, V) = Concat(head1, ., headh)WO
+where headi = Attention(QWQ, KWK, VWV)
+Where the projections are parameter matrices WQ ∈ Rdmodel×d, WK ∈ Rdmodel×d, WV ∈ Rdmodel×d, and WO ∈ Rhdv×dmodel.
 
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1119,42 +896,23 @@ Where the projections are parameter matrices W dmode×, W dmodel×, V dmodel×d 
 ============================================================
 
 
-# Multi Head Attention
+Multi Head Attention
 
-# SIT ᴵⁿᵗᵉʳⁿᵃˡ
+# 1. Example
 
-- Example
-| From two different heads from the encoder self-attention at layer 5 of 6. |                                      |        | The         | The         | The         | The         |
-| ------------------------------------------------------------------------- | ------------------------------------ | ------ | ----------- | ----------- | ----------- | ----------- |
-|                                                                           |                                      |        | will        | will        | will        | will        |
-|                                                                           |                                      |        | never       | never       | never       | never       |
-|                                                                           |                                      |        | be          | be          | be          | be          |
-|                                                                           | The heads clearly learned to perform |        | perfect     | perfect     | perfect     | perfect     |
-|                                                                           |                                      |        | but         | but         | but         | but         |
-|                                                                           |                                      |        | its         | its         | its         | its         |
-|                                                                           |                                      |        | application | application | application | application |
-|                                                                           |                                      |        | should      | should      | should      | should      |
-|                                                                           | Different positions                  |        | be          | be          | be          | be          |
-|                                                                           |                                      |        | just        | just        | just        | just        |
-|                                                                           |                                      |        | this        | this        | this        | this        |
-|                                                                           |                                      |        | is          | is          | is          | is          |
-|                                                                           |                                      |        | what        | what        | what        | what        |
-|                                                                           |                                      |        | we          | we          | we          | we          |
-|                                                                           |                                      |        | are         | are         | are         | are         |
-|                                                                           |                                      |        | missing     | missing     | missing     | missing     |
-|                                                                           |                                      |        | in          | -in         | in          | -in         |
-|                                                                           |                                      |        | my          | my          | my          | my          |
-|                                                                           |                                      |        | opinion     | opinion     | opinion     | opinion     |
-| \<EOS>                                                                    | \<EOS>                               | \<EOS> | \<EOS>      |             |             |             |
-| \<pad>                                                                    | \<pad>                               | \<pad> | \<pad>      |             |             |             |
+- From two different heads from the encoder self-attention at layer 5 of 6.
+- The heads clearly learned to perform different tasks.
+- Different positions
+
+<eos> opinionmyin missingₐᵣₑ we what isthis justbeshouldapplicationitsbut perfectbe never willLawThe</eos></pad>
+
+<eos> opinionᵐʸ⁻ⁱⁿ missingᵃʳᵉ we whatisthis just-beshouldapplicationitsbut perfectᵇᵉnever willᴸᵃʷ The</eos></pad>
+
+<eos> opinionmyin missingₐᵣₑ we what isthis justbeshouldapplicationitsbut perfectbenever willLawThe</eos></pad>
+
+<eos> opinionᵐʸⁱⁿ missingᵃʳᵉ we what isthis justbeshouldapplicationitsbut perfectᵇᵉnever willᴸᵃʷᵀʰᵉ</eos></pad>
 
 
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1163,41 +921,27 @@ Where the projections are parameter matrices W dmode×, W dmodel×, V dmodel×d 
 ============================================================
 
 
-Encoder                        SIT Internal                             SiT
 
-# 1. Architecture Overview
+
+# Encoder
+
+# SIT Internal
+
+# SiT
 
 - Each layer has two sub-layers
 - The first is a multi-head self-attention mechanism
 - The second is a simple, position-wise fully connected feed-forward network.
-
-# 2. Layer Components
-
 - A residual connection around each of the two sub-layers
 - Followed by layer normalization
-
-# 3. Parameters
-
 - N = 6
 
-# 4. Input Representation
-
-- Positional Encoding
-- Input Embedding
-- Inputs
-
-|               |   | Add & Norm | Multi-Head Attention |
-| ------------- | - | ---------- | -------------------- |
-| Feed Forward  |   |            |                      |
-| N× Add & Norm |   |            |                      |
+| Add & Norm           | Feed Forward        |
+| -------------------- | ------------------- |
+| Multi-Head Attention | Positional Encoding |
+| Input Embedding      | Inputs              |
 
 
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1207,38 +951,30 @@ Encoder                        SIT Internal                             SiT
 
 
 
-Attention                            SIT Internal                                                    SiT
+Attention        SIT Internal                                                       SiT
 
-# 1. The Encoder
+# 1. The Transformer - model architecture
 
-The encoder contains self-attention layers.
+- The encoder contains self-attention layers.
+- All of the keys, values and queries come from the same place, in this case, the output of the previous layer in the encoder.
+- Each position in the encoder can attend to all positions.
 
-All of the keys, values and queries come from the same place, in this case, the output of the previous layer in the encoder.
-
-Each position in the encoder can attend to all positions.
-
-| Input     | Output                    |
-| --------- | ------------------------- |
-| Embedding | Embedding (shifted right) |
-
-# Model Architecture
-
-| Positional Encoding  | Positional Encoding         |
+| Output               | Probabilities               |
 | -------------------- | --------------------------- |
-| Add & Norm           | Add & Norm                  |
-| Feed Forward         | Multi-Head Attention        |
+| Softmax              | Linear                      |
+| Add & Norm           | Feed Forward                |
+| Add & Norm           | Multi-Head Attention N×     |
+| Feed Forward         | Add & Norm                  |
 | Multi-Head Attention | Masked Multi-Head Attention |
+
+# Positional Encoding
+
+| Input Embedding  | Outputs (shifted right) |
+| ---------------- | ----------------------- |
+| Embedding Inputs |                         |
 
 Figure 1: The Transformer - model architecture.
 
-
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1267,13 +1003,6 @@ Figure 1: The Transformer - model architecture.
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 37
@@ -1285,7 +1014,9 @@ Figure 1: The Transformer - model architecture.
 
 x
 
-F(x) layer identity
+F(x) layer
+
+1 identity layer
 
 x + F(x) +
 
@@ -1298,48 +1029,32 @@ https://en.wikipedia.org/wiki/Aerial_root
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 38
 ============================================================
 
 
-Normalization  SIT Internal
-# Normalization
+Normalization  SIT Internal                              SiT
 
-Normalization rescales values into a controllable range. This prevents values from becoming too large or too small.
+• Normalization rescales values into a controllable range.
 
-𝑥 = 𝑥 − 𝜇
+• This prevents values from becoming too large or too small.  𝑥𝑥 𝑥𝑥 − 𝜇𝜇
 
-𝑥 = 𝜎
+� =
 
-We subtract the mean and divide by the standard deviation. This keeps values centered and well-scaled.
+𝜎𝜎
 
-# Add &#x26; Norm
+• We subtract the mean and divide by the standard deviation.
 
-# Feed Forward
+• This keeps values centered and well-scaled.
 
-# Multi-Head Attention
+| Add & Norm           | Feed Forward        |
+| -------------------- | ------------------- |
+| N×                   | Add & Norm          |
+| Multi-Head Attention | Positional Encoding |
+| Input                | Embedding Inputs    |
 
-# Positional Encoding
-
-# Input Embedding
-
-# Inputs
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1348,38 +1063,31 @@ We subtract the mean and divide by the standard deviation. This keeps values cen
 ============================================================
 
 
-# Normalization
-
-# SIT Internal
-
-# SiT
+Normalization  SIT Internal    SiT
 
 # Original values
 
 Suppose we have three values:
 
-x = [10, 12, 14]
+- x = [10, 12, 14]
 
 # Step 1: Compute the mean
 
-µ = (10 + 12 + 14) / 3 = 12
+μ = (10 + 12 + 14) / 3 = 12
 
 # Step 2: Compute the standard deviation
 
-σ = √((1/3) * ((10 − 12)² + (12 − 12)² + (14 − 12)²)) ≈ 1.63
+σ = √((10 − 12)² + (12 − 12)² + (14 − 12)²) / 3 ≈ 1.63
 
 # Step 3: Normalize
+
+x = x − μ
 
 So we get:
 
 x ≈ [-1.22, 0, 1.22]
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1399,40 +1107,21 @@ Normalization  SIT Internal    SiT
 - Without control, they may explode or vanish.
 - Errors and gradients can easily go out of control.
 
-# Sigmoid
+|     |     | 0.9 | Sigmoid |    |   |   |   |    |
+| --- | --- | --- | ------- | -- | - | - | - | -- |
+|     |     | 0.8 |         |    |   |   |   |    |
+|     |     | 0.7 |         |    |   |   |   |    |
+|     |     | 0.6 |         |    |   |   |   |    |
+|     | 0.5 |     |         |    |   |   |   |    |
+|     | 0.4 |     |         |    |   |   |   |    |
+|     |     | 0.3 |         |    |   |   |   |    |
+|     |     | 0.2 |         |    |   |   |   |    |
+|     |     | 0.1 |         |    |   |   |   |    |
+| -10 | -8  | -6  | -4      | -2 | 0 | 2 | 6 | 10 |
 
-|     | 0.9 | 0.8 | 0.7 | 0.6 | 0.5 | 0.4 | 0.3 | 0.2 | 0.1 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| -10 |     |     |     |     |     |     |     |     |     |
-| -8  |     |     |     |     |     |     |     |     |     |
-| -6  |     |     |     |     |     |     |     |     |     |
-| -4  |     |     |     |     |     |     |     |     |     |
-| -2  |     |     |     |     |     |     |     |     |     |
-| 0   |     |     |     |     |     |     |     |     |     |
-| 2   |     |     |     |     |     |     |     |     |     |
-| 10  |     |     |     |     |     |     |     |     |     |
-
-# Derivative of Sigmoid
-
-|     | 0.9 | 0.8 | 0.7 | 0.6 | 0.5 | 0.4 | 0.3 | 0.2 | 0.1 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| -10 |     |     |     |     |     |     |     |     |     |
-| -8  |     |     |     |     |     |     |     |     |     |
-| -6  |     |     |     |     |     |     |     |     |     |
-| -4  |     |     |     |     |     |     |     |     |     |
-| -2  |     |     |     |     |     |     |     |     |     |
-| 0   |     |     |     |     |     |     |     |     |     |
-| 2   |     |     |     |     |     |     |     |     |     |
-| 10  |     |     |     |     |     |     |     |     |     |
+sigmoid function and its derivative
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1441,26 +1130,19 @@ Normalization  SIT Internal    SiT
 ============================================================
 
 
-Layer normalization SIT Internal
-# Layer normalization
+Layer normalization SIT Internal SiT
 
 When we have batched data, especially batched sequence data, variations can come from different dimensions.
 
 | Batch Norm | Layer Norm | Instance Norm | Group Norm |
 | ---------- | ---------- | ------------- | ---------- |
-| A          | AI         | I             | A          |
-| C N        | C N        | c N           | C N        |
+| I          | A          | A             |            |
+| C N        | C          | N             | C          |
+| N          | C          | N             | C          |
 
 https://www.youtube.com/watch?v=1JmZ5idFcVI
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1470,6 +1152,8 @@ https://www.youtube.com/watch?v=1JmZ5idFcVI
 
 
 SIT Internal
+# SiT
+
 # Position-wise fully connected feed-forward network
 
 - Fully connected feed-forward network
@@ -1481,67 +1165,40 @@ FFN(x) = max(0, xW1 + b1)W2 + b2
 
 
 
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
-
 ============================================================
 📄 PAGE 43
 ============================================================
 
 
+Decoder    SIT Internal    SiT
 
-# Decoder
-
-# SIT Internal
-
-# SiT
+# 1. The Transformer - model architecture
 
 • In the encoder, we have access to all the tokens of the input sequence simultaneously.
 
 • In the decoder, we generate the output sequence step by step, one token at a time.
 
-| Output               | Probabilities               |
-| -------------------- | --------------------------- |
-| Softmax              | Linear                      |
-| Add & Norm           | Feed Forward                |
-| Add & Norm           | Multi-Head Attention        |
-| Nx                   | Add & Norm                  |
-| Multi-Head Attention | Masked Multi-Head Attention |
+| Output                      | Probabilities        |
+| --------------------------- | -------------------- |
+| Softmax                     | Linear               |
+| Add & Norm                  | Feed Forward         |
+| Add & Norm                  | Multi-Head Attention |
+| N×                          | Add & Norm           |
+| Masked Multi-Head Attention |                      |
 
-𝑦𝑦1 𝑦𝑦2 <eos></eos>
+𝑦𝑦1  𝑦𝑦2  <eos></eos>
 
 Positional Encoding
 
-ℎ  ℎ  𝑠𝑠  𝑠𝑠  𝑠𝑠  𝑠𝑠
-
-1  2  0  1  2
-
 Input Embedding
 
-Output Embedding
-
-Inputs (shifted right)
-
-𝑥𝑥1  𝑥𝑥2  𝑥𝑥3  <bos></bos>
+| ℎ1               | ℎ2                     | 𝑠𝑠0 | 𝑠𝑠1 | 𝑠𝑠2 | 𝑠𝑠3 |
+| ---------------- | ---------------------- | ----- | ----- | ----- | ----- |
+| Embedding Inputs | Output (shifted right) | 𝑥𝑥1 | 𝑥𝑥2 | 𝑥𝑥3 |       |
 
 𝑦𝑦0
 
-Figure 1: The Transformer - model architecture.
 
-
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1553,32 +1210,31 @@ Figure 1: The Transformer - model architecture.
 
 # Masked SIT Internal SiT
 
-# Self-attention layers in the decoder
+# self-attention layers in the decoder
 
 - We need to prevent leftward information flow in the decoder to preserve the auto-regressive property.
-- For example, if you have only generated [𝑦𝑦1, 𝑦𝑦2], the model cannot access or "see" the values of [𝑦𝑦3, 𝑦𝑦4].
+- For example, if you have only generated [𝑦𝑦1 , 𝑦𝑦2 ], the model cannot access or "see" the values of [𝑦𝑦3 , 𝑦𝑦4 ].
 - Mask out (setting to −∞) all values in the input of the softmax which correspond to illegal connections.
 
 # Formula (with mask M):
 
-Attention(Q, K, V) = Softmax( (QKT + M) / √dk) V
+Attention(Q, K, V) = Softmax(QKT + M) V
+
+√dk
 
 M is the triangular mask ensuring causal behavior.
 
-| Positional Encoding | Input Embedding | Output Embedding | Positional Encoding     |
-| ------------------- | --------------- | ---------------- | ----------------------- |
-| Inputs              |                 |                  | Outputs (shifted right) |
+# Figure 1: The Transformer - model architecture.
 
-Figure 1: The Transformer - model architecture.
+| Inputs               | Outputs                     |
+| -------------------- | --------------------------- |
+| Positional Encoding  | Positional Encoding         |
+| Embedding            | Embedding (shifted right)   |
+| Add & Norm           | Softmax                     |
+| Feed Forward         | Linear                      |
+| Multi-Head Attention | Masked Multi-Head Attention |
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1594,26 +1250,22 @@ Figure 1: The Transformer - model architecture.
 
 - The queries come from the previous decoder layer
 - The memory keys and values come from the output of the encoder
-- This allows every position in the decoder to attend over all positions in the input sequence
 
-| Input Embedding             | Output Embedding (shifted right) |
-| --------------------------- | -------------------------------- |
-| Positional Encoding         | Positional Encoding              |
-| Add & Norm                  | Add & Norm                       |
-| Feed Forward                | Feed Forward                     |
-| Multi-Head Attention        | Multi-Head Attention             |
-| Masked Multi-Head Attention |                                  |
+| Output Probabilities | Softmax                     | Linear |
+| -------------------- | --------------------------- | ------ |
+| Add & Norm           | Feed Forward                |        |
+| Add & Norm           | Multi-Head Attention        |        |
+| Nx Add & Norm        | Masked Multi-Head Attention |        |
+
+# This allows every position in the decoder to attend over all positions in the input sequence
+
+| Positional Encoding | Input Embedding  | Outputs (shifted right) |
+| ------------------- | ---------------- | ----------------------- |
+| Positional Encoding | Embedding Inputs |                         |
 
 Figure 1: The Transformer - model architecture.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1622,33 +1274,29 @@ Figure 1: The Transformer - model architecture.
 ============================================================
 
 
-Embeddings  SIT Internal    SiT
 
-•  We use learned embeddings to convert the input tokens and output tokens to vectors of dimension 𝑑𝑑𝑚𝑚𝑜𝑜𝑑𝑑𝑚𝑚𝑚𝑚.
+# Embeddings
 
-•  We also use the usual learned linear transformation and softmax function to convert the decoder output to predicted next-token probabilities.
+# SIT Internal
 
-| Softmax              | Linear                      |
-| -------------------- | --------------------------- |
-| Feed Forward         | Add & Norm                  |
-| Add & Norm           | Multi-Head Attention        |
-| Nx                   | Add & Norm                  |
-| Multi-Head Attention | Masked Multi-Head Attention |
-| Positional Encoding  | +                           |
-| Positional Encoding  |                             |
-| Input Embedding      | Output Embedding            |
-| Inputs               | Outputs (shifted right)     |
+# SiT
+
+• We use learned embeddings to convert the input tokens and output tokens to vectors of dimension 𝑑𝑑𝑚𝑚𝑜𝑜𝑑𝑑𝑚𝑚𝑚𝑚.
+
+| Output                      | Probabilities        |
+| --------------------------- | -------------------- |
+| Softmax                     | Linear               |
+| Feed Forward                | Add & Norm           |
+| Add & Norm                  | Multi-Head Attention |
+| N×                          |                      |
+| Masked Multi-Head Attention |                      |
+| Positional Encoding         | +                    |
+| Input Embedding             | Output Embedding     |
+| Inputs                      | (shifted right)      |
 
 Figure 1: The Transformer - model architecture.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1674,20 +1322,13 @@ Each position is represented by a vector, not just a single number.
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 48
 ============================================================
 
 
-Positional Encoding SIT Internal SiT
+Positional Encoding SIT Internal    SiT
 
 For each token position pos, the Transformer creates a positional embedding vector
 
@@ -1703,13 +1344,6 @@ This vector has the same dimensionality as the token embedding, so it can be add
 https://kazemnejad.com/blog/transformer_architecture_positional_encoding/
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1736,21 +1370,21 @@ Positional Encoding SIT Internal SiT
 
 [0.1411, -0.99, 0.2955, 0.9553, 0.03, 0.9996, 0.003, 1.0]
 
-# Sinusoidal positional encoding (first 16 dims)
+| 0  | Sinusoidal positional encoding (first 16 dims) | 1.00  |
+| -- | ---------------------------------------------- | ----- |
+| 10 |                                                | 0.75  |
+| 30 |                                                | 0.50  |
+| 40 |                                                | 0.25  |
+| 50 |                                                | -0.00 |
+|    |                                                | -0.25 |
+|    |                                                | -0.50 |
+|    |                                                | -0.75 |
 
-| 0     | 1    | 2    | 3   | 4     | 5     | 6     | 7     |
-| ----- | ---- | ---- | --- | ----- | ----- | ----- | ----- |
-| 1.00  | 0.75 | 0.50 | 0²⁰ | -0.25 | -0.00 | -0.25 | -0.50 |
-| -0.75 |      |      |     |       |       |       |       |
+0 1 2 3 4 5 6 7
+
+dimension
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1760,28 +1394,22 @@ Positional Encoding SIT Internal SiT
 
 
 Positional Encoding SIT Internal    SiT
-| 0    | -1.00 |        |    |       |    |     |     |       |
-| ---- | ----- | ------ | -- | ----- | -- | --- | --- | ----- |
-| 0.75 |       |        |    |       |    |     |     |       |
-| 10   | -0.50 |        |    |       |    |     |     |       |
-| 20   | 0.25  |        |    |       |    |     |     |       |
-| 20   | -0.00 |        |    |       |    |     |     |       |
-| 30   | -0.25 |        |    |       |    |     |     |       |
-|      |       | --0.50 |    |       |    |     |     |       |
-| 40   |       |        |    |       |    |     |     |       |
-|      |       | -0.75  |    |       |    |     |     |       |
-| 50   | 20    | 40     | 60 | Depth | 80 | 100 | 120 | -1.00 |
+
+| 0    | -100   |
+| ---- | ------ |
+| 0.75 |        |
+| 10   | -0.50  |
+| 20   | -0.25  |
+| 20   | -0.00  |
+| 30   | -0.25  |
+| 40   | --0.50 |
+| 50   | --0.75 |
+
+20  40  60 Depth  80  100  120   -1.00
 
 https://kazemnejad.com/blog/transformer_architecture_positional_encoding/
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1790,23 +1418,13 @@ https://kazemnejad.com/blog/transformer_architecture_positional_encoding/
 ============================================================
 
 
-# Characteristics of SIT Internal Sinusoidal Encoding
+# Characteristics of SIT Internal SiT Sinusoidal Encoding
 
-# Relative Positional Relationships
-
+- Relative Positional Relationships
 - Allow the model to implicitly understand the relative distances between tokens.
-- 𝑃𝑃𝑃𝑃𝑝𝑝𝑜𝑜𝑠𝑠+𝑘𝑘 = 𝑊𝑊 � 𝑃𝑃𝑃𝑃𝑝𝑝𝑜𝑜𝑠𝑠 where 𝑊𝑊 is not related to 𝑝𝑝𝑠𝑠𝑠𝑠
-
-# Fixed and Non-learnable
-
+- 𝑃𝑃𝑃𝑃𝑝𝑝𝑜𝑜𝑠𝑠+𝑘𝑘 = 𝑊𝑊 𝑃𝑃𝑃𝑃𝑝𝑝𝑜𝑜𝑠𝑠 where 𝑊𝑊 is not related to 𝑝𝑝𝑠𝑠𝑠𝑠
+- Fixed and Non-learnable
 - The sinusoidal encoding is pre-defined and does not require training, making it computationally efficient and capable of generalizing to unseen sequence lengths.
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1823,13 +1441,6 @@ Positional Encoding
 - Different positional methods aim to improve:
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 53
@@ -1838,27 +1449,22 @@ Positional Encoding
 
 Review    SIT Internal    SiT
 
-• 𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉  = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥  𝑄𝑄𝐾𝐾𝑇𝑇  𝑉𝑉
+• 𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑄𝑄𝐾𝐾𝑇𝑇  𝑉𝑉
 
-- mapping a query and a set of key-value pairs to an output
-- output is computed as a weighted sum of the values
-- where the weight is computed by a compatibility function of the query with the corresponding key.
+•   mapping a query and a set of key-value pairs to an output
 
-| output  | +      | output1 | output2 | output3 | output4 |        |        |        |
-| ------- | ------ | ------- | ------- | ------- | ------- | ------ | ------ | ------ |
-| softmax | score1 | value1  | score2  | value2  | score3  | value3 | score4 | value4 |
-| key1    |        | key2    | key3    |         | key4    |        |        |        |
+•   output is computed as a weighted sum of the values
 
-query
+•   where the weight is computed by a compatibility function of the query with the corresponding key.
+
+| output | softmax |        |        |        |        |
+| ------ | ------- | ------ | ------ | ------ | ------ |
+| score1 | value1  | score2 | value2 |        |        |
+|        |         | score3 | value3 | score4 | value4 |
+| key1   | key2    | key3   | key4   |        |        |
+| query  |         |        |        |        |        |
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1868,38 +1474,47 @@ query
 
 
 
-# Review SIT Internal Output SiT
+# Review
+
+# SIT Internal Output SiT
 
 # Probabilities
 
 # Softmax
 
-• 𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉  = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥  𝑄𝑄𝐾𝐾𝑇𝑇  𝑉𝑉  Linear
+↑
 
-| Add & Norm           | Feed Forward        |                             |                      |            |            |
-| -------------------- | ------------------- | --------------------------- | -------------------- | ---------- | ---------- |
-| Add & Norm           | Add & Norm          |                             |                      |            |            |
-| Multi-Head Attention | N×                  |                             |                      |            |            |
-| 𝑦𝑦                 | 𝑦𝑦                |                             | N×                   | Add & Norm | Add & Norm |
-| 1                    | 2                   | Multi-Head Masked Attention | Multi-Head Attention |            |            |
-| ℎ1                   | ℎ2                  | 𝑠𝑠0                       | 𝑠𝑠1                | 𝑠𝑠2      | 𝑠𝑠3      |
-| Positional Encoding  | Positional Encoding |                             |                      |            |            |
-| Input                | Output              |                             |                      |            |            |
-| 𝑥𝑥1                | 𝑥𝑥2               | 𝑥𝑥3                       |                      |            |            |
-| Embedding            | Embedding           |                             |                      |            |            |
-| 𝑦𝑦                 | Inputs              | Outputs                     |                      |            |            |
-| 0                    | (shifted right)     |                             |                      |            |            |
+# Linear
 
-Figure 1: The Transformer - model architecture.
+• 𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑄𝑄𝐾𝐾𝑇𝑇  𝑉𝑉
+
+Add &#x26; Norm
+
+𝑑𝑑𝑘𝑘  Feed Forward
+
+Add &#x26; Norm
+
+Add &#x26; Norm
+
+Feed Multi-Head Forward Attention N×
+
+𝑦𝑦1  𝑦𝑦2  <eos>  N× Add &#x26; Norm</eos>
+
+Add &#x26; Norm Multi-Head Masked Attention Multi-Head Attention
+
+ℎ1  ℎ2  𝑠𝑠0  𝑠𝑠1  𝑠𝑠2  𝑠𝑠3
+
+Positional Encoding
+
+Input Output
+
+𝑥𝑥1   𝑥𝑥2   𝑥𝑥3  <bos> Embedding Embedding</bos>
+
+𝑦𝑦0  Inputs Outputs (shifted right)
+
+# Figure 1: The Transformer - model architecture.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1908,38 +1523,36 @@ Figure 1: The Transformer - model architecture.
 ============================================================
 
 
-Review                                                    SIT Internal                                                                    Output  SiT
+Review               SIT Internal
+# Output  SiT
 
 # Probabilities
 
 # Softmax
 
-↑
+•  𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉 = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥 𝑄𝑄𝐾𝐾𝑇𝑇  𝑉𝑉
 
-- 𝐴𝐴𝑠𝑠𝑠𝑠𝐴𝐴𝐴𝐴𝑠𝑠𝐴𝐴𝑠𝑠𝐴𝐴 𝑄𝑄, 𝐾𝐾, 𝑉𝑉  = 𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑥𝑥  𝑄𝑄𝐾𝐾𝑇𝑇  𝑉𝑉
-- Linear
-- 𝑑𝑑𝑘𝑘
-- Add &#x26; Norm
-- No future information
+•  No future information
+
 - When calculating the current output, future information cannot be used, as it violates the auto-regressive property in sequence generation.
-- Positional representation
+
+•  Positional representation
+
 - Each position in the sequence is represented using a vector, rather than a single number, to encode positional information effectively.
-- Layer normalization
 
-https://github.com/pytorch/pytorch/blob/main/torch/nn/modules/transformer.py
+•  Layer normalization
 
-https://github.com/pytorch/pytorch/blob/dc4db95540da06623c747b0f2bf9f4af3d2925a/torch/nn/functional.py#L4026
+•  https://github.com/pytorch/pytorch/blob/main/torch/nn/modules/transformer.py
 
-# Figure 1: The Transformer - model architecture.
+•  https://github.com/pytorch/pytorch/blob/dc4db95540da06623c747b0f2bf9f4af3d2925a/torch/nn/functional.py#L4026
+
+| Input           | Output |
+| --------------- | ------ |
+| (shifted right) |        |
+
+Figure 1: The Transformer - model architecture.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1952,24 +1565,12 @@ Learning Outcomes SIT Internal
 
 # Learning Outcomes
 
-# 1. Explain the roles of query, key, and value in the attention mechanism
-
+- Explain the roles of query, key, and value in the attention mechanism
 - Demonstrate a clear understanding of how query, key, and value interact within the attention function to compute context-aware outputs.
-
-# 2. Deeply understand the concept of autoregressive modeling
-
+- Deeply understand the concept of autoregressive modeling
 - Explain why the decoder in an autoregressive model cannot access future information and how this is enforced in practice.
-
-# 3. Analyze the Transformer architecture
-
+- Analyze the Transformer architecture
 - Identify and explain each module in the Transformer network architecture diagram, including the encoder, decoder, attention layers, positional encoding, layer normalization, and feedforward components.
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 

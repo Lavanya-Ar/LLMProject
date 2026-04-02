@@ -19,25 +19,15 @@ zhengchen.zhang@singaporetech.edu.sg
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 2
 ============================================================
 
 
+SIT Internal SiT
+# Tasks &#x26; Evaluation Metrics
 
-# Outline
-
-# SIT Internal
-
-- Tasks &#x26; Evaluation Metrics
 - Question Answer
 - BERTScore
 - Machine Translation
@@ -49,13 +39,6 @@ zhengchen.zhang@singaporetech.edu.sg
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 3
@@ -63,22 +46,18 @@ zhengchen.zhang@singaporetech.edu.sg
 
 
 Question Answering SIT ᴵⁿᵗᵉʳⁿᵃˡ SiT (QA)
-# Question Answering
 
-- Given a question, the system produces an answer in natural language
-- The answer is usually short (a word, phrase, or short sentence)
-- QA often requires understanding and reasoning over supporting context
+• Given a question, the system produces an answer in natural language
+
+• The answer is usually short (a word, phrase, or short sentence)
+
+• QA often requires understanding and reasoning over supporting context
+
 - documents, passages, or conversation history
-- Many QA tasks are fact-based and have a clear reference answer
+
+• Many QA tasks are fact-based and have a clear reference answer
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -94,30 +73,19 @@ SIT Internal SiT
 - TriviaQA consists of trivia-style questions, where models must find and extract the correct answer from a collection of supporting documents.
 - TriviaQA includes 95K question-answer pairs and independently gathered evidence documents, six per question on average.
 
-# Question:
+# Example
 
-The Dodecanese Campaign of WWII that was an attempt by the Allied forces to capture islands in the Aegean Sea was the inspiration for which acclaimed 1961 commando film?
+Question: The Dodecanese Campaign of WWII that was an attempt by the Allied forces to capture islands in the Aegean Sea was the inspiration for which acclaimed 1961 commando film?
 
-# Answer:
+Answer: The Guns of Navarone
 
-The Guns of Navarone
-
-# Excerpt:
-
-The Dodecanese Campaign of World War II was an attempt by Allied forces to capture the Italian-held Dodecanese islands in the Aegean Sea following the surrender of Italy in September 1943, and use them as bases against the German-controlled Balkans. The failed campaign, and in particular the Battle of Leros, inspired the 1957 novel The Guns of Navarone and the successful 1961 movie of the same name.
+Excerpt: The Dodecanese Campaign of World War II was an attempt by Allied forces to capture the Italian-held Dodecanese islands in the Aegean Sea following the surrender of Italy in September 1943, and use them as bases against the German-controlled Balkans. The failed campaign, and in particular the Battle of Leros, inspired the 1957 novel The Guns of Navarone and the successful 1961 movie of the same name.
 
 A Question-answer pair with sample excerpts from evidence documents from TriviaQA.
 
 https://aclanthology.org/P17-1147.pdf
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -127,7 +95,7 @@ https://aclanthology.org/P17-1147.pdf
 
 
 
-CURRENT_PAGE_RAW_OCR_TEXT
+SIT Internal
 
 # Extractive QA (Span-based)
 
@@ -137,15 +105,7 @@ CURRENT_PAGE_RAW_OCR_TEXT
 - an end position in the context passage
 - The predicted span is treated as the final answer.
 
-CURRENT_PAGE_RAW_OCR_TEXT
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -163,6 +123,8 @@ Jessica went to sit in her rocking chair. Today was her birthday and she was tur
 - CoQA contains 127k questions with answers, obtained from 8k conversations about text passages from seven diverse domains.
 - The questions are conversational, and the answers are free-form text with their corresponding evidence highlighted in the passage.
 
+# Questions and Answers
+
 | Q1: Who had a birthday?                | A1: Jessica                 | R1: Jessica went to sit in her rocking chair. Today was her birthday and she was turning 80.                                                                               |
 | -------------------------------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Q2: How old would she be?              | A2: 80                      | R2: she was turning 80                                                                                                                                                     |
@@ -175,43 +137,29 @@ Figure 1: A conversation from the CoQA dataset. Each turn contains a question (Q
 https://arxiv.org/pdf/1808.07042
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 7
 ============================================================
 
 
-Evaluation – F1  SIT Internal
-# F1 Score Calculation
+# Evaluation – F1  SIT Internal
 
-F1 is computed based on word overlap between the predicted answer and the gold (correct) answer.
+# SiT
+
+• F1 is computed based on word overlap between the predicted answer and the gold (correct) answer.
 
 # Formula for F1 Score
 
-F1 = 2 × Precision × Recall / Precision + Recall
+F1 = 2 × Precision × Recall / (Precision + Recall)
 
 # Where:
 
-- Precision = (Number of overlapping words) / (Total words in the predicted answer)
-- Recall = (Number of overlapping words) / (Total words in the ground-truth answer)
+• Precision = (Number of overlapping words) / (Total words in the predicted answer)
 
-Source: https://nlp.cs.washington.edu/triviaqa/
+Recall = (Number of overlapping words) / (Total words in the ground-truth answer)
 
-
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
+https://nlp.cs.washington.edu/triviaqa/
 
 
 
@@ -230,17 +178,11 @@ SIT Internal
 - not appear verbatim in the text
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 9
 ============================================================
+
 
 
 Evaluation - SIT Internal SiT
@@ -250,27 +192,21 @@ Evaluation - SIT Internal SiT
 - A good answer may use alternate words or paraphrases
 - Instead of exact matches, we compute token similarity using contextual embeddings
 
-| Contextual Embedding | Pairwise Cosine Similarity | Maximum Similarity | Importance Weighting (Optional) |      |
-| -------------------- | -------------------------- | ------------------ | ------------------------------- | ---- |
-| Reference X          | the07130.597               | 0.428              | 0.408                           | 1.27 |
-| the weather is       | weather0.462               | 0.39305150.3267.94 |                                 |      |
-| cold today           | is0.635                    | D.8580.441         | 0.441                           | 1.82 |
-| Candidate            | cold-0.479                 | 0.4540.796         | 0.343                           | 7.90 |
-|                      | today -0.347               | 0.361              | 0.307                           | 8.88 |
-|                      |                            | 0.913              |                                 |      |
+| Contextual Embedding | Pairwise Cosine Similarity | Maximum Similarity Importance Weighting (Optional) |
+| -------------------- | -------------------------- | -------------------------------------------------- |
+| Reference X          | 0.713                      | 1.27                                               |
+| the weather is       | 0.462                      | 7.94                                               |
+| cold today           | 0.635                      | 1.82                                               |
+| Candidate            | cold                       | 7.90                                               |
+| it is freezing today | -0.347                     | 8.88                                               |
 
-Figure 1: Illustration of the computation of the recall metric RBerT. Given the reference x and candidate, we compute BERT embeddings and pairwise cosine similarity. We highlight the greedy matching in red, and include the optional idf importance weighting.
+RBERT = (0.713×1.27)+(0.515×7.94)+1.27+7.94+1.82+7.90+8.88
+
+Figure 1: Illustration of the computation of the recall metric RBERT. Given the reference x and candidate, we compute BERT embeddings and pairwise cosine similarity. We highlight the greedy matching in red, and include the optional idf importance weighting.
 
 Zhang T, Kishore V, Wu F, et al. Bertscore: Evaluating text generation with bert[J]. arXiv preprint arXiv:1904.09675, 2019. https://arxiv.org/pdf/1904.09675
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -279,51 +215,51 @@ Zhang T, Kishore V, Wu F, et al. Bertscore: Evaluating text generation with bert
 ============================================================
 
 
-Evaluation - SIT Internal SiT
+Evaluation - SIT Internal SiT BERTScore
 
-# BERTScore
-
-- The reference *x and the candidate x*
+The reference *x and the candidate x*
 
 # Token Embedding
 
-- Compute a BERT embedding for each token *xi and xj*.
+- Compute a BERT embedding for each token *xi and x*
 
 # Token Alignment
 
 - Each pair of tokens (*xi, xj*) is scored by its cosine similarity.
 - For each token in the candidate, it finds the most similar token in the reference.
 
-# Maximum Similarity Importance Weighting (Optional)
+| Maximum Similarity | Importance Weighting (Optional) |
+| ------------------ | ------------------------------- |
+| 0.713              | 1.27                            |
+| 0.597              | 7.94                            |
+| 0.428              | 1.82                            |
+| 0.408              | 7.90                            |
+| 0.393              | 8.88                            |
+| -0.462             |                                 |
+| -0.635             |                                 |
+| -0.479             |                                 |
+| -0.347             |                                 |
 
-|        | the   | weather | is    | cOld | today             |
-| ------ | ----- | ------- | ----- | ---- | ----------------- |
-| 0.713  | 0.597 | 0.428   | 0.40  | 1.27 | 7.94              |
-| -0.462 | 0.393 | 0.515   | 0.326 | 7.90 | 1.27 + 7.94 + ... |
-| -0.635 | 3.858 | 0.441   | 0.441 | 1.82 |                   |
-| -0.479 | 0.454 | 0.796   | 0.343 | 7.90 |                   |
-| -0.347 | 0.361 | 0.307   | 0.913 | 8.88 |                   |
-
-# Aggregation
+# Aggregration
 
 - Scores for all token pairs are aggregated to compute precision, recall, and F1-score.
 - Precision: How well candidate tokens match reference tokens.
 - Recall: How well reference tokens are covered by candidate tokens.
 - F1-score: Harmonic mean of precision and recall (main evaluation score).
 
-# Formulas
+RBERT = (0.713×1.27)+(0.515×7.94)+...
 
-- *RBERT = (1/∑j T<xj, PBERT) + (1/∑j xj)</x*
-- *FBERT = 2PBERT · RBERT / (PBERT + RBERT)*
+1.27+7.94+1.82+7.90+8.88
+
+RBERT = 1 ∑ *xj*,
+
+PBERT · RBERT
+
+FBERT = 2
+
+PBeRt + RBERt
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -333,38 +269,34 @@ Evaluation - SIT Internal SiT
 
 
 Evaluation - SIT Internal SiT
+
 # BERTScore
 
 - IDF weights
 - Not all tokens are equally important
 - Common words (e.g., the, is, today) should contribute less
-- | Word    | Weight |
-| ------- | ------ |
-| the     | 1.27   |
-| weather | -0.462 |
-| is      | -0.635 |
-| cold    | -0.479 |
-| today   | -0.347 |
+- Content words (e.g., freezing, Navarone, campaign) should contribute more
 
-Content words (e.g., freezing, Navarone, campaign) should contribute more
-- | Word   | Weight |
-| ------ | ------ |
-| freing |        |
-| it     |        |
+|      | Maximum Similarity | Importance Weighting (Optional) |                 |            |      |
+| ---- | ------------------ | ------------------------------- | --------------- | ---------- | ---- |
+| the  | 0.7130.5970.428    | 0.408                           | 1.27            |            |      |
+|      | weather            | -0.462                          | 0.3930.5150.326 | 7.94       |      |
+|      | is                 | -0.6353.858                     | 0.441           | 0.441      | 1.82 |
+| cold | -0.479             | 0.454                           | 0.796           | 0.343      | 7.90 |
+|      | today              | -0.347                          | 0.361           | 0.3070.913 | 8.88 |
 
-Assign an importance weight to each token with inverse document frequency (idf) scores computed from the test corpus. Given M reference sentences {x(i)}Mi=1, the idf score of a word-piece token w is
-- idf(w) = − log1 M I[w ∈ x(i)]
+RBERT = (0.713×1.27)+(0.515x7.94)+...
 
-where I[·] is an indicator function. We do not use the full tf-idf measure because we process single
+- Assign an importance weight to each token with inverse document frequency (idf) scores computed from the test corpus.
+- Given M reference idf(w) = − log 1
+- MI[w x(i)], where I·] is an indicator function.
+- We do not use the full tf-idf measure because we process single
+
+RBERT = idf(xi) maxij x xj
+
+∑xix idf(xi)
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -377,20 +309,11 @@ Machine Translation SIT ᴵⁿᵗᵉʳⁿᵃˡ SiT (MT)
 
 • Given a sentence in a source language, the system generates a sentence in a target language
 
-• Machine translation is typically modelled as
+• Machine translation is typically modelled as a sequence-to-sequence generation task
 
-- a sequence-to-sequence generation task
-
-Given a source sentence, the model generates the target sentence token by token
+• Given a source sentence, the model generates the target sentence token by token
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -399,33 +322,43 @@ Given a source sentence, the model generates the target sentence token by token
 ============================================================
 
 
+Encoder - Decoder SIT Internal SiT
+# Output
 
-# Encoder - Decoder
+# Probabilities
 
-# SIT Internal
+# Softmax
 
-# SiT
+# Linear
 
-|            |              |       |           | Output     | Probabilities           | Softmax                     | Linear   |
-| ---------- | ------------ | ----- | --------- | ---------- | ----------------------- | --------------------------- | -------- |
-| Add & Norm | Feed Forward | 𝑦𝑦1 | 𝑦𝑦2     |            |                         |                             |          |
-|            |              |       |           | Add & Norm | Feed Forward            | Multi-Head Attention        | N×       |
-| ℎ1         | ℎ2           | 𝑠𝑠0 | 𝑠𝑠1     | 𝑠𝑠2      | 𝑠𝑠3                   | Nx                          |          |
-|            |              |       |           | Add & Norm | Multi-Head Attention    | Masked Multi-Head Attention |          |
-| 𝑥𝑥1      | 𝑥𝑥2        | 𝑥𝑥3 |           |            |                         |                             |          |
-|            | Encoder      | 𝑦𝑦0 | Decoder   | Encoding   | Input                   | Output                      | Encoding |
-|            |              |       | Embedding | Inputs     | Outputs (shifted right) |                             |          |
+# Add &#x26; Norm
+
+# Feed Forward
+
+| 𝑦𝑦1      | 𝑦𝑦2      | \<EOS>                  |            |                      |                             |    |
+| ---------- | ---------- | ----------------------- | ---------- | -------------------- | --------------------------- | -- |
+| Add & Norm | Add & Norm | Multi-Head Attention N× |            |                      |                             |    |
+| ℎ1         | ℎ2         | 𝑠𝑠0                   | 𝑠𝑠1      | 𝑠𝑠2                | 𝑠𝑠3                       | Nx |
+|            |            | Add & Norm              | Add & Norm | Multi-Head Attention | Masked Multi-Head Attention |    |
+| 𝑥𝑥1      | 𝑥𝑥2      | 𝑥𝑥3                   | \<BOS>     |                      |                             |    |
+
+# Encoder
+
+# Decoder
+
+# Encoding
+
+# Input
+
+# Output
+
+# Encoding
+
+# Inputs (shifted right)
 
 Figure 1: The Transformer - model architecture.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -434,26 +367,16 @@ Figure 1: The Transformer - model architecture.
 ============================================================
 
 
-Do We Always Need Top-1 Token Selection in Decoder Generation?
+Do We SIT Internal SiT
 
-# Decoding in the inference stage
+# Always Need Top-1 Token Selection in Decoder Generation?
 
-# Greedy decoding
+- Decoding in the inference stage
+- Greedy decoding
+- At each time step 𝑡 in generation, the output 𝑦𝑡 is generated by choosing the highest probability word
+- What looks high probability at word 𝑡 might turn out to have been the wrong choice once we get to word 𝑡 + 1.
 
-At each time step 𝑡 in generation, the output 𝑦𝑡 is generated by choosing the highest probability word.
-
-What looks high probability at word 𝑡 might turn out to have been the wrong choice once we get to word 𝑡 + 1.
-
-Source
-
-
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
+https://towardsdatascience.com/foundations-of-nlp-explained-visually-beam-search-how-it-works-1586b9849a24
 
 
 
@@ -465,27 +388,20 @@ Source
 
 # Beam Search
 
-SIT Internal
+SIT Internal arrived $y$ SiT
 
-Instead of choosing the best token to generate at each timestep, we keep 𝑘 possible tokens at each step.
+$y$ $_1$ $h$ $h^{\ra2}$ $\_2$ al $y$
 
-- BOS arrived the green aardvark
-- BOS arrived the witch zebra
+BOS arrived a $hd$ $h$ a
 
-This fixed-size beam width memory footprint 𝒌 is called the beam width.
+adde a aardvark BOS the green mage
 
-# Figure 13.8
+- Instead of choosing the best token to generate at each timestep, we keep 𝑘 possible tokens at each step.
+- This fixed-size beam width memory footprint 𝒌 is called the beam width.
 
-Beam search decoding with a beam width of k = 2. At each time step, we choose the k best hypotheses, form the V possible extensions of each, score those k × V hypotheses and choose the best k = 2 to continue. At time 1, the frontier has the best 2 options from the initial decoder state: arrived and the. We extend each, compute the probability of all the hypotheses so far (arrived the, arrived aardvark, the green, the witch) and again chose the best 2 (the green and the witch) to be the search frontier. The images on the arcs schematically represent the decoders that must be run at each step to score the next words (for simplicity not depicting cross-attention).
-
-
+Figure 13.8 Beam search decoding with a beam width of k = 2. At each time step, we choose the k best hypotheses, form the V possible extensions of each, score those k × V hypotheses and choose the best k = 2 to continue. At time 1, the frontier has the best 2 options from the initial decoder state: arrived and the. We extend each, compute the probability of all the hypotheses so far (arrived the, arrived aardvark, the green, the witch) and again chose the best 2 (the green and the witch) to be the search frontier. The images on the arcs schematically represent the decoders that must be run at each step to score the next words (for simplicity not depicting cross-attention).
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -494,7 +410,8 @@ Beam search decoding with a beam width of k = 2. At each time step, we choose th
 ============================================================
 
 
-Beam Search*  SIT Internal
+Beam Search*  SIT Internal        SiT
+
 • Handling Probability Multiplication
 
 • 𝑃(𝑊) = 𝑃(𝑤1) × 𝑃(𝑤2 ∣ 𝑤1) × 𝑃(𝑤3 ∣ 𝑤2, 𝑤1) × ⋯
@@ -510,20 +427,13 @@ log10 0.1 = −1
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 17
 ============================================================
 
 
-Evaluation - BLEU  SIT Internal    SiT
+# Evaluation - BLEU SIT Internal
 
 # Bilingual Evaluation Understudy
 
@@ -540,23 +450,12 @@ Evaluation - BLEU  SIT Internal    SiT
 - Any 𝑝𝑝𝑛𝑛 = 0, log 0 = −∞, 𝐵𝐵𝐵𝐵𝐵𝐵𝐵𝐵 = 𝑒𝑒 −∞ = 0
 - N is set to 4 or 5
 - 𝑤𝑤𝑛𝑛 is the weight assigned to each n-gram level (typically equal weights)
-- N=2, 𝑤𝑤₁ = 𝑤𝑤₂ = 1 = 0.5
+- N=2, 𝑤𝑤₁ = 𝑤𝑤₂ = 1₂ = 0.5
 - 𝐵𝐵𝑃𝑃: brevity penalty, which prevents shorter sentences from getting artificially high scores
 - 𝐵𝐵𝑃𝑃 =
 
-1  𝑖𝑖𝑖𝑖  𝑐𝑐 > 𝑟𝑟
-where c is the length of generated text, and r is the length of reference text
-
-e (1−𝑟𝑟/𝑐𝑐)  𝑖𝑖𝑖𝑖  𝑐𝑐 ≤ 𝑟𝑟
-
-
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
+𝑒𝑒1 𝑐𝑐 > 𝑟𝑟
+(1−𝑟𝑟/𝑐𝑐) 𝑐𝑐 ≤ 𝑟𝑟
 
 
 
@@ -565,7 +464,7 @@ e (1−𝑟𝑟/𝑐𝑐)  𝑖𝑖𝑖𝑖  𝑐𝑐 ≤ 𝑟𝑟
 ============================================================
 
 
-Bilingual Evaluation  SIT Internal
+Bilingual Evaluation
 # Understudy*
 
 - ‘Understudy’ is an actor who learns a role to substitute for the main performer when necessary.
@@ -576,13 +475,6 @@ https://mbrenndoerfer.com/writing/history-bleu-metric-evaluation
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 19
@@ -590,7 +482,7 @@ https://mbrenndoerfer.com/writing/history-bleu-metric-evaluation
 
 
 
-Machine Translation SIT ᴵⁿᵗᵉʳⁿᵏᵃˡ    SiT
+Machine Translation SIT ᴵⁿᵗᵉʳⁿᵃˡ    SiT
 
 # Findings of the WMT24 General Machine Translation Shared Task:
 
@@ -609,32 +501,25 @@ Download the PDF: 2024 WMT PDF
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 20
 ============================================================
 
 
-
-# Machine Translation SIT ᴵⁿᵗᵉʳⁿᵃˡ SiT
-
+Machine Translation SIT ᴵⁿᵗᵉʳⁿᵃˡ SiT
 # Ninth Conference on Machine Translation (WMT24)
 
-# Low-Resource OVERVIEW AND SHARED TASKS
+# Low-Resource
+
+# Domain Specific
 
 This year's conference will feature the following shared tasks:
 
-- a general translation task (former News task)
+- a general translation task (former News task).
 - a translation into low-resource languages of Spain task
-- a Low-Resource Indic Language Translation
-- a Metrics Task
+- a Low-Resource Indic Language Translation,
+- a Metrics Task,
 - a Chat Translation Task
 - a Biomedical Translation Task
 - a MT test suites sub-task
@@ -644,15 +529,11 @@ This year's conference will feature the following shared tasks:
 - a Non-Repetitive Translation Task
 - a Patent Task
 - a Literary Translation Task
+- a Patent Task
 
 https://www2.statmt.org/wmt24/
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -663,18 +544,15 @@ https://www2.statmt.org/wmt24/
 
 # Outline
 
+# SIT Internal
+
+# SiT
+
 - Evaluation Metrics
 - Machine Translation
 - Chatbot
 - Task-Oriented Dialogue
 - Perplexity
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -683,7 +561,7 @@ https://www2.statmt.org/wmt24/
 ============================================================
 
 
-Chatbot                                               SIT Internal                                   SiT
+Chatbot                                   SIT Internal        SiT
 
 # Task-Oriented Dialogue
 
@@ -697,25 +575,18 @@ What general task is the user trying to accomplish?
 
 Slot: a key information unit
 
-| Slot             | Type | Example Question                   |
-| ---------------- | ---- | ---------------------------------- |
-| ORIGIN CITY      | city | From what city are you leaving?    |
-| DESTINATION CITY | city | Where are you going?               |
-| DEPARTURE TIME   | time | When would you like to leave?      |
-| DEPARTURE DATE   | date | What day would you like to leave?  |
-| ARRIVAL TIME     | time | When do you want to arrive?        |
-| ARRIVAL DATE     | date | What day would you like to arrive? |
+| Slot             | Type | Example Question                     |
+| ---------------- | ---- | ------------------------------------ |
+| ORIGIN CITY      | city | "From what city are you leaving?"    |
+| DESTINATION CITY | city | "Where are you going?"               |
+| DEPARTURE TIME   | time | "When would you like to leave?"      |
+| DEPARTURE DATE   | date | "What day would you like to leave?"  |
+| ARRIVAL TIME     | time | "When do you want to arrive?"        |
+| ARRIVAL DATE     | date | "What day would you like to arrive?" |
 
 Figure 15.4 A frame in a frame-based dialogue system, showing the type of each slot and a sample question used to fill the slot.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -724,38 +595,32 @@ Figure 15.4 A frame in a frame-based dialogue system, showing the type of each s
 ============================================================
 
 
-Task-Oriented                       SIT Internal                                    SiT
+Task-Oriented SIT Internal SiT
+
 # Dialogue
 
-- Dialogue State Tracking
+# Dialogue State Tracking
+
 - Keeps track of the current state of the conversation
 - User’s goals
 - Provided information
 - Missing information
-- Policy
+
+# Policy
+
 - Decides the next system action
-- Request missing information
-- if "departure" not in state:
-- return "Where are you departing from?"
-- Confirm
-- elif "destination" not in state:
+- Request missing information if "departure" not in state:
+- Confirm return "Where are you departing from?"
+- Do the task elif "destination" not in state:
 - return "Where do you want to go?"
-- Do the task
-- Natural Language Generation
 
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
+# Natural Language Generation
 
 
 
 ============================================================
 📄 PAGE 24
 ============================================================
-
 
 
 Task-Oriented SIT Internal SiT Dialogue
@@ -766,38 +631,21 @@ Task-Oriented SIT Internal SiT Dialogue
 
 # The answer is NO
 
-# Retrieved examples
-
-| I am looking for a | LLM            | History    |
-| ------------------ | -------------- | ---------- |
-| five-star hotel in | Dom. Detection | User Input |
-| the north          | (1)            | Context    |
-
-# Retrieved examples
-
-| LLM           | History    | Zero-shot |
-| ------------- | ---------- | --------- |
-| State tracker | User Input | (2)       |
-| State         | Database   | DB        |
-
-# Context
-
-| LLM       | (3) | We've got 4 hotels available. |
-| --------- | --- | ----------------------------- |
-| (0) Store |     |                               |
+| Few-shot                                        | Retrieved examples | Retrieved examples |
+| ----------------------------------------------- | ------------------ | ------------------ |
+| I am looking for a five-star hotel in the north | LLM                | History            |
+| Dom. Detection                                  | User Input         | State tracker      |
+| User Input                                      | State              | Encoder            |
+| DB                                              |                    |                    |
+|                                                 | Generator          | available.         |
+| (0)Context                                      | LLM                | (3)                |
+| Store                                           |                    | We've got 4 hotels |
 
 Figure 2: A detailed description of our proposed pipeline. (0) As a preprocessing step, we encode a subset of the training set that will be used to retrieve few-shot examples. Given the user input, we: (1) Detect the domain, retrieve relevant examples (in the few-shot setting) and construct an initial prompt. (2) Infer the belief state using LLM. Based on that, we retrieve database information and construct another prompt that includes both the state and database results. (3) We ask the LLM to provide a final response.
 
 Hudeček V, Dušek O. Are Large Language Models All You Need for Task-Oriented Dialogue? [C]//Proceedings of the 24th Annual Meeting of the Special Interest Group on Discourse and Dialogue. 2023: 216-228. https://sigdialinlg2023.github.io/static/papers/sigdial/25_Paper.pdf
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -816,6 +664,7 @@ Hudeček V, Dušek O. Are Large Language Models All You Need for Task-Oriented D
 - The percentage of times the system booked the right plane flight
 - Or put the right event on the calendar
 - Slot error rate
+
 Slot Error Rate for a Sentence = # of inserted/deleted/substituted slots / # of total reference slots for sentence
 
 Example: Make an appointment with Chris at 10:30 in Gates 104
@@ -829,13 +678,6 @@ Example: Make an appointment with Chris at 10:30 in Gates 104
 Slot error rate is 1/3
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 26
@@ -846,17 +688,12 @@ Slot error rate is 1/3
 
 # SIT Internal
 
+# SiT
+
 - Evaluation Metrics
 - Machine Translation
 - Chatbot
 - Perplexity
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -867,35 +704,24 @@ Slot error rate is 1/3
 
 Perplexity    SIT Internal    SiT
 
-# 1. Introduction
+•  In early NLP systems such as Automatic Speech Recognition (ASR), language models were not used to generate text, but to score candidate sentences.
 
-In early NLP systems such as Automatic Speech Recognition (ASR), language models were not used to generate text, but to score candidate sentences.
+•  Given multiple transcription candidates produced by the acoustic model, the language model assigns probabilities to determine which sentence is more likely to be natural human language.
 
-# 2. Acoustic model outputs:
+•  Acoustic model outputs:
 
 - I want to eat a pizza
 - I want to eat a visa
 
-# 3. Language model scoring:
+•  Language model scoring:
 
-Which sentence is more possible
+- Which sentence is more possible
 
-𝑃𝑃 𝑠𝑠  = ∏ 𝑝𝑝(𝑤𝑤 |𝑤𝑤 )
+•  𝑃𝑃 𝑠𝑠 = ∏𝑖𝑖 𝑝𝑝(𝑤𝑤𝑖𝑖 |𝑤𝑤&#x3C;𝑖𝑖 )
 
-𝑖𝑖    𝑖𝑖    &#x3C;𝑖𝑖
-
-# 4. Sentence probability
-
-The sentence probability is the product of conditional token probabilities.
+•  The sentence probability is the product of conditional token probabilities.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -906,34 +732,27 @@ The sentence probability is the product of conditional token probabilities.
 
 Perplexity    SIT Internal    SiT
 
-• Modern large language models use the same definition of perplexity.
+# 1. Modern large language models use the same definition of perplexity.
 
-• Which sentence is more possible
+- Which sentence is more possible
+- How likely is a given sentence under the model?
+- 𝑃𝑃 𝑠𝑠 = 𝑃𝑃(𝑤𝑤1𝑤𝑤2 … 𝑤𝑤𝑁𝑁) = ∏𝑖𝑖 𝑝𝑝(𝑤𝑤𝑖𝑖 |𝑤𝑤&#x3C;𝑖𝑖 )
 
-• How likely is a given sentence under the model?
+# 2. A practical issue: sentence length
 
-• 𝑃𝑃 𝑠𝑠  = 𝑃𝑃(𝑤𝑤1𝑤𝑤2 … 𝑤𝑤𝑁𝑁) = ∏𝑖𝑖 𝑝𝑝(𝑤𝑤𝑖𝑖 |𝑤𝑤&#x3C;𝑖𝑖 )
+For long sentences, 𝑃𝑃(𝑤𝑤1 𝑤𝑤2 … 𝑤𝑤𝑁𝑁 ) becomes extremely small
 
-• A practical issue: sentence length
+# 3. Perplexity
 
-• For long sentences, 𝑃𝑃(𝑤𝑤1 𝑤𝑤2 … 𝑤𝑤𝑁𝑁 ) becomes extremely small
+𝑝𝑝𝑒𝑒𝑟𝑟𝑝𝑝𝑝𝑝𝑒𝑒𝑥𝑥𝑖𝑖𝑡𝑡𝑦𝑦 𝑊𝑊 = 𝑃𝑃 𝑤𝑤1 𝑤𝑤2 … 𝑤𝑤𝑁𝑁 − 1 = 𝑁𝑁 1
 
-• 𝑝𝑝𝑒𝑒𝑟𝑟𝑝𝑝𝑝𝑝𝑒𝑒𝑥𝑥𝑖𝑖𝑡𝑡𝑦𝑦 𝑊𝑊 = 𝑃𝑃 𝑤𝑤 𝑤𝑤 … 𝑤𝑤  − 1 = 𝑁𝑁  1
-
-1           2    𝑁𝑁        𝑁𝑁    𝑃𝑃 𝑤𝑤1𝑤𝑤2…𝑤𝑤𝑁𝑁
+𝑁𝑁      𝑃𝑃 𝑤𝑤1𝑤𝑤2…𝑤𝑤𝑁𝑁
 
 1
 
-• The − ⁄𝑁𝑁 normalization removes sentence-length effects and turns sentence probability into a per-token average measure.
+The −    ⁄𝑁𝑁 normalization removes sentence-length effects and turns sentence probability into a per-token average measure.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -942,21 +761,17 @@ Perplexity    SIT Internal    SiT
 ============================================================
 
 
-Perplexity    SIT Internal                                   SiT
+Perplexity    SIT Internal        SiT
 
-- The probability comes from the LLM itself
-- The model assigns probabilities via its own softmax output.
-- No explicit word-count statistics are used.
-- Same definition, different source of probability.
+The probability comes from the LLM itself
+
+The model assigns probabilities via its own softmax output.
+
+No explicit word-count statistics are used.
+
+Same definition, different source of probability.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -969,25 +784,19 @@ Perplexity    SIT Internal    SiT
 
 # Perplexity
 
-𝑝𝑝𝑒𝑒𝑟𝑟𝑝𝑝𝑝𝑝𝑒𝑒𝑥𝑥𝑖𝑖𝑡𝑡𝑦𝑦 𝑊𝑊 = 𝑁𝑁  𝑁𝑁    1
+𝑝𝑝𝑒𝑒𝑟𝑟𝑝𝑝𝑝𝑝𝑒𝑒𝑥𝑥𝑖𝑖𝑡𝑡𝑦𝑦 𝑊𝑊 = 𝑁𝑁 𝑁𝑁
 
-� 𝑃𝑃 𝑤𝑤𝑖𝑖 |𝑤𝑤𝑖𝑖−1 , … , 𝑤𝑤1
+1
 
-𝑖𝑖=1
+• The higher the probability, the lower the perplexity.
 
-- The higher the probability, the lower the perplexity.
-- The smaller the probability, the more confused the model is.
-- Lower perplexity means the model is more confident in its predictions, while higher perplexity suggests it is more uncertain.
-- If a model is perfectly predicting the test data (assigns probability 1 to the correct words), its perplexity is 1.
+• The smaller the probability, the more confused the model is.
+
+• Lower perplexity means the model is more confident in its predictions, while higher perplexity suggests it is more uncertain.
+
+• If a model is perfectly predicting the test data (assigns probability 1 to the correct words), its perplexity is 1.
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -996,38 +805,25 @@ Perplexity    SIT Internal    SiT
 ============================================================
 
 
-Perplexity*                                SIT Internal    SiT
+Perplexity*        SIT Internal        SiT
 
 # • Bigram
 
-𝑃𝑃 𝑤𝑤1 , 𝑤𝑤2 , … , 𝑤𝑤𝑇𝑇  = ∏𝑇𝑇  𝑃𝑃(𝑤𝑤𝑡𝑡 |𝑤𝑤𝑡𝑡−1)
-
-𝑡𝑡=1
+𝑃𝑃 𝑤𝑤1 , 𝑤𝑤2 , … , 𝑤𝑤𝑇𝑇 = ∏𝑇𝑇𝑡𝑡=1 𝑃𝑃(𝑤𝑤𝑡𝑡 | 𝑤𝑤𝑡𝑡−1)
 
 # • Trigram
 
-𝑃𝑃 𝑤𝑤1 , 𝑤𝑤2 , … , 𝑤𝑤𝑇𝑇  = ∏𝑇𝑇  𝑃𝑃(𝑤𝑤𝑡𝑡 |𝑤𝑤𝑡𝑡−1, 𝑤𝑤𝑡𝑡−2)
+𝑃𝑃 𝑤𝑤1 , 𝑤𝑤2 , … , 𝑤𝑤𝑇𝑇 = ∏𝑇𝑇𝑡𝑡=1 𝑃𝑃(𝑤𝑤𝑡𝑡 | 𝑤𝑤𝑡𝑡−1, 𝑤𝑤𝑡𝑡−2)
 
-•  Causal Language Modelling                                                  𝑇𝑇    𝑡𝑡=1
+# • Causal Language Modelling
 
-𝑃𝑃 𝑤𝑤1 , 𝑤𝑤2 , … , 𝑤𝑤𝑇𝑇  = � 𝑃𝑃(𝑤𝑤𝑡𝑡 |𝑤𝑤𝑡𝑡−1, 𝑤𝑤𝑡𝑡−2, … , 𝑤𝑤1 )
+𝑃𝑃 𝑤𝑤1 , 𝑤𝑤2 , … , 𝑤𝑤𝑇𝑇 = ∏𝑇𝑇𝑡𝑡=1 𝑃𝑃(𝑤𝑤𝑡𝑡 | 𝑤𝑤𝑡𝑡−1, 𝑤𝑤𝑡𝑡−2, … , 𝑤𝑤1)
 
-𝑡𝑡=1
+# • Perplexity
 
-# • 𝑝𝑒𝑟𝑝𝑒𝑥𝑖𝑡𝑦
-
-𝑊𝑊 = 𝑃𝑃 𝑤𝑤 𝑤𝑤 … 𝑤𝑤       − 1     = 𝑁𝑁  1
-
-1           2                 𝑁𝑁    𝑁𝑁    𝑃𝑃 𝑤𝑤1 𝑤𝑤2 …𝑤𝑤𝑁𝑁
+𝑊𝑊 = 𝑃𝑃 𝑤𝑤1 𝑤𝑤2 … 𝑤𝑤𝑁 = 𝑁𝑁1 / 𝑁𝑁 𝑃𝑃 𝑤𝑤1 𝑤𝑤2 … 𝑤𝑤𝑁
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1045,25 +841,18 @@ Often considered near-human-level performance for token-level language modelling
 
 Perplexity measures model confidence, and achieving very high confidence on real language is itself very hard.
 
-| Setting         | LAMBADA (acc) | LAMBADA StoryCloze (ppl) | HellaSwag (acc) |       |
-| --------------- | ------------- | ------------------------ | --------------- | ----- |
-| SOTA            | 68.0a         | 8.63b                    | 91.8c           | 85.6d |
-| GPT-3 Zero-Shot | 76.2          | 3.00                     | 83.2            | 78.9  |
-| GPT-3 One-Shot  | 72.5          | 3.35                     | 84.7            | 78.1  |
-| GPT-3 Few-Shot  | 86.4          | 1.92                     | 87.7            | 79.3  |
+| Setting         | LAMBADA (acc) | LAMBADA StoryCloze (ppl) | HellaSwag (acc) | HellaSwag (acc) |
+| --------------- | ------------- | ------------------------ | --------------- | --------------- |
+| SOTA            | 68.0a         | 8.63b                    | 91.8c           | 85.6d           |
+| GPT-3 Zero-Shot | 76.2          | 3.00                     | 83.2            | 78.9            |
+| GPT-3 One-Shot  | 72.5          | 3.35                     | 84.7            | 78.1            |
+| GPT-3 Few-Shot  | 86.4          | 1.92                     | 87.7            | 79.3            |
 
 Table 3.1: Performance on cloze and completion tasks. GPT-3 significantly improves SOTA on LAMBADA while achieving respectable performance on two difficult completion prediction datasets.
 
-a[Tur20] b[RWC+19] c[LDL19] d[LCH+20]
+a[Tur20] b[RWC+ 19] c[LDL19] d[LCH+20]
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1072,7 +861,9 @@ a[Tur20] b[RWC+19] c[LDL19] d[LCH+20]
 ============================================================
 
 
-Learning Outcome  SIT Internal
+Learning Outcome  SIT Internal        SiT
+
+# Learning Outcomes
 
 - Understand how different NLP tasks (QA, Machine Translation, and Chatbots) require different evaluation strategies
 - Explain why F1 is suitable for fact-based Question Answering tasks
@@ -1080,12 +871,5 @@ Learning Outcome  SIT Internal
 - Recognize the limitations of word-overlap metrics (e.g., BLEU) and the motivation behind semantic evaluation methods such as BERTScore
 - Recognize Perplexity as an intrinsic metric for evaluating language models
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 

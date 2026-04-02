@@ -17,11 +17,6 @@ Zhang Zhengchen
 zhengchen.zhang@singaporetech.edu.sg
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -30,7 +25,7 @@ zhengchen.zhang@singaporetech.edu.sg
 ============================================================
 
 
-Module Roadmap  SIT Internal    SiT
+Module Roadmap SIT Internal
 
 # Data &#x26; Representation
 
@@ -40,20 +35,13 @@ Module Roadmap  SIT Internal    SiT
 
 # System &#x26; Applications
 
-| Transformer              | Question & Answering       | Prompt Engineering |
-| ------------------------ | -------------------------- | ------------------ |
-| Recurrent Neural Network | Machine Translation        | Generation (RAG)   |
-| Embedding                | Spoken Language Processing |                    |
-| LLM Adaptation           | Chatbot                    | Multimodal LLM     |
+| Transformer                          | Question & Answering       | Prompt Engineering |
+| ------------------------------------ | -------------------------- | ------------------ |
+| Retrieval Augmented Generation (RAG) | Spoken Language Processing |                    |
+| Recurrent Neural Network             | Machine Translation        | Chatbot            |
+| Embedding                            | LLM Adaptation             | Multimodal LLM     |
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -62,7 +50,7 @@ Module Roadmap  SIT Internal    SiT
 ============================================================
 
 
-Outline                     SIT Internal       SiT
+SIT Internal
 
 # Natural Language Processing Tasks
 
@@ -77,20 +65,13 @@ Outline                     SIT Internal       SiT
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 4
 ============================================================
 
 
-SIT Internal
+SIT Internal SiT
 # NLTK (Natural Language Toolkit)
 
 - A Python library for processing human language data.
@@ -102,11 +83,6 @@ SIT Internal
 pip install nltk
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -115,7 +91,7 @@ pip install nltk
 ============================================================
 
 
-NLTK                                 SIT Internal          SiT
+NLTK        SIT Internal        SiT
 
 # Core Functionalities
 
@@ -131,18 +107,11 @@ NLTK                                 SIT Internal          SiT
 - Semantic Analysis
 - WordNet integration for word relationships.
 
-1. Summarized by ChatGPT
+1.   Summarized by ChatGPT
 
-2. https://www.cybrosys.com/blog/what-are-the-key-features-of-the-natural-language-toolkit-nltk-in-python
-
-
+2.   https://www.cybrosys.com/blog/what-are-the-key-features-of-the-natural-language-toolkit-nltk-in-python
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -151,45 +120,31 @@ NLTK                                 SIT Internal          SiT
 ============================================================
 
 
+Steps to Install NLTK
+# Steps to Install NLTK
 
-# Steps to Install NLTK SIT
-
-# ᴵⁿᵗᵉʳⁿᵃˡ SiT
+# SiT
 
 - Download NLTK datasets:
 - import nltk
 
 # NLTK Downloader
 
-|                 | File        | View    | Sort   | Help         |
-| --------------- | ----------- | ------- | ------ | ------------ |
-| nltk.download() | Collections | Corpora | Models | All Packages |
+| Identifier  | Name                                                 | Size | Status        |
+| ----------- | ---------------------------------------------------- | ---- | ------------- |
+| all         | All packages                                         | n/a  | not installed |
+| all-corpora | All the corpora                                      | n/a  | not installed |
+| all-nltk    | All packages available on nltk\_data gh-pages branch | n/a  | not installed |
+| book        | Everything used in the NLTK Book                     | n/a  | not installed |
+| popular     | Popular packages                                     | n/a  | not installed |
+| tests       | Packages for running tests                           | n/a  | not installed |
+| third-party | Third-party data packages                            | n/a  | not installed |
 
-| Identifier  | Name                                                 | Status        |
-| ----------- | ---------------------------------------------------- | ------------- |
-| all         | All packages                                         | not installed |
-| all-corpora | All the corpora                                      | not installed |
-| all-nltk    | All packages available on nltk\_data gh-pages branch | not installed |
-| book        | Everything used in the NLTK Book                     | not installed |
-| popular     | Popular packages                                     | not installed |
-| tests       | Packages for running tests                           | not installed |
-| third-party | Third-party data packages                            | not installed |
-
-- Cancel
-- Refresh
+Cancel    Refresh
 
 Server Index: https://raw.githubusercontent.com/nltk/nltk
 
-Download Directory: e:\
-
-
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
+Download Directory: \
 
 
 
@@ -198,7 +153,7 @@ Download Directory: e:\
 ============================================================
 
 
-Spacy              SIT Internal                                  SiT
+Spacy        SIT Internal        SiT
 
 # Spacy
 
@@ -212,24 +167,15 @@ It provides fast and accurate implementations of core NLP tasks such as tokeniza
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 8
 ============================================================
 
 
-Review and Discussion
+Review and SIT Internal SiT
 
-# SIT Internal
-
-# SiT
+# Discussion
 
 - What does it mean to understand a piece of text?
 - I can identify typos.
@@ -243,23 +189,16 @@ Review and Discussion
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 9
 ============================================================
 
 
-Review and SIT Internal Discussion
 
-# How to understand it?
+# Review and SIT Internal Discussion
 
+- How to understand it?
 - Try to find the answers in this module
 - Words → Phrases → Sentences
 - Divide and conquer
@@ -267,13 +206,6 @@ Review and SIT Internal Discussion
 - Attention is all you need but data is king
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -309,13 +241,6 @@ Here is the Part-of-Speech (POS) tagging for the sentence "John bought 3 apples 
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 11
@@ -323,7 +248,7 @@ Here is the Part-of-Speech (POS) tagging for the sentence "John bought 3 apples 
 
 
 
-SIT Internal    SiT
+SIT Internal SiT
 
 # Keynote Talk: Academic NLP research in the Age of LLMs: Nothing but blue skies!
 
@@ -342,23 +267,17 @@ There has been a certain amount of handwringing by students - and faculty - abou
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 12
 ============================================================
 
 
-Impact of Large Language Models
+Impact of SIT Internal SiT
 
-# New Research Directions
+# Large Language Models
 
+- New Research Directions
 - Multilingual and Low-Resource Scenarios
 - Cross-Modal Integration
 - Video understanding
@@ -370,21 +289,13 @@ Impact of Large Language Models
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 13
 ============================================================
 
 
-Outline                     SIT Internal       SiT
-
+SIT Internal
 # Natural Language Processing Tasks
 
 - Applications
@@ -398,28 +309,27 @@ Outline                     SIT Internal       SiT
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 14
 ============================================================
 
 
-Sequential Data                     SIT Internal                                      SiT
+Sequential Data     SIT Internal                             SiT
 
 • Task: Classify the sentiment category of a sentence
 
 • Dataset
 
-| • Today’s weather is not bad. | Positive |
-| ----------------------------- | -------- |
-| • The weather is bad.         | Negative |
+| 1 | Today’s weather is not bad. | Positive         | Word | One-hot Encoding |                  |
+| - | --------------------------- | ---------------- | ---- | ---------------- | ---------------- |
+| 2 | The weather is bad.         | Negative         | 1    | Today            | \[1,0,0,0,0,0,0] |
+| 3 | 's                          | \[0,1,0,0,0,0,0] |      |                  |                  |
+| 4 | Weather                     | \[0,0,1,0,0,0,0] |      |                  |                  |
+| 5 | Is                          | \[0,0,0,1,0,0,0] |      |                  |                  |
+| 6 | Not                         | \[0,0,0,0,1,0,0] |      |                  |                  |
+| 7 | Bad                         | \[0,0,0,0,0,1,0] |      |                  |                  |
+|   | the                         | \[0,0,0,0,0,0,1] |      |                  |                  |
 
 • Model
 
@@ -433,24 +343,7 @@ Sequential Data                     SIT Internal                                
 
 • Word? Word→Vector
 
-| Word    | One-hot Encoding |
-| ------- | ---------------- |
-| Today   | \[1,0,0,0,0,0,0] |
-| 's      | \[0,1,0,0,0,0,0] |
-| Weather | \[0,0,1,0,0,0,0] |
-| Is      | \[0,0,0,1,0,0,0] |
-| Not     | \[0,0,0,0,1,0,0] |
-| Bad     | \[0,0,0,0,0,1,0] |
-| the     | \[0,0,0,0,0,0,1] |
-
 https://text2data.com/Demo
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -462,53 +355,34 @@ https://text2data.com/Demo
 Feedforward Neural Network
 # Feedforward Neural Network
 
-# Hidden Layers
+# Internal Structure
 
-ℎ = ReLU 𝑊𝑊 X + 𝑏𝑏
+ℎ = ReLU(𝑊𝑊1X + 𝑏𝑏1)
+
+# Hidden Layers
 
 # Output Layer
 
-Y = Softmax 𝑊𝑊 ℎ + 𝑏𝑏
+Y = Softmax(𝑊𝑊2 ℎ + 𝑏𝑏2)
 
-# Input layer
+| Input layer             | L-2=2   | L-1=3    | L=4     |
+| ----------------------- | ------- | -------- | ------- |
+| x1                      | $w^{2}$ | $x^{f2}$ | $w^{2}$ |
+| $x$                     | w       | $x$      | w       |
+| 1                       | 𝑛      | w        | i3      |
+| Loss = Σ(𝑦𝑦 - 𝑦𝑦 )² | 𝑛      | 𝑖       | 𝑖      |
+| $w^{2}$                 | $x^{2}$ | $w^{2}$  | $x^{2}$ |
+| $w^{2}$                 | $x^{2}$ | $w^{2}$  | $x^{2}$ |
+| $b^{2}$                 |         |          |         |
+| bl = 1                  | $b^{2}$ | $b^{3}$  | $b^{f}$ |
+| $b^{23}$                | b2 = 1  | $b^{3}$  | $b^{3}$ |
+| $b^{3}$                 |         |          |         |
 
-| L-2=2 | x1           | $w^{2}$   | $x\2}$    |
-| ----- | ------------ | --------- | --------- |
-|       | $w^{2}$      | 𝑛𝑛      | $w\ra23}$ |
-|       | $w\r2}$      | Loss = 1  | 𝑦𝑦      |
-|       | 2            | x2        | $w^{2}$   |
-|       | $x2}$        | $wr23$    |           |
-|       | 𝑛𝑛         | 𝑖𝑖      | 𝑖𝑖      |
-|       | x3           | $w^{2}$   | $x\a3}$   |
-|       | $w^{\ac3}$   | $b^{ra2}$ |           |
-|       | bl = 1       | $b\r2}$   | b2=1      |
-|       | $b \rac{23}$ |           |           |
-
-# L-1=3
-
-| L=4    | $w^{\ }$  | $x^{\f2}$ | $w\r{1}$     |
-| ------ | --------- | --------- | ------------ |
-| $x\\}$ | a\f}      | $w\2}$    |              |
-| wi2    | wi3       | $w\2}$    | $w{2w2}$     |
-| $w\2}$ | $x\2}$    | $x^{      |              |
-| $w\23$ | $w23$     |           |              |
-|        | w}        | $x^{3}$   | w32          |
-| $x\3}$ | a$\fra3}$ | $w \a3$   | $w \ra3}$    |
-|        | $b\f}$    | $b\fra}$  |              |
-|        | b3=1      | $b\ra{3}$ | $b \frab{3}$ |
-
-# Figure 1
+Figure 1
 
 https://whyml.wordpress.com/2017/04/24/back-propagation-learning-for-multi-layer-feedforward-neural-network/
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -517,13 +391,13 @@ https://whyml.wordpress.com/2017/04/24/back-propagation-learning-for-multi-layer
 ============================================================
 
 
-Sequential Data  SIT Internal    SiT
+Sequential Data SIT Internal SiT
 
-• Variable-Length Text vs. Fixed-Length Input
+# Variable-Length Text vs. Fixed-Length Input
 
-• Multiple words have to be mapped into a single fixed-dimensional vector
+Multiple words have to be mapped into a single fixed-dimensional vector
 
-| 1 | Word    | One-hot Encoding |
+|   | Word    | One-hot Encoding |
 | - | ------- | ---------------- |
 | 1 | Today   | \[1,0,0,0,0,0,0] |
 | 2 | 's      | \[0,1,0,0,0,0,0] |
@@ -533,19 +407,15 @@ Sequential Data  SIT Internal    SiT
 | 6 | Bad     | \[0,0,0,0,0,1,0] |
 | 7 | the     | \[0,0,0,0,0,0,1] |
 
-• Summation and Average
+# Summation and Average
 
 - Sum all word vectors and divided by word numbers
 - Problem?
+- Good, not bad
+- Bad, not good
+- No context information
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -554,14 +424,11 @@ Sequential Data  SIT Internal    SiT
 ============================================================
 
 
-
-# Sequential Data
-
-# SIT Internal
-
-# SiT
+Sequential Data     SIT Internal                                     SiT
 
 # Variable-Length Text vs. Fixed-Length
+
+# Input
 
 | Word    | One-hot Encoding |
 | ------- | ---------------- |
@@ -572,10 +439,6 @@ Sequential Data  SIT Internal    SiT
 | Not     | \[0,0,0,0,1,0,0] |
 | Bad     | \[0,0,0,0,0,1,0] |
 | the     | \[0,0,0,0,0,0,1] |
-
-# Concatenation and Padding
-
-Concatenate all words to form a long vector.
 
 # Problem?
 
@@ -588,38 +451,21 @@ A lot of zeros
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 18
 ============================================================
 
 
-
+Recurrent Neural Networks (RNNs)
 # Recurrent Neural Networks (RNNs)
 
-• Process the inputs one by one
+- Process the inputs one by one
+- Remember the history
 
-• Remember the history
-
-| X | H | Y |
-| - | - | - |
-| X | H | Y |
+X H Y    X H Y
 
 https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -635,37 +481,27 @@ https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
 
 # SiT
 
-|   | determiner | noun  | verb  |
-| - | ---------- | ----- | ----- |
-| + | 𝑦𝑦1      | 𝑦𝑦2 | 𝑦𝑦3 |
-| 0 | ℎ1         | ℎ2    | ℎ3    |
+| determiner | noun  | verb  |       |    |
+| ---------- | ----- | ----- | ----- | -- |
+| +          | 𝑦𝑦1 | 𝑦𝑦2 | 𝑦𝑦3 |    |
+|            | 0     | ℎ1    | ℎ2    | ℎ3 |
+| X          | H     | Y     |       |    |
 
-| X | H | Y |
-| - | - | - |
-
-• Time Step 𝑡𝑡
-
+- Time Step 𝑡𝑡
+- 𝑥𝑥1
+- 𝑥𝑥2
+- 𝑥𝑥3
 - A word
 - A segment of audio
+- 𝑥𝑥𝑡𝑡−1
+- 𝑥𝑥𝑡𝑡
+- 𝑥𝑥𝑡𝑡+1
 - Stock price of a day
-
-The weather is
-
-| 𝑥𝑥1  | 𝑥𝑥2 | 𝑥𝑥3  |
-| ------ | ----- | ------ |
-| 𝑥𝑥   | 𝑥𝑥  | 𝑥𝑥   |
-| 𝑡𝑡−1 | 𝑡𝑡  | 𝑡𝑡+1 |
+- The weather is
 
 https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -677,32 +513,31 @@ https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
 SIT Internal
 # Forward Computation Process
 
-- ℎt = 𝑓(𝑊ℎℎt-1 + 𝑊x𝑥t + 𝑏)
-- 𝑦t = 𝑔(𝑊ℎℎt + 𝑏)
-- Y = Softmax(𝑊ℎℎ + 𝑏)
-- Time Step t
-- A word
-- A segment of audio
-- Stock price of a day
+• ℎt = 𝑓(𝑊hℎt-1 + 𝑊x + 𝑏)
 
-|    | 𝑤1 | 𝑤2 | 𝑤3 |
-| -- | --- | --- | --- |
-| ℎ1 | 𝑤ℎ |     |     |
-| ℎ2 | 𝑤ℎ |     |     |
-| ℎ3 | 𝑤ℎ |     |     |
+determiner                  noun        verb
 
-| 𝑥t-1 | 𝑥t     | 𝑥t+1 |
-| ----- | ------- | ----- |
-| The   | weather | is    |
+• 𝑦t = 𝑔(𝑊h + 𝑏)
+
+y  t  y                  y1          y2       y3
+
+•           Y = Softmax(𝑊2ℎ + 𝑏2)
+
+• Time Step t        0     wℎ      ℎ1            wℎ       ℎ2     wℎ ℎ3
+
+•           A word        w                                       w
+
+•           A segment of audio        x                      wx       x
+
+•           Stock price of a day
+
+x1          x2             x3
+
+xt-1     xt          xt+1
+
+The           weather            is
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -714,19 +549,13 @@ SIT Internal
 
 # RNN + SIT Internal SiT
 
-X H Y
+• ℎtt = 𝑓f(𝑊hℎtt−1 + 𝑊x𝑥t + 𝑏x)
 
-• ℎ = 𝑓𝑓 𝑊𝑊 ℎ + 𝑊𝑊 𝑥𝑥 + 𝑏𝑏
+• 𝑦tt = 𝑔g(𝑊h + 𝑏y)
 
-𝑡𝑡 ℎ 𝑡𝑡−1 𝑥𝑥 𝑡𝑡
+• Y = Softmax(𝑊2ℎ + 𝑏2)
 
-• 𝑦𝑦𝑡𝑡 = 𝑔𝑔 𝑊𝑊 ℎ + 𝑏𝑏
-
-• Y 𝑦𝑦 𝑡𝑡 𝑦𝑦
-
-Y = Softmax 𝑊𝑊 ℎ + 𝑏𝑏
-
-• Time Step 𝑡𝑡
+• Time Step 𝑡t
 
 • a word
 
@@ -734,16 +563,15 @@ Y = Softmax 𝑊𝑊 ℎ + 𝑏𝑏
 
 • Stock price of a day
 
+ℎ = ReLU(𝑊X + 𝑏1)
+
+Y = Softmax(𝑊2ℎ + 𝑏2)
+
+Loss = 𝑛1∑i=1(𝑦n - 𝑦i)2
+
 https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -752,10 +580,7 @@ https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
 ============================================================
 
 
-
-# RNN
-
-# SIT Internal
+RNN SIT Internal
 
 # Recurrence
 
@@ -764,11 +589,9 @@ https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
 - Context information
 - Variant length input
 
-# Equations
-
-| X                                        | H                                         | Y                          |
-| ---------------------------------------- | ----------------------------------------- | -------------------------- |
-| ℎ𝑡𝑡 = 𝑓(𝑊ℎℎ𝑡𝑡−1 + 𝑊𝑥𝑥𝑡𝑡 + 𝑏) | 𝑦𝑡𝑡 = 𝑔(𝑊ℎℎ𝑡𝑡−1 + 𝑊𝑥𝑥𝑡𝑡 + 𝑏) | Y = Softmax(𝑊ℎℎ𝑡𝑡 + 𝑏) |
+| X                                       | H                                        | Y                       |
+| --------------------------------------- | ---------------------------------------- | ----------------------- |
+| ℎ𝑡𝑡 = 𝑓(𝑊ℎℎ𝑡𝑡−1 + 𝑊x𝑥𝑡𝑡 + 𝑏) | 𝑦𝑡𝑡 = 𝑔(𝑊ℎℎ𝑡𝑡−1 + 𝑊x𝑥𝑡𝑡 + 𝑏) | Y = Softmax(𝑊2ℎ + 𝑏2) |
 
 # Time Step
 
@@ -776,16 +599,9 @@ https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
 - A segment of audio
 - Stock price of a day
 
-https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
+Source
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -796,28 +612,19 @@ https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
 
 Types Of Recurrent Neural Networks
 
-# Types Of Recurrent Neural Networks
-
 • Many to many determiner noun verb
 
-|            |    | 𝑦𝑦1    | 𝑦𝑦2 | 𝑦𝑦3 |       |            |
-| ---------- | -- | -------- | ----- | ----- | ----- | ---------- |
-| 0          | ℎ1 | ℎ2       | ℎ3    |       |       |            |
-| 𝑥𝑥1      |    |          |       |       | 𝑥𝑥2 | 𝑥𝑥3      |
-| 𝑥𝑥𝑡𝑡−1 |    | 𝑥𝑥𝑡𝑡 |       |       |       | 𝑥𝑥𝑡𝑡+1 |
+| 𝑦𝑦1 | 𝑦𝑦2 | 𝑦𝑦3 |            |          |            |
+| ----- | ----- | ----- | ---------- | -------- | ---------- |
+| 0     | ℎ1    | ℎ2    | ℎ3         |          |            |
+|       |       |       | 𝑥𝑥1      | 𝑥𝑥2    | 𝑥𝑥3      |
+|       |       |       | 𝑥𝑥𝑡𝑡−1 | 𝑥𝑥𝑡𝑡 | 𝑥𝑥𝑡𝑡+1 |
 
 The weather is
 
-https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
+Source: https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -826,25 +633,21 @@ https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
 ============================================================
 
 
+Types Of Recurrent  SIT Internal    SiT
+
 # Types Of Recurrent Neural Networks
 
 # Many to one
 
-|            |          | Negative   |    |
-| ---------- | -------- | ---------- | -- |
-|            |          | 𝑦𝑦3      |    |
-| 0          | ℎ1       | ℎ2         | ℎ3 |
-| 𝑥𝑥1      | 𝑥𝑥2    | 𝑥𝑥3      |    |
-| 𝑥𝑥𝑡𝑡−1 | 𝑥𝑥𝑡𝑡 | 𝑥𝑥𝑡𝑡+1 |    |
+Negative
+
+| 𝑦𝑦3 | 0 | ℎ1 | ℎ2    | ℎ3    |            |          |            |
+| ----- | - | -- | ----- | ----- | ---------- | -------- | ---------- |
+| 𝑥𝑥1 |   |    | 𝑥𝑥2 | 𝑥𝑥3 | 𝑥𝑥𝑡𝑡−1 | 𝑥𝑥𝑡𝑡 | 𝑥𝑥𝑡𝑡+1 |
 
 Weather is bad
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -853,7 +656,8 @@ Weather is bad
 ============================================================
 
 
-Types Of Recurrent SIT Internal
+Types Of Recurrent SIT Internal SiT
+
 # Neural Networks
 
 - One to one
@@ -864,13 +668,6 @@ https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 26
@@ -879,44 +676,22 @@ https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/
 
 FNN to RNN  SIT Internal    SiT
 
-| 0.6 | 0.6 | 0.9 | 0.9 |     |     |     |     |     |     |     |   |   |   |   |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | - | - | - | - |
-| 0.2 | 0.2 | 0.2 | 0.6 | 0.3 | 0.3 | 0.3 | 0.9 |     |     |     |   |   |   |   |
-| 0.2 |     | 0.2 |     | 0.2 |     | 0.3 |     | 0.3 | 0.3 |     |   |   |   |   |
-|     |     | 0.2 |     |     |     | 1   | 0   | 0   |     | 0.3 |   | 1 | 0 | 0 |
+| 0.6  | 0.6 | 0.9 | 0.9      |     |     |     |     |      |     |     |          |   |   |   |   |
+| ---- | --- | --- | -------- | --- | --- | --- | --- | ---- | --- | --- | -------- | - | - | - | - |
+| 0.2  | 0.2 | 0.2 | 0.6      | 0.3 | 0.3 | 0.3 | 0.9 |      |     |     |          |   |   |   |   |
+|      | 0.2 |     | 0.2      |     | 0.2 |     | 0.3 |      | 0.3 |     | 0.3      |   |   |   |   |
+|      |     | 0.2 |          | 1   | 0   | 0   |     |      |     |     |          |   |   |   |   |
+| 𝑥𝑥 | =   | 0.2 | 𝑊𝑊𝑥𝑥 | =   | 0   | 1   | 0   | 𝑥𝑥 | =   | 0.3 |          |   |   |   |   |
+|      |     | 1   | 0        | 0   | 0.2 |     | 0   | 0    | 1   | 0.3 | 𝑊𝑊𝑥𝑥 | = | 0 | 1 | 0 |
+|      |     | 1   | 1        | 1   | 0.3 |     |     | 0    | 0   | 1   |          |   |   |   |   |
 
-𝑥𝑥 = 0.2
+ℎ = 𝑊𝑊𝑥𝑥𝑥𝑥
 
-𝑊𝑊 =
-| 0 | 1 | 0 |
-| - | - | - |
-| 0 | 1 | 0 |
+ℎ1 = 0.2     0.2     0.2     0.6
 
-𝑥𝑥 = 0.3
-
-𝑊𝑊 =
-| 0 | 0 | 1 |
-| - | - | - |
-| 1 | 1 | 1 |
-
-ℎ = 𝑊𝑊 𝑥𝑥
-
-ℎ1 = 0.2
-
-0.2  0.2     0.6
-
-ℎ2 = 0.3
-
-0.3     0.3  0.9
+ℎ2 = 0.3 0.3   0.3  0.9
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -929,31 +704,24 @@ SIT Internal SiT
 
 # 0.6
 
-|      | ℎ1    | 𝑊𝑊ℎ    | ℎ1            | ℎ′                                      |
-| ---- | ----- | -------- | ------------- | --------------------------------------- |
-| 0.2  | 0.2   | 0.2      | 0.6           | 𝑊𝑊 𝑥𝑥                               |
-| 0.2  |       | 0.2      | 0.2           | ℎ𝑡𝑡 = 𝑊𝑊ℎ ℎ𝑡𝑡−1 + 𝑊𝑊 𝑥𝑥 𝑥𝑥2 |
-|      | 0.2   |          | 1             | 0 0                                     |
-| 𝑥𝑥 | = 0.2 | 𝑊𝑊 = 0 | 1 0           | ℎ′ = 𝐼𝐼 ∗ ℎ + ℎ = 0.5                 |
-| 0.5  | 0.5   | 1.5      | 𝑇𝑇          |                                         |
-|      | 0.2   | 𝑥𝑥     | 0             | 0 1                                     |
-| 2    | 1     | 2        |               |                                         |
-|      | 1     | 1        | ℎ = 𝑊𝑊 𝑥𝑥 | 𝑥𝑥                                    |
+# 0.6
 
-# ℎ1 = 0.2
+|     | ℎ1  | 𝑊𝑊ℎ | ℎ1                                       | ℎ2′           |
+| --- | --- | ----- | ---------------------------------------- | ------------- |
+| 0.2 | 0.2 | 0.2   | 0.6                                      | 𝑊𝑊𝑥𝑥𝑥𝑥2 |
+| 0.2 | 0.2 | 0.2   | ℎ𝑡𝑡 = 𝑊𝑊ℎ ℎ𝑡𝑡−1 + 𝑊𝑊𝑥𝑥𝑥𝑥𝑡𝑡 | 𝑥𝑥2         |
 
-| 0.2      | 0.2 | 0.6 | 𝑇𝑇 |      |
-| -------- | --- | --- | ---- | ---- |
-| ℎ2 = 0.3 | 0.3 | 0.3 | 0.9  | 𝑇𝑇 |
+|      | 0.2 | 1        | 0 | 0 | Wℎ = 𝐼𝐼                                   |
+| ---- | --- | -------- | - | - | ------------------------------------------- |
+| 𝑥𝑥 | 0.2 | 𝑊𝑊𝑥𝑥 | 0 | 1 |                                             |
+|      | 0.2 | 0        | 0 | 1 | ℎ2′ = 𝐼𝐼 ∗ ℎ1 + ℎ2 = 0.5 0.5 0.5 1.5 𝑇𝑇 |
+|      | 1   | 1        | 1 |   | ℎ = 𝑊𝑊𝑥𝑥𝑥𝑥                            |
 
+# ℎ1 = 0.2 0.2 0.2 0.6 𝑇𝑇
 
+# ℎ2 = 0.3 0.3 0.3 0.9 𝑇𝑇
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -966,41 +734,25 @@ SIT Internal SiT
 
 determiner noun verb
 
-| 𝑦𝑦1 |       |    |       |    | 𝑦𝑦2 | 𝑦𝑦3 |
-| ----- | ----- | -- | ----- | -- | ----- | ----- |
-| ℎ1    | 𝑊𝑊ℎ | ℎ′ |       |    |       |       |
-|       |       |    |       |    | 2     |       |
-|       | 𝑊𝑊  | 0  | ℎ1    | ℎ2 |       | ℎ3    |
-|       | 𝑥𝑥  |    | 𝑥𝑥2 |    |       |       |
+|    |       |       |          | 𝑦𝑦1 | 𝑦𝑦2 | 𝑦𝑦3 |    |
+| -- | ----- | ----- | -------- | ----- | ----- | ----- | -- |
+| ℎ1 | 𝑊𝑊ℎ | ℎ2′   |          |       |       |       |    |
+|    |       |       | 𝑊𝑊𝑥𝑥 | 0     | ℎ1    | ℎ2    | ℎ3 |
+|    |       | 𝑥𝑥2 |          |       |       |       |    |
 
-ℎ𝑡𝑡 = 𝑊𝑊ℎ ℎ𝑡𝑡−1 + 𝑊𝑊 𝑥𝑥
+ℎ𝑡𝑡 = 𝑊𝑊ℎ ℎ𝑡𝑡−1 + 𝑊𝑊𝑥𝑥𝑥𝑥𝑡𝑡
 
-𝑥𝑥1 𝑥𝑥2 𝑥𝑥3
+| 𝑥𝑥1      | 𝑥𝑥2    | 𝑥𝑥3      |
+| ---------- | -------- | ---------- |
+| 𝑥𝑥𝑡𝑡−1 | 𝑥𝑥𝑡𝑡 | 𝑥𝑥𝑡𝑡+1 |
 
-𝑥𝑥  𝑡𝑡
+ℎ2′ = 𝐼𝐼 ∗ ℎ1 + ℎ2 = 0.5 0.5 0.5
 
-Wℎ = 𝐼𝐼
+1.5 𝑇𝑇 The weather is
 
-𝑥𝑥𝑡𝑡−1 𝑥𝑥𝑡𝑡 𝑥𝑥𝑡𝑡+1
-
-ℎ′ = 𝐼𝐼 ∗ ℎ1 + ℎ2 = 0.5 0.5 0.5 1.5 𝑇𝑇
-
-The weather is
-
-2
-
-ℎ𝑡𝑡 = 𝑓𝑓 𝑊𝑊ℎ ℎ𝑡𝑡−1 + 𝑊𝑊 𝑥𝑥 + 𝑏𝑏𝑏𝑏𝑏𝑏𝑏𝑏
-
-𝑥𝑥  𝑡𝑡
+ℎ𝑡𝑡 = 𝑓𝑓 𝑊𝑊ℎ ℎ𝑡𝑡−1 + 𝑊𝑊𝑥𝑥𝑥𝑥𝑡𝑡 + 𝑏𝑏𝑏𝑏𝑏𝑏𝑏𝑏
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1009,27 +761,19 @@ The weather is
 ============================================================
 
 
-Backpropagation           SIT Internal                                    SiT
+Backpropagation     SIT Internal        SiT
 
 # Through Time (BPTT)
 
 - Vanishing Gradient
 - Gradients diminish as they pass through each time step, leading to minimal weight updates.
 - This limits the RNN’s ability to learn long-term dependencies, which is crucial for tasks like language translation.
-- Basic gradient descent update rule
-
+- Basic gradient descent update rule:
 𝑤𝑤 = 𝑤𝑤 − 𝜆𝜆∇𝑤𝑤 ℒ
 
 https://www.geeksforgeeks.org/vanishing-and-exploding-gradients-problems-in-deep-learning/
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1038,9 +782,9 @@ https://www.geeksforgeeks.org/vanishing-and-exploding-gradients-problems-in-deep
 ============================================================
 
 
-Backpropagation           SIT Internal                                    SiT
+Backpropagation     SIT Internal        SiT
 
-# Backpropagation Through Time (BPTT)
+# Through Time (BPTT)
 
 # Vanishing Gradient
 
@@ -1057,20 +801,15 @@ Source: GeeksforGeeks
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 31
 ============================================================
 
 
-RNN Variants
+
+# RNN Variants
+
 # SIT Internal
 
 # SiT
@@ -1082,11 +821,6 @@ RNN Variants
 - Simplified version of LSTM with fewer gates.
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1098,25 +832,15 @@ RNN Variants
 Applications of RNNs
 # SIT ᴵⁿᵗᵉʳⁿᵃˡ
 
-# Natural Language Processing:
-
+- Natural Language Processing:
 - Language modeling
 - Machine translation
-
-# Speech Recognition:
-
+- Speech Recognition:
 - Audio-to-text systems
-
-# Time Series Analysis:
-
+- Time Series Analysis:
 - Stock price prediction
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1128,53 +852,46 @@ Applications of RNNs
 
 # POS tagging
 
-| Tag     | SIT Internal | Description                              | Examples                       |
-| ------- | ------------ | ---------------------------------------- | ------------------------------ |
-|         | CC           | Coordinating conjunction                 | and, but, or, so               |
-|         | CD           | Cardinal number                          | one, two, 100, 2023            |
-|         | DT           | Determiner                               | the, a, an, this               |
-|         | EX           | Existential there                        | there (in "there is")          |
-|         | FW           | Foreign word                             | en route, doppelgänger         |
-|         | IN           | Preposition or subordinating conjunction | in, on, by, because            |
-|         | JJ           | Adjective                                | big, green, amazing            |
-|         | JJR          | Adjective, comparative                   | bigger, better, faster         |
-|         | JJS          | Adjective, superlative                   | biggest, best, fastest         |
-|         | LS           | List item marker                         | 1., 2., A., B.                 |
-|         | MD           | Modal                                    | can, should, will              |
-| NN      |              | Noun, singular or mass                   | dog, car, freedom              |
-|         | NNS          | Noun, plural                             | dogs, cars, freedoms           |
-| are     | VBP          | B-VP                                     |                                |
-| at      | IN           | B-PP                                     |                                |
-|         | NNP          | Proper noun, singular                    | John, London, Apple            |
-|         | NNPS         | Proper noun, plural                      | Americans, Rockies             |
-|         | PDT          | Predeterminer                            | all, both, half                |
-| their   | PRP$         | B-NP                                     |                                |
-| highest | JJS          | I-NP                                     |                                |
-| level   | NN           | I-NP                                     |                                |
-| in      | IN           | B-PP                                     |                                |
-| eight   | CD           | B-NP                                     |                                |
-| years   | NNS          | I-NP                                     |                                |
-| .       | O            |                                          |                                |
-|         | UH           | Interjection                             | oh, wow, hey                   |
-|         | VB           | Verb, base form                          | run, eat, go                   |
-|         | VBD          | Verb, past tense                         | ran, ate, went                 |
-|         | VBG          | Verb, gerund/present participle          | running, eating, going         |
-|         | VBN          | Verb, past participle                    | run, eaten, gone               |
-|         | VBP          | Verb, non-3rd person singular present    | run, eat (I run, you eat)      |
-|         | VBZ          | Verb, 3rd person singular present        | runs, eats (He runs, she eats) |
-|         | WDT          | Wh-determiner                            | which, that                    |
-|         | WP           | Wh-pronoun                               | who, what, whom                |
-|         | WP$          | Possessive wh-pronoun                    | whose                          |
-|         | WRB          | Wh-adverb                                | where, when, why, how          |
+| Tag  | SIT Internal Description                 | Examples                            |
+| ---- | ---------------------------------------- | ----------------------------------- |
+| CC   | Coordinating conjunction                 | and, but, or, so                    |
+| CD   | Cardinal number                          | one, two, 100, 2023                 |
+| DT   | Determiner                               | the, a, an, this                    |
+| EX   | Existential there                        | there (in "there is")               |
+| FW   | Foreign word                             | en route, doppelgänger              |
+| IN   | Preposition or subordinating conjunction | in, on, by, because                 |
+| JJ   | Adjective                                | big, green, amazing                 |
+| JJR  | Adjective, comparative                   | bigger, better, faster              |
+| JJS  | Adjective, superlative                   | biggest, best, fastest              |
+| LS   | List item marker                         | 1., 2., A., B.                      |
+| MD   | Modal                                    | can, should, will                   |
+| NN   | Noun, singular or mass                   | dog, car, freedom                   |
+| NNS  | Noun, plural                             | dogs, cars, freedoms                |
+| NNP  | Proper noun, singular                    | John, London, Apple                 |
+| NNPS | Proper noun, plural                      | Americans, Rockies                  |
+| PDT  | Predeterminer                            | all, both, half                     |
+| PRP$ | Possessive ending                        | 's (as in John's)                   |
+| PRP  | Personal pronoun                         | I, you, he, she, it, we, they       |
+| PRP$ | Possessive pronoun                       | my, your, his, her, its, our, their |
+| RB   | Adverb                                   | quickly, often, very                |
+| RBR  | Adverb, comparative                      | faster, better                      |
+| RBS  | Adverb, superlative                      | fastest, best                       |
+| RP   | Particle                                 | up, off, out (as in "pick up")      |
+| SYM  | Symbol                                   | $, %, &, +                          |
+| TO   | to (infinitive marker)                   | to (as in "to go")                  |
+| UH   | Interjection                             | oh, wow, hey                        |
+| VB   | Verb, base form                          | run, eat, go                        |
+| VBD  | Verb, past tense                         | ran, ate, went                      |
+| VBG  | Verb, gerund/present participle          | running, eating, going              |
+| VBN  | Verb, past participle                    | run, eaten, gone                    |
+| VBP  | Verb, non-3rd person singular present    | run, eat (I run, you eat)           |
+| VBZ  | Verb, 3rd person singular present        | runs, eats (He runs, she eats)      |
+| WDT  | Wh-determiner                            | which, that                         |
+| WP   | Wh-pronoun                               | who, what, whom                     |
+| WP$  | Possessive wh-pronoun                    | whose                               |
+| WRB  | Wh-adverb                                | where, when, why, how               |
 
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 
 
@@ -1183,12 +900,10 @@ Applications of RNNs
 ============================================================
 
 
-POS tagging
-# SIT Internal
+POS tagging        SIT Internal        SiT
 
-# SiT
+# Lab 1: Given a sentence, predict the POS class of each word
 
-- Lab 1: Given a sentence, predict the POS class of each word
 - What problem is this? Classification or Regression?
 - Which type of RNN should be used?
 - 1. Many to one
@@ -1201,20 +916,13 @@ What are the input and output?
 
 
 
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
-
-
 
 ============================================================
 📄 PAGE 35
 ============================================================
 
 
-Summary                         SIT Internal                                SiT
+Summary        SIT Internal        SiT
 
 # Feedforward Neural Network
 
@@ -1226,12 +934,5 @@ Summary                         SIT Internal                                SiT
 - Processes data in time steps
 - Considers the output of the last step (captures sequential dependencies)
 
-
-
----
-
-> **Diagram Description:** the st logo
-
-> **Diagram Description:** the st logo
 
 

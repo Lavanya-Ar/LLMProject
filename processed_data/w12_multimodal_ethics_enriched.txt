@@ -1,0 +1,1673 @@
+
+============================================================
+📄 PAGE 1
+============================================================
+
+
+SIT Internal
+
+# AAI3008 Large language models
+
+# Multimodal LLM and ethics
+
+Tong Rong
+
+tong.rong@singaporetech.edu.sg
+
+SingaporeTech.edu.sg
+
+
+
+
+
+============================================================
+📄 PAGE 2
+============================================================
+
+
+
+SIT Internal
+
+# Learning outcome
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+- Explain what multimodal LLMs are and why multimodality matters for AI
+- Describe how key modalities (image, speech, video) are encoded and connected to a language model
+- Compare the unified vs. modular MM-LLM paradigms and identify which models belong to each
+- Identify key architectures: CLIP, ViT, Whisper, LLaVA
+- Evaluate frontier models (GPT-4o, Gemini 3, Llama 4) on their multimodal capabilities
+- Identify and analyse ethical risks: bias, deepfakes, privacy, copyright, misinformation
+- Apply responsible AI practices as a future AI practitioner
+
+
+
+
+
+============================================================
+📄 PAGE 3
+============================================================
+
+
+
+SIT Internal
+
+# What is Multimodality
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Multimodal Behaviors and Signals
+
+| Language          | Visual             | Touch             |
+| ----------------- | ------------------ | ----------------- |
+| Lexicon           | Gestures           | Haptics           |
+| Words             | Head gestures      | Motion            |
+| Syntax            | Eye gestures       |                   |
+| Part-of-speech    | Arm gestures       | Physiological     |
+| Dependencies      | Body language      | Skin conductance  |
+| Pragmatics        | Body posture       | Electrocardiogram |
+| Discourse acts    | Proxemics          |                   |
+| Acoustic          | Eye contact        | Mobile            |
+| Prosody           | Head gaze          |                   |
+| Intonation        | Eye gaze           | GPS location      |
+| Voice quality     | Facial expressions | Accelerometer     |
+| Vocal expressions | FACS action units  |                   |
+| Laughter, moans   | Smile, frowning    | Light sensors     |
+
+We focus on: Language (text), Visual (image/video), and Acoustic (speech/audio)
+
+
+
+
+
+============================================================
+📄 PAGE 4
+============================================================
+
+
+
+SIT Internal
+
+# What are multimodal LLMs
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+MM-LLM: A Large Language Model that can process and/or generate content across multiple modalities (text, images, audio, video) within a single model or tightly integrated system.
+
+# Multimodal LLM
+
+| Text | Image | Audio | Video | Understanding |
+| ---- | ----- | ----- | ----- | ------------- |
+| LLM  | Text  | Image | Audio | Generation    |
+
+
+
+
+
+============================================================
+📄 PAGE 5
+============================================================
+
+
+
+SIT Internal
+
+# Why Multimodality Matters
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+- Humans are multimodal: more natural interaction, voice, AR/VR
+- Richer understanding: some information cannot be expressed in text alone
+- Agentic AI requires perception: see screen, read UIs, hear users
+
+| Modality               | Input (Understanding) | Output (Generation)     | Example                          |
+| ---------------------- | --------------------- | ----------------------- | -------------------------------- |
+| Text                   | All LLMs              | All LLMs                | ChatGPT answering questions      |
+| Image                  | GPT-4o, Gemini, LLaVA | GPT-4o, Gemini (native) | "Describe this photo"            |
+| Audio                  | GPT-4o, Gemini 2.5    | GPT-4o (voice mode)     | Real-time voice conversation     |
+| Video                  | Gemini 2.5, GPT-4o    | Sora, Veo 3, Kling      | "Summarize this lecture video"   |
+| Code / Structured Data | All modern LLMs       | All modern LLMs         | Generate Python from description |
+
+5
+
+
+
+
+============================================================
+📄 PAGE 6
+============================================================
+
+
+
+SIT Internal
+MM-LLM Paradigm 1: Unified (Natively Multimodal)
+SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Audio
+
+- A single transformer model is trained on all modalities
+
+# Video
+
+# Multimodal
+
+- All modalities are tokenized into a shared token space before the model sees them
+- Cross-modal attention happens at every layer
+
+# Text
+
+uofion thot you don" sollening trofind hap its reay going on uation thoot you don' or people roep th ouse we're compor' CUs on Tong or people rather th i' rely going on ocus on theong on
+
+# Pros
+
+- Deep cross-modal understanding;
+- Fast inference;
+- can generate any modality
+
+# Cons
+
+- Massive training resource required;
+- High technical challenge
+
+# Example
+
+- GPT-4o, Gemini 3 Pro, Llama 4 Scout/Maverick, Chameleon
+
+6
+
+
+
+
+============================================================
+📄 PAGE 7
+============================================================
+
+
+
+SIT Internal
+
+# MM-LLM Paradigm 2: Modular (Encoder + Connector + LLM)
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+Image
+
+20
+
+20
+
+- A pre-trained modality encoder (e.g., CLIP-ViT for images, Whisper for speech) converts the modality into embeddings
+- A connector/projector (e.g., MLP) maps those embeddings into the LLM's token space
+- The LLM backbone (e.g., LLaMA, Vicuna) reasons over the combined tokens
+
+# Modality
+
+# Encoder
+
+# Connector
+
+# Generator
+
+| Pros                           | Cons                                                    | Example                 |
+| ------------------------------ | ------------------------------------------------------- | ----------------------- |
+| Reuses pre-trained components; | Cross-modal understanding limited by connector quality; | LLaVA, BLIP-2, Flamingo |
+| Relatively less data;          | usually text-only output                                |                         |
+| Better customization;          |                                                         |                         |
+
+7
+
+
+
+
+============================================================
+📄 PAGE 8
+============================================================
+
+
+
+SIT Internal
+Unified vs. Modular: Which Should You Choose?
+SITSINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Unified vs. Modular: Which Should You Choose?
+
+| Aspect                                                          | Unified (Natively Multimodal)             | Modular (Encoder + Connector + LLM) |
+| --------------------------------------------------------------- | ----------------------------------------- | ----------------------------------- |
+| Architecture                                                    | Single transformer for all modalities     | Separate encoder + connector + LLM  |
+| Training data                                                   | Massive multimodal corpora needed         | Can reuse pre-trained components    |
+| Training cost                                                   | Very high ($10M+)                         | Moderate ($1K–100K)                 |
+| Cross-modal understanding                                       | Deep (modalities interact at every layer) | Limited by connector quality        |
+| Output modalities                                               | Can generate any modality                 | Usually text-only                   |
+| Flexibility                                                     | Tightly coupled                           | Can swap components                 |
+| Examples                                                        | Gemini, GPT-4o, Chameleon, Llama 4        | LLaVA, BLIP-2, Flamingo, Qwen2-VL   |
+| Who can build this?                                             | Only frontier labs                        | Researchers + students              |
+| Where exactly do the modalities come together inside the model? | Modality fusion                           |                                     |
+
+
+
+
+
+============================================================
+📄 PAGE 9
+============================================================
+
+
+SIT Internal    SiTSINGAPORE
+# Modality Fusion — Where Do Modalities Meet Inside the Model?
+
+# INSTITUTE OF TECHNOLOGY
+
+# (a) Early Fusion
+
+# (b) Late Fusion
+
+# (c) Middle Fusion - fusion in one
+
+| Type                   | Pros                                    | Cons                                                        | Example            |
+| ---------------------- | --------------------------------------- | ----------------------------------------------------------- | ------------------ |
+| Early fusion           | Simple to implement                     | May lose modality specific info                             | GPT-4o             |
+| Intermediate layers    |                                         |                                                             |                    |
+| Late fusion            | Preserves modality specific info        | Less effective at capturing interactions between modalities | Cascaded ASR → LLM |
+| Middle (Hybrid) fusion | Balances the advantages of above fusion | Complex to design and implement                             | LLaVA, Flamingo    |
+
+# Network Fusion output operation
+
+Source
+
+9
+
+
+
+
+
+============================================================
+📄 PAGE 10
+============================================================
+
+
+
+SIT Internal
+
+# The Challenge: representing different modality
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Dimension mismatch:
+
+| Modality                                      | 1 Minute of Content                 | Tokens /vectors |
+| --------------------------------------------- | ----------------------------------- | --------------- |
+| An image embedding (CLIP) is 768-dimensional; |                                     | (Raw)           |
+| Text                                          | \~150 words                         | \~180           |
+| Speech                                        | 100 frames/sec × 60s = 6,000 frames | 6,000           |
+| Video                                         | 30 fps × 60s = 1,800 frames ×       | \~352,800       |
+|                                               | 196 patches                         |                 |
+
+→ Solution: Feature connectors (MLP projector, Q-Former) bridge the gap models belong to each
+
+# Identify key architectures:
+
+CLIP, ViT, Whisper, LLaVA
+
+# Semantic space mismatch
+
+"Dog" in text and an image of a dog are not naturally in the same vector space
+
+→ Solution: Joint contrastive training (CLIP-style) aligns the spaces
+
+Apply responsible AI practices as a future AI practitioner
+
+# How to solve these two problems?
+
+10
+
+
+
+
+
+============================================================
+📄 PAGE 11
+============================================================
+
+
+
+SIT Internal
+
+# How We'll Study Each Modality
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+Each modality solves the dimension and semantic alignment challenges differently. For each one, we ask the same three questions:
+
+1. How is the raw signal encoded into features?
+2. How are those features connected to the LLM?
+3. What are the best real-world models using this approach?
+
+Compare the unified vs. modular MM-LLM paradigms and identify which models belong to each.
+
+# Speech
+
+# Vision
+
+# Any-to-Any
+
+| Encoding              | Connection                 | Models                      |
+| --------------------- | -------------------------- | --------------------------- |
+| Whisper, SSL (HuBERT) | Linear projector, Q-Former | GPT-4o Voice, Gemini        |
+| ViT, CLIP             | MLP projector, Q-Former    | LLaVA, Flamingo, Qwen2.5-VL |
+| Combination           | Multiple projectors        | VideoLLaMA, AnyGPT          |
+
+Apply responsible AI practices as a future AI practitioner.
+
+Q-Former: Querying transformer
+
+11
+
+
+
+
+============================================================
+📄 PAGE 12
+============================================================
+
+
+
+SIT Internal
+
+# Learning outcome
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+- Explain what multimodal LLMs are and why multimodality matters for AI
+- Describe how key modalities (image, speech, video) are encoded and connected to a language model
+- Compare the unified vs. modular MM-LLM paradigms and identify which models belong to each
+- Identify key architectures: CLIP, ViT, Whisper, LLaVA
+- Evaluate frontier models (GPT-4o, Gemini 3, Llama 4) on their multimodal capabilities
+- Identify and analyse ethical risks: bias, deepfakes, privacy, copyright, misinformation
+- Apply responsible AI practices as a future AI practitioner
+
+12
+
+
+
+
+============================================================
+📄 PAGE 13
+============================================================
+
+
+SIT Internal Information in speech
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+- language / dialect
+- text / linguistic
+- meaning/ intent / emotion
+
+# Image
+
+| 20                             | 20                                       | CLIP-ViT for images, Whisper for       |
+| ------------------------------ | ---------------------------------------- | -------------------------------------- |
+| Text                           | Audio                                    | LLM                                    |
+|                                | • Traditional ASR pipelines only capture | • content: discard prosody and timbre. |
+|                                | End-to-end speech LLMs can potentially   | capture all three layers.              |
+| Video                          | Modality Connector                       | Pre-trained Generator                  |
+| • masculine or feminine        | • intonation                             |                                        |
+| • young or old                 | • stress                                 |                                        |
+| • warm or cold                 | • rhythm/tempo                           |                                        |
+| • expressive or monotone       | Cons                                     | • pauses                               |
+| Reuses pre-trained components; | Cross-modal understanding                | LLaVA, BLIP-2, Flamingo                |
+| Relatively less data;          | limited by connector quality;            | usually text-only output               |
+
+
+
+
+
+============================================================
+📄 PAGE 14
+============================================================
+
+
+
+SIT Internal
+
+# Spoken language processing
+
+# Listening
+
+# Reading
+
+| Audio | Speech to Text / ASR | Language Understanding | Dialogue        |
+| ----- | -------------------- | ---------------------- | --------------- |
+| Video | Text to Speech       | Language Generation    | Writing         |
+| Image | Speaking             | Speech processing      | Text processing |
+
+Each component can be developed and optimized independently.
+
+Loses paralinguistic information at the ASR step.
+
+Errors propagate (ASR mistake → wrong understanding → wrong response).
+
+High latency (sequential processing).
+
+uofion thot you don" sollening trofind hap CUs on Tong or people roep th its reay going on.
+
+Text or people rather th i' rely going on.
+
+# End-to-End
+
+Preserves prosody, emotion, environmental sounds.
+
+| Pros                            | Cons                                                          |
+| ------------------------------- | ------------------------------------------------------------- |
+| Deep cross-modal understanding; | Massive training resource required;                           |
+| Fast inference;                 | High technical challenge;                                     |
+| can generate any modality       | Harder to train; requires large parallel speech-text datasets |
+
+14
+
+
+
+
+============================================================
+📄 PAGE 15
+============================================================
+
+
+
+SIT Internal
+
+# How speech is tokenized – self supervised (SSL) encoding
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+| 7 | 1 | 8 | 5 | 2 | pseudo-text                                      |
+| - | - | - | - | - | ------------------------------------------------ |
+| 1 | 1 | 9 | 5 |   | 1. A pre-trained SSL model (HuBERT, Wav2Vec 2.0) |
+
+Language K
+
+Visual
+
+Touch
+
+processes the audio waveform
+
+Lexicon - means Haptics
+
+Human communication is already multimodal
+
+Gestures
+
+Words
+
+Quantization
+
+2. The model produces continuous speech representations
+
+Syntax
+
+Head gestures
+
+Motion
+
+Part-of-speech
+
+Eye gestures
+
+Physiological
+
+Dependencies
+
+Arm gestures
+
+Humans naturally combine language, voice, gesture, and expression to communicate.
+
+3. Quantization (K-means clustering) converts continuous
+
+Al systems that only process text are missing
+
+Pragmatics
+
+Body language
+
+Skin conductance
+
+Proxemics
+
+Electrocardiogram
+
+Discourse acts
+
+Speech representation
+
+Acoustic
+
+Eye contact
+
+Mobile
+
+embeddings → discrete tokens
+
+Prosody
+
+Head gaze
+
+Intonation
+
+Eye gaze
+
+GPS location
+
+SSL Model (e.g. HuBERT, Wav2Vec…)
+
+Vocal expressions
+
+Facial expressions
+
+Accelerometer
+
+4. These discrete tokens (e.g., "7, 1, 8, 5, 9, 2, 5") become
+
+"pseudo-text" the LLM can process
+
+We focus on: Language (text), Visual (image/video), and Acoustic (speech/audio)
+
+
+
+
+
+============================================================
+📄 PAGE 16
+============================================================
+
+
+
+Whisper: Speech        SIT Internal    SiT
+Tokenization with                         SINGAPORE
+INSTITUTE OF
+TECHNOLOGY
+
+# Supervised Training
+
+| Image   | Encoder: acoustic model                  | 20                      |
+| ------- | ---------------------------------------- | ----------------------- |
+| Text    | 20                                       | Decoder: language model |
+| Audio   | Attention: align input and output labels | LLM                     |
+| Video   | Modality                                 | Connector               |
+| Encoder | Generator                                | Pre-trained             |
+
+CLIP-ViT for images, Whisper for speech converts the modality into embeddings. A connector/projector (e.g., MLP) maps those embeddings into the LLM's token space. The LLM backbone (e.g., LLaMA, Vicuna) reasons over the combined tokens.
+
+| source | Pros                           | Cons                          | Example                  |
+| ------ | ------------------------------ | ----------------------------- | ------------------------ |
+| source | Reuses pre-trained components; | Cross-modal understanding     | LLaVA, BLIP-2, Flamingo  |
+|        | Relatively less data;          | limited by connector quality; | usually text-only output |
+|        | Better customization;          |                               | 16                       |
+
+
+
+
+
+============================================================
+📄 PAGE 17
+============================================================
+
+
+# Levels of speech understanding using LLMs
+
+# SIT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+| Aspect                    | Unified (Natively Multimodal)             | Super-human multimodal assistant   |
+| ------------------------- | ----------------------------------------- | ---------------------------------- |
+| Architecture              | Single transformer for all modalities     | Separate encoder + connector + LLM |
+|                           |                                           | Medical diagnosis from sound       |
+| Training data             | Massive multimodal corpora needed         | Can reuse pre-trained components   |
+| Training cost             | Very high ($10M+)                         | Detect emotion, intent             |
+| Cross-modal understanding | Deep (modalities interact at every layer) | Limited by connector quality       |
+| Output modalities         | Can generate any modality                 | Usually text-only                  |
+| Flexibility               | Tightly coupled                           | Can swap components                |
+| Examples                  | Gemini, GPT-4o, Chameleon, Llama 4        | LLaVA, BLIP-2, Flamingo, Qwen2-VL  |
+| Who can build this?       | Only frontier labs                        | Researchers + students             |
+
+Source 8
+
+
+
+============================================================
+📄 PAGE 18
+============================================================
+
+
+
+SIT Internal
+
+# MM-LLM Paradigm 2: Modular (Encoder + Connector + LLM)
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+Image
+
+| CLIP-ViT for images, Whisper for | Text      | 20                                                               | 20          |
+| -------------------------------- | --------- | ---------------------------------------------------------------- | ----------- |
+| Audio                            | LLM       | Vision LLMs                                                      |             |
+| Video                            | Modality  | Connector                                                        | Pre-trained |
+| Encoder                          | Generator | The LLM backbone (e.g., LLaMA, Vicuna) reasons over the combined | tokens      |
+
+| Pros                           | Cons                                                    | Example                 |
+| ------------------------------ | ------------------------------------------------------- | ----------------------- |
+| Reuses pre-trained components; | Cross-modal understanding limited by connector quality; | LLaVA, BLIP-2, Flamingo |
+| Relatively less data;          | usually text-only output                                |                         |
+| Better customization;          |                                                         |                         |
+
+7     18
+
+
+
+
+============================================================
+📄 PAGE 19
+============================================================
+
+
+SIT Internal
+# Vision Transformer (ViT)
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+1. Split an image into patches
+2. Flatten the patches
+3. Produce lower-dimensional linear embeddings from the flattened patches
+4. Add positional embeddings
+5. Feed the sequence as an input to a standard LLM transformer encoder
+6. Pretrain the model with image labels (fully supervised on a huge dataset)
+
+| Generator                                                                                                            | Encoder | Connector | Pre-trained |
+| -------------------------------------------------------------------------------------------------------------------- | ------- | --------- | ----------- |
+| A pre-trained modality encoder (e.g., CLIP-ViT for images, Whisper for speech) converts the modality into embeddings |         |           |             |
+| A connector/projector (e.g., MLP) maps those embeddings into the LLM's token space                                   |         |           |             |
+| The LLM backbone (e.g., LLaMA, Vicuna) reasons over the combined tokens                                              |         |           |             |
+
+# Pros and Cons
+
+| Pros                                                                                   | Cons                                                 | Example                                    |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------ |
+| ViT is the foundation of almost every MM-LLM's vision encoder: LLaVA, BLIP-2, Flamingo | limited by connector quality;                        | Just as text → words → tokens → embeddings |
+| source                                                                                 | images → patches → linear projection → visual tokens |                                            |
+
+
+
+
+
+============================================================
+📄 PAGE 20
+============================================================
+
+
+
+SIT Internal
+Contrastive Language-Image Pretraining (CLIP)
+SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Image
+
+# Text
+
+# Audio
+
+# Goal:
+
+- maximize the similarity between the embeddings of positive pairs
+- minimize the similarity between the embeddings of negative pairs
+
+# Pre-trained
+
+# Generator
+
+CLIP-ViT for images, Whisper for a pre-trained modality encoder (e.g., speech) converts the modality into embeddings.
+
+A connector/projector (e.g., MLP) maps those embeddings into the LLM's token space.
+
+The LLM backbone (e.g., LLaMA, Vicuna) reasons over the combined tokens.
+
+# Pros
+
+- Reuses pre-trained components; source
+- Better customization;
+
+# Cons
+
+- Cross-modal understanding
+- Relatively less data; usually text-only output
+
+# Example
+
+LLaVA, BLIP-2, Flamingo
+
+20
+
+
+
+
+============================================================
+📄 PAGE 21
+============================================================
+
+
+
+SIT Internal
+CLIP: Zero-Shot Image Classification
+SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# CLIP: Zero-Shot Image Classification
+
+# Image Inference
+
+Any text -> text embedding
+
+Any image -> image embedding
+
+find similarity with every candidate text
+
+# Video Modality
+
+| Connector                                                                                                            | Pre-trained Encoder                                                                | Generator                                                               |
+| -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| A pre-trained modality encoder (e.g., CLIP-ViT for images, Whisper for speech) converts the modality into embeddings | A connector/projector (e.g., MLP) maps those embeddings into the LLM's token space | The LLM backbone (e.g., LLaMA, Vicuna) reasons over the combined tokens |
+
+# CLIP solves a multi-class classification problem
+
+assigns the image I to its corresponding positive text T out of all other negative texts in a batch
+
+# Cons
+
+- Cross-modal understanding limited by connector quality;
+- Better customization;
+- Usually text-only output
+
+# Example
+
+LLaVA, BLIP-2, Flamingo
+
+21
+
+
+
+
+============================================================
+📄 PAGE 22
+============================================================
+
+
+
+SIT Internal
+LLaVA: Large Language and Vision Assistant
+SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Vicuna
+
+# LLaVA showed that a simple
+
+Image (Llama) 20 20 MLP connector between CLIP and an LLM could achieve impressive results.
+
+# Audio
+
+speech) converts the modality into embeddings.
+
+# LLM
+
+A connector/projector (e.g., MLP) maps those embeddings into the LLM's token space.
+
+# Two-stage training:
+
+1. Pre-training for feature alignment
+- Only the projection matrix is trained
+2. Fine-tuning end to end
+- Both the projection matrix and LLM are trained
+- Visual chat: Multimodal chatbot data for daily user oriented applications
+
+# Cons
+
+limited by connector quality; usually text-only output
+
+# Example
+
+LLaVA, BLIP-2, Flamingo
+
+# Source
+
+Better customization;
+
+22
+
+
+
+
+============================================================
+📄 PAGE 23
+============================================================
+
+
+
+SIT Internal
+How MM-LLM generate images
+SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Image
+
+| Text                       | Audio                        | Tool Call           | Discrete Tokens |
+| -------------------------- | ---------------------------- | ------------------- | --------------- |
+| LLM generates image tokens | LLM calls external image API | natively            | Pre-trained     |
+| Video                      | Integration                  | Two separate models | Fully unified   |
+| Quality                    | Encoder                      | High                | Medium - High   |
+| Latency                    | Higher (API call)            | Lower               |                 |
+
+A pre-trained modality encoder (e.g., CLIP-ViT for images, Whisper for speech) converts the modality into embeddings.
+
+# Diffusion Head
+
+LLM embedding → attached diffusion model
+
+The LLM backbone (e.g., LLaMA, tokens) shares a backbone + separate head.
+
+# Examples
+
+| ChatGPT + DALL·E 3             | Chameleon, Janus              | GPT-4o native, Transfusion |
+| ------------------------------ | ----------------------------- | -------------------------- |
+| Stable Diffusion 3             | Cons                          |                            |
+| Reuses pre-trained components; | Cross-modal understanding     | LLaVA, BLIP-2, Flamingo    |
+| Relatively less data;          | limited by connector quality; | usually text-only output   |
+| Better customization;          |                               |                            |
+
+23
+
+
+
+
+
+============================================================
+📄 PAGE 24
+============================================================
+
+
+
+SIT Internal
+
+# MM-LLM Paradigm 2: Modular (Encoder + Connector + LLM)
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+CLIP-ViT for images, Whisper for Text
+
+| Modality | Connector          | Pre-trained Encoder | Generator |
+| -------- | ------------------ | ------------------- | --------- |
+| Audio    | MM-LLM: Any to any | 20                  | 20        |
+| Video    |                    |                     |           |
+
+A pre-trained modality encoder (e.g., speech) converts the modality into embeddings.
+
+A connector/projector (e.g., MLP) maps those embeddings into the LLM's token space.
+
+The LLM backbone (e.g., LLaMA, Vicuna) reasons over the combined tokens.
+
+| Pros                                                 | Cons                                                                             | Example                 |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------------- |
+| Reuses pre-trained components; Better customization; | Cross-modal understanding limited by connector quality; usually text-only output | LLaVA, BLIP-2, Flamingo |
+
+7
+
+
+
+
+============================================================
+📄 PAGE 25
+============================================================
+
+
+
+SIT Internal
+VideoLLaMA 2 — Understanding Video and Audio Together
+SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# VideoLLaMA 2 — Understanding Video and Audio Together
+
+# Modality
+
+CLIP-ViT for images, Whisper for Text
+
+A pre-trained modality encoder (e.g., speech) converts the modality into embeddings
+
+A connector/projector (e.g., MLP) maps space
+
+Why video is hard:
+
+1 minute of 30fps video = 1800 frames x 196 patches = ~352,000 tokens → Temporal down-sampling is essential
+
+# Pros and Cons
+
+| Pros                           | Cons                                                    | Example                 |
+| ------------------------------ | ------------------------------------------------------- | ----------------------- |
+| Reuses pre-trained components; | Cross-modal understanding limited by connector quality; | LLaVA, BLIP-2, Flamingo |
+| Relatively less data;          | Usually text-only output                                |                         |
+| Better customization;          |                                                         |                         |
+
+source²⁵
+
+
+
+
+============================================================
+📄 PAGE 26
+============================================================
+
+
+SIT Internal
+# Qwen2.5-VL — Native Resolution Processing
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+Earlier vision models like ViT processed all images at a fixed resolution: typically, 224×224 pixels.
+
+# Native resolution input:
+
+Qwen2.5-VL processes images at their original resolution (no fixed resize)
+
+# Video Modality
+
+| Connector                                                                                                | Pre-trained |
+| -------------------------------------------------------------------------------------------------------- | ----------- |
+| Enables accurate OCR, document understanding, and fine-grained visual reasoning on real-world documents. |             |
+
+# Pros
+
+| Reuses pre-trained components; | Cross-modal understanding limited by connector quality; |
+| ------------------------------ | ------------------------------------------------------- |
+| Relatively less data;          | Usually text-only output                                |
+| Better customization;          |                                                         |
+
+# Example
+
+LLaVA, BLIP-2, Flamingo
+
+
+
+
+
+============================================================
+📄 PAGE 27
+============================================================
+
+
+
+SIT Internal
+
+# AnyGPT: Any Modality In, Any Modality Out
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+All modalities (speech, text, image, music) are converted to discrete tokens using modality-specific tokenizers.
+
+A single LLM backbone processes the interleaved token sequence.
+
+Modality-specific de-tokenizers (speech de-tokenizer, image de-tokenizer, music de-tokenizer) convert tokens back to the output modality.
+
+| Pros                           | Cons                                                    | Example                 |
+| ------------------------------ | ------------------------------------------------------- | ----------------------- |
+| Reuses pre-trained components; | Cross-modal understanding limited by connector quality; | LLaVA, BLIP-2, Flamingo |
+| Relatively less data;          | Usually text-only output;                               | 27                      |
+| Better customization;          |                                                         |                         |
+
+
+
+
+
+============================================================
+📄 PAGE 28
+============================================================
+
+
+
+SIT Internal
+# Frontier Multimodal Models: Early 2026 Landscape
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+| Model (Year)                | Provider           | Architecture        | Inputs                          | Outputs            | Key Feature                          |
+| --------------------------- | ------------------ | ------------------- | ------------------------------- | ------------------ | ------------------------------------ |
+| GPT-4o / GPT-5 (2024–25)    | OpenAI             | Unified             | Text, image, audio, video       | Text, image, audio | Real-time voice; native image gen    |
+| Gemini 3 Pro (2026)         | Google             | Unified             | Text, image, audio, video, PDFs | Text, image        | 1M token context; 100% AIME 2025     |
+| Claude 4 Opus (2025)        | Anthropic          | Primarily text      | Text + vision tools             | Text               | Safety-focused; strong reasoning     |
+| Llama 4                     | All LLMs           | All LLMs            |                                 |                    |                                      |
+| Scout/Maverick (2025, open) | Meta               | Unified MoE         | Text, image, short video        | Text               | Open-weight; 10M token context       |
+| Image                       | LLaVA              |                     |                                 |                    | "Describe this photo"                |
+| Qwen2.5-VL 32B (2025, open) | Alibaba            | Modular             | Text, image, video, docs        | Text               | Best open OCR/doc understanding      |
+| Audio                       | GPT-4o, Gemini 2.5 | GPT-4o (voice mode) |                                 |                    | SOTA open-source, 3D reasoning       |
+| GLM-4.5V (2026, open)       | Zhipu AI           | MoE + 3D-RoPE       | Text, image, video              | Text               | Reasoning                            |
+| Video                       | Gemini 2.5, GPT-40 | Sora, Veo 3, Kling  |                                 | video              |                                      |
+| InternVL 2.5 (2024, open)   | Shanghai AI Lab    | Modular             | Text, image, video              | Text               | Vision reasoning                     |
+| Code / Structured Data      | All modern LLMs    | All modern LLMs     |                                 | description        |                                      |
+| DeepSeek-VL2 (2025, open)   | DeepSeek           | MoE Modular         | Text, image                     | Text               | Cost-efficient; strong on benchmarks |
+
+28
+
+
+
+
+============================================================
+📄 PAGE 29
+============================================================
+
+
+
+SIT Internal
+Multimodal Reasoning: Beyond Perception
+SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Key shift:
+
+OpenAI o1/o3 brought chain-of-thought reasoning to vision tasks: solving geometry problems, interpreting scientific figures, reading charts with step-by-step logic
+
+# Key insight:
+
+Accuracy on visual benchmarks (MathVista, MMMU) improved dramatically not from better encoders, but from better reasoning over visual tokens
+
+# This suggests multimodal capability is increasingly a reasoning problem, not just a perception problem
+
+| Audio | LLM | Video | Modality Connector | Pre-trained | The LLM backbone (e.g., LLaMA, Vicuna) reasons over the combined |
+| ----- | --- | ----- | ------------------ | ----------- | ---------------------------------------------------------------- |
+
+# Emerging capability:
+
+Multimodal Chain-of-Thought (MM-CoT)
+
+# Models can now generate explicit reasoning traces that refer to specific parts of an image
+
+# Example:
+
+"Looking at the left bar in the chart, which represents Q1 revenue at $2.3B, and comparing it to the right bar at $3.1B, the growth rate is approximately 35%" LLaVA, BLIP-2, Flamingo
+
+| source | Relatively less data; | Better customization; | limited by connector quality; | usually text-only output |
+| ------ | --------------------- | --------------------- | ----------------------------- | ------------------------ |
+
+29
+
+
+
+
+============================================================
+📄 PAGE 30
+============================================================
+
+
+SIT Internal
+# How We Evaluate Multimodal LLMs
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Focus Areas
+
+- Text/audio comprehension and generation
+- Image/audio analysis and reasoning
+- Cross-modal integration
+- Performance under real-world scenarios
+
+# Benchmark
+
+| Tests                  | Input LLM                    | Format    |
+| ---------------------- | ---------------------------- | --------- |
+| MMBench                | Image                        | MCQ       |
+| Video                  | Pre-trained                  |           |
+| MMMU / MMMU-Pro        | Image + text                 | MCQ       |
+| Encoder reasoning      | Generator                    |           |
+| MathVista              | Image + text                 | Various   |
+| DocVQA / ChartQA       | Document/chart understanding | Free-form |
+| POPE                   | Image                        | Yes/No    |
+| Video-MMEProsdetection | Video                        | MCQ       |
+| SEED-Bench             | Image + Video                | MCQ       |
+
+# Example
+
+Generated by Grok with prompt: Draw a diagram showing how multimodal LLM works
+
+
+
+============================================================
+📄 PAGE 31
+============================================================
+
+
+
+SIT Internal Evaluation Metrics and Tools for MM-LLMs
+SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Clip score measures the alignment between text and images.
+
+- Embedding: text and images are converted into embeddings using the CLIP model.
+- Cosine Similarity: the score is based on the cosine similarity between the text and image embeddings.
+
+Text EI is the CLIP-ViT for images, EC is the CLIP embedding for a caption C.
+
+# Tool
+
+# What It Does
+
+# LLM
+
+# Use When
+
+| lm-evaluation-harness   | Standard text benchmarks (MMLU, GSM8K) | A connector/projector (e.g., MLP) maps space   | Text-only tasks                                     |
+| ----------------------- | -------------------------------------- | ---------------------------------------------- | --------------------------------------------------- |
+| VLMEvalKit              | Comprehensive multimodal benchmarks    | Vicuna reasons over the combined tokens        | Vision-language evaluation                          |
+| OpenCompass             | Unified text + multimodal evaluation   |                                                | Comparing across modalities                         |
+| Chatbot Arena           | Crowdsourced human evaluation          |                                                | Real-world preference                               |
+| Mean Opinion Pros Score | quality                                | Text to speech evaluation                      |                                                     |
+| Word error rate         | Speech recognition error rate          | Automatic speech recognition system evaluation | Relatively less data; limited by connector quality; |
+| CLIP Score              | Image-text alignment metric            | Image generation quality                       | Better customization;                               |
+
+31
+
+
+
+
+============================================================
+📄 PAGE 32
+============================================================
+
+
+
+SIT Internal
+Challenges and limitations
+SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Data requirements:
+
+| Challenge                                                               | Example                                  | Current Status (2026)               | Mitigation                               |   |
+| ----------------------------------------------------------------------- | ---------------------------------------- | ----------------------------------- | ---------------------------------------- | - |
+| Needs large, high-quality, labeled datasets, which are hard to collect. | "There is a cat in the multimodal image" | Major problem, improving with DPO   | RLHF, grounding training, POPE benchmark |   |
+|                                                                         | (no cat)                                 | Being addressed with accessibility. | Noisy web scraped image text pairs       |   |
+
+# Computational cost:
+
+Training and running MLLMs require significant resources, limiting CLIP score filtering, GPT-4 data generation.
+
+# Alignment across modalities:
+
+Ensuring text, images, audio and other data are connected is technically complex.
+
+Training Gemini requires thousands of TPUs, still meaningfully very expensive.
+
+# Interpretability:
+
+"Is the cup LEFT or RIGHT of the plate?" Weak for most models. Hard to understand why an MM-LLM makes certain decisions.
+
+# Spatial Video reasoning:
+
+"How many birds?" — unreliable beyond ~5. Still unsolved.
+
+# Cross-modal alignment:
+
+Visual and text features poorly aligned.
+
+# Adversarial attacks:
+
+Hidden text in images bypasses safety.
+
+# Improving with better connectors:
+
+Longer alignment pre-training.
+
+# Active security concern:
+
+Red-teaming, image-text consistency checks.
+
+# Interpretability source:
+
+Why did the model say X about the image? Largely unsolved. Attention visualization, probing.
+
+# Better customization:
+
+Usually text-only output.
+
+32
+
+
+
+
+============================================================
+📄 PAGE 33
+============================================================
+
+
+
+SIT Internal
+
+# Why Multimodality Matters
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+Humans are multimodal: more natural interaction, voice, AR/VR
+
+Richer understanding: some information cannot be expressed in text alone
+
+Agentic AI requires perception: see screen, read UIs, hear users
+
+| Modality               | Input (Understanding) | Output (Generation)     | Example                          |
+| ---------------------- | --------------------- | ----------------------- | -------------------------------- |
+| Text                   | All LLMs              | Ethics of LLMs          | ChatGPT answering questions      |
+| Image                  | GPT-4o, Gemini, LLaVA | GPT-4o, Gemini (native) | "Describe this photo"            |
+| Audio                  | GPT-4o, Gemini 2.5    | GPT-4o (voice mode)     | Real-time voice conversation     |
+| Video                  | Gemini 2.5, GPT-40    | Sora, Veo 3, Kling      | "Summarize this lecture video"   |
+| Code / Structured Data | All modern LLMs       | All modern LLMs         | Generate Python from description |
+
+5     33
+
+
+
+
+============================================================
+📄 PAGE 34
+============================================================
+
+
+
+SIT Internal
+
+# Risks and ethical considerations
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+With great power comes great responsibility
+
+Humans are multimodal: more natural interaction, voice, AR/VR
+
+Richer understanding: some information cannot be expressed in text alone
+
+Agentic AI requires perception: see screen, read UIs, hear users
+
+| Modality          | Input (Understanding) | Output (Generation)     | Example                        |
+| ----------------- | --------------------- | ----------------------- | ------------------------------ |
+| Text              | All LLMs              | All LLMs                | ChatGPT answering questions    |
+| Image             | GPT-4o, Gemini, LLaVA | GPT-4o, Gemini (native) | "Describe this photo"          |
+| Audio             | GPT-4o, Gemini 2.5    | GPT-4o (voice mode)     | Real-time voice conversation   |
+| Bias and fairness | Transparency          | Privacy                 | Misinformation                 |
+| Video             | Gemini 2.5, GPT-40    | Sora, Veo 3, Kling      | "Summarize this lecture video" |
+
+These are active research areas and career opportunities
+
+5
+
+
+
+
+============================================================
+📄 PAGE 35
+============================================================
+
+
+
+SIT Internal
+
+# Bias in LLMs
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+Humans are multimodal: more natural interaction, voice, AR/VR
+
+| Bias Type                 | Example                                                      | Source                                               |
+| ------------------------- | ------------------------------------------------------------ | ---------------------------------------------------- |
+| Gender bias               | Image generation: "CEO" → generates mostly white male images | DALL-E, Stable Diffusion studies                     |
+| Racial bias               | Facial recognition: higher error rates for darker skin       | Gender Shades (Buolamwini & Gebru, 2018)             |
+| Text Cultural bias        | "Beautiful landscape" → generates mostly Western scenery     | All LLMs                                             |
+| Sycophancy                | Model agrees with user even when user is wrong               | Alignment training side effect (native)              |
+| Occupational stereotyping | "Nurse" → female, "Engineer" → male in generated images      | Real-time voice Documented in DALL-E 2               |
+| Accent & dialect bias     | Higher ASR error rates for non-native English speakers       | Training data dominated by Standard American English |
+| Code / Structured Data    | All modern LLMs                                              | Generate Python from description                     |
+
+35
+
+
+
+
+============================================================
+📄 PAGE 36
+============================================================
+
+
+
+SIT Internal
+Deepfakes &#x26; Misinformation
+SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Threat
+
+# Capability (2025)
+
+# Example
+
+# Mitigation
+
+| Deepfake images     | Near-perfect photorealistic generation                                                                  | Fake celebrity photos, fabricated evidence | Watermarking (C2PA), AI detection tools    |
+| ------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ------------------------------------------ |
+| Deepfake audio      | ElevenLabs, Hume AI — voice cloning from <3 seconds, real-time voice conversion now possible in-browser | Fake kidnapping calls, CEO fraud           | Voice authentication, watermarking         |
+| Deepfake video      | Veo 3 and Sora can now generate video with synchronized audio in a single pass                          | Political misinformation, revenge porn     | Platform policies, questions detection AI  |
+| Text misinformation | Agentic misinformation — LLM agents that autonomously find, write, and publish false content at scale   | Medical misinformation, fake news at scale | RAG, grounding, fact-checking conversation |
+
+# Timeline
+
+- 2023: Voice cloning scams cost victims millions globally
+- 2024: Deepfake video of politician spreads before election
+- 2025: C2PA watermarking standard adopted by major platforms
+- 2025: TAKE IT DOWN Act (USA), first federal law criminalizing distribution of non-consensual AI-generated intimate imagery
+- 2026: EU AI Code of Practice on AI-Generated Content, requiring visible labeling of deepfakes
+
+36
+
+
+
+
+============================================================
+📄 PAGE 37
+============================================================
+
+
+
+SIT Internal Privacy &#x26; Copyright
+
+# SIT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+| Issue                 | Detail                                                      | Example                                      |
+| --------------------- | ----------------------------------------------------------- | -------------------------------------------- |
+| Training data consent | Models trained on web-scraped data without explicit consent | LAION-5B contained CSAM and personal photos  |
+| Memorization          | LLMs can reproduce training data verbatim                   | Reproducing copyrighted books, news articles |
+
+# Modality
+
+| Input (Understanding) | Output (Generation) | Example                                            |
+| --------------------- | ------------------- | -------------------------------------------------- |
+| Text                  | Face recognition    | All LLMs may identify real people in photos        |
+|                       |                     | Privacy violation for non-public figures questions |
+
+# Copyright of generated content
+
+Who owns AI-generated art?
+
+# Image
+
+LLaVA
+
+# Data
+
+(native) sent to commercial APIs may be logged
+
+# Audio
+
+Ongoing lawsuits: artists vs. Stability AI, Midjourney, OpenAI, Google data retention policies conversation
+
+# Biometric data in training
+
+multimodal interactions
+
+# Video
+
+Voice and face data captured via Sora, Veo 3, Kling
+
+Unauthorized voice profiles, emotion data extraction
+
+# Code / Structured Data
+
+All modern LLMs
+
+All modern LLMs Generate Python from
+
+- Singapore's PDPA covers biometric data including faces and voices. Training MM-LLMs on Singaporean data without consent may violate PDPA.
+- The Model AI Governance Framework (AIGA) requires transparency about data use.
+
+37
+
+
+
+
+
+============================================================
+📄 PAGE 38
+============================================================
+
+
+
+SIT Internal Regulation &#x26; Responsible AI
+SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Framework
+
+| Region               | Key Requirements                                                   | Impact                                                               |
+| -------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------- |
+| EU AI Act            | Risk-based classification, transparency requirements, banned uses  | Cannot deploy high-risk AI without documentation                     |
+| Singapore AIGA       | Human-centricity, Output (Generation) transparency, accountability | Build AI with explainability from day one                            |
+| All LLMs             | fairness                                                           | ChatGPT answering questions                                          |
+|                      | Output (Generation)                                                | All LLMs                                                             |
+| NIST AI RMF          | Risk management, testing, documentation                            | Use model cards and eval "Describe this photo" reports               |
+| TAKE IT DOWN Act     | Criminalizes non-consensual AI-generated intimate imagery          | Legal liability for generating/distributing deepfakes of real people |
+| China AI Regulations | Content labeling, algorithm filing, deepfake disclosure            | Label all generated content                                          |
+
+38
+
+
+
+
+============================================================
+📄 PAGE 39
+============================================================
+
+
+
+SIT Internal
+
+# What you can do as an AI practitioner
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Before deployment:
+
+- Document data sources, licenses, and model limitations → Model Cards (HuggingFace template)
+- Test for bias across demographics, accents, genders → Fairlearn, AI Fairness 360
+- Evaluate hallucination rate on your specific domain → POPE benchmark, domain-specific test sets
+
+| Modality           | Input (Understanding)                                                                                   | Output (Generation)                                               | Example                     |
+| ------------------ | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------- |
+| During deployment: | All LLMs                                                                                                | All LLMs                                                          | ChatGPT answering questions |
+|                    | Implement content filtering and safety guardrails → Llama Guard, OpenAI Moderation API, NeMo Guardrails | Watermark generated content → C2PA standard, invisible watermarks | GPT-4o, Gemini              |
+|                    | Label AI-generated content transparently → "Generated by AI" per platform policies and EU requirements  | Audio                                                             | GPT-4o, Gemini 2.5          |
+|                    | GPT-4o (voice mode)                                                                                     | conversation                                                      |                             |
+
+# As a professional:
+
+- Gemini 2.5, GPT-40 → Sora, Veo 3, Kling "Summarize this lecture video"
+- Obtain informed consent for any use of real people's faces, voices, or likenesses
+- Code / Structured Data → All modern LLMs
+- Report discovered harms or misuse in your organization
+- Stay updated on regulation in your jurisdiction
+
+5
+
+
+
+
+============================================================
+📄 PAGE 40
+============================================================
+
+
+
+SIT Internal References
+SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Humans are multimodal: more natural interaction, voice, AR/VR
+
+Richer understanding: some information cannot be expressed in text alone
+
+# Agentic AI requires perception: see screen, read UIs, hear users
+
+- Stanford CS224N Natural Language Processing with Deep Learning
+- Awesome-Multimodal-LLMs
+- A Survey on Multimodal Large Language Models
+- A Survey on Benchmarks of Multimodal LLMs Output (Generation) Example
+- Visual Instruction Tuning (LLaVA)
+
+# ChatGPT answering
+
+| Text                                                                                                     | All LLMs                         |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| CLIP (OpenAI, 2021): Learning Transferable Visual Models from Natural Language Supervision               |                                  |
+| Flamingo (DeepMind, 2022): A Visual Language Model for Few-Shot Learning                                 |                                  |
+| BLIP-2 (Salesforce, 2023): Bootstrapping Language-Image Pre-training with Frozen Image Encoders and LLMs | GPT-4o, Gemini 2.5               |
+| GPT-4o (voice mode)                                                                                      | conversation                     |
+| Audio                                                                                                    | Real-time voice                  |
+| Video                                                                                                    | Gemini 2.5, GPT-40               |
+|                                                                                                          | Sora, Veo 3, Kling               |
+|                                                                                                          | "Summarize this lecture video"   |
+| Code / Structured Data                                                                                   | All modern LLMs                  |
+|                                                                                                          | Generate Python from description |
+
+40
+
+
+
+
+============================================================
+📄 PAGE 41
+============================================================
+
+
+
+SIT Internal
+
+# Why Multimodality Matters
+
+# SINGAPORE INSTITUTE OF TECHNOLOGY
+
+Humans are multimodal: more natural interaction, voice, AR/VR
+
+Richer understanding: some information cannot be expressed in text alone
+
+Agentic AI requires perception: see screen, read UIs, hear users
+
+Keep Learning, Keep Updating
+
+| Modality               | Input (Understanding) |                     |
+| ---------------------- | --------------------- | ------------------- |
+| Text                   | All LLMs              | All LLMs            |
+| Image                  | GPT-4o, Gemini, LLaVA | (native)            |
+| Audio                  | GPT-4o, Gemini 2.5    | GPT-4o (voice mode) |
+| Video                  | Gemini 2.5, GPT-40    | Sora, Veo 3, Kling  |
+| Code / Structured Data | All modern LLMs       | All modern LLMs     |
+
+Go Beyond Programming
+
+Real-time voice conversation
+
+"Summarize this lecture video"
+
+Generate Python from description
+
+Massenkoff &#x26; McCrory, "Labor market impacts of AI: A new measure and early evidence," Anthropic, March 2026
+
+5
+
+
+
+
+
+============================================================
+📄 PAGE 42
+============================================================
+
+
+
+SIT Internal
+
+# Why Multimodality Matters
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+Humans are multimodal: more natural interaction, voice, AR/VR
+
+Richer understanding: some information cannot be expressed in text alone
+
+Agentic AI requires perception: see screen, read UIs, hear users
+
+| Modality               | Input (Understanding)          | Output (Generation) | Example                          |
+| ---------------------- | ------------------------------ | ------------------- | -------------------------------- |
+| Text                   | All LLMs                       | ChatGPT answering   | Tutorial and Quiz 2 questions    |
+| Image                  | GPT-4o, Gemini, LLaVA (native) | GPT-4o, Gemini      | "Describe this photo"            |
+| Audio                  | GPT-4o, Gemini 2.5             | GPT-4o (voice mode) | Real-time voice conversation     |
+| Video                  | Gemini 2.5, GPT-40             | Sora, Veo 3, Kling  | "Summarize this lecture video"   |
+| Code / Structured Data | All modern LLMs                | All modern LLMs     | Generate Python from description |
+
+5     42
+
+
+
+
+============================================================
+📄 PAGE 43
+============================================================
+
+
+
+SIT Internal
+
+Tutorial
+
+SINGAPORE INSTITUTE OF TECHNOLOGY
+
+# Humans are multimodal: more natural interaction, voice, AR/VR
+
+# Richer understanding: some information cannot be expressed in text alone
+
+# Agentic Al requires perception: see screen, read UIs, hear users
+
+| Modality               | Input (Understanding) | Output (Generation)     | Example                          |
+| ---------------------- | --------------------- | ----------------------- | -------------------------------- |
+| Text                   | All LLMs              | All LLMs                | ChatGPT answering questions      |
+| Image                  | GPT-4o, Gemini, LLaVA | GPT-4o, Gemini (native) | "Describe this photo"            |
+| Audio                  | GPT-4o, Gemini 2.5    | GPT-4o (voice mode)     | Real-time voice conversation     |
+| Video                  | Gemini 2.5, GPT-40    | Sora, Veo 3, Kling      | "Summarize this lecture video"   |
+| Code / Structured Data | All modern LLMs       | All modern LLMs         | Generate Python from description |
+
+43
+
+
+
+
+============================================================
+📄 PAGE 44
+============================================================
+
+
+
+SIT Internal
+
+# Quiz 2
+
+# SiT SINGAPORE INSTITUTE OF TECHNOLOGY
+
+Week 13 Thursday, April 2, 2026, 9:10 AM-10:00 AM (50 minutes)
+
+Onsite with Examena:
+
+- New system, please check your settings using mock quiz:
+- Content->Quizzes->Mock quiz2
+
+Content: the second half from week 8-12
+
+# Questions:
+
+|       | Input (Understanding)  |                       | Output (Generation)     | Example                          |
+| ----- | ---------------------- | --------------------- | ----------------------- | -------------------------------- |
+| Text  | MCQ                    | All LLMs              | All LLMs                | ChatGPT answering questions      |
+| Image | Fill in the blank      | GPT-4o, Gemini, LLaVA | GPT-4o, Gemini (native) | "Describe this photo"            |
+| Audio |                        | GPT-4o, Gemini 2.5    | GPT-4o (voice mode)     | Real-time voice conversation     |
+| Video |                        | Gemini 2.5, GPT-40    | Sora, Veo 3, Kling      | "Summarize this lecture video"   |
+|       | Code / Structured Data | All modern LLMs       | All modern LLMs         | Generate Python from description |
+
+44
+
+

@@ -6,11 +6,6 @@ import fitz  # PyMuPDF
 from llama_parse import LlamaParse
 from llama_index.core import Document, VectorStoreIndex
 from llama_index.core.node_parser import SemanticSplitterNodeParser
-from llama_index.llms.bedrock_converse import BedrockConverse
-from llama_index.core import Settings
-from PIL import Image
-from io import BytesIO
-from transformers import BlipProcessor, BlipForConditionalGeneration
 import glob
 
 # --- STEP 1: EXTRACT TEXT (LlamaParse) ---
@@ -29,60 +24,10 @@ async def parse_document_with_llamaparse(file_path, api_key):
 
 # --- STEP 2: EXTRACT & CAPTION DIAGRAMS (Hugging Face) ---
 
-def caption_image_huggingface(image_bytes, processor, model, device="cpu"):
-    """Caption image using Hugging Face BLIP model."""
-    try:
-        # Convert bytes to PIL Image
-        image = Image.open(BytesIO(image_bytes)).convert("RGB")
-        
-        # Process image and generate caption
-        inputs = processor(image, return_tensors="pt").to(device)
-        out = model.generate(**inputs, max_new_tokens=100)
-        caption = processor.decode(out[0], skip_special_tokens=True)
-        
-        return caption
-    except Exception as e:
-        return f"Error captioning image: {str(e)}"
-
 async def process_diagrams(pdf_path, documents, processor, model, device="cpu", output_dir=None):
-    print(f"🖼️  Extracting and captioning diagrams with Hugging Face BLIP...")
-    pdf_doc = fitz.open(pdf_path)
-    image_captions = {} 
-    
-    for page_num in range(len(pdf_doc)):
-        page = pdf_doc[page_num]
-        images = page.get_images(full=True)
-        
-        page_captions = []
-        for img_index, img in enumerate(images):
-            xref = img[0]
-            try:
-                base_image = pdf_doc.extract_image(xref)
-                image_bytes = base_image["image"]
-                
-                # Filter tiny images (likely icons/noise) to save cost
-                if len(image_bytes) < 2000: 
-                    continue
-                
-                # ✅ Use asyncio.to_thread with the sync function
-                caption = await asyncio.to_thread(
-                    caption_image_huggingface, 
-                    image_bytes, 
-                    processor,
-                    model,
-                    device="cpu"
-                )
-                page_captions.append(f"\n> **Diagram Description:** {caption}\n")
-                
-            except Exception as e:
-                print(f"⚠️ Skipped image on page {page_num}: {e}")
-                continue
-        
-        if page_captions:
-            image_captions[page_num] = "".join(page_captions)
-    
-    pdf_doc.close()
-    return image_captions
+    """Diagram captioning is disabled; return no captions."""
+    print("ℹ️  Diagram captioning is disabled; skipping image caption generation.")
+    return {}
 
 # --- STEP 3: MERGE & INDEX (FIXED) ---
 # --- STEP 3: MERGE & INDEX (Simplified & Robust) ---
@@ -170,18 +115,13 @@ async def process_single_pdf(input_file, output_dir, processor, model, llama_api
     base_filename = os.path.splitext(os.path.basename(input_file))[0]
     
     os.makedirs(output_dir, exist_ok=True)
-    
-    # Configure LlamaIndex
-    from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-    Settings.embed_model = HuggingFaceEmbedding(model_name=embed_model_name)
 
     documents = await parse_document_with_llamaparse(input_file, llama_api_key)
     if not documents: 
         print(f"⚠️ No documents parsed from {input_file}")
         return
 
-    image_captions = await process_diagrams(input_file, documents, processor, model, device="cpu", output_dir=output_dir)
-    enriched_docs = merge_captions_into_documents(documents, image_captions)
+    enriched_docs = merge_captions_into_documents(documents, {})
 
     # Output files with derived names
     output_txt = os.path.join(output_dir, f"{base_filename}_enriched.txt")
@@ -216,14 +156,8 @@ async def main(input_path, output_dir, llama_api_key, embed_model_name, hf_model
 
     os.makedirs(output_dir, exist_ok=True)
     
-    # ✅ Load Hugging Face BLIP model and processor (once, for all files)
-    print(f"📦 Loading Hugging Face model: {hf_model_name}...")
-    processor = BlipProcessor.from_pretrained(hf_model_name)
-    model = BlipForConditionalGeneration.from_pretrained(hf_model_name)
-    print(f"✅ Model loaded successfully.")
-    
     # Process single or multiple PDFs
-    await process_multiple_pdfs(input_path, output_dir, processor, model, llama_api_key, embed_model_name)
+    await process_multiple_pdfs(input_path, output_dir, None, None, llama_api_key, embed_model_name)
 
 if __name__ == "__main__":
     load_dotenv() 
