@@ -31,8 +31,8 @@ pip install -r requirements.txt
 
 3. Create a `.env` file from `.env.example` and set:
 
-- `LLM_PROVIDER`
-- the matching API key for that provider
+- the matching API key for the specific provider
+- Link of the API Setup Documentation: https://docs.google.com/document/d/1snqXjPrlFBxUidNnDNocZRvg0d7o7O41pwA0YiNPvjw/edit?usp=drive_link
 
 4. Start the app:
 
