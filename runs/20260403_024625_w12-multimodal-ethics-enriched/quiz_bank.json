@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "lecture_id": "w12-multimodal-ethics-enriched",
+    "question_count": 3,
+    "difficulty": "mixed",
+    "topic_filter": "All",
+    "fallback_used": false,
+    "llm_attempts": 1,
+    "source_concept_count": 414,
+    "generator": "v2"
+  },
+  "questions": [
+    {
+      "question_id": "unified_modular",
+      "lecture_id": "w12-multimodal-ethics-enriched",
+      "topic": "Unified vs. Modular MM-LLM Paradigms",
+      "difficulty": "medium",
+      "question": "Which of the following best describes the key architectural difference between unified and modular MM-LLM paradigms?",
+      "options": [
+        "Unified uses separate encoders for each modality, while modular integrates all into one model",
+        "Unified integrates all modalities into a single transformer model, while modular uses separate encoder + connector + LLM components",
+        "Unified processes modalities sequentially, while modular processes them in parallel",
+        "Unified requires more training data, while modular is more efficient"
+      ],
+      "answer_index": 1,
+      "explanation": "The source concept explicitly states that unified paradigms integrate all modalities into a single transformer model, while modular paradigms use separate encoder, connector, and LLM components. The other options incorrectly describe the architectural approaches, such as reversing the integration methods or focusing on training data requirements instead of structural design.",
+      "source_concept_ids": [
+        "w12-multimodal-ethics-enriched_s20_c3"
+      ]
+    },
+    {
+      "question_id": "semantic_mismatch",
+      "lecture_id": "w12-multimodal-ethics-enriched",
+      "topic": "Cross-Modal Semantic Mismatch",
+      "difficulty": "hard",
+      "question": "Why is aligning text and image embeddings in multimodal models particularly challenging according to the source material?",
+      "options": [
+        "Because text and image embeddings naturally exist in the same vector space",
+        "Because of fundamental differences in how text and images are represented semantically",
+        "Due to the high computational cost of processing both modalities",
+        "Because text data always requires more dimensions than image data"
+      ],
+      "answer_index": 1,
+      "explanation": "The source concept explicitly states that 'Dog' in text and an image of a dog are not naturally in the same vector space, highlighting the semantic mismatch as the core challenge. The other options are incorrect: the first is the opposite of the problem, the third and fourth describe different challenges (computational cost and dimensionality) that are not the primary semantic alignment issue mentioned.",
+      "source_concept_ids": [
+        "w12-multimodal-ethics-enriched_s26_c1"
+      ]
+    }
+  ]
+}
