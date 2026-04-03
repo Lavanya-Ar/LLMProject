@@ -1,3 +1,7 @@
 [server]
 maxUploadSize = 1024
 maxMessageSize = 1024
+[theme]
+base = "light"
+[client]
+toolbarMode = "minimal"
