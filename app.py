@@ -531,7 +531,7 @@ def main() -> None:
     elif process_mode == "Use existing run (/runs)":
         st.info("Load a previous run from the runs folder to generate quiz questions without reprocessing the lecture.")
     elif process_mode != "Upload MP4":
-        st.info("Transcript mode bypasses Whisper and ffmpeg. This is the fastest way to continue frontend integration work.")
+        st.info("Transcript mode bypasses Whisper and ffmpeg.")
 
     if process_clicked:
         reset_quiz_state()
